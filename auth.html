@@ -24,12 +24,12 @@
             <h1>Log in</h1>
             <!-- Username -->
             <div class="auth-input-box">
-              <input type="text" placeholder="Username" required />
+              <input id="username" type="text" placeholder="Username" required />
               <i class="fa-solid fa-user"></i>
             </div>
             <!-- Password -->
             <div class="auth-input-box">
-              <input type="password" placeholder="Password" required />
+              <input id="password" type="password" placeholder="Password" required />
               <i class="fa-solid fa-lock"></i>
             </div>
 
@@ -37,7 +37,11 @@
             <div class="forgot-link">
               <a href="#">Forgot password?</a>
             </div>
-            <button type="submit" class="auth-btn">
+            <button
+              type="submit"
+              class="auth-btn"
+              onclick="redirectToHome(event)"
+            >
               Log in <img src="photos/auth-images/confirm.webp" alt="confirm" />
             </button>
             <p>or log in with social platforms</p>
@@ -129,6 +133,53 @@
       loginBtn.addEventListener("click", () => {
         container.classList.remove("active");
       });
+
+      //Redirect to homepage after clicking the button
+      function redirectToHome(event) {
+        event.preventDefault(); 
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (username && password) {
+          window.location.href = "home.html";
+        } else {
+          alert("Please enter both username and password.");
+        }
+      }
+
+      // async function handleLogin(event) {
+      //   event.preventDefault();
+
+      //   const username = document.getElementById("username").value.trim();
+      //   const password = document.getElementById("password").value.trim();
+
+      //   if (username && password) {
+      //     try {
+      //       const response = await fetch("BackendEndpoint", {
+      //         method: "POST",
+      //         headers: {
+      //           "Content-Type": "application/json",
+      //         },
+      //         body: JSON.stringify({ username, password }),
+      //       });
+      //       const data = await response.json();
+
+      //       if (response.ok) {
+      //         window.location.href = "home.html";
+      //       } else {
+      //         alert(
+      //           data.message || "Login failed. Please check your credentials."
+      //         );
+      //       }
+      //     } catch (error) {
+      //       console.error("Error during login:", error);
+      //       alert("An error occurred. Please try again later.");
+      //     }
+      //   } else {
+      //     alert("Please enter both username and password.");
+      //   }
+      //}
     </script>
   </body>
 </html>
