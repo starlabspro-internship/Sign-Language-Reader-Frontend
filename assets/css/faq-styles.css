@@ -1,0 +1,169 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@700&family=Montserrat:wght@400&display=swap');
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;;
+    color: #001F3F;
+    line-height: 1.6;
+    background: linear-gradient(to bottom, #fdf9f0, rgb(255, 255, 255));
+
+}
+
+/* Header Styling */
+header {
+    background: #001F3F;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+/* Top Section Styling */
+.top-container {
+    background-color: #001F3F; 
+    color: white; 
+    text-align: flex-start;
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.top-container h1 {
+    /* font-family: 'Arima Madurai', cursive; */
+    font-size: 2.5rem; 
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.top-container p {
+    font-size: 1.1rem; 
+    margin-bottom: 10px;
+}
+
+/* FAQ Section Styling */
+.faq-layout {
+    background-color: #EAD8B1; 
+    border: 2px solid #6A9AB0; 
+    border-radius: 12px;
+    border-top: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 20px; /* Reduced padding for a more compact layout */
+    max-width: 900px;
+    margin: 0 auto 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.Faq-list {
+    padding: 20px 15px; /* Padding for better spacing within FAQ */
+}
+
+/* Legend for Input */
+.Faq-list legend {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem; 
+    color: #001F3F; 
+    margin-bottom: 15px;
+    border-bottom: 2px solid #6A9AB0;
+    padding-bottom: 10px;
+}
+
+/* FAQ Items */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul li {
+    background-color: #F0F4F7; /* Very light blue/gray for item background */
+    color: #001F3F; /* Dark Navy for question text */
+    padding: 15px; /* Adjusted padding for better spacing */
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-left: 5px solid #6A9AB0; /* Left border for accent */
+}
+
+ul li:hover {
+    background-color: #6A9AB0; 
+    color: #FFFFFF; 
+    transform: translateY(-5px);
+}
+
+ul li p {
+    margin-top: 10px;
+    color: black; 
+    font-size: 0.95rem;
+}
+
+/* Contact Info Styling */
+.top-container p:last-of-type {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .faq-layout {
+        padding: 15px; 
+    }
+
+    .top-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2rem; 
+    }
+
+    .Faq-list legend {
+        font-size: 1.2rem; 
+    }
+
+    ul li {
+        font-size: 0.9rem;
+    }
+}
+
+/*=== Footer ===*/
+footer {
+    background: #bfc0bf; 
+    color: #001F3F; 
+    text-align: center; 
+    padding: 20px 0; 
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+footer a {
+    color: #001F3F; 
+    text-decoration: none; 
+    margin: 0 10px; 
+}
+
+
+
