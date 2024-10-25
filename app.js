@@ -1,41 +1,22 @@
-let slideIndex = 0;
+let currentSlide = 0;
 
-function showSlides() {
-    const slides = document.getElementsByClassName("slide");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex - 1].style.display = "block";  
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
+function changeSlide(direction) {
+    const slides = document.querySelectorAll('.slide');
+    currentSlide += direction;
 
-function changeSlide(n) {
-    const slides = document.getElementsByClassName("slide");
-    slideIndex += n;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    if (slideIndex < 1) {slideIndex = slides.length}
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slides[slideIndex - 1].style.display = "block";  
+    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+
+    const slider = document.querySelector('.slides');
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
 
 function showMoreInfo(box) {
-    const moreInfo = box.querySelector('.more-info');
-    const allBoxes = document.querySelectorAll('.info-box');
-    
-    allBoxes.forEach(b => {
-        if (b !== box) {
-            b.classList.remove('active'); // Close other boxes
-        }
-    });
-
-    box.classList.toggle('active'); // Toggle the clicked box
+    box.classList.toggle('active');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    showSlides(); // Initialize slides
-});
+/* Function to scroll to specific sections */
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+}
