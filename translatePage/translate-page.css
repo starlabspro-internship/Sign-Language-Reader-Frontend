@@ -1,5 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  --deep-blue: #001f3f;
+  --medium-blue: #3a6d8c;
+  --light-blue: #6a9ab0;
+  --cream: #ead8b1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General body font to Montserrat */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
     text-align: center;
 }
 
@@ -9,12 +27,13 @@ form {
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 400px; 
-    background-color: #6a9ab0;
+    background-color: #ead8b1;
 }
 
 label {
     display: block;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 textarea {
@@ -36,15 +55,16 @@ button {
 }
 
 button:hover {
-    background-color: #3e8e41;
+    background-color: #3a6d8c;
 }
 
 #output {
     margin-top: 20px;
     padding: 100px;
+    padding-bottom:200px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #6a9ab0;
-    margin-left: 450px;
-    margin-right: 450px;
+    background-color: #ead8b1;
+    margin-left: 480px;
+    margin-right: 480px;
 }
