@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  --deep-blue: #001f3f;
+  --medium-blue: #3a6d8c;
+  --light-blue: #6a9ab0;
+  --cream: #ead8b1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General body font to Montserrat */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Header styling */
+header {
+    background: #001F3F;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Enlarged logo */
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+/* Title font to Arima */
+header h1 {
+    margin: 0;
+    font-size: 30px;
+    flex-grow: 1;
+    font-family: 'Arima', cursive;
+}
+
+/* Navigation styling */
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+
+.about-us {
+    display: flex;
+    justify-content: center;  /* Horizontally center the div */
+    width: 100%;
+    align-items: center;
+    background-color:#bfc0bf;
+    border-radius: 60% 0  90%;
+    height: 500px; /* Adjust height minus header and footer */
+}
+
+
+.foto1{
+    margin-left: 20px;
+}
+.fotoabout{
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+.about-content {
+    display: flex;
+    text-align: center;
+    max-width: 800px;
+
+}
+
+.about-content span{
+    font-weight: bold;
+
+}
+
+
+
+.about-content {
+    text-align: start;
+}
+
+.about-content {
+    color: rgb(0, 0, 0);
+    text-align: start;
+}
+
+.foto11{
+    margin-right: 20px;
+}
+
+
+.div4{
+    display: flex;
+    justify-content: center;
+}
+.content2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    text-align: start;
+    height: 400px;
+    max-width: 800px;
+}
+
+.content2 span{
+    font-weight: 900;
+}
+
+.content2 h2 {
+    text-align: start;
+}
+
+.content2 p {
+    color: rgb(0, 0, 0);
+    text-align: start;
+}
+
+hr {
+    border: none;
+    height: 2px;         /* Thickness */
+    background-color: #001f3f;  /* Color */
+    width: 70%;          /* Width */
+    margin: 20px auto;   /* Centering */
+}
+
+
+
+
+/* Stilimi bazë për seksionin "Si Funksionon" */
+.how-it-works {
+    background-color: #f4f4f4; /* Light gray background to distinguish the section */
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0; /* Padding to add space around the section */
+}
+
+.how-it-works-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align:start; /* Center align text within content */
+    margin-bottom: 20px; /* Space between content and boxes */
+}
+.how-it-works-content h2 {
+    margin-bottom: 15px;
+}
+
+.how-it-works-content p {
+    color: black;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 25px;
+}
+
+.boxes {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the boxes in the container */
+    gap: 20px; /* Adds space between the boxes */
+    flex-wrap: wrap;
+    max-width: 900px; /* Limits the width for better centering */
+    margin: 0 auto; /* Centering within parent container */
+}
+
+.flex-boxes {
+    background-color: #bfc0bf;
+    border-radius: 20px;
+    width: 250px;
+    height: 250px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 10px;
+}
+
+.flex-boxes a {
+    text-decoration: none;
+    color:#001f3f;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.flex-boxes p {
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: start;
+}
+
+.start-learning{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#start-learning-btn{
+    margin-top: 15px;
+    display: inline-block;             /* Makes the anchor behave like a button */
+    padding: 15px 30px;               /* Top/bottom and left/right padding */
+    font-size: 1.2rem;                /* Font size */
+    color: white;                     /* Text color */
+    background-color:#001F3F;       /* Green background */
+    border: none;                     /* No border */
+    border-radius: 5px;              /* Rounded corners */
+    text-decoration: none;            /* No underline */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+    }
+    
+    #start-learning-btn:hover {
+        color: black;
+        background-color: #bfc0bf;    /* Darker green on hover */
+        transform: translateY(-2px);     /* Lift effect on hover */
+    }
+
+    #start-learning-btn:active {
+        transform: translateY(0);         /* Reset lift on click */
+    }
+
+
+/* Footer styling */
+footer {
+    background: #bfc0bf;
+    color: #001F3F;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #001F3F;
+    text-decoration: none;
+    margin: 0 10px;
+}
