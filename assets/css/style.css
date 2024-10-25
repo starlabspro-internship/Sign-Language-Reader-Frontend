@@ -490,6 +490,7 @@ main.history-main {
     font-size: 0.9rem;
   }
 }
+}
 
 @media (max-width: 480px) {
   .info-box {
@@ -537,6 +538,7 @@ main.history-main {
         font-size: 0.9rem;
     }
 }
+}
 
 @media (max-width: 480px) {
     .info-box {
@@ -556,3 +558,4 @@ main.history-main {
         font-size: 0.9rem;
     }
 }
+
