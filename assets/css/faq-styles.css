@@ -1,43 +1,3 @@
-/* Importing Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@700&family=Montserrat:wght@400&display=swap');
-
-/* General Styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;;
-    color: #001F3F;
-    line-height: 1.6;
-    background: linear-gradient(to bottom, #fdf9f0, rgb(255, 255, 255));
-
-}
-
-/* Header Styling */
-header {
-    background: #001F3F;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav {
-    margin: 10px 0;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-}
-
 /* Top Section Styling */
 .top-container {
     background-color: #001F3F; 
@@ -90,13 +50,13 @@ nav a {
 }
 
 /* FAQ Items */
-ul {
+.Faq-list ul {
     list-style-type: none;
     padding: 0;
     margin-top: 20px;
 }
 
-ul li {
+.Faq-list ul li {
     background-color: #F0F4F7; /* Very light blue/gray for item background */
     color: #001F3F; /* Dark Navy for question text */
     padding: 15px; /* Adjusted padding for better spacing */
@@ -106,13 +66,13 @@ ul li {
     border-left: 5px solid #6A9AB0; /* Left border for accent */
 }
 
-ul li:hover {
+.Faq-list ul li:hover {
     background-color: #6A9AB0; 
     color: #FFFFFF; 
     transform: translateY(-5px);
 }
 
-ul li p {
+.Faq-list ul li p {
     margin-top: 10px;
     color: black; 
     font-size: 0.95rem;

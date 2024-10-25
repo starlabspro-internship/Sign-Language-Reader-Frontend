@@ -15,195 +15,286 @@
 
 /* General body font to Montserrat */
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
 }
 
-/* Header styling */
-header {
-    background: #001F3F;
-    color: white;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Enlarged logo */
-.logo {
-    width: 80px;
-    height: 80px;
-    margin-right: 20px;
-}
-
-/* Title font to Arima */
-header h1 {
-    margin: 0;
-    font-size: 30px;
-    flex-grow: 1;
-    font-family: 'Arima', cursive;
-}
-
-/* Navigation styling */
 nav {
-    margin-left: auto;
+  background-color: var(--deep-blue);
+  padding: 10px 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  z-index: 1;
+
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+nav .logo img {
+  height: 65px;
+  width: auto;
+  margin-right: 10px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
+nav ul {
+  list-style: none;
+  display: flex;
 }
+nav ul li {
+  margin-left: 1.5rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--cream);
+  font-size: 95%;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: .3s;
+}
+
+nav ul li a:hover {
+  background-color: #f5f5f5;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 1px;
+  background-color: var(--cream);
+  display: block;
+  margin: 7px auto;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger-active {
+  transition: all 0.3s ease-in-out;
+  transition-delay: 0.4s;
+  transform: rotate(45deg);
+}
+
+.hamburger-active .line:nth-child(2) {
+  width: 0px;
+}
+
+.hamburger-active .line:nth-child(1),
+.hamburger-active .line:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.hamburger-active .line:nth-child(1) {
+  transform: translateY(12px);
+}
+
+.hamburger-active .line:nth-child(3) {
+  transform: translateY(-5px) rotate(90deg);
+}
+
+.menubar {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60%;
+  height: 100vh;
+  padding: 20% 0;
+  background: var(--deep-blue);
+  transition: all 0.5s ease-in;
+  z-index: 2;
+}
+.active {
+  left: 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.menubar ul {
+  padding: 0;
+  list-style: none;
+}
+.menubar ul li {
+  margin-bottom: 32px;
+}
+
+.menubar ul li a {
+  text-decoration: none;
+  color: var(--cream);
+  font-size: 95%;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: .3s;
+}
+
+.menubar ul li a:hover {
+  background-color: var(--light-blue);
+}
+@media screen and (max-width: 790px) {
+  .hamburger {
+    display: block;
+  }
+  nav ul {
+    display: none;
+  }
+}
+
 
 /* Content styling */
 #content {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Updated subtitle font to Arima */
 h2 {
-    text-align: center;
-    margin-top: 20px;
-    font-family: 'Arima', cursive;
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Arima", cursive;
 }
 
 /* Slider and image description */
 .slider-box {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .slider {
-    position: relative;
-    width: 70%;
-    max-width: 600px;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 70%;
+  max-width: 600px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .slides {
-    display: flex;
-    transition: transform 0.5s ease;
+  display: flex;
+  transition: transform 0.5s ease;
 }
 
 .slide {
-    min-width: 100%;
-    height: auto;
+  min-width: 100%;
+  height: auto;
 }
 
 .image-description {
-    text-align: center;
-    font-style: italic;
-    margin: 10px 0;
+  text-align: center;
+  font-style: italic;
+  margin: 10px 0;
 }
 
 /* Info boxes with title font to Arima */
 .box-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .info-box {
-    background: #e7f3fe;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    width: calc(30% - 20px);
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.3s;
+  background: #e7f3fe;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: calc(30% - 20px);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s;
 }
 
 .info-box h3 {
-    font-family: 'Arima', cursive;
+  font-family: "Arima", cursive;
 }
 
 .info-box:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .box-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 .more-info {
-    display: none;
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #333;
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #333;
 }
 
 .info-box.active .more-info {
-    display: block;
+  display: block;
 }
 
 /* Footer styling */
 footer {
-    background: #bfc0bf;
-    color: #001F3F;
-    text-align: center;
-    padding: 20px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+  background: #bfc0bf;
+  color: var(--deep-blue);
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 footer a {
-    color: #001F3F;
-    text-decoration: none;
-    margin: 0 10px;
+  color: var(--deep-blue);
+  text-decoration: none;
+  margin: 0 10px;
 }
-
-
 
 /* History page */
 
 main.history-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
 }
 
 .history-section {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 40%;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .history-section img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border-radius: 10px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 10px;
 }
 
 .history-section h2 {
-    color: #333;
-    margin-bottom: 10px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .history-section p {
-    color: #555;
-    line-height: 1.6;
+  color: #555;
+  line-height: 1.6;
 }
 
 /* Responsive adjustments */
@@ -211,55 +302,7 @@ main.history-main {
   .info-box {
     width: calc(45% - 20px); /* Two boxes per row on smaller screens */
   }
-  .auth-container {
-    height: calc(100vh - 40px);
-  }
 
-  .auth-form-box {
-    bottom: 0;
-    width: 100%;
-    height: 70%;
-  }
-
-  .auth-container.active .auth-form-box{
-    right: 0;
-    bottom: 28%;
-  }
-
-  .toggle-box::before {
-    left: 0;
-    top: -270%;
-    width: 100%;
-    height: 300%;
-    border-radius: 20vw;
-  }
-
-  .auth-container.active .toggle-box::before{
-    left: 0;
-    top: 70%;
-  }
-
-  .toggle-panel{
-    width: 100%;
-    height: 30%;
-  }
-
-  .toggle-panel.toggle-left{
-    top: 0;
-  }
-
-  .auth-container.active .toggle-panel.toggle-left{
-    left: 0;
-    top: -30%;
-  }
-
-  .toggle-panel.toggle-right{
-    right: 0;
-    bottom: -30%;
-  }
-
-  .auth-container.active .toggle-panel.toggle-right{
-    bottom: 0;
   .history-section {
     width: 100%;
   }
@@ -277,19 +320,11 @@ main.history-main {
     font-size: 0.9rem;
   }
 }
-}
 
 @media (max-width: 480px) {
   .info-box {
     width: calc(100% - 20px); /* Full width on very small screens */
   }
-
-  .auth-form-box{
-    padding: 20px;
-  }
-
-  .toggle-panel h1{
-    font-size: 30px;
 
   .main-heading {
     font-size: 1.5rem;
@@ -306,43 +341,21 @@ main.history-main {
 
   header nav a {
     font-size: 0.9rem;
-
   }
-    .info-box {
-        width: calc(45% - 20px);
-    }
-    .history-section {
-        width: 100%;
-    }
-    .main-heading {
-        font-size: 1.8rem;
-    }
-    header nav a {
-        display: block;
-        margin: 10px 0;
-    }
-    footer {
-        font-size: 0.9rem;
-    }
+  .info-box {
+    width: 100%;
+  }
+  .history-section {
+    width: 100%;
+  }
+  .main-heading {
+    font-size: 1.8rem;
+  }
+  header nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  footer {
+    font-size: 0.9rem;
+  }
 }
-}
-
-@media (max-width: 480px) {
-    .info-box {
-        width: 100%;
-    }
-    .main-heading {
-        font-size: 1.5rem;
-    }
-    .history-section {
-        padding: 15px;
-    }
-    footer {
-        padding: 15px;
-        font-size: 0.8rem;
-    }
-    header nav a {
-        font-size: 0.9rem;
-    }
-}
-
