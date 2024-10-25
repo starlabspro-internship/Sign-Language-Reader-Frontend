@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Language Reader</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
+        <img src="photos/logo.jpg" alt="Logo" class="logo">
         <h1>Sign Language Reader</h1>
         <nav>
+            <a href="home.html" onclick="scrollToSection('home')">Home</a>
+            <a href="about.html" target="_blank">About</a>
             <a href="history.html" target="_blank">History</a>
             <a href="learning-hub.html" target="_blank">Learning Hub</a>
-            <a href="faq-page.html" target="_blank">FAQ</a>
+            <a href="#footer" onclick="scrollToSection('footer')">Contact</a>
+            <a href="faq.html" target="_blank">FAQ</a>
+            <button class="sign-out-btn">Sign Out</button>
         </nav>
     </header>
 
-    <div id="content">
+    <!-- Main Content Section -->
+    <main id="content">
         <h2>Home Sign Language Reader</h2>
+
+        <!-- Image Slider -->
         <div class="slider-box">
             <div class="slider">
                 <div class="slides">
@@ -33,6 +43,7 @@
         </div>
         <p class="image-description">This image represents various signs used in sign language, showcasing the importance of visual communication for the deaf and hard-of-hearing communities.</p>
 
+        <!-- Info Boxes -->
         <div class="box-container">
             <div class="info-box" onclick="showMoreInfo(this)">
                 <img src="photos/3.jpg" alt="Understanding Sign Language" class="box-image">
@@ -83,9 +94,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <footer>
+    <!-- Footer Section -->
+    <footer id="footer">
         <p>&copy; 2024 Sign Language Reader. All rights reserved.</p>
         <p>Contact us: <a href="mailto:info@signlanguage.com">info@signlanguage.com</a></p>
         <p>Follow us on 
