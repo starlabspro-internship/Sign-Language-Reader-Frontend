@@ -41,6 +41,12 @@ nav ul li a:hover {
   color: var(--medium-blue);
 }
 
+nav ul li a.active-page {
+  color: var(--light-blue);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
 .hamburger {
   display: none;
   cursor: pointer;

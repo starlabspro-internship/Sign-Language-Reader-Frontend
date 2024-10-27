@@ -4,9 +4,9 @@ export function renderHeader() {
   header.innerHTML = `
     <nav>
       <div class="logo">
-      <a href="home.html">
-        <img src="photos/demo-logo.png" alt="logo" />
-      </a>
+        <a href="home.html">
+          <img src="photos/demo-logo.png" alt="logo" />
+        </a>
       </div>
       <ul>
         <li>
@@ -70,4 +70,12 @@ export function renderHeader() {
   };
 
   mobileNav.addEventListener("click", () => toggleNav());
+
+  // Add active class to the current page's nav link
+  const links = header.querySelectorAll('nav a');
+  links.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('active-page');
+    }
+  });
 }
