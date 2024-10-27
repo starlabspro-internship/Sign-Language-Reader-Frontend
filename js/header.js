@@ -5,7 +5,7 @@ export function renderHeader() {
     <nav>
       <div class="logo">
       <a href="home.html">
-        <img src="photos/logo.jpg" alt="logo" />
+        <img src="photos/demo-logo.png" alt="logo" />
       </a>
       </div>
       <ul>

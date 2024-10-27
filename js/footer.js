@@ -12,27 +12,29 @@ export function renderFooter() {
   <div class="footer-container">
    <div class="footer-row">
     <div class="footer-col">
-      <img src="./photos/logo.jpg" alt="Logo" class="footer-logo">
+    <a href="home.html">
+      <img src="./photos/demo-logo.png" alt="Logo" class="footer-logo">
+    </a>
     </div>
       <div class="footer-col">
         <h4>Sign Language</h4>
         <ul>
-          <li><a href="#">home</a></li>
-          <li><a href="#">about us</a></li>
-          <li><a href="#">history</a></li>
+          <li><a href="home.html">home</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="history.html">history</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>get help</h4>
         <ul>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="faq-page.html">FAQ</a></li>
           <li><a href="#">privacy policy</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>learn</h4>
         <ul>
-          <li><a href="#">Quizes</a></li>
+          <li><a href="Quiz.html">Quizes</a></li>
           <li><a href="#">Learning hub</a></li>
         </ul>
       </div>
@@ -44,9 +46,8 @@ export function renderFooter() {
    <p>Copyright &copy; 2024 Duartë. All rights reserved.</p>
     <div class="footer-social-links">
       <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-x"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
    
   </div>
