@@ -51,12 +51,16 @@
 
 .auth-container h1 {
   font-size: 36px;
-  margin: -10px 0;
+}
+
+.auth-input-row {
+  display: flex;
+  gap: 8px;
 }
 
 .auth-input-box {
   position: relative;
-  margin: 30px 0;
+  flex: 1;
 }
 
 .auth-input-box input {
@@ -69,6 +73,7 @@
   font-size: 16px;
   color: #333;
   font-weight: 500;
+  margin: 10px 0px;
 }
 
 .auth-input-box input::placeholder {
@@ -86,7 +91,7 @@
 }
 
 .forgot-link {
-  margin: -15px 0 15px;
+  margin: 4px;
 }
 
 .forgot-link a {
@@ -110,10 +115,10 @@
   font-size: 16px;
   color: #fff;
   font-weight: 600;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
-.auth-btn:hover{
+.auth-btn:hover {
   opacity: 70%;
 }
 
@@ -136,10 +141,10 @@
   color: #333;
   text-decoration: none;
   margin: 0 8px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
-.auth-container .social-icons a:hover{
+.auth-container .social-icons a:hover {
   scale: 1.1;
 }
 
@@ -200,18 +205,13 @@
   transition-delay: 0.4s;
 }
 
-.toggle-panel p {
-  margin-bottom: 20px;
-}
 .toggle-panel .auth-btn {
- 
   width: 160px;
   height: 46px;
   background: transparent;
   border: 2px solid #fff;
   box-shadow: none;
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -225,7 +225,7 @@
     height: 70%;
   }
 
-  .auth-container.active .auth-form-box{
+  .auth-container.active .auth-form-box {
     right: 0;
     bottom: 30%;
   }
@@ -238,43 +238,44 @@
     border-radius: 20vw;
   }
 
-  .auth-container.active .toggle-box::before{
+  .auth-container.active .toggle-box::before {
     left: 0;
     top: 70%;
   }
 
-  .toggle-panel{
+  .toggle-panel {
     width: 100%;
-    height: 30%;
+    height: 28%;
   }
 
-  .toggle-panel.toggle-left{
+  .toggle-panel.toggle-left {
     top: 0;
   }
 
-  .auth-container.active .toggle-panel.toggle-left{
+  .auth-container.active .toggle-panel.toggle-left {
     left: 0;
     top: -30%;
   }
 
-  .toggle-panel.toggle-right{
+  .toggle-panel.toggle-right {
     right: 0;
     bottom: -30%;
   }
 
-  .auth-container.active .toggle-panel.toggle-right{
+  .auth-container.active .toggle-panel.toggle-right {
     bottom: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .auth-form-box{
+  .auth-container p {
+    margin: 8px 0;
+  }
+  .auth-form-box {
     padding: 20px;
   }
 
-  .toggle-panel h1{
+  .toggle-panel h1 {
     font-size: 24px;
+  }
 }
-
-}
-
