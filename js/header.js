@@ -22,10 +22,10 @@ export function renderHeader() {
           <a href="learning.html">Learning Hub</a>
         </li>
         <li>
-          <a href="faq-page.html">Faq</a>
+          <a href="faq-page.html">FAQ</a>
         </li>
         <li>
-          <a href="profile.html">Profile</a>
+          <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>
         </li>
       </ul>
       <div class="hamburger">
@@ -37,22 +37,22 @@ export function renderHeader() {
     <div class="menubar">
       <ul>
         <li>
-          <a href="#">Home</a>
+          <a href="home.html">Home</a>
         </li>
         <li>
-          <a href="#">About</a>
+          <a href="about.html">About</a>
         </li>
         <li>
-          <a href="#">History</a>
+          <a href="history.html">History</a>
         </li>
         <li>
-          <a href="#">Learning Hub</a>
+          <a href="learning.html">Learning Hub</a>
         </li>
         <li>
-          <a href="#">Faq</a>
+          <a href="faq-page.html">FAQ</a>
         </li>
         <li>
-          <a href="#">Profile</a>
+          <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>
         </li>
       </ul>
     </div>

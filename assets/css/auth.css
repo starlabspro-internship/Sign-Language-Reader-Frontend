@@ -227,7 +227,7 @@
 
   .auth-container.active .auth-form-box{
     right: 0;
-    bottom: 28%;
+    bottom: 30%;
   }
 
   .toggle-box::before {
@@ -273,7 +273,7 @@
   }
 
   .toggle-panel h1{
-    font-size: 30px;
+    font-size: 24px;
 }
 
 }
