@@ -133,6 +133,31 @@ body {
   background-color: var(--deep-blue);
 }
 
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Qendron në qendër */
+  margin-top: 20px; /* Hapesira nga kutitë informative */
+}
+
+.main-button {
+  display: inline-block; 
+  background-color: white; 
+  color:black; /* Ngjyra e tekstit */
+  border: none;
+  padding: 10px 40px; /* Hapesira e brendshme e butonit (më e gjerë për formë ovale) */
+  border-radius: 50px; /* Rrumbullakosja për formë ovale */
+  text-align: center; /* Qendron teksti */
+  text-decoration: none; /* Hiqni theksin nga linku */
+  font-size: 1rem; /* Madhësia e tekstit */
+  margin-bottom: 40px; /* Shtoni këtë linjë për hapësirë të poshtme */
+
+}
+
+.main-button:hover {
+  background-color: var(--cream); /* Ngjyra kur kaloni sipër butonit */
+}
+
 /* History page */
 main.history-main {
   display: flex;
