@@ -136,26 +136,26 @@ body {
 
 .button-container {
   display: flex;
-  justify-content: center; /* Qendron në qendër */
-  margin-top: 20px; /* Hapesira nga kutitë informative */
+  justify-content: center; 
+  margin-top: 20px; 
 }
 
 .main-button {
   display: inline-block; 
   background-color: white; 
-  color:black; /* Ngjyra e tekstit */
+  color:black; 
   border: none;
-  padding: 10px 40px; /* Hapesira e brendshme e butonit (më e gjerë për formë ovale) */
-  border-radius: 50px; /* Rrumbullakosja për formë ovale */
-  text-align: center; /* Qendron teksti */
-  text-decoration: none; /* Hiqni theksin nga linku */
-  font-size: 1rem; /* Madhësia e tekstit */
-  margin-bottom: 40px; /* Shtoni këtë linjë për hapësirë të poshtme */
+  padding: 10px 40px; 
+  border-radius: 50px; 
+  text-align: center; 
+  text-decoration: none; 
+  font-size: 1rem; 
+  margin-bottom: 40px; 
 
 }
 
 .main-button:hover {
-  background-color: var(--cream); /* Ngjyra kur kaloni sipër butonit */
+  background-color: var(--cream); 
 }
 
 /* History page */
