@@ -6,25 +6,32 @@ renderHeader();
 renderFooter();
 
 
+// JavaScript for controlling the slider
 let currentSlide = 0;
 
-function changeSlide(direction) {
-    const slides = document.querySelectorAll('.slide');
-    currentSlide += direction;
+function goToSlide(index) {
+  const slider = document.querySelector('.slides');
+  currentSlide = index;
 
-    if (currentSlide >= slides.length) currentSlide = 0;
-    if (currentSlide < 0) currentSlide = slides.length - 1;
+  // Move the slide container to show the selected slide
+  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-    const slider = document.querySelector('.slides');
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  // Update active dot
+  updateDots();
 }
 
-function showMoreInfo(box) {
-    box.classList.toggle('active');
+function updateDots() {
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, idx) => {
+    // Toggle 'active' class for the clicked dot
+    dot.classList.toggle('active', idx === currentSlide);
+  });
 }
 
-/* Function to scroll to specific sections */
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: 'smooth' });
-}
+// Attach click event listeners to dots
+document.querySelectorAll('.dot').forEach((dot, index) => {
+  dot.addEventListener('click', () => goToSlide(index));
+});
+
+// Initialize the first dot as active
+updateDots();

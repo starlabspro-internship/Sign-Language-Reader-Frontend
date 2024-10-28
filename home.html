@@ -20,24 +20,26 @@
         Qëllimi kryesor i aplikacionit tonë është të ofrojë një mënyrë të thjeshtë dhe efektive për të mësuar gjuhën e shenjave të Kosovës (KSL). Me një përkushtim të thellë ndaj përmirësimit të komunikimit dhe kuptimit për komunitetin me dëgjim të kufizuar, synojmë të kontribuojmë në rritjen e përfshirjes së tyre në shoqëri. Përmes një qasjeje profesionale dhe me ndjeshmëri sociale, jemi të vendosur të sjellim një aplikacion cilësor dhe edukativ për të gjithë komunitetin në Kosovë.
       </p>
 
-      <!-- Image Slider -->
-      <div class="slider-box">
-        <div class="slider">
-          <div class="slides">
-            <img src="photos/1.jpg" alt="Sign Language Image 1" class="slide" />
-            <img src="photos/2.jpg" alt="Sign Language Image 2" class="slide" />
-            <img src="photos/3.jpg" alt="Sign Language Image 3" class="slide" />
-            <img src="photos/4.jpg" alt="Sign Language Image 4" class="slide" />
-          </div>
-          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    <!-- Image Slider -->
+    <div class="slider-box">
+      <div class="slider">
+        <div class="slides">
+          <img src="photos/alfabet.jpg" alt="Sign Language Image 1" class="slide" />
+          <img src="photos/2.jpg" alt="Sign Language Image 2" class="slide" />
+          <img src="photos/3.jpg" alt="Sign Language Image 3" class="slide" />
+          <img src="photos/4.jpg" alt="Sign Language Image 4" class="slide" />
+        </div>
+        <!-- Navigation dots -->
+        <div class="nav-dots">
+          <span class="dot" onclick="goToSlide(0)"></span>
+          <span class="dot" onclick="goToSlide(1)"></span>
+          <span class="dot" onclick="goToSlide(2)"></span>
+          <span class="dot" onclick="goToSlide(3)"></span>
         </div>
       </div>
-      <p class="image-description">
-        This image represents various signs used in sign language, showcasing
-        the importance of visual communication for the deaf and hard-of-hearing
-        communities.
-      </p>
+    </div>
+
+     
 
       <!-- Info Boxes -->
       <div class="box-container">
