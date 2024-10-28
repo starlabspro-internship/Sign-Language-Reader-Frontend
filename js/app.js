@@ -5,33 +5,28 @@ import { renderFooter } from './footer.js';
 renderHeader();
 renderFooter();
 
+// app.js
 
-// JavaScript for controlling the slider
-let currentSlide = 0;
+// app.js
 
-function goToSlide(index) {
-  const slider = document.querySelector('.slides');
-  currentSlide = index;
+document.querySelectorAll('.read-more').forEach(button => {
+    button.addEventListener('click', () => {
+        const infoBox = button.closest('.info-box');
+        const fullText = infoBox.querySelector('.full-text');
+        const shortText = infoBox.querySelector('.short-text');
 
-  // Move the slide container to show the selected slide
-  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-  // Update active dot
-  updateDots();
-}
-
-function updateDots() {
-  const dots = document.querySelectorAll('.dot');
-  dots.forEach((dot, idx) => {
-    // Toggle 'active' class for the clicked dot
-    dot.classList.toggle('active', idx === currentSlide);
-  });
-}
-
-// Attach click event listeners to dots
-document.querySelectorAll('.dot').forEach((dot, index) => {
-  dot.addEventListener('click', () => goToSlide(index));
+        if (fullText.classList.contains('hidden')) {
+            fullText.classList.remove('hidden');
+            shortText.classList.add('hidden'); // Hide short text if needed
+            button.textContent = 'Kthehu prapa';
+        } else {
+            fullText.classList.add('hidden');
+            shortText.classList.remove('hidden');
+            button.textContent = 'Lexo më shumë';
+        }
+    });
 });
 
-// Initialize the first dot as active
-updateDots();
+
+
+

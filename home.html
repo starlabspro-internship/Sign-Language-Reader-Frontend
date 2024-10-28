@@ -1,149 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Language Reader</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600&family=Montserrat:wght@400;600&display=swap"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet"
     />
-  </head>
-  <body>
-      <!-- Introductory Paragraph -->
-      <p class="intro-text">
+</head>
+<body>
+    <!-- Introductory Paragraph -->
+    <p class="intro-text">
         Qëllimi kryesor i aplikacionit tonë është të ofrojë një mënyrë të thjeshtë dhe efektive për të mësuar gjuhën e shenjave të Kosovës (KSL). Me një përkushtim të thellë ndaj përmirësimit të komunikimit dhe kuptimit për komunitetin me dëgjim të kufizuar, synojmë të kontribuojmë në rritjen e përfshirjes së tyre në shoqëri. Përmes një qasjeje profesionale dhe me ndjeshmëri sociale, jemi të vendosur të sjellim një aplikacion cilësor dhe edukativ për të gjithë komunitetin në Kosovë.
-      </p>
+    </p>
 
-    <!-- Image Slider -->
-    <div class="slider-box">
-      <div class="slider">
-        <div class="slides">
-          <img src="photos/alfabet.jpg" alt="Sign Language Image 1" class="slide" />
-          <img src="photos/2.jpg" alt="Sign Language Image 2" class="slide" />
-          <img src="photos/3.jpg" alt="Sign Language Image 3" class="slide" />
-          <img src="photos/4.jpg" alt="Sign Language Image 4" class="slide" />
+    <!-- Photo Section -->
+    <div class="photo-container">
+        <div class="photo-box">
+            <img src="photos/photo.jpg" alt="Description of Image 1" />
         </div>
-        <!-- Navigation dots -->
-        <div class="nav-dots">
-          <span class="dot" onclick="goToSlide(0)"></span>
-          <span class="dot" onclick="goToSlide(1)"></span>
-          <span class="dot" onclick="goToSlide(2)"></span>
-          <span class="dot" onclick="goToSlide(3)"></span>
+        <div class="photo-box">
+            <img src="photos/photo1.jpg" alt="Description of Image 2" />
         </div>
-      </div>
+        <div class="photo-box">
+            <img src="photos/photo2.jpg" alt="Description of Image 3" />
+        </div>
+        <div class="photo-box">
+            <img src="photos/photo3.jpg" alt="Description of Image 4" />
+        </div>
     </div>
+    <div class="box-container">
+      <div class="info-box">
+          <p class="short-text">Gjuha e Shenjave Kosovare (GjShK) është një gjuhë natyrore që përfaqëson komunitetin e personave me dëgjim të kufizuar në Kosovë. Më 29 shtator 2010, Qeveria e Kosovës e njohu zyrtarisht GjShK-në, duke theksuar rëndësinë e saj për përfshirjen dhe të drejtat e këtij komuniteti. Kjo njohje ndihmon në promovimin e komunikimit dhe shkëmbimit kulturor, duke kontribuar në një shoqëri më të barabartë dhe të përfshirë.</p>
+          <p class="full-text hidden">Gjuha e shenjave kosovare është gjuha amtare për rreth 5,000 persona me dëgjim të kufizuar në Kosovë. Sipas raportit të vitit 2010, 99% e të anketuarve preferojnë përdorimin e saj për komunikim, ndërsa 1% preferojnë kombinimin e gjuhës së folur dhe asaj të shenjave.</p>
+          <button class="read-more">Lexo më shumë</button>
 
-     
-
-      <!-- Info Boxes -->
-      <div class="box-container">
-        <div class="info-box" onclick="showMoreInfo(this)">
-          <img
-            src="photos/3.jpg"
-            alt="Understanding Sign Language"
-            class="box-image"
-          />
-          <h3>Understanding Sign Language</h3>
-          <p>An introduction to the basics of sign language.</p>
-          <div class="more-info">
-            <p>
-              Sign language uses visual gestures, facial expressions, and body
-              language. It helps to convey complex ideas and emotions, making
-              communication more accessible for the deaf and hard of hearing.
-            </p>
-          </div>
-        </div>
-        <div class="info-box" onclick="showMoreInfo(this)">
-          <img
-            src="photos/2.jpg"
-            alt="Benefits of Sign Language"
-            class="box-image"
-          />
-          <h3>Benefits of Sign Language</h3>
-          <p>Explore how sign language promotes inclusivity.</p>
-          <div class="more-info">
-            <p>
-              Learning sign language can enhance social connections, improve
-              cognitive abilities, and foster empathy towards individuals with
-              hearing impairments.
-            </p>
-          </div>
-        </div>
-        <div class="info-box" onclick="showMoreInfo(this)">
-          <img
-            src="photos/4.jpg"
-            alt="Sign Language Resources"
-            class="box-image"
-          />
-          <h3>Sign Language Resources</h3>
-          <p>Discover various resources for learning sign language.</p>
-          <div class="more-info">
-            <p>
-              Many online platforms offer free and paid courses. Community
-              centers also often provide classes, allowing for hands-on learning
-              with certified instructors.
-            </p>
-          </div>
-        </div>
-        <div class="info-box" onclick="showMoreInfo(this)">
-          <img
-            src="photos/5.jpg"
-            alt="Different Types of Sign Languages"
-            class="box-image"
-          />
-          <h3>Different Types of Sign Languages</h3>
-          <p>An overview of various sign languages used worldwide.</p>
-          <div class="more-info">
-            <p>
-              Just like spoken languages, sign languages differ by region and
-              culture. ASL (American Sign Language), BSL (British Sign
-              Language), and Auslan (Australian Sign Language) are just a few
-              examples.
-            </p>
-          </div>
-        </div>
-        <div class="info-box" onclick="showMoreInfo(this)">
-          <img
-            src="photos/6.jpg"
-            alt="Sign Language in Education"
-            class="box-image"
-          />
-          <h3>Sign Language in Education</h3>
-          <p>The role of sign language in educational settings.</p>
-          <div class="more-info">
-            <p>
-              Integrating sign language in schools supports deaf and
-              hard-of-hearing students. It also promotes a bilingual approach,
-              allowing for better communication with peers and educators.
-            </p>
-          </div>
-        </div>
-        <div class="info-box" onclick="showMoreInfo(this)">
-          <img
-            src="photos/7.jpg"
-            alt="The Future of Sign Language"
-            class="box-image"
-          />
-          <h3>The Future of Sign Language</h3>
-          <p>
-            Exploring how technology is changing sign language communication.
-          </p>
-          <div class="more-info">
-            <p>
-              Advancements in AI and machine learning are leading to the
-              development of sign language recognition software, enhancing
-              communication accessibility for deaf individuals.
-            </p>
-          </div>
-        </div>
       </div>
-
+      <div class="info-box">
+          
+          <p class="short-text">Gjuha e shenjave kosovare, si çdo gjuhë tjetër shenjash, është një gjuhë natyrore me gramatikë dhe strukturë të veçantë. Në vitin 2006, Shoqata Kosovare e të Shurdhërve (ShKSh), me mbështetje nga Shoqata Finlandeze e të Shurdhërve (FAD) dhe Ministria e Punëve të Jashtme të Finlandës, nisi një projekt për të dokumentuar GjShK si gjuhën amtare të komunitetit me dëgjim të kufizuar në Kosovë.</p>
+          <p class="full-text hidden">Si rezultat i punës së saj, në vitin 2012, Shoqata Kosovare e të Shurdhërve (ShKSh) publikoi fjalorin e parë të gjuhës kosovare të shenjave, përfshirë një libër dhe DVD. ShKSh vazhdoi përpjekjet për të dokumentuar GjShK, dhe ky fjalor elektronik është rezultat i angazhimit të vazhdueshëm. Ai do të përditësohet me informacion të ri dhe përmbajtje të zgjeruara..</p>
+          <button class="read-more">Lexo më shumë</button>
+      </div>
+      <div class="info-box">
+          
+          <p class="short-text">Komunikimi përmes gjuhës së shenjave është thelbësor për kulturën e komuniteteve të personave të shurdhër. Kontakti pamor i qëndrueshëm dhe i papenguar gjatë diskutimeve është shumë i rëndësishëm. Për të siguruar një komunikim të lirë, nevojitet ndriçim i mjaftueshëm; në errësirë, komunikimi mund të zhvillohet në formë taktile, që është e preferuar nga komuniteti shurdhë-verbër. </p>
+          <p class="full-text hidden">Identiteti i personave të shurdhër lidhet me përvojat e përbashkëta që kanë personat e shurdhër dhe ndjenjat e përkatësisë së një komuniteti që i përdor shenjat. Ky identitet natyrisht ndryshon nga një individ në tjetrin, por kultura, identiteti dhe gjuha janë elemente që janë një pjesë e rëndësishme e qenies njerëzore. Kultura e personave të shurdhër është njëra nga shtyllat themelore të komunitetit të shurdhër.</p>
+          <button class="read-more">Lexo më shumë</button>
+      </div>
+  </div>
     <script type="module" src="./js/app.js"></script>
-  </body>
+</body>
 </html>
