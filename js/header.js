@@ -19,7 +19,7 @@ export function renderHeader() {
           <a href="history.html">History</a>
         </li>
         <li>
-          <a href="learning.html">Learning Hub</a>
+          <a href="learninghub.html">Learning Hub</a>
         </li>
         <li>
           <a href="faq-page.html">FAQ</a>
