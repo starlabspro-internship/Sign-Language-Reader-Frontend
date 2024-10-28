@@ -1,3 +1,11 @@
+import { renderHeader } from './header.js';
+import { renderFooter } from './footer.js';
+
+//Keto dy rreshta i paraqesin headerin dhe footerin ne secilen faqe qe perdoret app.js
+renderHeader();
+renderFooter();
+
+
 let currentSlide = 0;
 
 function changeSlide(direction) {
