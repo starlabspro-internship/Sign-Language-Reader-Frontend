@@ -21,103 +21,144 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Content styling */
-#content {
-  max-width: 1200px;
+/* Introductory Text Styling */
+.intro-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background: white;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-left: 5px solid  var(--cream); /* Accent color for added emphasis */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Updated subtitle font to Arima */
-h2 {
-  text-align: center;
+.photo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.photo-box {
+    width: 23%; /* Adjust the width as needed */
+    margin: 10px;
+}
+
+.photo-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin-top: 20px;
-  font-family: "Arima", cursive;
 }
 
-/* Slider and image description */
-.slider-box {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
+.photo-box {
+  width: 23%; /* Adjust width as needed for spacing */
+  margin: 10px;
+  overflow: hidden; /* Ensures any overflow is hidden */
+  border-radius: 8px; /* Optional rounded corners */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
-.slider {
-  position: relative;
-  width: 70%;
-  max-width: 600px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.photo-box img {
+  width: 100%;
+  height: 310px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensures images cover the box without distortion */
 }
 
-.slides {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.slide {
-  min-width: 100%;
-  height: auto;
-}
-
-.image-description {
-  text-align: center;
-  font-style: italic;
-  margin: 10px 0;
-}
-
-/* Info boxes with title font to Arima */
+/* General styles for the info boxes */
 .box-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .info-box {
-  background: #e7f3fe;
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
-  width: calc(30% - 20px);
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.3s;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 30%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* For positioning the button */
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Space out children */
+  align-items: center; /* Center items horizontally */
 }
 
 .info-box h3 {
-  font-family: "Arima", cursive;
-}
-
-.info-box:hover {
-  transform: scale(1.05);
-}
-
-.box-image {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.more-info {
-  display: none;
-  margin-top: 10px;
-  font-size: 0.9em;
   color: #333;
+  margin-bottom: 10px;
 }
 
-.info-box.active .more-info {
-  display: block;
+.info-box p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Full text and hidden text classes */
+.full-text {
+    display: block; /* or flex, if needed */
+}
+
+.hidden {
+    display: none; /* Hide the element */
+}
+
+/* Button styles */
+.read-more {
+  background-color: var(--medium-blue);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px; /* Add some margin for spacing */
+}
+
+.read-more:hover {
+  background-color: var(--deep-blue);
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center; 
+  margin-top: 20px; 
+}
+
+.main-button {
+  display: inline-block; 
+  background-color: white; 
+  color:black; 
+  border: none;
+  padding: 10px 40px; 
+  border-radius: 50px; 
+  text-align: center; 
+  text-decoration: none; 
+  font-size: 1rem; 
+  margin-bottom: 40px; 
+
+}
+
+.main-button:hover {
+  background-color: var(--cream); 
 }
 
 /* History page */
-
 main.history-main {
   display: flex;
   flex-wrap: wrap;
