@@ -5,26 +5,28 @@ import { renderFooter } from './footer.js';
 renderHeader();
 renderFooter();
 
+// app.js
 
-let currentSlide = 0;
+// app.js
 
-function changeSlide(direction) {
-    const slides = document.querySelectorAll('.slide');
-    currentSlide += direction;
+document.querySelectorAll('.read-more').forEach(button => {
+    button.addEventListener('click', () => {
+        const infoBox = button.closest('.info-box');
+        const fullText = infoBox.querySelector('.full-text');
+        const shortText = infoBox.querySelector('.short-text');
 
-    if (currentSlide >= slides.length) currentSlide = 0;
-    if (currentSlide < 0) currentSlide = slides.length - 1;
+        if (fullText.classList.contains('hidden')) {
+            fullText.classList.remove('hidden');
+            shortText.classList.add('hidden'); // Hide short text if needed
+            button.textContent = 'Kthehu prapa';
+        } else {
+            fullText.classList.add('hidden');
+            shortText.classList.remove('hidden');
+            button.textContent = 'Lexo më shumë';
+        }
+    });
+});
 
-    const slider = document.querySelector('.slides');
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
 
-function showMoreInfo(box) {
-    box.classList.toggle('active');
-}
 
-/* Function to scroll to specific sections */
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: 'smooth' });
-}
+
