@@ -32,7 +32,7 @@ body {
   padding: 20px;
   text-align: center;
   background-color: #f9f9f9;
-  border-left: 5px solid  var(--cream); /* Accent color for added emphasis */
+  border-left: 5px solid var(--cream); /* Accent color for added emphasis */
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
@@ -136,8 +136,8 @@ body {
 
 .button-container {
   display: flex;
-  justify-content: center; 
-  margin-top: 20px; 
+  justify-content: center; /* Qendron në qendër */
+  margin-top: 20px; /* Hapesira nga kutitë informative */
 }
 
 .main-button {
@@ -194,37 +194,66 @@ main.history-main {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .photo-box {
+    width: 30%; /* 3 boxes per row on medium screens */
+  }
+
   .info-box {
-    width: calc(45% - 20px); /* Two boxes per row on smaller screens */
+    width: calc(45% - 20px); /* 2 boxes per row on smaller tablets */
   }
 
   .history-section {
-    width: 100%;
+    width: 100%; /* Full width on smaller tablets */
+  }
+
+  .intro-text {
+    font-size: 1rem; /* Adjust font size for better readability */
+  }
+
+  .main-button {
+    padding: 8px 20px; /* Adjust padding for buttons */
+    font-size: 0.9rem; /* Smaller font for buttons */
+  }
+}
+
+@media (max-width: 768px) {
+  .info-box {
+    width: calc(100% - 20px); /* Full width on smaller screens */
   }
 
   .main-heading {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Adjust font size */
+  }
+
+  .photo-box {
+    width: 48%; /* 2 boxes per row on mobile screens */
+  }
+
+  .history-section {
+    padding: 15px; /* Adjust padding */
   }
 }
 
 @media (max-width: 480px) {
   .info-box {
-    width: calc(100% - 20px); /* Full width on very small screens */
+    width: 100%; /* Full width on very small screens */
   }
+
   .main-heading {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Smaller heading font size */
   }
+
   .history-section {
-    padding: 15px;
+    width: 100%; /* Full width on small mobile screens */
   }
-  .info-box {
-    width: 100%;
+
+  .main-button {
+    padding: 8px 16px; /* Adjust button padding */
+    font-size: 0.9rem; /* Smaller button font */
   }
-  .history-section {
-    width: 100%;
-  }
-  .main-heading {
-    font-size: 1.8rem;
+
+  .photo-box img {
+    height: auto; /* Allow image height to adjust */
   }
 }
