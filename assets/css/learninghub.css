@@ -1,0 +1,54 @@
+@import "navbar-footer.css";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 100vh;
+    background-color: #f0f4f8;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.box {
+    width: 250px;
+    height: 150px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+}
+
+.box:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.box h2 {
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 14px;
+}

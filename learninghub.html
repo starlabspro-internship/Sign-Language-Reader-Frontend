@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Hub</title>
+    <link rel="stylesheet" href="./assets/css/learninghub.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Learning Hub</h1>
+        <div class="box" onclick="navigateTo('learninghubPage1.html')">
+            <h2>Topic 1</h2>
+            <p>Alfabeti</p>
+        </div>
+        <div class="box" onclick="navigateTo('learninghubPage2.html')">
+            <h2>Topic 2</h2>
+            <p>Numrat</p>
+        </div>
+        <div class="box" onclick="navigateTo('learninghebPage3.html')">
+            <h2>Topic 3</h2>
+            <p>Pershendetjet</p>
+        </div>
+    </div>
+    
+    <script type="module" src="app.js"></script>
+    <script>function navigateTo(page) {
+        window.location.href = page;
+    }
+    </script>
+</body>
+</html>
