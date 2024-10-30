@@ -196,196 +196,197 @@ hr {
 
 
 
-@media (max-width: 1024px) {
-  /* Header Adjustments */
-  header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-  }
-
-  header h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-  }
-
+ /* Responsive Styles */
+ @media (max-width: 1024px) {
+  /* General responsive adjustments */
   nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: 100%;
-      margin: 0;
+    flex-direction: column; /* Stack navigation items vertically */
   }
 
-  nav a, .sign-out-btn {
-      margin: 5px 10px;
+  .about-us,
+  .content2,
+  .how-it-works-content,
+  .div4 {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center; /* Center text for better readability */
+    padding: 20px; /* Add padding around sections */
   }
 
-  .logo {
-      width: 60px;
-      height: 60px;
-  }
-
-  /* About Us Section */
-  .about-us {
-      flex-direction: column;
-      height: auto;
-      padding: 20px;
-      text-align: center;
-  }
-
-  .about-content {
-      flex-direction: column;
-      text-align: center;
-      max-width: 100%;
-  }
-
-  .foto1, .foto11 {
-      margin: 0 auto 20px;
-  }
-
-  .fotoabout {
-      width: 200px;
-      height: 200px;
-  }
-
-  /* Content 2 Section */
-  .div4, .content2 {
-      flex-direction: column;
-      align-items: center;
-      max-width: 100%;
-      text-align: center;
-      padding: 20px;
-  }
-
-  /* How-it-works section */
-  .how-it-works-content {
-      text-align: center;
-      padding: 0 20px;
-  }
-
+  /* Adjust boxes for responsive layout */
   .boxes {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 15px; /* Space between boxes */
+    width: 100%; /* Full width for the boxes container */
+    margin: 0 auto; /* Center the boxes */
+    padding: 10px; /* Add padding around boxes */
   }
 
   .flex-boxes {
-      width: 90%;
-      max-width: 400px;
-      height: auto;
-      padding: 20px;
+    flex-direction: column; /* Stack items vertically in boxes */
+    padding: 15px; /* Add padding for better spacing */
+    text-align: center; /* Center text within boxes */
+    border: 1px solid #ccc; /* Optional border for better visibility */
+    border-radius: 5px; /* Rounded corners for boxes */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
   }
 
-  /* Start Learning Section */
-  .start-learning {
-      padding: 20px;
+  /* Adjust image sizes */
+  .fotoabout {
+    width: 120px; /* Set image width for smaller screens */
+    height: 120px; /* Set image height */
+    margin-bottom: 10px; /* Space below the image */
   }
 
-  /* Footer Adjustments */
-  footer {
-      font-size: 0.9rem;
-      padding: 15px;
+  /* Adjust horizontal rule */
+  hr {
+    width: 50%; /* Set width of horizontal rule */
+    margin: 20px auto; /* Center the horizontal rule */
+  }
+
+  /* Adjust button styles */
+  #start-learning-btn {
+    width: 80%; /* Set button width */
+    font-size: 1rem; /* Adjust font size */
+    padding: 10px; /* Add padding */
+  }
+
+  /* Font size adjustments for better readability */
+  .how-it-works-content h2,
+  .flex-boxes a {
+    font-size: 1.2rem; /* Set header and link font size */
+  }
+
+  .how-it-works-content p,
+  .flex-boxes p {
+    font-size: 0.9rem; /* Set paragraph font size */
   }
 }
 
 
-
-
-
 @media (max-width: 768px) {
-  /* Header Adjustments */
-  header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 15px;
-  }
-
-  header h1 {
-      font-size: 22px;
-      margin-bottom: 10px;
-  }
-
   nav {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
+    flex-direction: column;
   }
 
-  nav a, .sign-out-btn {
-      display: block;
-      margin: 5px 0;
-      font-size: 0.9rem;
-  }
-
-  .logo {
-      width: 50px;
-      height: 50px;
-  }
-
-  /* About Us Section */
-  .about-us {
-      flex-direction: column;
-      padding: 15px;
-      text-align: center;
-      height: auto;
-  }
-
-  .about-content, .content2 {
-      flex-direction: column;
-      max-width: 100%;
-      padding: 10px;
-      text-align: center;
+  .about-us, .content2, .how-it-works-content, .boxes, .flex-boxes, .start-learning {
+    padding: 15px;
   }
 
   .fotoabout {
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 15px;
+    width: 180px;
+    height: 180px;
   }
-
-  /* Content 2 Section */
-  .div4 {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 10px;
-  }
-
-  /* How-it-works Section */
-  .how-it-works-content {
-      text-align: center;
-      padding: 0 15px;
-  }
-
   .boxes {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 10px; /* Space between columns */
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px; /* Optional max width */
   }
 
+  /* Styling for each individual box */
   .flex-boxes {
-      width: 100%;
-      max-width: 300px;
-      padding: 15px;
-  }
-
-  /* Start Learning Section */
-  .start-learning {
-      padding: 15px;
-      text-align: center;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
   }
 
   #start-learning-btn {
-      width: 80%;
-      font-size: 1rem;
-      padding: 12px;
+    width: 80%;
+    font-size: 1rem;
   }
 
-  /* Footer Adjustments */
-  footer {
-      font-size: 0.8rem;
-      padding: 15px;
+  hr {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* General layout adjustments for about-us section */
+  .about-us {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .misioni h2, .misioni p, .how-it-works-content h2, .how-it-works-content p {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  .fotoabout {
+    width: 120px;
+    height: 120px;
+    margin: 10px 0;
+  }
+
+  .content2 {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .foto11 {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers child elements horizontally */
+    gap: 10px;
+    margin: 10px auto;
+    width: 100%; /* Optional: set max-width to control the layout further */
+  }
+
+  .flex-boxes {
+    padding: 10px;
+    text-align: center;
+    width: 90%; /* Adjusts width to fit smaller screens better */
+    max-width: 400px; /* Ensures it doesn't stretch too wide on larger mobile screens */
+    margin: 0 auto;
+  }
+
+  .how-it-works-content h2 {
+    font-size: 1.2rem;
+  }
+
+
+  .how-it-works-content p, .flex-boxes p {
+    font-size: 0.9rem;
+  }
+
+  hr {
+    width: 60%;
+    height: 1px;
+    background-color: #001f3f;
+    margin: 20px auto;
+  }
+
+  .start-learning h3 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .start-learning p {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  #start-learning-btn {
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 8px;
   }
 }
