@@ -23,7 +23,7 @@ body {
 
 /* Introductory Text Styling */
 .intro-text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
   color: #333;
@@ -38,22 +38,22 @@ body {
 }
 
 .photo-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .photo-box {
-    width: 23%; /* Adjust the width as needed */
-    margin: 10px;
+  width: 23%; /* Adjust the width as needed */
+  margin: 10px;
 }
 
 .photo-box img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
 .photo-container {
@@ -111,11 +111,11 @@ body {
 
 /* Full text and hidden text classes */
 .full-text {
-    display: block; /* or flex, if needed */
+  display: block; /* or flex, if needed */
 }
 
 .hidden {
-    display: none; /* Hide the element */
+  display: none; /* Hide the element */
 }
 
 /* Button styles */
@@ -133,7 +133,6 @@ body {
   background-color: var(--deep-blue);
 }
 
-
 .button-container {
   display: flex;
   justify-content: center; /* Qendron në qendër */
@@ -141,57 +140,20 @@ body {
 }
 
 .main-button {
-  display: inline-block; 
-  background-color: white; 
-  color:black; 
+  display: inline-block;
+  background-color: white;
+  color: black;
   border: none;
-  padding: 10px 40px; 
-  border-radius: 50px; 
-  text-align: center; 
-  text-decoration: none; 
-  font-size: 1rem; 
-  margin-bottom: 40px; 
-
+  padding: 10px 40px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 40px;
 }
 
 .main-button:hover {
-  background-color: var(--cream); 
-}
-
-/* History page */
-
-main.history-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-.history-section {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: 40%;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.history-section img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border-radius: 10px;
-}
-
-.history-section h2 {
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.history-section p {
-  color: #555;
-  line-height: 1.6;
+  background-color: var(--cream);
 }
 
 /* Responsive adjustments */
@@ -204,20 +166,12 @@ main.history-main {
     width: calc(45% - 20px); /* 2 boxes per row on smaller tablets */
   }
 
-  .history-section {
-    width: 100%;
-  }
-
   .main-heading {
     font-size: 1.8rem; /* Adjust font size */
   }
 
   .photo-box {
     width: 48%; /* 2 boxes per row on mobile screens */
-  }
-
-  .history-section {
-    padding: 15px; /* Adjust padding */
   }
 }
 
@@ -229,13 +183,8 @@ main.history-main {
   .main-heading {
     font-size: 1.5rem; /* Smaller heading font size */
   }
-  .history-section {
-    padding: 15px;
-  }
+
   .info-box {
-    width: 100%;
-  }
-  .history-section {
     width: 100%;
   }
   .main-heading {
