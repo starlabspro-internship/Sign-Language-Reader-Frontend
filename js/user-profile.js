@@ -42,21 +42,20 @@ async function fetchUserProfile() {
   }
 }
 
-//Update
+//Update Profile Function
 async function updateUserProfile(event) {
   event.preventDefault();
 
   const userId = localStorage.getItem('userId');
   const updateMessage = document.getElementById('update-message');
   
-  // Collect form data
   const userName = document.getElementById('update-userName').value.trim();
   const userSurname = document.getElementById('update-userSurname').value.trim();
   const userEmail = document.getElementById('update-userEmail').value.trim();
   const userPhone = document.getElementById('update-userPhone').value.trim();
   const userPassword = document.getElementById('update-userPassword').value.trim();
 
-  // Validate email format
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (userEmail && !emailRegex.test(userEmail)) {
     updateMessage.textContent = "Invalid email format.";
@@ -64,7 +63,7 @@ async function updateUserProfile(event) {
     return;
   }
 
-  // Validate password format
+
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   if (userPassword && !passwordRegex.test(userPassword)) {
     updateMessage.textContent = "Password must be at least 8 characters long and include at least 1 letter and 1 number.";
@@ -72,7 +71,7 @@ async function updateUserProfile(event) {
     return;
   }
 
-  // Prepare updated data
+
   const updatedData = {
     userName,
     userSurname,
@@ -80,7 +79,7 @@ async function updateUserProfile(event) {
     userphonenum: userPhone,
   };
 
-  // Include password only if provided
+
   if (userPassword) {
     updatedData.userpassword = userPassword;
   }
@@ -89,10 +88,10 @@ async function updateUserProfile(event) {
     const response = await fetch(`https://localhost:5000/api/users/${userId}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json', // Set content type to JSON
+        'Content-Type': 'application/json', 
       },
-      body: JSON.stringify(updatedData), // Convert object to JSON string
-      credentials: 'include', // Include credentials for session
+      body: JSON.stringify(updatedData), 
+      credentials: 'include', 
     });
 
     const result = await response.json();
@@ -103,7 +102,7 @@ async function updateUserProfile(event) {
 
     updateMessage.textContent = 'Profile updated successfully!';
     updateMessage.style.color = 'green';
-    updateUI(result); // Update UI with new user data
+    updateUI(result); 
 
   } catch (error) {
     updateMessage.textContent = `Error updating profile: ${error.message}`;
@@ -111,8 +110,6 @@ async function updateUserProfile(event) {
     console.error('Error updating profile:', error);
   }
 }
-
-
 
 
 // Logout function
