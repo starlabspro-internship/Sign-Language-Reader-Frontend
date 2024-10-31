@@ -1,6 +1,9 @@
 export function renderHeader() {
   const header = document.createElement('header');
-  
+
+  // Check if the user is logged in
+  const userId = localStorage.getItem('userId'); // Assuming userId is stored in localStorage
+
   header.innerHTML = `
     <nav>
       <div class="logo">
@@ -25,7 +28,8 @@ export function renderHeader() {
           <a href="faq-page.html">FAQ</a>
         </li>
         <li>
-          <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>
+          ${userId ? `<a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>` 
+                    : `<a href="auth.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Log In</a>`}
         </li>
       </ul>
       <div class="hamburger">
@@ -52,7 +56,8 @@ export function renderHeader() {
           <a href="faq-page.html">FAQ</a>
         </li>
         <li>
-          <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>
+          ${userId ? `<a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>` 
+                    : `<a href="auth.html">Log In</a>`}
         </li>
       </ul>
     </div>
