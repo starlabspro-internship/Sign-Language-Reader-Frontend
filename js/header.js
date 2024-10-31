@@ -18,11 +18,18 @@ export function renderHeader() {
         <li>
           <a href="history.html">History</a>
         </li>
-        <li>
-          <a href="learninghub.html">Learning Hub</a>
+        <li class="dropdown">
+          <a href="literature.html">Literatura</a>
+          <ul class="dropdown-content">
+            <li><a href="learninghubPage1.html">Alfabeti</a></li>
+            <li><a href="learninghubPage2.html">Numrat</a></li>
+            <li><a href="learninghebPage3.html">Përshëndetjet</a></li>
+            <li><a href="seasons.html">Stinët</a></li>
+            <li><a href="weekdays.html">Ditët e Javës</a></li>
+          </ul>
         </li>
         <li>
-          <a href="faq-page.html">FAQ</a>
+          <a href="faq-page.html">FAQ </a>
         </li>
         <li>
           <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>
@@ -37,22 +44,22 @@ export function renderHeader() {
     <div class="menubar">
       <ul>
         <li>
-          <a href="home.html">Home</a>
+          <a href="home.html">Kryefaqja</a>
         </li>
         <li>
-          <a href="about.html">About</a>
+          <a href="about.html">Rreth Nesh</a>
         </li>
         <li>
-          <a href="history.html">History</a>
+          <a href="history.html">Historia</a>
         </li>
         <li>
-          <a href="learning.html">Learning Hub</a>
+          <a href="learning.html">Qendra e Mësimit</a>
         </li>
         <li>
-          <a href="faq-page.html">FAQ</a>
+          <a href="faq-page.html">Pyetje të Shpeshta</a>
         </li>
         <li>
-          <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>
+          <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profili</a>
         </li>
       </ul>
     </div>
