@@ -42,41 +42,68 @@ async function fetchUserProfile() {
   }
 }
 
-// Update user function
+//Update
 async function updateUserProfile(event) {
   event.preventDefault();
 
   const userId = localStorage.getItem('userId');
   const updateMessage = document.getElementById('update-message');
+  
+  // Collect form data
+  const userName = document.getElementById('update-userName').value.trim();
+  const userSurname = document.getElementById('update-userSurname').value.trim();
+  const userEmail = document.getElementById('update-userEmail').value.trim();
+  const userPhone = document.getElementById('update-userPhone').value.trim();
+  const userPassword = document.getElementById('update-userPassword').value.trim();
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (userEmail && !emailRegex.test(userEmail)) {
+    updateMessage.textContent = "Invalid email format.";
+    updateMessage.style.color = 'red';
+    return;
+  }
+
+  // Validate password format
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  if (userPassword && !passwordRegex.test(userPassword)) {
+    updateMessage.textContent = "Password must be at least 8 characters long and include at least 1 letter and 1 number.";
+    updateMessage.style.color = 'red';
+    return;
+  }
+
+  // Prepare updated data
   const updatedData = {
-    userName: document.getElementById('update-userName').value.trim(),
-    userSurname: document.getElementById('update-userSurname').value.trim(),
-    userEmail: document.getElementById('update-userEmail').value.trim(),
-    userPhone: document.getElementById('update-userPhone').value.trim(),
-    ...(document.getElementById('update-userPassword').value.trim() && {
-      userpassword: document.getElementById('update-userPassword').value.trim()
-    })
+    userName,
+    userSurname,
+    useremail: userEmail,
+    userphonenum: userPhone,
   };
+
+  // Include password only if provided
+  if (userPassword) {
+    updatedData.userpassword = userPassword;
+  }
 
   try {
     const response = await fetch(`https://localhost:5000/api/users/${userId}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', // Set content type to JSON
       },
-      body: JSON.stringify(updatedData),
-      credentials: 'include',
+      body: JSON.stringify(updatedData), // Convert object to JSON string
+      credentials: 'include', // Include credentials for session
     });
 
+    const result = await response.json();
+
     if (!response.ok) {
-      const errorResponse = await response.json();
-      throw new Error(errorResponse.message || 'Failed to update user profile');
+      throw new Error(result.message || 'Failed to update user profile');
     }
 
-    const result = await response.json();
     updateMessage.textContent = 'Profile updated successfully!';
     updateMessage.style.color = 'green';
-    updateUI(result);
+    updateUI(result); // Update UI with new user data
 
   } catch (error) {
     updateMessage.textContent = `Error updating profile: ${error.message}`;
@@ -84,6 +111,9 @@ async function updateUserProfile(event) {
     console.error('Error updating profile:', error);
   }
 }
+
+
+
 
 // Logout function
 async function handleLogout() {
