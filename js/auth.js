@@ -31,6 +31,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
 
 // Sign Up Form
+// Sign Up Form
 document.getElementById('signup-form').addEventListener('submit', async (event) => {
   event.preventDefault();
   const userName = document.getElementById('signup-name').value.trim();
@@ -38,9 +39,21 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
   const useremail = document.getElementById('signup-email').value.trim();
   const userpassword = document.getElementById('signup-password').value.trim();
   const errorMessage = document.getElementById('signup-error-message');
+  const successMessage = document.getElementById('signup-success-message');
+
+  errorMessage.style.display = 'none';
+  successMessage.style.display = 'none';
+
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+  if (!passwordRegex.test(userpassword)) {
+    errorMessage.textContent = 'Password must be at least 8 characters long and include at least 1 letter and 1 number.';
+    errorMessage.style.display = 'block';
+    return; 
+  }
 
   try {
-    const response = await fetch('http://localhost:5000/api/users/signup', {
+    const response = await fetch('https://localhost:5000/api/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userName, userSurname, useremail, userpassword })
@@ -49,9 +62,19 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
     const result = await response.json();
 
     if (response.ok) {
-      alert('Sign up successful! Please log in.');
+      successMessage.textContent = 'Sign up successful! Please log in.';
+      successMessage.style.display = 'block';
+      
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+      
     } else {
-      errorMessage.textContent = result.message || 'Signup failed! Please check your input.';
+      if (result.msg === 'User already exists') {
+        errorMessage.textContent = 'Email already exists. Please use a different email.';
+      } else {
+        errorMessage.textContent = result.message || 'Signup failed! Please check your input.';
+      }
       errorMessage.style.display = 'block';
     }
   } catch (error) {
@@ -60,3 +83,5 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
     console.error("Signup error:", error);
   }
 });
+
+

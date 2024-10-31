@@ -117,6 +117,10 @@ button:hover {
   background: var(--deep-blue); 
 }
 
+#deleteAccountButton{
+  background-color: rgb(100, 0, 0);
+}
+
 #update-message {
   margin-top: 10px;
   color: red; 
