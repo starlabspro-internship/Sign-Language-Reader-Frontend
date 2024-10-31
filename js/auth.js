@@ -16,15 +16,8 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const result = await response.json();
 
     if (response.ok) {
-      console.log("Login successful!", result);
-
-      // Store userId in localStorage for later use
       localStorage.setItem('userId', result.userId);
-
-      // Redirect to home page
-      setTimeout(() => {
-        window.location.href = "home.html";
-      }, 2000);
+      window.location.href = "home.html";
     } else {
       errorMessage.textContent = result.message || 'Login failed! Please check your credentials.';
       errorMessage.style.display = 'block';
@@ -35,8 +28,6 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     console.error("Login error:", error);
   }
 });
-
-
 
 
 // Sign Up Form

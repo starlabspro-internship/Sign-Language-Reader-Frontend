@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Profile</title>
+    <title>My Profile</title>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const userId = localStorage.getItem('userId');
@@ -31,16 +31,13 @@
                 <h3 class="userSurname"></h3>
                 <p class="userEmail"></p>
             </div>
-            <ul class="nav-options">
+            <ul class="profile-nav-options">
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Privacy</a></li>
                 <li><a href="#" id="logoutButton">Logout</a></li>
             </ul>
         </div>
         <div class="main-content">
-            <h1>User Data</h1>
+            <h1>My Profile</h1>
             <div id="profile">
                 <p>Name: <span class="userName"></span></p>
                 <p>Surname: <span class="userSurname"></span></p>
@@ -48,22 +45,28 @@
                 <p>Phone: <span class="userPhone"></span></p>
             </div>
 
-            <h2>Update Profile</h2>
-            <form id="updateProfileForm">
-                <input type="text" id="update-userName" placeholder="Update Name" />
-                <input type="text" id="update-userSurname" placeholder="Update Surname" />
-                <input type="email" id="update-userEmail" placeholder="Update Email" />
-                <input type="text" id="update-userPhone" placeholder="Update Phone" />
-                <input type="password" id="update-userPassword" placeholder="Update Password" />
-                <input type="file" id="update-profileImage" accept="image/*" /> <!-- Optional file input -->
-                <button type="submit">Update Profile</button>
-                <p id="update-message"></p>
-            </form>
+            <button id="updateButton">Update Profile</button>
+            
+            <div id="updateProfileSection" style="display: none;">
+                <h2>Update Profile</h2>
+                <form id="updateProfileForm">
+                    <input type="text" id="update-userName" placeholder="Update Name" />
+                    <input type="text" id="update-userSurname" placeholder="Update Surname" />
+                    <input type="email" id="update-userEmail" placeholder="Update Email" />
+                    <input type="text" id="update-userPhone" placeholder="Update Phone" />
+                    <input type="password" id="update-userPassword" placeholder="Update Password" />
+                    <input type="file" id="update-profileImage" accept="image/*" />
+                    <button type="submit">Submit Changes</button>
+                    <p id="update-message"></p>
+                </form>
+            </div>
         </div>
     </div>
 
     <script type="module" src="./js/app.js"></script>
     <script type="module" src="./js/user-profile.js"></script>
 </body>
+
+
 
 </html>

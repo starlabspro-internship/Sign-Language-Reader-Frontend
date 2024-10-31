@@ -314,6 +314,6 @@ nav ul li.dropdown:hover .dropdown-content {
 }
 
 nav ul li.dropdown .dropdown-content li a:hover {
-  background-color: #6a9ab0; /* Ngjyrë e lehtë për efekt */
+  background-color: var(--light-blue); /* Ngjyrë e lehtë për efekt */
   border-radius: 4px;
 }

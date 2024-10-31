@@ -1,8 +1,6 @@
 export function renderHeader() {
   const header = document.createElement('header');
-
-  // Check if the user is logged in
-  const userId = localStorage.getItem('userId'); // Assuming userId is stored in localStorage
+  const userId = localStorage.getItem('userId'); 
 
   header.innerHTML = `
     <nav>
@@ -83,7 +81,6 @@ export function renderHeader() {
 
   mobileNav.addEventListener("click", () => toggleNav());
 
-  // Add active class to the current page's nav link
   const links = header.querySelectorAll('nav a');
   links.forEach(link => {
     if (link.href === window.location.href) {
