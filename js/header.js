@@ -15,7 +15,7 @@ export async function renderHeader() {
             <li class="dropdown">
                 <a href="learninghub.html">Learning Hub</a>
                 <ul class="dropdown-content">
-                    <li><a href="learninghubPage1.html">Alfabeti</a></li>
+                    <li><a href="alfabeti.html">Alfabeti</a></li>
                     <li><a href="learninghubPage2.html">Numrat</a></li>
                     <li><a href="learninghubPage3.html">Përshëndetjet</a></li>
                     <li><a href="seasons.html">Stinët</a></li>
