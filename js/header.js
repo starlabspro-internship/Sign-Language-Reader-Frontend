@@ -9,21 +9,31 @@ export async function renderHeader() {
           </a>
       </div>
       <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="history.html">History</a></li>
-          <li class="dropdown">
-              <a href="learninghub.html">Learning Hub</a>
-              <ul class="dropdown-content">
-                  <li><a href="learninghubPage1.html">Alfabeti</a></li>
-                  <li><a href="learninghubPage2.html">Numrat</a></li>
-                  <li><a href="learninghubPage3.html">Përshëndetjet</a></li>
-                  <li><a href="seasons.html">Stinët</a></li>
-                  <li><a href="weekdays.html">Ditët e Javës</a></li>
-              </ul>
-          </li>
-          <li><a href="faq-page.html">FAQ</a></li>
-          <li id="authLink"><a href="auth.html" class="auth-link">Log in</a></li>
+        <li>
+          <a href="home.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="history.html">History</a>
+        </li>
+        <li class="dropdown">
+          <a href="literature.html">Literatura</a>
+          <ul class="dropdown-content">
+            <li><a href="alfabeti.html">Alfabeti</a></li>
+            <li><a href="learninghubPage2.html">Numrat</a></li>
+            <li><a href="learninghebPage3.html">Përshëndetjet</a></li>
+            <li><a href="seasons.html">Stinët</a></li>
+            <li><a href="weekdays.html">Ditët e Javës</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="faq-page.html">FAQ </a>
+        </li>
+        <li>
+          <a href="profile.html" style="background-color:#fff; padding:10px; color:var(--dark-blue);">Profile</a>
+        </li>
       </ul>
       <div class="hamburger">
           <span class="line"></span>
