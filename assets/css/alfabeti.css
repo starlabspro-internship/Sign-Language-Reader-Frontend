@@ -6,21 +6,20 @@
     --medium-blue: #3a6d8c;
     --light-blue: #6a9ab0;
     --cream: #ead8b1;
-  }
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-  }
+}
 
-  body {
+body {
     font-family: "Montserrat", sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
-  }
-  
+}
 
 .literatura {
     display: flex;
@@ -36,9 +35,9 @@
 
 /* Styling for the introductory text */
 #intro-text {
-    margin-bottom: 20px; /* Space below the intro text */
-    text-align: start; /* Center align text */
-    width: 1100px;
+    margin-bottom: 20px; 
+    text-align: start; 
+    width: 100%; 
 }
 
 #intro-text h1 {
@@ -52,10 +51,11 @@
     color: #000000;
 }
 
-/* Container kryesor për ta mbajtur përmbajtjen më të ngushtë dhe të qendërzuar */
+/* Main container styling */
 #main-container {
-    width: 950px;
-    height: 600px;
+    width: 90%; /* Change to a percentage for responsiveness */
+    max-width: 950px; /* Maximum width */
+    height: auto; /* Allow height to adjust based on content */
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd;
@@ -64,7 +64,7 @@
     background-color: #f9f9f9;
 }
 
-/* Stilimi për container e alfabetit */
+/* Alphabet container */
 #alphabet {
     margin-top: 20px;
     display: flex;
@@ -73,14 +73,14 @@
     justify-content: center;
 }
 
-/* Stilimi për butonat e shkronjave */
+/* Letter buttons styling */
 #alphabet button {
     width: 41px;
     height: 41px;
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color:var(--medium-blue);
+    background-color: var(--medium-blue);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -96,22 +96,21 @@
     color: #fff;
 }
 
-
-
-/* Stilimi për kontejnerin e shfaqjes së imazhit dhe përshkrimit */
+/* Display container */
 #display {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: row; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
+    margin-top: 20px;
 }
 
+
 #letterImage {
-    max-width: 300px; /* Ensure the image is responsive */
-    height: 300px; /* Maintain aspect ratio */
-    margin-top: 50px;
-    margin-left: 50px;
-    border-radius: 8px;        /* Slightly round the edges */
-    box-shadow: 0 4px 8px rgba(4, 2, 51, 0.6); /* Add a subtle shadow */
+    max-width: 350px; 
+    height: 350px; 
+    margin: 50px 50px 0 50px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(4, 2, 51, 0.6); 
 }
 
 #letterDescription {
@@ -121,9 +120,9 @@
     margin-left: 80px;
 }
 
-/* Styling for the quiz button */
-#startQuiz{
-    background-color:var(--deep-blue);
+/* Quiz button */
+#startQuiz {
+    background-color: var(--deep-blue);
     color: white; /* White text color */
     border: none; /* Remove border */
     padding: 10px 20px; /* Padding for top/bottom and left/right */
@@ -141,4 +140,67 @@
 #startQuiz:hover {
     background-color: #6c84b4; /* Darker green on hover */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    #intro-text h1 {
+        font-size: 22px; /* Adjust title size for medium screens */
+    }
+    #letterDescription {
+        font-size: 16px; /* Adjust description font size */
+        margin-left: 40px; /* Reduce margin */
+    }
+}
+
+@media (max-width: 992px) {
+    #main-container {
+        width: 95%; /* More width on smaller screens */
+        padding: 15px; /* Adjust padding */
+    }
+
+    #letterImage {
+        margin: 30px 30px 0 30px; /* Adjust margins */
+    }
+
+    #letterDescription {
+        margin-left: 20px; /* Further reduce margin */
+    }
+}
+
+@media (max-width: 768px) {
+    #display {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        align-items: center; /* Center align */
+    }
+
+    #letterImage {
+        margin: 20px 0; /* Center image with margin */
+    }
+
+    #letterDescription {
+        margin-left: 0; /* Remove left margin for mobile */
+        text-align: center; /* Center text */
+    }
+
+    #startQuiz {
+        width: 100%; /* Full width button */
+        height: 45px; /* Adjust height */
+    }
+}
+
+@media (max-width: 576px) {
+    #intro-text h1 {
+        font-size: 20px; /* Smaller title size for very small screens */
+    }
+
+    #alphabet button {
+        width: 35px; /* Smaller button size for mobile */
+        height: 35px;
+        font-size: 14px; /* Smaller font size */
+    }
+
+    #startQuiz {
+        height: 40px; /* Adjust button height */
+    }
 }
