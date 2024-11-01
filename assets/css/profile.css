@@ -103,7 +103,7 @@ form input:focus {
   border-color: var(--medium-blue); 
 }
 
-button {
+.control-buttons button, .submit-btn {
   padding: 10px;
   background: var(--medium-blue);
   color: white;
@@ -113,7 +113,7 @@ button {
   transition: background 0.3s; 
 }
 
-button:hover {
+.control-buttons button:hover , .submit-btn:hover {
   background: var(--deep-blue); 
 }
 

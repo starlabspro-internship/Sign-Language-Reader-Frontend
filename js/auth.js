@@ -1,3 +1,27 @@
+// Check if user is already logged in
+document.addEventListener('DOMContentLoaded', async () => {
+  const errorMessage = document.getElementById('login-error-message');
+
+  try {
+    const response = await fetch('https://localhost:5000/api/users/me', {
+      method: 'GET',
+      credentials: 'include'
+    });
+
+    if (response.ok) {
+      window.location.href = 'profile.html';
+    } else {
+      document.getElementById('login-form').style.display = 'block';
+    }
+  } catch (error) {
+    console.error('Error checking login status:', error);
+    errorMessage.textContent = 'An error occurred. Please try again later.';
+    errorMessage.style.display = 'block';
+  }
+});
+
+
+
 // Login Form
 document.getElementById('login-form').addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -16,8 +40,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const result = await response.json();
 
     if (response.ok) {
-      localStorage.setItem('userId', result.userId);
-      window.location.href = "home.html";
+      window.location.href = "profile.html";
     } else {
       errorMessage.textContent = result.message || 'Login failed! Please check your credentials.';
       errorMessage.style.display = 'block';
@@ -30,7 +53,6 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 });
 
 
-// Sign Up Form
 // Sign Up Form
 document.getElementById('signup-form').addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -67,7 +89,7 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
       
       setTimeout(() => {
         window.location.reload();
-      }, 2000);
+      }, 1000);
       
     } else {
       if (result.msg === 'User already exists') {

@@ -4,14 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Profile</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const userId = localStorage.getItem('userId');
-            if (!userId) {
-                window.location.href = 'auth.html';
-            }
-        });
-    </script>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/profile.css" />
     <!-- Font Awesome CDN -->
@@ -45,8 +37,10 @@
                 <p>Phone: <span class="userPhone"></span></p>
             </div>
 
+            <div class="control-buttons">
             <button id="updateButton">Update Profile</button>
             <button id="deleteAccountButton">Delete Account</button>
+            </div>
             <p id="delete-message"></p>
             
             <div id="updateProfileSection" style="display: none;">
@@ -57,8 +51,8 @@
                     <input type="email" id="update-userEmail" placeholder="Update Email" />
                     <input type="text" id="update-userPhone" placeholder="Update Phone" />
                     <input type="password" id="update-userPassword" placeholder="Update Password" />
-                    <input type="file" id="profileImage" name="profileImage" accept="image/*" />
-                    <button type="submit">Submit Changes</button>
+                    <!-- <input type="file" id="profileImage" name="profileImage" accept="image/*" /> -->
+                    <button type="submit" class="submit-btn">Submit Changes</button>
                     <p id="update-message"></p>
                 </form>
             </div>
