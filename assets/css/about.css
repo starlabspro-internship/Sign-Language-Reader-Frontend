@@ -139,6 +139,7 @@ hr {
   text-align: center;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   margin-bottom: 10px;
+  transition: .3s ease;
 }
 
 .flex-boxes:hover {
@@ -148,7 +149,7 @@ hr {
 
 .flex-boxes a {
   text-decoration: none;
-  color:#001f3f;
+  color: var(--deep-blue);
   font-weight: bold;
   font-size: 1.1rem;
 }
@@ -157,7 +158,8 @@ hr {
   color: #333;
   font-size: 0.9rem;
   line-height: 1.4;
-  text-align: start;
+  text-align: center;
+  padding-top: 10px;
 }
 
 .start-learning{
@@ -174,18 +176,20 @@ hr {
   margin-top: 15px;
   display: inline-block;             /* Makes the anchor behave like a button */
   padding: 15px 30px;               /* Top/bottom and left/right padding */
-  font-size: 1.2rem;                /* Font size */
+  font-size: 1rem;   
+  font-weight: bold;             /* Font size */
   color: white;                     /* Text color */
-  background-color:#001F3F;       /* Green background */
+  background-color:var(--deep-blue);       /* Green background */
   border: none;                     /* No border */
   border-radius: 5px;              /* Rounded corners */
   text-decoration: none;            /* No underline */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+  cursor: pointer;
   }
   
   #start-learning-btn:hover {
-      color: black;
+      color: var(--deep-blue);
       background-color: #bfc0bf;    /* Darker green on hover */
       transform: translateY(-2px);     /* Lift effect on hover */
   }

@@ -57,7 +57,7 @@ nav ul li a.active-page {
 }
 
 .logout-button{
-  background-color: var(--light-blue);
+  background-color: rgb(180, 117, 0);
   color: #fff;
   cursor: pointer;
 }

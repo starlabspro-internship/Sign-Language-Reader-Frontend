@@ -24,12 +24,23 @@
                 <p class="userEmail"></p>
             </div>
             <ul class="profile-nav-options">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#" id="logoutButton">Logout</a></li>
+                <li><a href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+                <li><a href="#" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
+            <div id="logoutModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Confirm Logout</h2>
+                    <p>Are you sure you want to log out?</p>
+                    <div class="confirmation-buttons">
+                    <button id="confirmLogoutButton">Yes, log out</button>
+                    <button id="cancelLogoutButton">Cancel</button>
+                </div>
+                </div>
+            </div>
         </div>
         <div class="main-content">
-            <h1>My Profile</h1>
+            <h1>My Profile </h1>
             <div id="profile">
                 <p>Name: <span class="userName"></span></p>
                 <p>Surname: <span class="userSurname"></span></p>
@@ -46,16 +57,15 @@
             <div id="updateProfileSection" style="display: none;">
                 <h2>Update Profile</h2>
                 <form id="updateProfileForm">
-                    <input type="text" id="update-userName" placeholder="Update Name" />
-                    <input type="text" id="update-userSurname" placeholder="Update Surname" />
-                    <input type="email" id="update-userEmail" placeholder="Update Email" />
-                    <input type="text" id="update-userPhone" placeholder="Update Phone" />
-                    <input type="password" id="update-userPassword" placeholder="Update Password" />
-                    <!-- <input type="file" id="profileImage" name="profileImage" accept="image/*" /> -->
-                    <button type="submit" class="submit-btn">Submit Changes</button>
-                    <p id="update-message"></p>
+                  <input type="text" id="update-userName" placeholder="Update Name" />
+                  <input type="text" id="update-userSurname" placeholder="Update Surname" />
+                  <input type="email" id="update-userEmail" placeholder="Update Email" />
+                  <input type="text" id="update-userPhone" placeholder="Update Phone" />
+                  <input type="password" id="update-userPassword" placeholder="Update Password" />
+                  <button type="submit" class="submit-btn">Submit Changes</button>
+                  <p id="update-message"></p>
                 </form>
-            </div>
+              </div>
         </div>
     </div>
 

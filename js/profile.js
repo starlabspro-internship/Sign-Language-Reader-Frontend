@@ -20,9 +20,24 @@ function updateUI(user) {
 
 // Update profile section visibility
 document.getElementById("updateButton").addEventListener("click", () => {
-  const updateProfileSection = document.getElementById("updateProfileSection");
-  updateProfileSection.style.display = updateProfileSection.style.display === "none" ? "block" : "none";
-});
+    const updateProfileSection = document.getElementById("updateProfileSection");
+  
+    if (updateProfileSection.style.display === "none" || updateProfileSection.style.display === "") {
+      updateProfileSection.style.display = "block";
+      updateProfileSection.classList.add("fade-in");
+      updateProfileSection.classList.remove("fade-out");
+    } else {
+      updateProfileSection.classList.remove("fade-in");
+      updateProfileSection.classList.add("fade-out");
+  
+      // Wait for fade-out animation to complete before hiding
+      updateProfileSection.addEventListener("animationend", () => {
+        if (updateProfileSection.classList.contains("fade-out")) {
+          updateProfileSection.style.display = "none";
+        }
+      }, { once: true });
+    }
+  });
 
 // Fetch user profile data
 async function fetchUserProfile() {
@@ -135,22 +150,50 @@ async function updateUserProfile(event) {
 
 // Logout function
 async function handleLogout() {
-  try {
-      const response = await fetch("https://localhost:5000/api/users/logout", {
-          method: "POST",
-          credentials: "include",
-      });
+    try {
+        const response = await fetch("https://localhost:5000/api/users/logout", {
+            method: "POST",
+            credentials: "include",
+        });
 
-      if (response.ok) {
-          window.location.href = "home.html";
-      } else {
-          throw new Error("Logout failed");
-      }
-  } catch (error) {
-      console.error("Error during logout:", error);
-      alert("Logout failed, please try again.");
-  }
+        if (response.ok) {
+            window.location.href = "home.html"; // Redirect after logout
+        } else {
+            throw new Error("Logout failed");
+        }
+    } catch (error) {
+        console.error("Error during logout:", error);
+        alert("Logout failed, please try again.");
+    }
 }
+
+// Modal elements
+const logoutModal = document.getElementById("logoutModal");
+const closeButton = document.querySelector(".close-button");
+const confirmLogoutButton = document.getElementById("confirmLogoutButton");
+const cancelLogoutButton = document.getElementById("cancelLogoutButton");
+
+// Show modal on logout button click
+document.getElementById("logoutButton").addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent the default action
+    logoutModal.style.display = "flex"; // Show the modal
+});
+
+// Close the modal when the close button is clicked
+closeButton.addEventListener("click", () => {
+    logoutModal.style.display = "none";
+});
+
+// Handle logout confirmation
+confirmLogoutButton.addEventListener("click", async () => {
+    logoutModal.style.display = "none"; // Hide the modal
+    await handleLogout(); // Proceed with logout
+});
+
+// Cancel logout
+cancelLogoutButton.addEventListener("click", () => {
+    logoutModal.style.display = "none"; // Hide the modal
+});
 
 // Delete account function
 async function deleteAccount() {
@@ -198,7 +241,10 @@ async function deleteAccount() {
 // Event listeners for DOM content loaded
 document.addEventListener("DOMContentLoaded", () => {
   fetchUserProfile();
-  document.getElementById("logoutButton").addEventListener("click", handleLogout);
+  document.getElementById("logoutButton").addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default action
+    logoutModal.style.display = "flex"; // Show the modal
+});
   document.getElementById("updateProfileForm").addEventListener("submit", updateUserProfile);
   document.getElementById("deleteAccountButton").addEventListener("click", deleteAccount);
 });

@@ -103,7 +103,7 @@ export async function renderHeader() {
   
         const authHTML = `
             <a href="profile.html" class="auth-link profile-link">${userName}</a>
-            <button class="auth-link logout-button">Logout</button>
+            <button class="auth-link logout-button"><i class="fa-solid fa-right-from-bracket"></i></button>
         `;
   
         document.getElementById("authLink").innerHTML = authHTML;

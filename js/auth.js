@@ -84,7 +84,7 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
     const result = await response.json();
 
     if (response.ok) {
-      successMessage.textContent = 'Sign up successful! Please log in.';
+      successMessage.textContent = 'Sign up successful!';
       successMessage.style.display = 'block';
       
       setTimeout(() => {
