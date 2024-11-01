@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
+@import "../css/navbar-footer.css";
+
+:root {
+    --deep-blue: #001f3f;
+    --medium-blue: #3a6d8c;
+    --light-blue: #6a9ab0;
+    --cream: #ead8b1;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+  }
+  
+
+.literatura {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; 
+    background-color: #f0f2f5; 
+    margin-top: 20px;
+}
+
+/* Styling for the introductory text */
+#intro-text {
+    margin-bottom: 20px; /* Space below the intro text */
+    text-align: start; /* Center align text */
+    width: 1100px;
+}
+
+#intro-text h1 {
+    font-size: 24px; /* Title font size */
+    color: #000000; /* Title color */
+    margin-bottom: 10px; /* Space below title */
+    text-align: center;
+}
+
+#intro-text p{
+    color: #000000;
+}
+
+/* Container kryesor për ta mbajtur përmbajtjen më të ngushtë dhe të qendërzuar */
+#main-container {
+    width: 950px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Stilimi për container e alfabetit */
+#alphabet {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Stilimi për butonat e shkronjave */
+#alphabet button {
+    width: 41px;
+    height: 41px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color:var(--medium-blue);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#alphabet button:hover {
+    background-color: #6c84b4;
+}
+
+#alphabet button.active {
+    background-color: #0f0045; 
+    color: #fff;
+}
+
+
+
+/* Stilimi për kontejnerin e shfaqjes së imazhit dhe përshkrimit */
+#display {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+#letterImage {
+    max-width: 300px; /* Ensure the image is responsive */
+    height: 300px; /* Maintain aspect ratio */
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 8px;        /* Slightly round the edges */
+    box-shadow: 0 4px 8px rgba(4, 2, 51, 0.6); /* Add a subtle shadow */
+}
+
+#letterDescription {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 800;
+    margin-left: 80px;
+}
+
+/* Styling for the quiz button */
+#startQuiz{
+    background-color:var(--deep-blue);
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding for top/bottom and left/right */
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Font size */
+    margin: 20px 0; /* Margin above and below the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border-radius: 5px; /* Rounded corners */
+    width: 150px;
+    height: 50px;
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+}
+
+/* Button hover effect */
+#startQuiz:hover {
+    background-color: #6c84b4; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
