@@ -1,5 +1,9 @@
 // Check if user is already logged in
+import { enforceReloadOnBackNavigation } from './forceReload.js';
+
+
 document.addEventListener('DOMContentLoaded', async () => {
+  enforceReloadOnBackNavigation();
   const errorMessage = document.getElementById('login-error-message');
 
   try {

@@ -1,3 +1,6 @@
+import { enforceReloadOnBackNavigation } from './forceReload.js';
+enforceReloadOnBackNavigation();
+
 // Function to update the UI with user data
 function updateUI(user) {
   const defaultMessages = {
@@ -157,7 +160,8 @@ async function handleLogout() {
         });
 
         if (response.ok) {
-            window.location.href = "home.html"; // Redirect after logout
+            history.replaceState(null, "", "home.html");
+            window.location.href = "home.html"; 
         } else {
             throw new Error("Logout failed");
         }

@@ -1,4 +1,7 @@
+import { enforceReloadOnBackNavigation } from './forceReload.js';
+
 export async function renderHeader() {
+    enforceReloadOnBackNavigation();
     const header = document.createElement('header');
   
     header.innerHTML = `
