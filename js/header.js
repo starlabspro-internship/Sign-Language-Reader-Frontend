@@ -85,7 +85,7 @@ export async function renderHeader() {
             const { userId } = await response.json();
             await updateAuthLink(userId);
         } else {
-            console.log("User is not logged in.");
+            // console.log("User is not logged in.");
         }
     } catch (error) {
         console.error("Error checking login status:", error);
