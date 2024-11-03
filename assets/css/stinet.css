@@ -100,9 +100,37 @@
     text-align: center;
     font-weight: bold;
   }
-  #description {
-    text-align: center; /* Qendroni tekstin */
-    margin: 40px 0; /* Hapësirë më e madhe lart dhe poshtë */
+  #description-box {
+    text-align: center; /* Center the text */
+    margin: 40px 0; /* Space above and below */
     font-family: "Montserrat", sans-serif;
+    background-color: var(--cream); /* Set a background color */
+    padding: 20px; /* Padding around the text */
+    border-radius: 10px 0 0 10px; /* Rounded corners only on the left */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    max-width: 850px; /* Set a maximum width for the box */
+    margin-left: auto; /* Center the box horizontally */
+    margin-right: auto; /* Center the box horizontally */
+    display: flex; /* Use flex to center items if needed */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+}
+/* Dekorimi me duar anash */
+.hands {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    opacity: 0.15;
+}
 
+.left-hand {
+    left: 10px;
+    width: 100px;
+    height: auto;
+}
+.right-hand {
+    right: 10px;
+    width: 100px;
+    height: auto;
 }
