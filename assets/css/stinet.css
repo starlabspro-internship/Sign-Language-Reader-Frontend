@@ -100,4 +100,9 @@
     text-align: center;
     font-weight: bold;
   }
-  
+  #description {
+    text-align: center; /* Qendroni tekstin */
+    margin: 40px 0; /* Hapësirë më e madhe lart dhe poshtë */
+    font-family: "Montserrat", sans-serif;
+
+}
