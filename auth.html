@@ -18,59 +18,111 @@
 </head>
 <body>
     <section class="auth">
-        <div class="auth-container">
-            <!-- LoginBox -->
-            <div class="auth-form-box login">
-              <form id="loginForm" class="auth-form">
-                <h1>Log In</h1>
-                <div class="auth-input-box">
-                  <input id="email" type="email" name="useremail" placeholder="Email" required />
-                  <i class="fa-solid fa-envelope"></i>
-                </div>
-                <div class="auth-input-box">
-                  <input id="password" type="password" name="userpassword" placeholder="Password" required />
-                  <i class="fa-solid fa-lock"></i>
-                </div>
-                <p id="error-message" style="color: red; display: none"></p>
-                <button type="submit" class="auth-btn">Log In</button>
-              </form>
-              <div id="loginStatus"></div>
-              <button id="logoutButton" style="display: none;">Logout</button>
+    <!-- <div class="auth-logo-container">
+      <img src="photos/demo-logo.png" alt="Duart Logo" />
+    </div> -->
+      <div class="auth-container">
+        <!-- LoginBox -->
+        <div class="auth-form-box login">
+          <form class="auth-form" id="login-form">
+            <h1>Log In</h1>
+            <!-- Email -->
+            <div class="auth-input-box">
+              <input
+                id="login-email"
+                type="email"
+                placeholder="Email"
+                required
+              />
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <!-- Password -->
+            <div class="auth-input-box">
+              <input
+                id="login-password"
+                type="password"
+                placeholder="Password"
+                required
+              />
+              <i class="fa-solid fa-lock"></i>
             </div>
 
-            <!-- SignUp -->
-            <div class="auth-form-box register">
-                <form class="auth-form" action="">
-                    <h1>Sign Up</h1>
-                    <div class="auth-input-row">
-                        <div class="auth-input-box">
-                            <input type="text" placeholder="Name" required />
-                        </div>
-                        <div class="auth-input-box">
-                            <input type="text" placeholder="Surname" required />
-                        </div>
-                    </div>
-                    <div class="auth-input-box">
-                        <input type="text" placeholder="Username" required />
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="auth-input-box">
-                        <input type="email" placeholder="Email" required />
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="auth-input-box">
-                        <input type="password" placeholder="Password" required />
-                        <i class="fa-solid fa-lock"></i>
-                    </div>
-                    <button type="submit" class="auth-btn" id="signup-btn">
-                        Sign Up <img src="photos/auth-images/raise-hand.webp" alt="raise-hand" />
-                    </button>
-                    <p>or sign up with social platforms</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-google"></i></a>
-                    </div>
-                </form>
+            <!-- Forgot Link -->
+            <!-- <div class="forgot-link">
+              <a href="#">Forgot password?</a>
+            </div> -->
+            <p id="login-error-message" style="color: red; display: none"></p>
+            <button type="submit" class="auth-btn">
+              Log In <img src="photos/auth-images/confirm.webp" alt="confirm" />
+            </button>
+            <!-- <p>or log in with social platforms</p>
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-google"></i></a>
+              <a href="#"><i class="fa-brands fa-github"></i></a>
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div> -->
+          </form>
+        </div>
+
+        <!-- SignUp -->
+        <div class="auth-form-box register">
+          <form class="auth-form" id="signup-form">
+            <h1>Sign Up</h1>
+
+            <!-- Two Inputs in one Row -->
+            <div class="auth-input-row">
+              <!-- Name -->
+              <div class="auth-input-box">
+                <input
+                  type="text"
+                  id="signup-name"
+                  placeholder="Name"
+                  required
+                />
+              </div>
+              <!-- Surname -->
+              <div class="auth-input-box">
+                <input
+                  type="text"
+                  id="signup-surname"
+                  placeholder="Surname"
+                  required
+                />
+              </div>
             </div>
+            <!-- Email -->
+            <div class="auth-input-box">
+              <input
+                type="email"
+                id="signup-email"
+                placeholder="Email"
+                required
+              />
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <!-- Password -->
+            <div class="auth-input-box">
+              <input
+                type="password"
+                id="signup-password"
+                placeholder="Password"
+                required
+              />
+              <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <p id="signup-error-message" style="color: red; display: none"></p>
+            <p id="signup-success-message" style="color: green; display: none"></p>
+            <button type="submit" class="auth-btn">
+              Sign Up
+              <img src="photos/auth-images/raise-hand.webp" alt="raise-hand" />
+            </button>
+            <!-- <p>or sign up with social platforms</p>
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-google"></i></a>
+            </div> -->
+          </form>
+        </div>
 
             <!-- Toggle Box   -->
             <div class="toggle-box">
@@ -88,7 +140,18 @@
         </div>
     </section>
 
-    <!-- External JS File -->
-    <script src="js/auth.js"></script>
-</body>
+    <script>
+      const container = document.querySelector(".auth-container");
+      const registerBtn = document.querySelector(".register-btn");
+      const loginBtn = document.querySelector(".login-btn");
+
+      registerBtn.addEventListener("click", () => {
+        container.classList.add("active");
+      });
+      loginBtn.addEventListener("click", () => {
+        container.classList.remove("active");
+      });
+    </script>
+    <script type="module" src="js/auth.js"></script>
+  </body>
 </html>

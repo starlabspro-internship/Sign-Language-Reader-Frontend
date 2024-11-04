@@ -22,6 +22,8 @@ nav .logo img {
 nav ul {
   list-style: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 nav ul li {
   margin-left: 1.5rem;
@@ -44,6 +46,20 @@ nav ul li a:hover {
 nav ul li a.active-page {
   color: var(--light-blue);
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.auth-link{
+  background-color: #fff;
+  padding: 10px;
+  color: var(--deep-blue);
+  border: none;
+  border-radius: 4px;
+}
+
+.logout-button{
+  background-color: rgb(180, 117, 0);
+  color: #fff;
+  cursor: pointer;
 }
 
 
@@ -280,4 +296,40 @@ nav ul li a.active-page {
     display: block;
     margin: 10px 0;
   }
+}
+/* Style for dropdown menu */
+nav ul li.dropdown {
+  position: relative;
+}
+
+nav ul li.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  min-width: 120px; /* Gjërësi më e vogël për pamje të kompaktuar */
+  padding: 5px 0;
+  border-radius: 4px; /* Këndet e rrumbullakosura për dizajn më modern */
+}
+
+nav ul li.dropdown .dropdown-content li {
+  list-style: none;
+  padding: 8px 15px;
+}
+
+nav ul li.dropdown .dropdown-content li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem; /* Madhësi më e vogël për pamje kompakte */
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+nav ul li.dropdown .dropdown-content li a:hover {
+  background-color: var(--light-blue); /* Ngjyrë e lehtë për efekt */
+  border-radius: 4px;
 }

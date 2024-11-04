@@ -1,126 +1,113 @@
-document.addEventListener("DOMContentLoaded", () => {
-    checkLoginStatus();
+// Check if user is already logged in
+import { enforceReloadOnBackNavigation } from './forceReload.js';
 
-    const loginForm = document.getElementById("loginForm");
-    const logoutButton = document.getElementById("logoutButton");
-    const loginStatusDiv = document.getElementById("loginStatus");
-    const errorMessage = document.getElementById("error-message");
 
-    loginForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
+document.addEventListener('DOMContentLoaded', async () => {
+  enforceReloadOnBackNavigation();
+  const errorMessage = document.getElementById('login-error-message');
 
-        const useremail = event.target.useremail.value.trim();
-        const userpassword = event.target.userpassword.value.trim();
-
-        try {
-            const response = await fetch("https://localhost:5000/api/users/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ useremail, userpassword }),
-                credentials: "include"
-            });
-
-            if (response.ok) {
-                alert("Logged in successfully!");
-                loginForm.reset();
-                errorMessage.style.display = "none";
-                window.location.href = "profile.html";
-            } else {
-                const errorText = await response.text();
-                errorMessage.textContent = "Login failed: " + errorText;
-                errorMessage.style.display = "block";
-            }
-        } catch (error) {
-            console.error("Network error:", error);
-            errorMessage.textContent = "Network error occurred.";
-            errorMessage.style.display = "block";
-        }
+  try {
+    const response = await fetch('https://localhost:5000/api/users/me', {
+      method: 'GET',
+      credentials: 'include'
     });
 
-    const signupForm = document.querySelector(".register .auth-form");
-    signupForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const userName = event.target[0].value.trim();
-        const userSurname = event.target[1].value.trim();
-        const useremail = event.target[3].value.trim();
-        const userpassword = event.target[4].value.trim();
-
-        try {
-            const response = await fetch("https://localhost:5000/api/users/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ userName, userSurname, useremail, userpassword }),
-                credentials: "include"
-            });
-
-            if (response.ok) {
-                alert("Signup successful!");
-                signupForm.reset();
-                window.location.href = "profile.html";
-            } else {
-                const errorData = await response.json();
-                const errorText = errorData.errors ? errorData.errors[0].msg : "Signup failed";
-                alert(errorText);
-            }
-        } catch (error) {
-            console.error("Network error:", error);
-            alert("Network error occurred.");
-        }
-    });
-
-    async function checkLoginStatus() {
-        try {
-            const response = await fetch("https://localhost:5000/api/users/me", {
-                method: "GET",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-
-            if (response.ok) {
-                window.location.href = "profile.html";
-            } else {
-                loginStatusDiv.textContent = "Not logged in.";
-                logoutButton.style.display = "none";
-                loginForm.style.display = "block";
-            }
-        } catch (error) {
-            console.error("Error checking login status:", error);
-            loginStatusDiv.textContent = "Error checking login status.";
-        }
+    if (response.ok) {
+      window.location.href = 'profile.html';
+    } else {
+      document.getElementById('login-form').style.display = 'block';
     }
-
-    logoutButton.addEventListener("click", async () => {
-        try {
-            const response = await fetch("https://localhost:5000/api/users/logout", {
-                method: "POST",
-                credentials: "include"
-            });
-
-            if (response.ok) {
-                alert("Logged out successfully!");
-                checkLoginStatus();
-            } else {
-                const errorText = await response.text();
-                console.error("Logout error:", errorText);
-                alert("Logout failed: " + errorText);
-            }
-        } catch (error) {
-            console.error("Network error:", error);
-            alert("Network error occurred.");
-        }
-    });
-    
-    document.querySelector(".register-btn").addEventListener("click", () => {
-        document.querySelector(".auth-container").classList.add("active");
-    });
-    document.querySelector(".login-btn").addEventListener("click", () => {
-        document.querySelector(".auth-container").classList.remove("active");
-    });
+  } catch (error) {
+    console.error('Error checking login status:', error);
+    errorMessage.textContent = 'An error occurred. Please try again later.';
+    errorMessage.style.display = 'block';
+  }
 });
+
+
+
+// Login Form
+document.getElementById('login-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const useremail = document.getElementById('login-email').value.trim();
+  const userpassword = document.getElementById('login-password').value.trim();
+  const errorMessage = document.getElementById('login-error-message');
+
+  try {
+    const response = await fetch('https://localhost:5000/api/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ useremail, userpassword }),
+      credentials: 'include' 
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      window.location.href = "profile.html";
+    } else {
+      errorMessage.textContent = result.message || 'Login failed! Please check your credentials.';
+      errorMessage.style.display = 'block';
+    }
+  } catch (error) {
+    errorMessage.textContent = 'An error occurred. Please try again later.';
+    errorMessage.style.display = 'block';
+    console.error("Login error:", error);
+  }
+});
+
+
+// Sign Up Form
+document.getElementById('signup-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const userName = document.getElementById('signup-name').value.trim();
+  const userSurname = document.getElementById('signup-surname').value.trim();
+  const useremail = document.getElementById('signup-email').value.trim();
+  const userpassword = document.getElementById('signup-password').value.trim();
+  const errorMessage = document.getElementById('signup-error-message');
+  const successMessage = document.getElementById('signup-success-message');
+
+  errorMessage.style.display = 'none';
+  successMessage.style.display = 'none';
+
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+  if (!passwordRegex.test(userpassword)) {
+    errorMessage.textContent = 'Password must be at least 8 characters long and include at least 1 letter and 1 number.';
+    errorMessage.style.display = 'block';
+    return; 
+  }
+
+  try {
+    const response = await fetch('https://localhost:5000/api/users/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userName, userSurname, useremail, userpassword })
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      successMessage.textContent = 'Sign up successful!';
+      successMessage.style.display = 'block';
+      
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+      
+    } else {
+      if (result.msg === 'User already exists') {
+        errorMessage.textContent = 'Email already exists. Please use a different email.';
+      } else {
+        errorMessage.textContent = result.message || 'Signup failed! Please check your input.';
+      }
+      errorMessage.style.display = 'block';
+    }
+  } catch (error) {
+    errorMessage.textContent = 'An error occurred during signup. Please try again later.';
+    errorMessage.style.display = 'block';
+    console.error("Signup error:", error);
+  }
+});
+
+
