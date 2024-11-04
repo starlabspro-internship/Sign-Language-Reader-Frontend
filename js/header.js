@@ -6,6 +6,7 @@ export async function renderHeader() {
   
     header.innerHTML = `
     <nav>
+
         <div class="logo">
             <a href="home.html">
                 <img src="photos/demo-logo.png" alt="logo" />

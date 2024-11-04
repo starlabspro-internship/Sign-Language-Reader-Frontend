@@ -66,5 +66,41 @@ dots.forEach((li, key) => {
     });
 });
 
+///
+const seasons = document.querySelectorAll(".season");
+    const videoModal = document.getElementById("video-modal");
+    const seasonVideo = document.getElementById("season-video");
+    const closeBtn = document.getElementById("close-btn");
+
+    const videoSources = {
+      spring: "photos/spring.mp4",
+      summer: "photos/vera.mp4",
+      fall: "photos/vjeshta.mp4",
+      winter: "photos/dimri.mp4"
+    };
+
+    seasons.forEach((season) => {
+      season.addEventListener("click", () => {
+        // Set video source based on the season clicked
+        seasonVideo.src = videoSources[season.id];
+        videoModal.style.display = "block"; // Show modal
+        seasonVideo.play(); // Play video
+
+        // Add the animate class to trigger the animation
+        season.classList.add("animate");
+
+        // Remove the animate class after the animation duration to reset it
+        setTimeout(() => {
+          season.classList.remove("animate");
+        }, 500);
+      });
+    });
+
+    // Close modal
+    closeBtn.addEventListener("click", () => {
+      videoModal.style.display = "none";
+      seasonVideo.pause();
+      seasonVideo.currentTime = 0; // Reset the video time
+    });
 
 
