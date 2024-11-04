@@ -24,7 +24,7 @@ export function renderHeader() {
             <li><a href="learninghubPage1.html">Alfabeti</a></li>
             <li><a href="learninghubPage2.html">Numrat</a></li>
             <li><a href="learninghebPage3.html">Përshëndetjet</a></li>
-            <li><a href="seasons.html">Stinët</a></li>
+            <li><a href="stinet.html">Stinët</a></li>
             <li><a href="weekdays.html">Ditët e Javës</a></li>
           </ul>
         </li>
