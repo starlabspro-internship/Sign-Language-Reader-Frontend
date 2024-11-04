@@ -21,7 +21,7 @@ export function renderHeader() {
         <li class="dropdown">
           <a href="literature.html">Literatura</a>
           <ul class="dropdown-content">
-            <li><a href="learninghubPage1.html">Alfabeti</a></li>
+            <li><a href="alfabeti.html">Alfabeti</a></li>
             <li><a href="learninghubPage2.html">Numrat</a></li>
             <li><a href="learninghebPage3.html">Përshëndetjet</a></li>
             <li><a href="stinet.html">Stinët</a></li>

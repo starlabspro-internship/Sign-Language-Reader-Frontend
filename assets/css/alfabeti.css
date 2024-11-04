@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
+@import "../css/navbar-footer.css";
+
+:root {
+    --deep-blue: #001f3f;
+    --medium-blue: #3a6d8c;
+    --light-blue: #6a9ab0;
+    --cream: #ead8b1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.literatura {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; 
+    background-color: #f0f2f5; 
+    margin-top: 20px;
+}
+
+/* Styling for the introductory text */
+#intro-text {
+    margin-bottom: 20px; 
+    text-align: start; 
+    width: 100%; 
+}
+
+#intro-text h1 {
+    font-size: 24px; /* Title font size */
+    color: #000000; /* Title color */
+    margin-bottom: 10px; /* Space below title */
+    text-align: center;
+}
+
+#intro-text p{
+    color: #000000;
+}
+
+/* Main container styling */
+#main-container {
+    width: 90%; /* Change to a percentage for responsiveness */
+    max-width: 950px; /* Maximum width */
+    height: auto; /* Allow height to adjust based on content */
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Alphabet container */
+#alphabet {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Letter buttons styling */
+#alphabet button {
+    width: 41px;
+    height: 41px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--medium-blue);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#alphabet button:hover {
+    background-color: #6c84b4;
+}
+
+#alphabet button.active {
+    background-color: #0f0045; 
+    color: #fff;
+}
+
+/* Display container */
+#display {
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
+    margin-top: 20px;
+}
+
+
+#letterImage {
+    max-width: 350px; 
+    height: 350px; 
+    margin: 50px 50px 0 50px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(4, 2, 51, 0.6); 
+}
+
+#letterDescription {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 800;
+    margin-left: 80px;
+}
+
+
+#startQuiz {
+    background-color: var(--deep-blue);
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    font-size: 16px; 
+    margin: 20px 0; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    width: 150px;
+    height: 50px;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+
+#startQuiz:hover {
+    background-color: #6c84b4; 
+    transform: scale(1.05);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    #intro-text h1 {
+        font-size: 22px; /
+    }
+    #letterDescription {
+        font-size: 16px; /* Reduce margin */
+    }
+}
+
+@media (max-width: 992px) {
+    #main-container {
+        width: 95%; 
+        padding: 15px; 
+    }
+
+    #letterImage {
+        margin: 30px 30px 0 30px; 
+    }
+
+    #letterDescription {
+        margin-left: 20px; 
+    }
+}
+
+@media (max-width: 768px) {
+    #display {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    #letterImage {
+        margin: 20px 0; 
+    }
+
+    #letterDescription {
+        margin-left: 0; 
+        text-align: center; 
+    }
+
+    #startQuiz {
+        width: 100%; 
+        height: 45px; 
+    }
+}
+
+@media (max-width: 576px) {
+    #intro-text h1 {
+        font-size: 20px; 
+    }
+
+    #alphabet button {
+        width: 35px; 
+        height: 35px;
+        font-size: 14px; 
+    }
+
+    #startQuiz {
+        height: 40px; 
+    }
+}
