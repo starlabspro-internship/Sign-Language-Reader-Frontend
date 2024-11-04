@@ -14,11 +14,11 @@ export async function renderHeader() {
             </a>
         </div>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="history.html">History</a></li>
+            <li><a href="home.html">Kryefaqja</a></li>
+            <li><a href="about.html">Rreth nesh</a></li>
+            <li><a href="history.html">Historia</a></li>
             <li class="dropdown">
-                <a href="learninghub.html">Learning Hub</a>
+                <a href="learninghub.html">Mësimet <i class="fa-solid fa-caret-down"></i></a>
                 <ul class="dropdown-content">
                     <li><a href="alfabeti.html">Alfabeti</a></li>
                     <li><a href="numrat.html">Numrat</a></li>
@@ -27,8 +27,8 @@ export async function renderHeader() {
                     <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
                 </ul>
             </li>
-            <li><a href="faq-page.html">FAQ</a></li>
-            <li id="authLink"><a href="auth.html" class="auth-link">Log in</a></li>
+            <li><a href="faq-page.html">Pyetje të Shpeshta</a></li>
+            <li id="authLink"><a href="auth.html" class="auth-link">Kyçu</a></li>
         </ul>
         <div class="hamburger">
             <span class="line"></span>
@@ -38,11 +38,11 @@ export async function renderHeader() {
     </nav>
     <div class="menubar">
     <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="history.html">History</a></li>
+        <li><a href="home.html">Kryefaqja</a></li>
+        <li><a href="about.html">Rreth nesh</a></li>
+        <li><a href="history.html">Historia</a></li>
         <li class="dropdown">
-            <a href="learninghub.html" class="dropdown-toggle">Learning Hub</a>
+            <a href="learninghub.html" class="dropdown-toggle">Mësimet <i class="fa-solid fa-caret-down"></i></a>
             <ul class="dropdown-content">
                 <li><a href="alfabeti.html">Alfabeti</a></li>
                 <li><a href="numrat.html">Numrat</a></li>
@@ -51,8 +51,8 @@ export async function renderHeader() {
                 <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
             </ul>
         </li>
-        <li><a href="faq-page.html">FAQ</a></li>
-        <li id="authLinkMobile"><a href="auth.html" class="auth-link">Log in</a></li>
+        <li><a href="faq-page.html">Pyetje të Shpeshta</a></li>
+        <li id="authLinkMobile"><a href="auth.html" class="auth-link">Kyçu</a></li>
     </ul>
 </div>
 
