@@ -1,4 +1,5 @@
-import { handleLogout } from './handleLogout.js'; 
+import { handleLogout } from './handleLogout.js';
+import API_URL from './apiUrls.js'; 
 
 const logoutModal = document.getElementById("logoutModal");
 const closeButton = document.querySelector(".close-button");
@@ -21,7 +22,7 @@ cancelLogoutButton.addEventListener("click", () => {
 export async function deleteAccount() {
     let userId;
     try {
-        const meResponse = await fetch("https://localhost:5000/api/users/me", {
+        const meResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
             method: "GET",
             credentials: "include",
         });
@@ -47,7 +48,7 @@ export async function deleteAccount() {
         logoutModal.style.display = "none"; 
 
         try {
-            const response = await fetch(`https://localhost:5000/api/users/${userId}`, {
+            const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
                 method: "DELETE",
                 credentials: "include",
             });

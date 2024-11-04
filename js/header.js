@@ -1,4 +1,5 @@
 import { enforceReloadOnBackNavigation } from './forceReload.js';
+import API_URL from './profile/apiUrls.js';
 
 export async function renderHeader() {
     enforceReloadOnBackNavigation();
@@ -20,10 +21,10 @@ export async function renderHeader() {
                 <a href="learninghub.html">Learning Hub</a>
                 <ul class="dropdown-content">
                     <li><a href="alfabeti.html">Alfabeti</a></li>
-                    <li><a href="learninghubPage2.html">Numrat</a></li>
-                    <li><a href="learninghubPage3.html">Përshëndetjet</a></li>
-                    <li><a href="seasons.html">Stinët</a></li>
-                    <li><a href="weekdays.html">Ditët e Javës</a></li>
+                    <li><a href="numrat.html">Numrat</a></li>
+                    <li><a href="pershendetjet.html">Përshëndetjet</a></li>
+                    <li><a href="stinet.html">Stinët</a></li>
+                    <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
                 </ul>
             </li>
             <li><a href="faq-page.html">FAQ</a></li>
@@ -44,10 +45,10 @@ export async function renderHeader() {
                 <a href="learninghub.html">Learning Hub</a>
                 <ul class="dropdown-content">
                     <li><a href="alfabeti.html">Alfabeti</a></li>
-                    <li><a href="learninghubPage2.html">Numrat</a></li>
-                    <li><a href="learninghubPage3.html">Përshëndetjet</a></li>
-                    <li><a href="seasons.html">Stinët</a></li>
-                    <li><a href="weekdays.html">Ditët e Javës</a></li>
+                    <li><a href="numrat.html">Numrat</a></li>
+                    <li><a href="pershendetjet.html">Përshëndetjet</a></li>
+                    <li><a href="stinet.html">Stinët</a></li>
+                    <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
                 </ul>
             </li>
             <li><a href="faq-page.html">FAQ</a></li>
@@ -74,7 +75,7 @@ export async function renderHeader() {
     });
   
     try {
-        const response = await fetch("https://localhost:5000/api/users/me", {
+        const response = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -94,7 +95,7 @@ export async function renderHeader() {
   }
   
   async function updateAuthLink(userId) {
-    const userInfoResponse = await fetch(`https://localhost:5000/api/users/${userId}`, {
+    const userInfoResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
         method: "GET",
         credentials: "include",
         headers: {
@@ -121,7 +122,7 @@ export async function renderHeader() {
   
   async function handleLogout() {
     try {
-        const response = await fetch("https://localhost:5000/api/users/logout", {
+        const response = await fetch(`${API_URL.BASE}${API_URL.USERS.LOGOUT}`, {
             method: "POST",
             credentials: "include"
         });

@@ -1,8 +1,9 @@
 import { updateUI } from './updateUI.js';
+import API_URL from './apiUrls.js';
 
 export async function fetchUserProfile() {
     try {
-        const meResponse = await fetch("https://localhost:5000/api/users/me", {
+        const meResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
             method: "GET",
             credentials: "include",
             cache: "no-cache",
@@ -18,7 +19,7 @@ export async function fetchUserProfile() {
 
         if (!userId) throw new Error("User ID is undefined");
 
-        const userResponse = await fetch(`https://localhost:5000/api/users/${userId}`, {
+        const userResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
             method: "GET",
             credentials: "include",
             cache: "no-cache",
