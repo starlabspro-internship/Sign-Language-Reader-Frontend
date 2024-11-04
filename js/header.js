@@ -14,11 +14,11 @@ export async function renderHeader() {
             </a>
         </div>
         <ul>
-            <li><a href="home.html">Kryefaqja</a></li>
-            <li><a href="about.html">Rreth nesh</a></li>
-            <li><a href="history.html">Historia</a></li>
+            <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
+            <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
             <li class="dropdown">
-                <a href="learninghub.html">Mësimet <i class="fa-solid fa-caret-down"></i></a>
+                <a href="learninghub.html"><i class="fa-solid fa-book-open"></i> Mësimet <i class="fa-solid fa-caret-down"></i></a>
                 <ul class="dropdown-content">
                     <li><a href="alfabeti.html"><i class="fa-solid fa-arrow-up-a-z"></i> Alfabeti</a></li>
                     <li><a href="numrat.html"><i class="fa-solid fa-arrow-down-1-9"></i> Numrat</a></li>
@@ -27,8 +27,8 @@ export async function renderHeader() {
                     <li><a href="ditetEJaves.html"><i class="fa-solid fa-calendar-days"></i> Ditët e Javës</a></li>
                 </ul>
             </li>
-            <li><a href="faq-page.html">Pyetje të Shpeshta</a></li>
-            <li id="authLink"><a href="auth.html" class="auth-link">Kyçu</a></li>
+            <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
+            <li id="authLink"><a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a></li>
         </ul>
         <div class="hamburger">
             <span class="line"></span>
@@ -38,21 +38,21 @@ export async function renderHeader() {
     </nav>
     <div class="menubar">
     <ul>
-        <li><a href="home.html">Kryefaqja</a></li>
-        <li><a href="about.html">Rreth nesh</a></li>
-        <li><a href="history.html">Historia</a></li>
-        <li class="dropdown">
-            <a href="learninghub.html" class="dropdown-toggle">Mësimet <i class="fa-solid fa-caret-down"></i></a>
-            <ul class="dropdown-content">
-                <li><a href="alfabeti.html">Alfabeti</a></li>
-                <li><a href="numrat.html">Numrat</a></li>
-                <li><a href="pershendetjet.html">Përshëndetjet</a></li>
-                <li><a href="stinet.html">Stinët</a></li>
-                <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
-            </ul>
-        </li>
-        <li><a href="faq-page.html">Pyetje të Shpeshta</a></li>
-        <li id="authLinkMobile"><a href="auth.html" class="auth-link">Kyçu</a></li>
+       <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
+            <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
+            <li class="dropdown">
+                <a href="learninghub.html"><i class="fa-solid fa-book-open"></i> Mësimet <i class="fa-solid fa-caret-down"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="alfabeti.html"><i class="fa-solid fa-arrow-up-a-z"></i> Alfabeti</a></li>
+                    <li><a href="numrat.html"><i class="fa-solid fa-arrow-down-1-9"></i> Numrat</a></li>
+                    <li><a href="pershendetjet.html"><i class="fa-solid fa-hand"></i> Përshëndetjet</a></li>
+                    <li><a href="stinet.html"><i class="fa-solid fa-snowflake"></i> Stinët</a></li>
+                    <li><a href="ditetEJaves.html"><i class="fa-solid fa-calendar-days"></i> Ditët e Javës</a></li>
+                </ul>
+            </li>
+            <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
+            <li id="authLink"><a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a></li>
     </ul>
 </div>
 

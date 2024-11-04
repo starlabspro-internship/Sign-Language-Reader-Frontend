@@ -44,17 +44,15 @@ export function renderFooter() {
   <hr>
   <div class="footer-flex">
    <p>Copyright &copy; 2024 Duartë. Të gjitha të drejtat e rezervuara.</p>
-    <div class="footer-social-links">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-x"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-   
+    
   </div>
 </div>
 </footer>
-
-
     `;
+    // <div class="footer-social-links">
+    //   <a href="#"><i class="fab fa-facebook-f"></i></a>
+    //   <a href="#"><i class="fab fa-x"></i></a>
+    //   <a href="#"><i class="fab fa-instagram"></i></a>
+    // </div>
   document.body.appendChild(footer);
 }
