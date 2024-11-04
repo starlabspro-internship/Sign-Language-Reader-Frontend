@@ -20,11 +20,11 @@ export async function renderHeader() {
             <li class="dropdown">
                 <a href="learninghub.html">Mësimet <i class="fa-solid fa-caret-down"></i></a>
                 <ul class="dropdown-content">
-                    <li><a href="alfabeti.html">Alfabeti</a></li>
-                    <li><a href="numrat.html">Numrat</a></li>
-                    <li><a href="pershendetjet.html">Përshëndetjet</a></li>
-                    <li><a href="stinet.html">Stinët</a></li>
-                    <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
+                    <li><a href="alfabeti.html"><i class="fa-solid fa-arrow-up-a-z"></i> Alfabeti</a></li>
+                    <li><a href="numrat.html"><i class="fa-solid fa-arrow-down-1-9"></i> Numrat</a></li>
+                    <li><a href="pershendetjet.html"><i class="fa-solid fa-hand"></i> Përshëndetjet</a></li>
+                    <li><a href="stinet.html"><i class="fa-solid fa-snowflake"></i> Stinët</a></li>
+                    <li><a href="ditetEJaves.html"><i class="fa-solid fa-calendar-days"></i> Ditët e Javës</a></li>
                 </ul>
             </li>
             <li><a href="faq-page.html">Pyetje të Shpeshta</a></li>

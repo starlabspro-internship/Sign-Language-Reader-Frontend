@@ -157,6 +157,44 @@ nav ul li a.active-page {
   display: block; /* Show dropdown content when hovering or active */
 }
 
+/* Style for dropdown menu */
+nav ul li.dropdown {
+  position: relative;
+}
+
+nav ul li.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  min-width: 180px; /* Gjërësi më e vogël për pamje të kompaktuar */
+  padding: 5px 0;
+  border-radius: 4px; /* Këndet e rrumbullakosura për dizajn më modern */
+}
+
+nav ul li.dropdown .dropdown-content li {
+  list-style: none;
+  padding: 8px 15px;
+  margin-left: 0;
+}
+
+nav ul li.dropdown .dropdown-content li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem; /* Madhësi më e vogël për pamje kompakte */
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+nav ul li.dropdown .dropdown-content li a:hover {
+  background-color: var(--light-blue); /* Ngjyrë e lehtë për efekt */
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 790px) {
   .hamburger {
     display: block;
@@ -325,40 +363,4 @@ nav ul li a.active-page {
     display: block;
     margin: 10px 0;
   }
-}
-/* Style for dropdown menu */
-nav ul li.dropdown {
-  position: relative;
-}
-
-nav ul li.dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 1;
-  min-width: 120px; /* Gjërësi më e vogël për pamje të kompaktuar */
-  padding: 5px 0;
-  border-radius: 4px; /* Këndet e rrumbullakosura për dizajn më modern */
-}
-
-nav ul li.dropdown .dropdown-content li {
-  list-style: none;
-  padding: 8px 15px;
-}
-
-nav ul li.dropdown .dropdown-content li a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  font-size: 0.9rem; /* Madhësi më e vogël për pamje kompakte */
-}
-
-nav ul li.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-nav ul li.dropdown .dropdown-content li a:hover {
-  background-color: var(--light-blue); /* Ngjyrë e lehtë për efekt */
-  border-radius: 4px;
 }
