@@ -37,24 +37,25 @@ export async function renderHeader() {
         </div>
     </nav>
     <div class="menubar">
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="history.html">History</a></li>
-            <li class="dropdown">
-                <a href="learninghub.html">Learning Hub</a>
-                <ul class="dropdown-content">
-                    <li><a href="alfabeti.html">Alfabeti</a></li>
-                    <li><a href="numrat.html">Numrat</a></li>
-                    <li><a href="pershendetjet.html">Përshëndetjet</a></li>
-                    <li><a href="stinet.html">Stinët</a></li>
-                    <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
-                </ul>
-            </li>
-            <li><a href="faq-page.html">FAQ</a></li>
-            <li id="authLinkMobile"><a href="auth.html" class="auth-link">Log in</a></li>
-        </ul>
-    </div>
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="history.html">History</a></li>
+        <li class="dropdown">
+            <a href="learninghub.html" class="dropdown-toggle">Learning Hub</a>
+            <ul class="dropdown-content">
+                <li><a href="alfabeti.html">Alfabeti</a></li>
+                <li><a href="numrat.html">Numrat</a></li>
+                <li><a href="pershendetjet.html">Përshëndetjet</a></li>
+                <li><a href="stinet.html">Stinët</a></li>
+                <li><a href="ditetEJaves.html">Ditët e Javës</a></li>
+            </ul>
+        </li>
+        <li><a href="faq-page.html">FAQ</a></li>
+        <li id="authLinkMobile"><a href="auth.html" class="auth-link">Log in</a></li>
+    </ul>
+</div>
+
     `;
   
     document.body.prepend(header);
@@ -73,6 +74,20 @@ export async function renderHeader() {
             link.classList.add('active-page');
         }
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                const dropdown = this.parentElement; 
+                dropdown.classList.toggle('active'); 
+            });
+        });
+    });
+
+    //The auth content
   
     try {
         const response = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {

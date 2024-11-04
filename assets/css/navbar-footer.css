@@ -136,9 +136,27 @@ nav ul li a.active-page {
   transition: 0.3s;
 }
 
+.menubar ul li a.auth-link{
+  color: var(--deep-blue);
+}
+
 .menubar ul li a:hover {
   background-color: var(--light-blue);
 }
+
+.dropdown-content {
+  display: none; /* Hide dropdown content by default */
+  position: relative; /* Position relative for the dropdown */
+  background: var(--deep-blue); /* Match the background color */
+  border-radius: 5px; /* Match the link styles */
+  padding: 10px 0; /* Space out dropdown items */
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
+  display: block; /* Show dropdown content when hovering or active */
+}
+
 @media screen and (max-width: 790px) {
   .hamburger {
     display: block;
@@ -146,6 +164,17 @@ nav ul li a.active-page {
   nav ul {
     display: none;
   }
+
+  .dropdown-content {
+    position: absolute; /* Position absolute for dropdown */
+    width: 100%; /* Full width for mobile dropdown */
+    left: 0; /* Align to the left */
+    z-index: 3; /* Ensure dropdown is above other content */
+}
+
+.dropdown.active .dropdown-content {
+    display: block; /* Show dropdown when active */
+}
 }
 /* Navbar styling ends*/
 
