@@ -18,6 +18,17 @@
   overflow: hidden;
 }
 
+.auth-logo-container {
+  position: absolute;
+  top: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+}
+
+.auth-logo-container img {
+  max-width: 120px; /* Adjust the size as needed */
+  height: auto;
+}
+
 .auth-form-box {
   position: absolute;
   right: 0;
@@ -107,7 +118,7 @@
   gap: 5px;
   width: 100%;
   height: 48px;
-  background: var(--light-blue);
+  background: var(--medium-blue);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border: none;
@@ -135,7 +146,7 @@
 .auth-container .social-icons a {
   display: inline-flex;
   padding: 10px;
-  border: 2px solid var(--light-blue);
+  border: 2px solid var(--medium-blue);
   border-radius: 8px;
   font-size: 24px;
   color: #333;
@@ -161,7 +172,7 @@
   left: -250%;
   width: 300%;
   height: 100%;
-  background: var(--light-blue);
+  background: var(--medium-blue);
   border-radius: 150px;
   z-index: 2;
   transition: 0.5s ease-in-out;

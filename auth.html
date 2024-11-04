@@ -18,25 +18,28 @@
   </head>
   <body>
     <section class="auth">
+    <!-- <div class="auth-logo-container">
+      <img src="photos/demo-logo.png" alt="Duart Logo" />
+    </div> -->
       <div class="auth-container">
         <!-- LoginBox -->
         <div class="auth-form-box login">
-          <form class="auth-form" action="">
+          <form class="auth-form" id="login-form">
             <h1>Log In</h1>
-            <!-- Username -->
+            <!-- Email -->
             <div class="auth-input-box">
               <input
-                id="username"
-                type="text"
-                placeholder="Username"
+                id="login-email"
+                type="email"
+                placeholder="Email"
                 required
               />
-              <i class="fa-solid fa-user"></i>
+              <i class="fa-solid fa-envelope"></i>
             </div>
             <!-- Password -->
             <div class="auth-input-box">
               <input
-                id="password"
+                id="login-password"
                 type="password"
                 placeholder="Password"
                 required
@@ -45,70 +48,79 @@
             </div>
 
             <!-- Forgot Link -->
-            <div class="forgot-link">
+            <!-- <div class="forgot-link">
               <a href="#">Forgot password?</a>
-            </div>
-            <p id="error-message" style="color: red; display: none"></p>
-            <button
-              type="submit"
-              class="auth-btn"
-              onclick="redirectToHome(event)"
-            >
+            </div> -->
+            <p id="login-error-message" style="color: red; display: none"></p>
+            <button type="submit" class="auth-btn">
               Log In <img src="photos/auth-images/confirm.webp" alt="confirm" />
             </button>
-            <p>or log in with social platforms</p>
+            <!-- <p>or log in with social platforms</p>
             <div class="social-icons">
               <a href="#"><i class="fa-brands fa-google"></i></a>
               <a href="#"><i class="fa-brands fa-github"></i></a>
               <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            </div>
+            </div> -->
           </form>
         </div>
 
         <!-- SignUp -->
         <div class="auth-form-box register">
-          <form class="auth-form" action="">
+          <form class="auth-form" id="signup-form">
             <h1>Sign Up</h1>
 
             <!-- Two Inputs in one Row -->
             <div class="auth-input-row">
               <!-- Name -->
               <div class="auth-input-box">
-                <input type="text" placeholder="Name" required />
+                <input
+                  type="text"
+                  id="signup-name"
+                  placeholder="Name"
+                  required
+                />
               </div>
               <!-- Surname -->
               <div class="auth-input-box">
-                <input type="text" placeholder="Surname" required />
+                <input
+                  type="text"
+                  id="signup-surname"
+                  placeholder="Surname"
+                  required
+                />
               </div>
-            </div>
-            <!-- One Input per Row -->
-            <!-- Username -->
-            <div class="auth-input-box">
-              <input type="text" placeholder="Username" required />
-              <i class="fa-solid fa-user"></i>
             </div>
             <!-- Email -->
             <div class="auth-input-box">
-              <input type="email" placeholder="Email" required />
+              <input
+                type="email"
+                id="signup-email"
+                placeholder="Email"
+                required
+              />
               <i class="fa-solid fa-envelope"></i>
             </div>
             <!-- Password -->
             <div class="auth-input-box">
-              <input type="password" placeholder="Password" required />
+              <input
+                type="password"
+                id="signup-password"
+                placeholder="Password"
+                required
+              />
               <i class="fa-solid fa-lock"></i>
             </div>
 
+            <p id="signup-error-message" style="color: red; display: none"></p>
+            <p id="signup-success-message" style="color: green; display: none"></p>
             <button type="submit" class="auth-btn">
               Sign Up
               <img src="photos/auth-images/raise-hand.webp" alt="raise-hand" />
             </button>
-            <p>or sign up with social platforms</p>
+            <!-- <p>or sign up with social platforms</p>
             <div class="social-icons">
               <a href="#"><i class="fa-brands fa-google"></i></a>
-              <!-- <a href="#"></a>
-          <a href="#"></a>
-          <a href="#"></a> -->
-            </div>
+            </div> -->
           </form>
         </div>
 
@@ -157,54 +169,7 @@
       loginBtn.addEventListener("click", () => {
         container.classList.remove("active");
       });
-
-      //Redirect to homepage after clicking the button
-      function redirectToHome(event) {
-        event.preventDefault();
-
-        const username = document.getElementById("username").value.trim();
-        const errorMessage = document.getElementById("error-message");
-
-        if (username && password) {
-          window.location.href = "home.html";
-        } else {
-          errorMessage.textContent = "Please enter both username and password!";
-          errorMessage.style.display = "block";
-        }
-      }
-
-      // async function handleLogin(event) {
-      //   event.preventDefault();
-
-      //   const username = document.getElementById("username").value.trim();
-      //   const password = document.getElementById("password").value.trim();
-
-      //   if (username && password) {
-      //     try {
-      //       const response = await fetch("BackendEndpoint", {
-      //         method: "POST",
-      //         headers: {
-      //           "Content-Type": "application/json",
-      //         },
-      //         body: JSON.stringify({ username, password }),
-      //       });
-      //       const data = await response.json();
-
-      //       if (response.ok) {
-      //         window.location.href = "home.html";
-      //       } else {
-      //         alert(
-      //           data.message || "Login failed. Please check your credentials."
-      //         );
-      //       }
-      //     } catch (error) {
-      //       console.error("Error during login:", error);
-      //       alert("An error occurred. Please try again later.");
-      //     }
-      //   } else {
-      //     alert("Please enter both username and password.");
-      //   }
-      //}
     </script>
+    <script type="module" src="js/auth.js"></script>
   </body>
 </html>
