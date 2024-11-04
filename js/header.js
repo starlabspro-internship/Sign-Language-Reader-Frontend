@@ -123,8 +123,8 @@ export async function renderHeader() {
   
         const authHTML = `
             <a href="profile.html" class="auth-link profile-link">${userName}</a>
-            <button class="auth-link logout-button"><i class="fa-solid fa-right-from-bracket"></i></button>
-        `;
+            `;
+            // <button class="auth-link logout-button"><i class="fa-solid fa-right-from-bracket"></i></button>
   
         document.getElementById("authLink").innerHTML = authHTML;
         document.getElementById("authLinkMobile").innerHTML = authHTML;
@@ -135,24 +135,24 @@ export async function renderHeader() {
     }
   }
   
-  async function handleLogout() {
-    try {
-        const response = await fetch(`${API_URL.BASE}${API_URL.USERS.LOGOUT}`, {
-            method: "POST",
-            credentials: "include"
-        });
+//   async function handleLogout() {
+//     try {
+//         const response = await fetch(`${API_URL.BASE}${API_URL.USERS.LOGOUT}`, {
+//             method: "POST",
+//             credentials: "include"
+//         });
   
-        if (response.ok) {
-            alert("Logged out successfully!");
-            window.location.href = "home.html";
-        } else {
-            const errorText = await response.text();
-            console.error("Logout error:", errorText);
-            alert("Logout failed: " + errorText);
-        }
-    } catch (error) {
-        console.error("Network error:", error);
-        alert("Network error occurred.");
-    }
-  }
+//         if (response.ok) {
+//             alert("Logged out successfully!");
+//             window.location.href = "home.html";
+//         } else {
+//             const errorText = await response.text();
+//             console.error("Logout error:", errorText);
+//             alert("Logout failed: " + errorText);
+//         }
+//     } catch (error) {
+//         console.error("Network error:", error);
+//         alert("Network error occurred.");
+//     }
+//   }
   
