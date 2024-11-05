@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Profile</title>
+    <title>Profili</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/profile.css" />
     <!-- Font Awesome CDN -->
@@ -24,44 +24,44 @@
                 <p class="userEmail"></p>
             </div>
             <ul class="profile-nav-options">
-                <li><a href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
-                <li><a href="#" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+                <li><a href="#"><i class="fa-solid fa-user"></i> Profili</a></li>
+                <li><a href="#" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i>Dilni</a></li>
             </ul>
             <div id="logoutModal" class="modal" style="display: none;">
                 <div class="modal-content">
                     <span class="close-button">&times;</span>
-                    <h2>Confirm Logout</h2>
-                    <p>Are you sure you want to log out?</p>
+                    <h2>Konfirmo daljen</h2>
+                    <p>Jeni të sigurt që dëshironi të dilni?</p>
                     <div class="confirmation-buttons">
-                    <button id="confirmLogoutButton">Yes, log out</button>
-                    <button id="cancelLogoutButton">Cancel</button>
+                    <button id="confirmLogoutButton">Po, dil</button>
+                    <button id="cancelLogoutButton">Anulo</button>
                 </div>
                 </div>
             </div>
         </div>
         <div class="main-content">
-            <h1>My Profile </h1>
+            <h1>Profili im </h1>
             <div id="profile">
-                <p>Name: <span class="userName"></span></p>
-                <p>Surname: <span class="userSurname"></span></p>
-                <p>Email: <span class="userEmail"></span></p>
-                <p>Phone: <span class="userPhone"></span></p>
+                <p>Emri: <span class="userName"></span></p>
+                <p>Mbiemri: <span class="userSurname"></span></p>
+                <p>E-mail: <span class="userEmail"></span></p>
+                <p>Telefoni: <span class="userPhone"></span></p>
             </div>
 
             <div class="control-buttons">
-                <button id="updateButton">Update Profile</button>
-                <button id="deleteAccountButton">Delete Account</button>
+                <button id="updateButton">Përditëso Profilin</button>
+                <button id="deleteAccountButton">Fshij Profilin</button>
                 <p id="delete-message"></p>
                 
                 <div id="updateProfileSection" style="display: none;">
-                    <h2>Update Profile</h2>
+                    <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
                     <form id="updateProfileForm">
-                        <input type="text" id="update-userName" placeholder="Update Name" required />
-                        <input type="text" id="update-userSurname" placeholder="Update Surname" required />
-                        <input type="email" id="update-userEmail" placeholder="Update Email" required />
-                        <input type="text" id="update-userPhone" placeholder="Update Phone" required />
-                        <input type="password" id="update-userPassword" placeholder="Update Password (optional)" />
-                        <button type="submit" class="submit-btn">Submit Changes</button>
+                        <input type="text" id="update-userName" placeholder="Përditëso Emrin" required />
+                        <input type="text" id="update-userSurname" placeholder="Përditëso Mbiemrim" required />
+                        <input type="email" id="update-userEmail" placeholder="Përditëso E-mailin" required />
+                        <input type="text" id="update-userPhone" placeholder="Përditëso Phone" required />
+                        <input type="password" id="update-userPassword" placeholder="Përditëso Fjalëkalimin (opsionale)" />
+                        <button type="submit" class="submit-btn">Ruaj Ndryshimet</button>
                         <p id="update-message"></p>
                     </form>
                 </div>
