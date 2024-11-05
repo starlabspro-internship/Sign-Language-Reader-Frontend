@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Language Reader</title>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/translate.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <h1 class="tran-title">Translate a word into signs</h1>
+
+    <div class="tinput">
+        <form class="translate-form">
+            <textarea id="translateInput" style="resize: none;" placeholder="Enter text to translate"></textarea>
+            <button type="submit" class="translate-input" id="translateButton">Translate into Sign</button>    
+            <button type="button" class="clear-prev" id="clearButton" style="display: none;">Clear Previous Translation</button>    
+        </form>
+        <div class="signs-holder" id="translationResults">
+            
+        </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/translate.js"></script>
+</body>
+</html>

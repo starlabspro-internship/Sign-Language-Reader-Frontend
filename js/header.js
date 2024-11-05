@@ -14,6 +14,7 @@ export async function renderHeader() {
         </div>
         <ul>
             <li><a href="home.html">Home</a></li>
+            <li><a href="translate.html">Translate</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="history.html">History</a></li>
             <li class="dropdown">
@@ -38,6 +39,7 @@ export async function renderHeader() {
     <div class="menubar">
         <ul>
             <li><a href="home.html">Home</a></li>
+            <li><a href="translate.html">Translate</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="history.html">History</a></li>
             <li class="dropdown">
