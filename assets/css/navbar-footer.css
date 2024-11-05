@@ -55,6 +55,9 @@ nav ul li a.active-page {
   border: none;
   border-radius: 4px;
 }
+.auth-link.sign-up{
+  background-color: var(--light-blue);
+}
 
 .logout-button{
   background-color: rgb(180, 117, 0);
@@ -136,16 +139,83 @@ nav ul li a.active-page {
   transition: 0.3s;
 }
 
+.menubar ul li a.auth-link{
+  color: var(--deep-blue);
+}
+
 .menubar ul li a:hover {
   background-color: var(--light-blue);
 }
-@media screen and (max-width: 790px) {
+
+.dropdown-content {
+  display: none; /* Hide dropdown content by default */
+  position: relative; /* Position relative for the dropdown */
+  background: var(--deep-blue); /* Match the background color */
+  border-radius: 5px; /* Match the link styles */
+  padding: 10px 0; /* Space out dropdown items */
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
+  display: block; /* Show dropdown content when hovering or active */
+}
+
+/* Style for dropdown menu */
+nav ul li.dropdown {
+  position: relative;
+}
+
+nav ul li.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  min-width: 180px; /* Gjërësi më e vogël për pamje të kompaktuar */
+  padding: 5px 0;
+  border-radius: 4px; /* Këndet e rrumbullakosura për dizajn më modern */
+}
+
+nav ul li.dropdown .dropdown-content li {
+  list-style: none;
+  padding: 8px 15px;
+  margin-left: 0;
+}
+
+nav ul li.dropdown .dropdown-content li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem; /* Madhësi më e vogël për pamje kompakte */
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+nav ul li.dropdown .dropdown-content li a:hover {
+  background-color: var(--light-blue); /* Ngjyrë e lehtë për efekt */
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1080px) {
   .hamburger {
     display: block;
   }
   nav ul {
     display: none;
   }
+
+  .dropdown-content {
+    position: absolute; /* Position absolute for dropdown */
+    width: 100%; /* Full width for mobile dropdown */
+    left: 0; /* Align to the left */
+    z-index: 3; /* Ensure dropdown is above other content */
+}
+
+.dropdown.active .dropdown-content {
+    display: block; /* Show dropdown when active */
+}
 }
 /* Navbar styling ends*/
 
@@ -296,40 +366,4 @@ nav ul li a.active-page {
     display: block;
     margin: 10px 0;
   }
-}
-/* Style for dropdown menu */
-nav ul li.dropdown {
-  position: relative;
-}
-
-nav ul li.dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 1;
-  min-width: 120px; /* Gjërësi më e vogël për pamje të kompaktuar */
-  padding: 5px 0;
-  border-radius: 4px; /* Këndet e rrumbullakosura për dizajn më modern */
-}
-
-nav ul li.dropdown .dropdown-content li {
-  list-style: none;
-  padding: 8px 15px;
-}
-
-nav ul li.dropdown .dropdown-content li a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  font-size: 0.9rem; /* Madhësi më e vogël për pamje kompakte */
-}
-
-nav ul li.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-nav ul li.dropdown .dropdown-content li a:hover {
-  background-color: var(--light-blue); /* Ngjyrë e lehtë për efekt */
-  border-radius: 4px;
 }

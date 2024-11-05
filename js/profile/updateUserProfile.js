@@ -1,4 +1,5 @@
 import { updateUI } from './updateUI.js';
+import API_URL from './apiUrls.js';
 
 export async function updateUserProfile(event) {
     event.preventDefault();
@@ -6,7 +7,7 @@ export async function updateUserProfile(event) {
 
     let userId;
     try {
-        const meResponse = await fetch("https://localhost:5000/api/users/me", {
+        const meResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
             method: "GET",
             credentials: "include",
         });
@@ -37,7 +38,7 @@ export async function updateUserProfile(event) {
     if (userPassword) updatedData.userPassword = userPassword;
 
     try {
-        const response = await fetch(`https://localhost:5000/api/users/${userId}`, {
+        const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedData),
