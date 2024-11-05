@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fjalori</title>
+    <link rel="stylesheet" href="./assets/css/fjalori.css"> 
+</head>
+<body>
+
+    <div class="main-content">
+    <div class="container">
+        <div class="box" onclick="openModal('./videos/pershendetje.mp4')">
+          <video src="./videos/pershendetje.mp4" muted preload="metadata" ></video>
+          <h2>Pershendetje</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/telutem.mp4')">
+          <video src="./videos/telutem.mp4" muted preload="metadata" ></video>
+          <h2>Te Lutem</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/mirupafshim.mp4')">
+          <video src="./videos/mirupafshim.mp4" muted preload="metadata" ></video>
+          <h2>Mirupafshim</h2>
+        </div>
+    
+        <div class="box" onclick="openModal('./videos/faleminderit.mp4')">
+            <video src="./videos/faleminderit.mp4" muted preload="metadata" ></video>
+            <h2>Faleminderit</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/mefal.mp4')">
+            <video src="./videos/mefal.mp4" muted preload="metadata" ></video>
+            <h2>Me Fal</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/bashkebisedim.mp4')">
+            <video src="./videos/bashkebisedim.mp4" muted preload="metadata" ></video>
+            <h2>Bashkebisedim</h2>
+          </div>
+    
+          <div class="box" onclick="openModal('./videos/shkolle.mp4')">
+            <video src="./videos/shkolle.mp4" muted preload="metadata" ></video>
+            <h2>Shkolle</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/enderr.mp4')">
+            <video src="./videos/enderr.mp4" muted preload="metadata" ></video>
+            <h2>Enderr</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/shtepi.mp4')">
+            <video src="./videos/shtepi.mp4" muted preload="metadata" ></video>
+            <h2>Shtepi</h2>
+          </div>
+    
+          <div class="box" onclick="openModal('./videos/fqinj.mp4')">
+            <video src="./videos/fqinj.mp4" muted preload="metadata" ></video>
+            <h2>Fqinj</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/lamtumire-perfundim.mp4')">
+            <video src="./videos/lamtumire-perfundim.mp4" muted preload="metadata" ></video>
+            <h2>Perfundim</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/shkoj.mp4')">
+            <video src="./videos/shkoj.mp4" muted preload="metadata" ></video>
+            <h2>Shkoj</h2>
+          </div>
+
+          <div class="box" onclick="openModal('./videos/i-yti.mp4')">
+            <video src="./videos/i-yti.mp4" muted preload="metadata" ></video>
+            <h2>i yti/ e jotja</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/urdhero.mp4')">
+            <video src="./videos/urdhero.mp4" muted preload="metadata" ></video>
+            <h2>Urdhero</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/prit.mp4')">
+            <video src="./videos/prit.mp4" muted preload="metadata" ></video>
+            <h2>Prit</h2>
+          </div>
+      
+          <div class="box" onclick="openModal('./videos/mengjes.mp4')">
+              <video src="./videos/mengjes.mp4" muted preload="metadata" ></video>
+              <h2>Mengjes</h2>
+            </div>
+            <div class="box" onclick="openModal('./videos/pasdite.mp4')">
+              <video src="./videos/pasdite.mp4" muted preload="metadata" ></video>
+              <h2>Pasdite</h2>
+            </div>
+            <div class="box" onclick="openModal('./videos/mbremje.mp4')">
+              <video src="./videos/mbremje.mp4" muted preload="metadata" ></video>
+              <h2>Mbremje</h2>
+            </div>
+      
+            <div class="box" onclick="openModal('./videos/kulture.mp4')">
+              <video src="./videos/kulture.mp4" muted preload="metadata" ></video>
+              <h2>Kulture</h2>
+            </div>
+            <div class="box" onclick="openModal('./videos/bravo.mp4')">
+              <video src="./videos/bravo.mp4" muted preload="metadata" ></video>
+              <h2>Bravo</h2>
+            </div>
+            <div class="box" onclick="openModal('./videos/praktike.mp4')">
+              <video src="./videos/praktike.mp4" muted preload="metadata" ></video>
+              <h2>Praktike</h2>
+            </div>
+      
+            <div class="box" onclick="openModal('./videos/rregull-rregullisht.mp4')">
+              <video src="./videos/rregull-rregullisht.mp4" muted preload="metadata" ></video>
+              <h2>Rregull,Rregullisht</h2>
+            </div>
+            <div class="box" onclick="openModal('./videos/ndihme.mp4')">
+              <video src="./videos/ndihme.mp4" muted preload="metadata" ></video>
+              <h2>Ndihme</h2>
+            </div>
+            <div class="box" onclick="openModal('./videos/ose.mp4')">
+              <video src="./videos/ose.mp4" muted preload="metadata" ></video>
+              <h2>Ose</h2>
+            </div>
+
+
+         
+      </div>
+    
+      <div id="videoModal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+          <video id="modalVideo" controls loop></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="closing-text">
+        <p>
+            Kjo faqe synon të sjellë më afër njerëzit duke na kujtuar rëndësinë e komunikimit përtej fjalëve të folura. Përshëndetjet në gjuhën e shenjave janë një fillim i vogël, por i rëndësishëm, për të ndërtuar një komunitet më të hapur dhe gjithëpërfshirës. Mësimi i tyre na ndihmon të krijojmë lidhje të vërteta dhe të tregojmë respekt ndaj personave me vështirësi në dëgjim. Duke e mbështetur dhe përdorur këtë gjuhë, ne kontribuojmë në ndërtimin e një shoqërie që pranon dhe vlerëson diversitetin njerëzor në të gjitha format e tij.
+        </p>
+    </div>
+    </div>
+
+
+
+
+<script src="./js/fjalori.js"></script> 
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>

@@ -37,25 +37,28 @@ body {
 #intro-text {
     margin-bottom: 20px; 
     text-align: start; 
-    width: 100%; 
+    max-width: 1100px; 
+    width: auto; 
+    padding: 0 15px;
 }
 
 #intro-text h1 {
-    font-size: 24px; /* Title font size */
-    color: #000000; /* Title color */
-    margin-bottom: 10px; /* Space below title */
+    font-size: 24px; 
+    color: #000000; 
+    margin-bottom: 10px; 
     text-align: center;
 }
 
-#intro-text p{
+#intro-text p {
     color: #000000;
+    font-size: 16px; 
 }
 
-/* Main container styling */
+
 #main-container {
-    width: 90%; /* Change to a percentage for responsiveness */
-    max-width: 950px; /* Maximum width */
-    height: auto; /* Allow height to adjust based on content */
+    width: 90%; 
+    max-width: 950px; 
+    height: auto; 
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd;
@@ -64,7 +67,6 @@ body {
     background-color: #f9f9f9;
 }
 
-/* Alphabet container */
 #alphabet {
     margin-top: 20px;
     display: flex;
@@ -73,7 +75,6 @@ body {
     justify-content: center;
 }
 
-/* Letter buttons styling */
 #alphabet button {
     width: 41px;
     height: 41px;
@@ -96,7 +97,6 @@ body {
     color: #fff;
 }
 
-/* Display container */
 #display {
     display: flex; 
     flex-direction: row;
@@ -106,9 +106,9 @@ body {
 
 
 #letterImage {
-    max-width: 350px; 
-    height: 350px; 
-    margin: 50px 50px 0 50px; 
+    max-width: 250px; 
+    height: 250px; 
+    margin: 50px 50px 20px 50px; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(4, 2, 51, 0.6); 
 }
@@ -117,7 +117,7 @@ body {
     font-size: 18px;
     color: #000000;
     font-weight: 800;
-    margin-left: 80px;
+    margin-left: 30px;
 }
 
 
@@ -145,10 +145,10 @@ body {
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
     #intro-text h1 {
-        font-size: 22px; /
+        font-size: 22px; /* Reduce font size */
     }
-    #letterDescription {
-        font-size: 16px; /* Reduce margin */
+    #intro-text p {
+        font-size: 15px; /* Adjust paragraph font size */
     }
 }
 
@@ -164,6 +164,12 @@ body {
 
     #letterDescription {
         margin-left: 20px; 
+    }
+    #intro-text h1 {
+        font-size: 20px; /* Further reduce font size */
+    }
+    #intro-text p {
+        font-size: 14px; /* Adjust paragraph font size */
     }
 }
 
@@ -186,6 +192,12 @@ body {
         width: 100%; 
         height: 45px; 
     }
+    #intro-text h1 {
+        font-size: 18px; /* Further reduce font size */
+    }
+    #intro-text p {
+        font-size: 13px; /* Adjust paragraph font size */
+    }
 }
 
 @media (max-width: 576px) {
@@ -201,5 +213,11 @@ body {
 
     #startQuiz {
         height: 40px; 
+    }
+    #intro-text h1 {
+        font-size: 16px; /* Minimum font size for small devices */
+    }
+    #intro-text p {
+        font-size: 12px; /* Minimum paragraph font size */
     }
 }
