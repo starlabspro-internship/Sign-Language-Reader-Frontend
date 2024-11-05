@@ -7,7 +7,6 @@ export async function renderHeader() {
   
     header.innerHTML = `
     <nav>
-
         <div class="logo">
             <a href="home.html">
                 <img src="photos/demo-logo.png" alt="logo" />
@@ -28,7 +27,9 @@ export async function renderHeader() {
                 </ul>
             </li>
             <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
-            <li id="authLink"><a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a></li>
+            <li id="authLinks">
+                <!-- Authentication links will be injected here -->
+            </li>
         </ul>
         <div class="hamburger">
             <span class="line"></span>
@@ -38,24 +39,25 @@ export async function renderHeader() {
     </nav>
     <div class="menubar">
     <ul>
-       <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
-            <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
-            <li class="dropdown">
-                <a href="learninghub.html"><i class="fa-solid fa-book-open"></i> Mësimet <i class="fa-solid fa-caret-down"></i></a>
-                <ul class="dropdown-content">
-                    <li><a href="alfabeti.html"><i class="fa-solid fa-arrow-up-a-z"></i> Alfabeti</a></li>
-                    <li><a href="numrat.html"><i class="fa-solid fa-arrow-down-1-9"></i> Numrat</a></li>
-                    <li><a href="pershendetjet.html"><i class="fa-solid fa-hand"></i> Përshëndetjet</a></li>
-                    <li><a href="stinet.html"><i class="fa-solid fa-snowflake"></i> Stinët</a></li>
-                    <li><a href="ditetEJaves.html"><i class="fa-solid fa-calendar-days"></i> Ditët e Javës</a></li>
-                </ul>
-            </li>
-            <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
-            <li id="authLink"><a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a></li>
+        <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
+        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
+        <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
+        <li class="dropdown">
+            <a href="learninghub.html"><i class="fa-solid fa-book-open"></i> Mësimet <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-content">
+                <li><a href="alfabeti.html"><i class="fa-solid fa-arrow-up-a-z"></i> Alfabeti</a></li>
+                <li><a href="numrat.html"><i class="fa-solid fa-arrow-down-1-9"></i> Numrat</a></li>
+                <li><a href="pershendetjet.html"><i class="fa-solid fa-hand"></i> Përshëndetjet</a></li>
+                <li><a href="stinet.html"><i class="fa-solid fa-snowflake"></i> Stinët</a></li>
+                <li><a href="ditetEJaves.html"><i class="fa-solid fa-calendar-days"></i> Ditët e Javës</a></li>
+            </ul>
+        </li>
+        <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
+        <li id="authLinksMobile">
+            <!-- Authentication links for mobile view will be injected here -->
+        </li>
     </ul>
 </div>
-
     `;
   
     document.body.prepend(header);
@@ -75,20 +77,7 @@ export async function renderHeader() {
         }
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(event) {
-                event.preventDefault(); 
-                const dropdown = this.parentElement; 
-                dropdown.classList.toggle('active'); 
-            });
-        });
-    });
-
-    //The auth content
-  
+    // Authentication logic
     try {
         const response = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
             method: "GET",
@@ -102,14 +91,22 @@ export async function renderHeader() {
             const { userId } = await response.json();
             await updateAuthLink(userId);
         } else {
-            // console.log("User is not logged in.");
+            // If the user is not logged in, show login and signup links
+            document.getElementById("authLinks").innerHTML = `
+                <a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
+                <a href="auth.html?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
+            `;
+            document.getElementById("authLinksMobile").innerHTML = `
+                <a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
+                <a href="auth.html?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
+            `;
         }
     } catch (error) {
         console.error("Error checking login status:", error);
     }
-  }
-  
-  async function updateAuthLink(userId) {
+}
+
+async function updateAuthLink(userId) {
     const userInfoResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
         method: "GET",
         credentials: "include",
@@ -121,19 +118,13 @@ export async function renderHeader() {
     if (userInfoResponse.ok) {
         const { userName } = await userInfoResponse.json();
   
-        const authHTML = `
-            <a href="profile.html" class="auth-link profile-link">${userName}</a>
-            `;
-            // <button class="auth-link logout-button"><i class="fa-solid fa-right-from-bracket"></i></button>
+        const authHTML = `<a href="profile.html" class="auth-link profile-link">${userName}</a>`;
   
-        document.getElementById("authLink").innerHTML = authHTML;
-        document.getElementById("authLinkMobile").innerHTML = authHTML;
-  
-        document.querySelectorAll(".logout-button").forEach(button => {
-            button.addEventListener("click", handleLogout);
-        });
+        document.getElementById("authLinks").innerHTML = authHTML;
+        document.getElementById("authLinksMobile").innerHTML = authHTML;
     }
-  }
+}
+
   
 //   async function handleLogout() {
 //     try {

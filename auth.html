@@ -65,7 +65,7 @@
         </div>
 
         <!-- SignUp -->
-        <div class="auth-form-box register">
+        <div class="auth-form-box register" id="signup-section">
           <form class="auth-form" id="signup-form">
             <h1>Krijo llogari</h1>
 
@@ -159,16 +159,30 @@
     </section>
 
     <script>
-      const container = document.querySelector(".auth-container");
-      const registerBtn = document.querySelector(".register-btn");
-      const loginBtn = document.querySelector(".login-btn");
 
-      registerBtn.addEventListener("click", () => {
-        container.classList.add("active");
-      });
-      loginBtn.addEventListener("click", () => {
-        container.classList.remove("active");
-      });
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".auth-container");
+    const registerBtn = document.querySelector(".register-btn");
+    const loginBtn = document.querySelector(".login-btn");
+
+    // Show signup form if URL has ?signup=true
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("signup") === "true") {
+      container.classList.add("active");
+    }
+
+    // Toggle to signup form on register button click
+    registerBtn.addEventListener("click", () => {
+      container.classList.add("active");
+      window.history.pushState({}, "", "?signup=true"); // Update URL
+    });
+
+    // Toggle to login form on login button click
+    loginBtn.addEventListener("click", () => {
+      container.classList.remove("active");
+      window.history.pushState({}, "", "?signup=false"); // Update URL
+    });
+  });
     </script>
     <script type="module" src="js/auth.js"></script>
   </body>
