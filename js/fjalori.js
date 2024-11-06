@@ -33,6 +33,10 @@ document.querySelectorAll('.box video').forEach(video => {
     modalVideo.src = ""; 
   }
 
+  function navigateTo(page) {
+    window.location.href = page;
+}
+
 
 
 

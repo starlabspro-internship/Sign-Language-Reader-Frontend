@@ -17,16 +17,7 @@ export async function renderHeader() {
             <li><a href="translate.html">Translate</a></li>
             <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
             <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
-            <li class="dropdown">
-                <a href="learninghub.html"><i class="fa-solid fa-book-open"></i> Mësimet <i class="fa-solid fa-caret-down"></i></a>
-                <ul class="dropdown-content">
-                    <li><a href="alfabeti.html"><i class="fa-solid fa-arrow-up-a-z"></i> Alfabeti</a></li>
-                    <li><a href="numrat.html"><i class="fa-solid fa-arrow-down-1-9"></i> Numrat</a></li>
-                    <li><a href="fjalori.html"><i class="fa-solid fa-book"></i> Fjalori</a></li>
-                    <li><a href="stinet.html"><i class="fa-solid fa-snowflake"></i> Stinët</a></li>
-                    <li><a href="ditetEJaves.html"><i class="fa-solid fa-calendar-days"></i> Ditët e Javës</a></li>
-                </ul>
-            </li>
+            <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
             <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
             <li id="authLinks">
                 <!-- Authentication links will be injected here -->
@@ -44,16 +35,7 @@ export async function renderHeader() {
         <li><a href="translate.html">Translate</a></li>
         <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
         <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
-        <li class="dropdown">
-            <a href="learninghub.html"><i class="fa-solid fa-book-open"></i> Mësimet <i class="fa-solid fa-caret-down"></i></a>
-            <ul class="dropdown-content">
-                <li><a href="alfabeti.html"><i class="fa-solid fa-arrow-up-a-z"></i> Alfabeti</a></li>
-                <li><a href="numrat.html"><i class="fa-solid fa-arrow-down-1-9"></i> Numrat</a></li>
-                <li><a href="fjalori.html"><i class="fa-solid fa-book"></i></i> Fjalori</a></li>
-                <li><a href="stinet.html"><i class="fa-solid fa-snowflake"></i> Stinët</a></li>
-                <li><a href="ditetEJaves.html"><i class="fa-solid fa-calendar-days"></i> Ditët e Javës</a></li>
-            </ul>
-        </li>
+        <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
         <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
         <li id="authLinksMobile">
             <!-- Authentication links for mobile view will be injected here -->

@@ -114,6 +114,31 @@ h2 {
   margin-bottom: 30px;
 }
 
+.butonat{
+    display: flex;
+    justify-content: center;
+}
+
+#goBack {
+    background-color: var(--deep-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    margin: 20px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px;
+    height: 50px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#goBack:hover {
+    background-color: #6c84b4;
+    transform: scale(1.05);
+}
+
 /* Responsive */
 
 @media (max-width: 1024px) {
@@ -124,6 +149,13 @@ h2 {
     font-size: 1em; /* Slightly smaller font size */
     padding: 15px; /* Adjust padding */
   }
+
+  #goBack {
+    width: 160px;
+    height: 45px;
+    font-size: 13px;
+    padding: 8px 18px;
+}
 
 }
 
@@ -147,6 +179,14 @@ h2 {
     margin: 15px;
   }
 
+  #goBack {
+    width: 140px;
+    height: 45px;
+    font-size: 12px;
+    padding: 8px 16px;
+}
+
+
 }
 
 @media (max-width: 480px) {
@@ -167,4 +207,6 @@ h2 {
     padding: 5px; 
     margin: 10px;
   }
+
+
 }
