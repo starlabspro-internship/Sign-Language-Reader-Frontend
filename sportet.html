@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportet</title>
+    <link rel="stylesheet" href="./assets/css/sportet.css"> 
+</head>
+<body>
+
+<div class="main-content">
+
+    <div class="container">
+        <div class="box" onclick="openModal('./videos/sportet/futboll.mp4')">
+          <img src="./photos/sportet/football.jpg" alt="E Hënë">
+          <h2>Futboll</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/sportet/basketboll.mp4')">
+          <img src="./photos/sportet/basketball.jpg" alt="E Mërkurë">
+          <h2>Basketboll</h2>
+
+        </div>
+        <div class="box" onclick="openModal('./videos/sportet/volejboll.mp4')">
+            <img src="./photos/sportet/voleyball.jpg" alt="E Enjete">
+            <h2>Volejboll</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/sportet/hendboll.mp4')">
+            <img src="./photos/sportet/handball.jpg" alt="E Shtune">
+            <h2>Hendboll</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/sportet/tenis.mp4')">
+            <img src="./photos/sportet/tennis.jpg" alt="E Premte">
+            <h2>Tenis</h2>
+          </div>
+
+          <div class="box" onclick="openModal('./videos/sportet/not.mp4')">
+            <img src="photos/sportet/noti.png" alt="E Martë">
+            <h2>Not</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/sportet/golf.mp4')">
+            <img src="./photos/sportet/golf.jpg" alt="E Diel">
+            <h2>Golf</h2>
+          </div>
+
+          <div class="box" onclick="openModal('./videos/sportet/shah.mp4')">
+            <img src="photos/sportet/shah.jpg" alt="E Martë">
+            <h2>Shah</h2>
+          </div>
+          <div class="box" onclick="openModal('./videos/sportet/boks.mp4')">
+            <img src="./photos/sportet/boks.png" alt="E Diel">
+            <h2>Boks</h2>
+          </div>
+
+    </div>
+
+    <div id="videoModal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+          <video id="modalVideo" controls loop></video>
+        </div>
+    </div>
+</div>
+
+<div class="butonat">
+    <button id="goBack" onclick="navigateTo('mesimet.html')">Kthehu te Mësimet</button>
+</div>
+
+<script src="./js/sportet.js"></script> 
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
