@@ -20,19 +20,53 @@ body {
   background-color: #f4f4f4;
 }
 
-.main-content {
+.container {
+  margin-top: 20px;
+  text-align: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  position: relative;
+  width: 50%;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-bar .fa-magnifying-glass {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #666;
+}
+
+.titulli {
   display: flex;
   justify-content: center;
 }
 
-.container {
-  margin-top: 30px;
+.grid-container {
   display: grid;
-  gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   padding: 20px;
-  max-width: 1200px;
-  width: 100%; 
+  grid-auto-rows: minmax(200px, auto);
 }
 
 .box {
@@ -102,111 +136,105 @@ h2 {
 }
 
 .closing-text {
-  grid-column: 1 / -1; 
+  grid-column: 1 / -1;
   color: black;
   padding: 20px;
   border-radius: 10px;
-  text-align: start; 
+  text-align: start;
   line-height: 1.6;
   box-shadow: 8px 8px 8px rgba(22, 81, 183, 0.1);
-  margin: 20px auto 0; 
-  max-width: 900px; 
+  margin: 20px auto 0;
+  max-width: 900px;
   margin-bottom: 30px;
 }
 
-.butonat{
-    display: flex;
-    justify-content: center;
+.butonat {
+  display: flex;
+  justify-content: center;
 }
 
 #goBack {
-    background-color: var(--deep-blue);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 14px;
-    margin: 20px 0;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 180px;
-    height: 50px;
-    transition: background-color 0.3s, transform 0.2s;
+  background-color: var(--deep-blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  margin: 20px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 180px;
+  height: 50px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 #goBack:hover {
-    background-color: #6c84b4;
-    transform: scale(1.05);
+  background-color: #6c84b4;
+  transform: scale(1.05);
 }
 
-/* Responsive */
+/* Media Queries for Responsiveness */
 
+/* Medium devices (tablets, 1024px and below) */
 @media (max-width: 1024px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr); 
+  .search-bar {
+    width: 80%;
   }
-  .closing-text {
-    font-size: 1em; /* Slightly smaller font size */
-    padding: 15px; /* Adjust padding */
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Adjust grid layout for 2 columns */
+    gap: 15px;
   }
-
+  .box {
+    height: 250px; /* Make the boxes slightly taller for better aspect ratio */
+  }
   #goBack {
     width: 160px;
     height: 45px;
     font-size: 13px;
     padding: 8px 18px;
+  }
 }
 
-}
-
+/* Small devices (tablets, 768px and below) */
 @media (max-width: 768px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 15px; 
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 15px;
   }
-
   .box {
-    height: 250px;
+    height: 230px;
   }
-
-  .modal-content {
-    max-width: 300px; 
-    height: auto; 
-  }
-  .closing-text {
-    font-size: 0.9em; /* Smaller font size */
-    padding: 10px; /* Adjust padding */
-    margin: 15px;
-  }
-
   #goBack {
     width: 140px;
     height: 45px;
     font-size: 12px;
     padding: 8px 16px;
+  }
 }
 
-
-}
-
+/* Extra small devices (phones, 480px and below) */
 @media (max-width: 480px) {
-  .container {
-    grid-template-columns: 1fr; 
-    gap: 10px; 
+  .search-bar input[type="text"] {
+    font-size: 14px; /* Adjust font size of the input for smaller screens */
+    padding: 10px 15px 10px 35px; /* Adjust padding */
   }
-
   .box {
-    height: 200px; 
+    height: 200px; /* Reduce box height */
   }
-
   .modal-content {
     width: 90%;
-    max-width: 250px; 
+    max-width: 250px;
+    height: auto;
   }
   .closing-text {
-    padding: 5px; 
+    font-size: 0.9em; /* Smaller font size */
+    padding: 10px;
     margin: 10px;
   }
-
-
+  #goBack {
+    width: 130px;
+    height: 40px;
+    font-size: 12px;
+    padding: 8px 14px;
+  }
 }
