@@ -52,6 +52,9 @@
       <!-- Main content -->
       <div class="main-content users-main-content">
         <h1 class="users-page-title">Përdoruesit</h1>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Kërko nga emri..." oninput="handleSearch()">
+        </div>
         <div class="users-list users-table-container">
           <table class="users-table">
             <thead class="users-table-head">
@@ -67,6 +70,13 @@
               <!-- User rows will be dynamically inserted here -->
             </tbody>
           </table>
+        </div>
+        <div id="updateProfileSection" style="display:none;">
+          <input type="text" id="update-userName" placeholder="Name">
+          <input type="text" id="update-userSurname" placeholder="Surname">
+          <input type="email" id="update-userEmail" placeholder="Email">
+          <input type="tel" id="update-userPhone" placeholder="Phone">
+          <button id="saveChanges">Save Changes</button>
         </div>
       </div>
       
