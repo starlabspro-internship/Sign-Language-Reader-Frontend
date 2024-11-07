@@ -1,89 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seasons in Sign Language Animation</title>
-  <link rel="stylesheet" href="assets/css/stinet.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-</head>
-<body>
-    <img src="photos/right.jpg" alt="Dora e majtë" class="hands left-hand">
-    <img src="photos/hands.jpg" alt="Dora e djathtë" class="hands right-hand">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seasons in Sign Language Animation</title>
+    <link rel="stylesheet" href="assets/css/stinet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <img src="photos/right.jpg" alt="Dora e majtë" class="hands left-hand" />
+    <img src="photos/hands.jpg" alt="Dora e djathtë" class="hands right-hand" />
 
-
-  <!-- Description of Seasons in Sign Language -->
-<div id="description-box">
-    <h1></h1>
-    <p>Stinët janë një element i rëndësishëm i natyrës që ndikojnë në jetën tonë të përditshme, dhe përmes gjuhës së shenjave, ne mund t’i shprehëm ato në mënyrë të veçantë.
-        <li> Pranvera sjell ngjyra të gjalla dhe aroma lulesh, duke simbolizuar rinovimin dhe shpresën.</li> 
-        <li>Vera është koha për aventurë dhe relaksim, përmes shenjave ne shprehim gëzimin e pushimeve nën diell dhe përjetimet e veçanta. </li>
-        <li>Vjeshta, me ngjyrat e saj të ngrohta, na fton të reflektojmë dhe të ndajmë bukurinë e fryteve të pjekura, duke përdorur shenjat për të treguar historitë tona.</li>
-        <li> Ndërsa dimri na mbulon me dëborë, ai sjell momente ngrohtësie dhe festash, ku komunikimi në gjuhën e shenjave na ndihmon të ndajmë gëzimin dhe traditat tona. Çdo stinë, e përshkruar përmes shenjave, na ofron një mundësi për të shprehur emocionet dhe për të krijuar lidhje të thella me natyrën dhe njeri-tjetrin.</li>
-    </p>
-    <p style="font-weight: bold; margin-top: 20px;">Duke klikuar në kutitë më poshtë, shikoni stinët të demonstruara në gjuhën e shenjave.</p>
-</div>
-
-  <!-- HTML Structure -->
-  <div id="season-container">
-    <div class="season" id="spring">Pranvera</div>
-    <div class="season" id="summer">Vera</div>
-    <div class="season" id="fall">Vjeshta</div>
-    <div class="season" id="winter">Dimri</div>
-  </div>
-
-  <!-- Video Modal -->
-  <div id="video-modal">
-    <div class="modal-content">
-      <video id="season-video" controls>
-        <source src="" type="video/mp4"> <!-- Empty source to be set dynamically -->
-        Your browser does not support the video tag.
-      </video>
-      <div id="close-btn">Mbylle</div>
+    <!-- Description of Seasons in Sign Language -->
+    <div id="description-box">
+      <h1></h1>
+      <p>
+        Stinët janë një element i rëndësishëm i natyrës që ndikojnë në jetën
+        tonë të përditshme, dhe përmes gjuhës së shenjave, ne mund t’i shprehëm
+        ato në mënyrë të veçantë.
+        <li>
+          Pranvera sjell ngjyra të gjalla dhe aroma lulesh, duke simbolizuar
+          rinovimin dhe shpresën.
+        </li>
+        <li>
+          Vera është koha për aventurë dhe relaksim, përmes shenjave ne shprehim
+          gëzimin e pushimeve nën diell dhe përjetimet e veçanta.
+        </li>
+        <li>
+          Vjeshta, me ngjyrat e saj të ngrohta, na fton të reflektojmë dhe të
+          ndajmë bukurinë e fryteve të pjekura, duke përdorur shenjat për të
+          treguar historitë tona.
+        </li>
+        <li>
+          Ndërsa dimri na mbulon me dëborë, ai sjell momente ngrohtësie dhe
+          festash, ku komunikimi në gjuhën e shenjave na ndihmon të ndajmë
+          gëzimin dhe traditat tona. Çdo stinë, e përshkruar përmes shenjave, na
+          ofron një mundësi për të shprehur emocionet dhe për të krijuar lidhje
+          të thella me natyrën dhe njeri-tjetrin.
+        </li>
+      </p>
+      <p style="font-weight: bold; margin-top: 20px">
+        Duke klikuar në kutitë më poshtë, shikoni stinët të demonstruara në
+        gjuhën e shenjave.
+      </p>
     </div>
-  </div>
 
-  <!-- JavaScript for Animations and Video Modal -->
-  <script>
-    const seasons = document.querySelectorAll(".season");
-    const videoModal = document.getElementById("video-modal");
-    const seasonVideo = document.getElementById("season-video");
-    const closeBtn = document.getElementById("close-btn");
+    <!-- HTML Structure -->
+    <div id="season-container">
+      <div class="season" id="spring">Pranvera</div>
+      <div class="season" id="summer">Vera</div>
+      <div class="season" id="fall">Vjeshta</div>
+      <div class="season" id="winter">Dimri</div>
+    </div>
 
-    const videoSources = {
-      spring: "photos/spring.mp4",
-      summer: "photos/vera.mp4",
-      fall: "photos/vjeshta.mp4",
-      winter: "photos/dimri.mp4"
-    };
+    <!-- Video Modal -->
+    <div id="video-modal">
+      <div class="modal-content">
+        <video id="season-video" controls>
+          <!-- <source src="placeholder.jpg" type="video/mp4" /> -->
+          <!-- Empty source to be set dynamically -->
+          Your browser does not support the video tag.
+        </video>
+        <div id="close-btn">Mbylle</div>
+      </div>
+    </div>
 
-    seasons.forEach((season) => {
-      season.addEventListener("click", () => {
-        // Set video source based on the season clicked
-        seasonVideo.src = videoSources[season.id];
-        videoModal.style.display = "flex"; // Show modal with flexbox centering
-        seasonVideo.play(); // Play video
+    <!-- JavaScript for Animations and Video Modal -->
+    <script>
+      const seasons = document.querySelectorAll(".season");
+      const videoModal = document.getElementById("video-modal");
+      const seasonVideo = document.getElementById("season-video");
+      const closeBtn = document.getElementById("close-btn");
 
-        // Add the animate class to trigger the animation
-        season.classList.add("animate");
+      const videoSources = {
+        spring: "photos/spring.mp4",
+        summer: "photos/vera.mp4",
+        fall: "photos/vjeshta.mp4",
+        winter: "photos/dimri.mp4",
+      };
 
-        // Remove the animate class after the animation duration to reset it
-        setTimeout(() => {
-          season.classList.remove("animate");
-        }, 500);
+      seasons.forEach((season) => {
+        season.addEventListener("click", () => {
+          // Set video source based on the season clicked
+          seasonVideo.src = videoSources[season.id];
+          videoModal.style.display = "flex"; // Show modal with flexbox centering
+          seasonVideo.play(); // Play video
+
+          // Add the animate class to trigger the animation
+          season.classList.add("animate");
+
+          // Remove the animate class after the animation duration to reset it
+          setTimeout(() => {
+            season.classList.remove("animate");
+          }, 500);
+        });
       });
-    });
 
-    // Close modal
-    closeBtn.addEventListener("click", () => {
+      // Close modal
+      closeBtn.addEventListener("click", () => {
         videoModal.style.display = "none";
         document.body.style.overflow = "auto"; // Restore body overflow
         seasonVideo.pause();
         seasonVideo.currentTime = 0; // Reset the video time
       });
-  </script>
-  <script type="module" src="./js/app.js"></script>
-
-</body>
+    </script>
+    <script type="module" src="./js/app.js"></script>
+  </body>
 </html>
