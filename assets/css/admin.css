@@ -1,0 +1,6 @@
+@import "profile.css";
+
+.sidebar {
+  background: var(--deep-blue);
+  color: var(--cream);
+}
