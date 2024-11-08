@@ -10,26 +10,6 @@
   --font-family: 'Montserrat', sans-serif;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-}
 
 .top-content {
   width: 100%;
@@ -43,6 +23,7 @@ body {
 }
 
 .top-content h1 {
+  margin: auto;
   text-align: center;
   color: var(--deep-blue);
   font-size: 2.5rem;
@@ -57,13 +38,14 @@ body {
 }
 
 .bottom-content {
+  margin: auto;
   width: 100%;
   max-width: 1000px;
   margin-top: 20px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background: linear-gradient(to bottom, #f4e6c9, white);
   display: grid;
   justify-content: center;
   margin-bottom: calc(60px + 20px);
@@ -81,7 +63,7 @@ body {
   background-color: var(--deep-blue);
   color: white;
   border: none;
-  padding: 12px 18px;
+  padding: 10px 15px;
   font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s;
@@ -104,14 +86,14 @@ body {
   width: 100%;
 }
 
-#sign-image {
-  max-width: 100%;
+#sign-video {
+  max-width: 70%;
   height: auto;
   margin: auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   object-fit: cover;
-}
+} 
 
 /* Pagination */
 .pagination {
@@ -126,14 +108,14 @@ body {
   padding-top: 10px;
 }
 
-ul {
+#pagination-links {
   margin: 0;
   padding: 0;
   display: flex;
   list-style-type: none;
 }
 
-ul li {
+#pagination-links li {
   margin: 0 12px;
   width: 50px;
   height: 50px;
@@ -146,14 +128,14 @@ ul li {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-ul li.active {
+#pagination-links li.active {
   background-image: linear-gradient(135deg, #4a9eb7, #ead8b1);
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transform: scale(1.1);
 }
 
-ul li:hover:not(.active) {
+#pagination-links li:hover:not(.active) {
   background-color: var(--light-blue);
   color: var(--deep-blue);
 }
@@ -174,7 +156,7 @@ ul li:hover:not(.active) {
 .prev:hover,
 .next:hover {
   color: var(--medium-blue);
-}
+} 
 
 /* Responsive Adjustments */
 @media screen and (max-width: 1200px) {
@@ -199,7 +181,7 @@ ul li:hover:not(.active) {
     padding: 10px 15px;
   }
   
-  .pagination ul li {
+  .pagination #pagination-links li {
     font-size: 1.2rem;
   }
 }
@@ -226,7 +208,7 @@ ul li:hover:not(.active) {
     padding: 8px 12px;
   }
 
-  .pagination ul li {
+  .pagination #pagination-links li {
     font-size: 1.1rem;
     width: 40px;
     height: 40px;
@@ -234,42 +216,103 @@ ul li:hover:not(.active) {
   }
 }
 
-@media screen and (max-width: 600px) {
-  body {
-    padding: 15px;
-  }
+/* Mobile-specific Adjustments */
+@media screen and (max-width: 768px) {
+  
+    .container {
+      margin-top: 20px;
+      padding: 10px;
+    }
+  
+    /* Top Content */
+    .top-content h1 {
+      font-size: 1.4rem;
+    }
+  
+    .top-content p {
+      font-size: 0.85rem;
+    }
+  
+    /* Video size adjustment for mobile */
+    #sign-video {
+      width: 100%;
+      max-width: 400px; /* Set a max-width to keep it centered and in view */
+      height: auto;
+      margin: auto;
+      border-radius: 8px;
+    }
+  
+    /* Button adjustments */
+    .button-container {
+      gap: 8px;
+      justify-content: center;
+    }
+  
+    .button {
+      font-size: 14px;
+      padding: 8px;
+      min-width: 50px;
+      border-radius: 5px;
+    }
+  
+    /* Pagination adjustments */
+    .pagination {
+      padding: 5px 0px;
+      display: grid;
+      grid-row: 3;
+      justify-content: center; 
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  
+    #pagination-links {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;  
+    }
 
-  .top-content h1 {
-    font-size: 1.5rem;
-  }
+    .pagination #pagination-links li {
+      font-size: 1rem;
+      width: 25px;
+      height: 25px;
+      line-height: 35px;
+      margin: 5px;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-  .top-content p {
-    font-size: 0.85rem;
-  }
+    /* Active state for pagination items */
+    .pagination #pagination-links li.active {
+      background-image: linear-gradient(135deg, #4a9eb7, #ead8b1);
+      color: white;
+      transform: scale(1.1);
+    }
 
-  .button-container {
-    gap: 5px;
-  }
+    /* Hover effect for pagination items */
+    .pagination #pagination-links li:hover:not(.active) {
+      background-color: var(--light-blue);
+      color: var(--deep-blue);
+    }
 
-  .button {
-    font-size: 14px;
-    padding: 6px 10px;
-    min-width: 60px;
-  }
+    /* Prev and Next button styling */
+    .prev, .next {
+      font-size: 1.2rem;
+      padding: 5px;
+      margin: 0 10px;
+      background-color: transparent;
+      color: var(--deep-blue);
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
 
-  .pagination ul li {
-    font-size: 1rem;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-  }
-
-  #sign-image {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .pagination {
-    padding: 5px 10px;
-  }
+    .prev:hover, .next:hover {
+      color: var(--medium-blue);
+    }
 }
+
+    
