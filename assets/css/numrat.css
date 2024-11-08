@@ -1,0 +1,275 @@
+/* Numrat II */
+@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
+@import "navbar-footer.css";
+
+:root {
+  --deep-blue: #001f3f;
+  --medium-blue: #3a6d8c;
+  --light-blue: #6a9ab0;
+  --cream: #ead8b1;
+  --font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.top-content {
+  width: 100%;
+  max-width: 900px;
+  font-family: var(--font-family);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.top-content h1 {
+  text-align: center;
+  color: var(--deep-blue);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.top-content p {
+  margin: 15px 0;
+  text-align: justify;
+  color: var(--deep-blue);
+  font-size: 1rem;
+}
+
+.bottom-content {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: grid;
+  justify-content: center;
+  margin-bottom: calc(60px + 20px);
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: var(--deep-blue);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  border-radius: 5px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: var(--medium-blue);
+  transform: scale(1.1);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+#sign-image {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 5px 30px;
+  bottom: 0;
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+ul li {
+  margin: 0 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+ul li.active {
+  background-image: linear-gradient(135deg, #4a9eb7, #ead8b1);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+ul li:hover:not(.active) {
+  background-color: var(--light-blue);
+  color: var(--deep-blue);
+}
+
+.prev, .next {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--deep-blue);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  color: var(--medium-blue);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1200px) {
+  .container {
+    margin-top: 20px;
+  }
+
+  .top-content h1 {
+    font-size: 2rem;
+  }
+
+  .top-content p {
+    font-size: 0.95rem;
+  }
+
+  .button-container {
+    gap: 10px;
+  }
+
+  .button {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+  
+  .pagination ul li {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .top-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .top-content p {
+    font-size: 0.9rem;
+  }
+
+  .bottom-content {
+    padding: 15px;
+  }
+
+  .button-container {
+    gap: 8px;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .pagination ul li {
+    font-size: 1.1rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  .top-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .top-content p {
+    font-size: 0.85rem;
+  }
+
+  .button-container {
+    gap: 5px;
+  }
+
+  .button {
+    font-size: 14px;
+    padding: 6px 10px;
+    min-width: 60px;
+  }
+
+  .pagination ul li {
+    font-size: 1rem;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+  }
+
+  #sign-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .pagination {
+    padding: 5px 10px;
+  }
+}
