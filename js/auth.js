@@ -44,7 +44,28 @@ document
       const result = await response.json();
 
       if (response.ok) {
-        window.location.href = "profile.html";
+        const userId = result.userId;  
+
+        // Fetch additional user details
+        const userDetailsResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
+          method: "GET",
+          credentials: "include",
+        });
+
+        if (userDetailsResponse.ok) {
+          const userDetails = await userDetailsResponse.json();
+
+          // Check if the user is an admin
+          if (userDetails.userIsAdmin) {
+            window.location.href = "admin.html"; 
+          } else {
+            window.location.href = "profile.html"; 
+          }
+        } else {
+          console.error("Failed to fetch user details.");
+          errorMessage.textContent = "Failed to fetch user details. Please try again.";
+          errorMessage.style.display = "block";
+        }
       } else {
         errorMessage.textContent =
           result.message || "Login failed! Please check your credentials.";
