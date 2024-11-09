@@ -39,24 +39,23 @@
   color: white;
   text-decoration: none;
   font-size: 16px;
-  transition: color 0.3s; 
+  transition: color 0.2s; 
 }
 
 .profile-nav-options a:hover {
-  color: var(--cream); 
+  color: var(--medium-blue); 
 }
 
 .profile-nav-options #logoutButton{
-  background-color: var(--cream);
+  background-color: var(--light-blue);
   padding: 10px;
   border-radius: 4px;
-  color: var(--deep-blue);
+  color: #fff;
   transition: .3s ease;
 }
 
 .profile-nav-options #logoutButton:hover{
-  background-color: var(--deep-blue);
-  color: var(--cream);
+  background-color: var(--medium-blue);
 }
 
 .main-content {

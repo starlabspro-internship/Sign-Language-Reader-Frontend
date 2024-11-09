@@ -4,3 +4,10 @@
   background: var(--deep-blue);
   color: var(--cream);
 }
+
+.profile-nav-options.sidebar-nav a.active {
+  padding: 8px;
+  background-color: var(--cream);
+  border-radius: 4px;
+  color: var(--deep-blue);
+}

@@ -1,4 +1,8 @@
 import API_URL from '../profile/apiUrls.js';
+//IMPORTIMI I SIDEBAR
+import { sidebar } from './adminSidebar.js';
+document.querySelector('.container').insertAdjacentHTML('afterbegin', sidebar);
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
