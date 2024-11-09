@@ -43,7 +43,7 @@
 }
 
 .profile-nav-options a:hover {
-  color: var(--medium-blue); 
+  color: var(--light-blue); 
 }
 
 .profile-nav-options #logoutButton{
@@ -55,7 +55,7 @@
 }
 
 .profile-nav-options #logoutButton:hover{
-  background-color: var(--medium-blue);
+  opacity: 70%;
 }
 
 .main-content {

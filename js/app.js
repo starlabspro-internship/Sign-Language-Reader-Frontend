@@ -1,3 +1,5 @@
+//NE KETE FILE SHTOHEN VETEM KOMPONENTET E NEVOJSHME GLOBALE!
+
 import { renderHeader } from "./header-footer/header.js";
 import { renderFooter } from "./header-footer/footer.js";
 
