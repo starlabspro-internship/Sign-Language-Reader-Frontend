@@ -1,11 +1,11 @@
-import { enforceReloadOnBackNavigation } from './forceReload.js';
-import { handleAuthLinks } from './headerAuth.js';
+import { enforceReloadOnBackNavigation } from "../forceReload.js";
+import { handleAuthLinks } from "./headerAuth.js";
 
 export async function renderHeader() {
-    enforceReloadOnBackNavigation();
-    const header = document.createElement('header');
-  
-    header.innerHTML = `
+  enforceReloadOnBackNavigation();
+  const header = document.createElement("header");
+
+  header.innerHTML = `
     <nav>
         <div class="logo">
             <a href="home.html">
@@ -43,24 +43,24 @@ export async function renderHeader() {
     </ul>
 </div>
     `;
-  
-    document.body.prepend(header);
-  
-    const mobileNav = header.querySelector(".hamburger");
-    const navbar = header.querySelector(".menubar");
-  
-    mobileNav.addEventListener("click", () => {
-        navbar.classList.toggle("active");
-        mobileNav.classList.toggle("hamburger-active");
-    });
-  
-    const links = header.querySelectorAll('nav a, .menubar a');
-    links.forEach(link => {
-        if (link.href === window.location.href) {
-            link.classList.add('active-page');
-        }
-    });
 
-    //Kryen funksionet e nevojshme per butonin e profilit
-    await handleAuthLinks();
+  document.body.prepend(header);
+
+  const mobileNav = header.querySelector(".hamburger");
+  const navbar = header.querySelector(".menubar");
+
+  mobileNav.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+    mobileNav.classList.toggle("hamburger-active");
+  });
+
+  const links = header.querySelectorAll("nav a, .menubar a");
+  links.forEach((link) => {
+    if (link.href === window.location.href) {
+      link.classList.add("active-page");
+    }
+  });
+
+  //Kryen funksionet e nevojshme per butonin e profilit
+  await handleAuthLinks();
 }
