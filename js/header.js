@@ -1,5 +1,5 @@
 import { enforceReloadOnBackNavigation } from './forceReload.js';
-import API_URL from './profile/apiUrls.js';
+import { handleAuthLinks } from './headerAuth.js';
 
 export async function renderHeader() {
     enforceReloadOnBackNavigation();
@@ -61,73 +61,6 @@ export async function renderHeader() {
         }
     });
 
-    // Authentication logic
-    try {
-        const response = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
-            method: "GET",
-            credentials: "include",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-  
-        if (response.ok) {
-            const { userId } = await response.json();
-            await updateAuthLink(userId);
-        } else {
-            // If the user is not logged in, show login and signup links
-            document.getElementById("authLinks").innerHTML = `
-                <a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
-                <a href="auth.html?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
-            `;
-            document.getElementById("authLinksMobile").innerHTML = `
-                <a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
-                <a href="auth.html?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
-            `;
-        }
-    } catch (error) {
-        console.error("Error checking login status:", error);
-    }
+    //Kryen funksionet e nevojshme per butonin e profilit
+    await handleAuthLinks();
 }
-
-async function updateAuthLink(userId) {
-    const userInfoResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-  
-    if (userInfoResponse.ok) {
-        const { userName } = await userInfoResponse.json();
-  
-        const authHTML = `<a href="profile.html" class="auth-link profile-link">${userName}</a>`;
-  
-        document.getElementById("authLinks").innerHTML = authHTML;
-        document.getElementById("authLinksMobile").innerHTML = authHTML;
-    }
-}
-
-  
-//   async function handleLogout() {
-//     try {
-//         const response = await fetch(`${API_URL.BASE}${API_URL.USERS.LOGOUT}`, {
-//             method: "POST",
-//             credentials: "include"
-//         });
-  
-//         if (response.ok) {
-//             alert("Logged out successfully!");
-//             window.location.href = "home.html";
-//         } else {
-//             const errorText = await response.text();
-//             console.error("Logout error:", errorText);
-//             alert("Logout failed: " + errorText);
-//         }
-//     } catch (error) {
-//         console.error("Network error:", error);
-//         alert("Network error occurred.");
-//     }
-//   }
-  
