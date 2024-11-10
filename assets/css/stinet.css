@@ -155,20 +155,54 @@ body {
 }
 
 #description-box {
-    text-align: center;
-    margin: 40px 0;
-    font-family: "Montserrat", sans-serif;
-    background-color: var(--cream);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  text-align: left; /* Ndryshimi në majtas për tekstin */
+  margin: 40px 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgba(255, 255, 255, 0.8); /* Përdorimi i transparencës */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Kjo e bën kutinë të shtrihet në të gjithë faqen */
+  max-width: 1200px; /* Ose ndonjë vlerë që preferoni për limitin maksimal */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* E bën që përmbajtja të fillojë në majtë */
 }
+
+#description-box h1 {
+  margin-bottom: 15px; /* Shtim i hapësirës pas titullit */
+  font-size: 28px; /* Rregullimi i madhësisë së titullit */
+  color: #333; /* Ngjyra e titullit */
+  text-align: center;
+}
+
+#description-box p {
+  font-size: 16px;
+  line-height: 1.7; /* Hapësirë më e madhe mes rreshtave për lexim më të lehtë */
+  color: #333;
+  margin-top: 10px;
+  text-align: left; /* Teksti tani është në të majtë */
+  margin-bottom: 15px; /* Shtim i hapësirës në fund të paragrafëve */
+}
+
+#description-box ul {
+  padding-left: 20px; /* Hapësirë në fillim të listës */
+  margin-top: 10px;
+}
+
+#description-box li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.6; /* Hapësirë mes elementëve të listës */
+}
+
+#description-box p.bold {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
 
 /* Hand decoration */
 .hands {
