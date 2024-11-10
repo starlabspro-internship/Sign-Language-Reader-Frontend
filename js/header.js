@@ -30,20 +30,21 @@ export async function renderHeader() {
         </div>
     </nav>
     <div class="menubar">
-    <ul>
-        <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
-        <li><a href="translate.html">Translate</a></li>
-        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
-        <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
-        <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
-        <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
-        <li id="authLinksMobile">
-            <!-- Authentication links for mobile view will be injected here -->
-        </li>
-    </ul>
-</div>
+        <ul>
+            <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
+            <li><a href="translate.html">Translate</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
+            <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
+            <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
+            <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
+            <li id="authLinksMobile">
+                <!-- Authentication links for mobile view will be injected here -->
+            </li>
+        </ul>
+    </div>
+    <button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
     `;
-  
+
     document.body.prepend(header);
   
     const mobileNav = header.querySelector(".hamburger");
@@ -59,6 +60,31 @@ export async function renderHeader() {
         if (link.href === window.location.href) {
             link.classList.add('active-page');
         }
+    });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Check for dark mode preference in localStorage
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        body.classList.add('dark-mode');
+    }
+
+    // Toggle dark mode when the button is clicked
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDarkMode = body.classList.contains('dark-mode');
+        
+        // Save the dark mode preference in localStorage
+        if (isDarkMode) {
+            localStorage.setItem('dark-mode', 'enabled');
+        } else {
+            localStorage.setItem('dark-mode', 'disabled');
+        }
+        
+        // Change the icon based on the mode
+        darkModeToggle.textContent = isDarkMode ? '🌞' : '🌙';
     });
 
     // Authentication logic
@@ -108,6 +134,7 @@ async function updateAuthLink(userId) {
         document.getElementById("authLinksMobile").innerHTML = authHTML;
     }
 }
+
 
   
 //   async function handleLogout() {
