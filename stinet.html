@@ -82,8 +82,16 @@
         seasonVideo.pause();
         seasonVideo.currentTime = 0; // Reset the video time
       });
+       // Define the navigateTo function here
+    function navigateTo(page) {
+      window.location.href = page;
+    }
   </script>
   <script type="module" src="./js/app.js"></script>
+  <div class="butonat">
+    <button id="goBack" onclick="navigateTo('mesimet.html')">Kthehu te Mësimet</button>
+
+</div>
 
 </body>
 </html>

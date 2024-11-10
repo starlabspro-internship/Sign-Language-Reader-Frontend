@@ -134,3 +134,27 @@
     width: 100px;
     height: auto;
 }
+.butonat{
+  display: flex;
+  justify-content: center;
+}
+
+#goBack {
+  background-color: var(--deep-blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  margin: 20px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 180px;
+  height: 50px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#goBack:hover {
+  background-color: #6c84b4;
+  transform: scale(1.05);
+}
