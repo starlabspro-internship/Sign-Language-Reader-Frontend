@@ -37,12 +37,21 @@ body {
 
 .search-bar input[type="text"] {
     width: 100%;
-    padding: 10px 15px 10px 40px;
-    font-size: 16px;
+    padding: 12px 15px 12px 50px;
+    font-size: 18px;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 30px;
     outline: none;
     box-sizing: border-box;
+    background: linear-gradient(135deg, #f9a1d6, #c7d5f3);
+    color: #333;
+    transition: 0.3s;
+}
+
+.search-bar input[type="text"]:focus {
+    border: 1px solid #f8a5c2;
+    background: linear-gradient(135deg, #c7d5f3, #f9a1d6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar .fa-magnifying-glass {
@@ -50,8 +59,8 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 18px;
-    color: #666;
+    font-size: 20px;
+    color: #777;
 }
 
 .grid-container {
