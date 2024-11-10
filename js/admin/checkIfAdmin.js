@@ -10,7 +10,7 @@ export async function isAdmin() {
 
     if (!userResponse.ok) {
       console.warn("User is not logged in.");
-      window.location.href = "login.html";
+      window.location.href = "auth.html";
       return false;
     }
 
@@ -23,7 +23,6 @@ export async function isAdmin() {
       return false;
     }
 
-    // Fetch full user details to check if they are an admin
     const userDetailsResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
       method: "GET",
       credentials: "include",

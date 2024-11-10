@@ -4,7 +4,6 @@ export const sidebar = `
   <div class="sidebar">
     <div class="user-info">
       <h2 class="userName"></h2>
-      <h3 class="userSurname"></h3>
       <p class="userEmail"></p>
     </div>
     <ul class="profile-nav-options sidebar-nav">
@@ -16,6 +15,11 @@ export const sidebar = `
       <li>
         <a href="users.html" class="${currentPage.includes('users.html') ? 'active' : ''}">
           <i class="fa-solid fa-users-gear"></i> Përdoruesit
+        </a>
+      </li>
+      <li>
+        <a href="createAdmin.html" class="${currentPage === '#' ? 'active' : ''}">
+          <i class="fa-solid fa-user-plus"></i> Krijo admin
         </a>
       </li>
       <li>

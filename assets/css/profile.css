@@ -58,6 +58,13 @@
   opacity: 70%;
 }
 
+.profile-nav-options.sidebar-nav a.active {
+  padding: 8px;
+  background-color: var(--cream);
+  border-radius: 4px;
+  color: var(--deep-blue);
+}
+
 .main-content {
   flex: 1;
   padding: 20px;

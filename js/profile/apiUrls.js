@@ -8,6 +8,7 @@ const API_URL = {
       LOGIN: "/users/login", 
       SIGNUP: "/users/signup", 
       LOGOUT: "/users/logout",
+      CREATE_ADMIN: "/users/createAdmin"
   },
 
 };

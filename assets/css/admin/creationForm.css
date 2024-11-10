@@ -1,0 +1,72 @@
+@import "admin.css";
+
+#admin-signup-form {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+#admin-signup-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+#admin-signup-form input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+#admin-signup-form input::placeholder {
+  color: #888;
+}
+
+#admin-signup-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#admin-signup-form button:hover {
+  background-color: #0056b3;
+}
+
+#admin-signup-form button:active {
+  background-color: #003f8c;
+}
+
+#admin-signup-error-message,
+#admin-signup-success-message {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#admin-signup-error-message {
+  color: red;
+}
+
+#admin-signup-success-message {
+  color: green;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  #admin-signup-form {
+    width: 90%;
+  }
+}
