@@ -6,116 +6,171 @@
     --medium-blue: #3a6d8c;
     --light-blue: #6a9ab0;
     --cream: #ead8b1;
-  }
-  
-  /* CSS Styling */
-  * {
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* General body font to Montserrat */
-  body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; /* Ensure the body takes full height */
-      font-family: "Montserrat", sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-  }
-    
-  #description {
-      text-align: center;
-      margin: 20px 0;
-  }
-  
-  #season-container {
-      display: flex;
-      justify-content: center; /* Center the items horizontally */
-      gap: 20px;
-      flex-grow: 1; /* Allow the container to grow and center vertically */
-      align-items: center; /* Center items vertically within the container */
-      margin-bottom: 60px;
-  }
-    
-  .season {
-    width: 100px;
-    height: 100px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    transition: background-image 0.5s ease-in-out;
+}
+
+#description {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#season-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.season {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.season-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.season-btn {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Hover effects for each season */
-  #spring, #summer, #fall, #winter {
-    background-color: #6a9ab0;
-  }
-  
-  /* Animation when clicked */
-  .season.animate {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.season-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Specific styles for each season background */
+#spring {
+    background-image: url('photos/flowers.gif');
+    background-size: cover;
+    background-position: center;
+}
+
+#summer {
+    background-image: url('photos/sun.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#fall {
+    background-image: url('photos/rain.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#winter {
+    background-image: url('photos/snow.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Hover effect */
+.season:hover {
+    transform: scale(1.05);
+}
+
+/* Animation when clicked */
+.season.animate {
     transform: scale(1.2) rotate(15deg);
     transition: transform 0.5s ease;
-  }
-  
-  /* Video Modal */
+}
+
+/* Video Modal */
 #video-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Dark opaque background */
-    display: none; /* Hidden by default */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    z-index: 1000; /* Ensure modal is on top */
-  }
-  
-  .modal-content {
-    background: #fff; /* White background for the modal content */
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
     border-radius: 10px;
     padding: 20px;
-    max-width: 600px; /* Set a max width for the modal content */
-    width: 100%; /* Full width */
+    max-width: 600px;
+    width: 100%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  #video-modal video {
+}
+
+#video-modal video {
     width: 100%;
     border-radius: 10px;
-  }
-  
-  #close-btn {
+}
+
+#close-btn {
     color: #000;
     cursor: pointer;
     margin-top: 10px;
     display: inline-block;
     text-align: center;
     font-weight: bold;
-  }
-  #description-box {
-    text-align: center; /* Center the text */
-    margin: 40px 0; /* Space above and below */
-    font-family: "Montserrat", sans-serif;
-    background-color: var(--cream); /* Set a background color */
-    padding: 20px; /* Padding around the text */
-    border-radius: 10px 0 0 10px; /* Rounded corners only on the left */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-    max-width: 850px; /* Set a maximum width for the box */
-    margin-left: auto; /* Center the box horizontally */
-    margin-right: auto; /* Center the box horizontally */
-    display: flex; /* Use flex to center items if needed */
-    flex-direction: column; /* Arrange items in a column */
-    align-items: center; /* Center items horizontally */
 }
-/* Dekorimi me duar anash */
+
+#description-box {
+    text-align: center;
+    margin: 40px 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--cream);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hand decoration */
 .hands {
     position: fixed;
     top: 50%;
@@ -129,32 +184,34 @@
     width: 100px;
     height: auto;
 }
+
 .right-hand {
     right: 10px;
     width: 100px;
     height: auto;
 }
-.butonat{
-  display: flex;
-  justify-content: center;
+
+.butonat {
+    display: flex;
+    justify-content: center;
 }
 
 #goBack {
-  background-color: var(--deep-blue);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 14px;
-  margin: 20px 0;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 180px;
-  height: 50px;
-  transition: background-color 0.3s, transform 0.2s;
+    background-color: var(--deep-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    margin: 20px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px;
+    height: 50px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 #goBack:hover {
-  background-color: #6c84b4;
-  transform: scale(1.05);
+    background-color: #6c84b4;
+    transform: scale(1.05);
 }
