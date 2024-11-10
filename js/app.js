@@ -1,3 +1,4 @@
+/* THIS IS THE MAIN JS FILE */
 //NE KETE FILE SHTOHEN VETEM KOMPONENTET E NEVOJSHME GLOBALE!
 
 import { renderHeader } from "./header-footer/header.js";
