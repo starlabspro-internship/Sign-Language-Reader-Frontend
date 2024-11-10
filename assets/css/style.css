@@ -217,6 +217,7 @@ body {
   background-color: var(--cream);
 }
 
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .photo-box {
