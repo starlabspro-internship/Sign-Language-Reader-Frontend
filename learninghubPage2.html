@@ -5,13 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topic 2</title>
     <link rel="stylesheet" href="./assets/css/learninghub.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <div class="container">
-        <h1>Topic 2 Numrat</h1>
-        <p>Mesojme numrat se bashku!</p>
+        <div class="top-content">
+            <h1>NUMRAT NE GJUHEN E SHENJAVE (SIGN LANGUAGE)</h1>
+            <p>Numrat luajnë një rol të rëndësishëm në gjuhën e shenjave, duke lehtësuar komunikimin dhe përshkrimin e situatave të ndryshme. Në këtë gjuhë, numrat shprehen përmes lëvizjeve të duarve, që përfaqësojnë saktësisht numra të ndryshëm. Kjo mënyrë e komunikimit u mundëson individëve të japin informacione të sakta për sasi, renditje dhe përllogaritje, duke siguruar që mesazhi të kuptohet qartë.</p>
+
+            <p>Përveç përdorimit të zakonshëm në numërim, numrat ndihmojnë në shprehjen e koncepteve si datat, orët dhe shumat financiare. Përdorimi i saktë i numrave është thelbësor në biseda për blerje, aktivitete dhe statistika. Kështu, individët e dëgjim të kufizuar mund të angazhohen plotësisht në komunikimin e përditshëm dhe të kontribuojnë në biseda të rëndësishme, duke forcuar lidhjet me shoqërinë.</p>
+        </div>
+        
+        <div class="bottom-content">
+            <div id="button-container" class="button-container"></div>
+            <div class="image-container">
+                <img id="sign-image" src="" alt="Sign Language Image">
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <button class="prev" onclick="backBtn()"><</button>
+            <ul id="pagination-links">
+            </ul>
+            <button class="next" onclick="nextBtn()">></button>
+        </div>        
     </div>
-    <script type="module" src="./js/app.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const buttons = document.querySelectorAll(".button");
+            const signImage = document.getElementById("sign-image");
+
+            buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                const number = this.getAttribute("data-button");
+                const pngPath = `photos/${number}.png`;
+                const jpgPath = `photos/${number}.jpg`;
+                
+                signImage.src = pngPath;
+                signImage.onerror = function() {
+                    signImage.src = jpgPath;
+                    signImage.onerror = null;
+                };
+            });
+        });
+        });
+
+        //Pagination
+        let link = document.getElementsByClassName("link");
+
+        let currentValue = 1;
+
+        function activeLink(){
+            for(l of link){
+                l.classList.remove("active");
+            }
+            event.target.classList.add("active")
+            currentValue = event.target.value;
+        }
+        
+        function backBtn(){
+            if(currentValue > 1){
+                for(l of link){
+                    l.classList.remove("active");
+                }
+                currentValue--;
+                link[currentValue-1].classList.add("active");
+            }
+        }
+        
+        function nextBtn(){
+            if(currentValue < 5){
+                for(l of link){
+                    l.classList.remove("active");
+                }
+            }
+            currentValue++;
+            link[currentValue-1].classList.add("active");
+        }
+
+
+        // Dynamically
+        document.addEventListener("DOMContentLoaded", function () {
+        const totalButtons = 60; // Total number of buttons you want to display
+        const buttonsPerPage = 15; // Number of buttons per page
+        const totalPages = Math.ceil(totalButtons / buttonsPerPage); // Calculate total number of pages
+        let currentPage = 1; // Initialize starting page
+
+        // Function to render buttons based on the current page
+        function renderButtons(page) {
+            const buttonContainer = document.getElementById("button-container");
+            buttonContainer.innerHTML = ""; // Clear previous buttons
+            const start = (page - 1) * buttonsPerPage + 1;
+            const end = Math.min(page * buttonsPerPage, totalButtons);
+
+            for (let i = start; i <= end; i++) {
+                const button = document.createElement("button");
+                button.classList.add("button");
+                button.setAttribute("data-button", i);
+                button.textContent = i;
+                button.addEventListener("click", function () {
+                    showImage(i);
+                });
+                buttonContainer.appendChild(button);
+            }
+        }
+
+        // Function to show image based on button clicked
+        function showImage(number) {
+            const signImage = document.getElementById("sign-image");
+            const pngPath = `photos/${number}.png`;
+            const jpgPath = `photos/${number}.jpg`;
+
+            signImage.src = pngPath;
+            signImage.onerror = function () {
+                signImage.src = jpgPath;
+                signImage.onerror = null;
+            };
+        }
+
+        // Pagination functions to navigate between pages
+        function updatePaginationLinks() {
+            const paginationLinks = document.getElementById("pagination-links");
+            paginationLinks.innerHTML = "";
+
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement("li");
+                li.classList.add("link");
+                li.textContent = i;
+                li.onclick = () => setPage(i);
+                if (i === currentPage) li.classList.add("active");
+                paginationLinks.appendChild(li);
+            }
+        }
+
+        function setPage(page) {
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderButtons(currentPage);
+            updatePaginationLinks();
+        }
+
+        function backBtn() {
+            if (currentPage > 1) setPage(currentPage - 1);
+        }
+
+        function nextBtn() {
+            if (currentPage < totalPages) setPage(currentPage + 1);
+        }
+
+        // Initial render
+        renderButtons(currentPage);
+        updatePaginationLinks();
+        
+        // Attach navigation functions to buttons
+        window.backBtn = backBtn;
+        window.nextBtn = nextBtn;
+    });
+    </script>
 </body>
 </html>
