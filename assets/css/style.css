@@ -6,19 +6,24 @@
   --medium-blue: #3a6d8c;
   --light-blue: #6a9ab0;
   --cream: #ead8b1;
+  --dark-bg: #212121; /* Ngjyrë më e errët, por jo tërësisht e zezë */
+  --dark-text: #d3d3d3; /* Ngjyrë më e butë e tekstit */
+  --dark-accent: #3a6d8c; /* Ngjyra akcentuese e njëjtë si për dritën */
+  --dark-box-bg: #2b2b2b; /* Ngjyrë gri e errët për kutitë */
+  --dark-shadow: rgba(0, 0, 0, 0.4); /* Hijë më e butë */
 }
 
 ::-webkit-scrollbar {
-  width: 12px; 
-  height: 12px; 
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--medium-blue); 
+  background-color: var(--medium-blue);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.1); 
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -49,7 +54,7 @@ body {
   padding: 20px;
   text-align: center;
   background-color: #f9f9f9;
-  border-left: 5px solid var(--cream); /* Accent color for added emphasis */
+  border-left: 5px solid var(--cream);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
@@ -71,7 +76,7 @@ body {
   left: 0;
   height: 100%;
   display: flex;
-  transition: left 2s ease; 
+  transition: left 2s ease;
   align-items: center;
 }
 
@@ -153,11 +158,11 @@ body {
   width: 30%;
   margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative; /* For positioning the button */
-  display: flex; /* Make it a flex container */
-  flex-direction: column; /* Stack children vertically */
-  justify-content: space-between; /* Space out children */
-  align-items: center; /* Center items horizontally */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .info-box h3 {
@@ -172,11 +177,11 @@ body {
 
 /* Full text and hidden text classes */
 .full-text {
-  display: block; /* or flex, if needed */
+  display: block;
 }
 
 .hidden {
-  display: none; /* Hide the element */
+  display: none;
 }
 
 /* Button styles */
@@ -187,17 +192,17 @@ body {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px; /* Add some margin for spacing */
+  margin-top: 15px;
 }
 
 .read-more:hover {
-  background-color: var(--deep-blue);
+  background-color: var(--cream);
 }
 
 .button-container {
   display: flex;
-  justify-content: center; /* Qendron në qendër */
-  margin-top: 20px; /* Hapesira nga kutitë informative */
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .main-button {
@@ -220,35 +225,83 @@ body {
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .photo-box {
-    width: 30%; /* 3 boxes per row on medium screens */
+    width: 30%;
   }
 
   .info-box {
-    width: calc(45% - 20px); /* 2 boxes per row on smaller tablets */
+    width: calc(45% - 20px);
   }
 
   .main-heading {
-    font-size: 1.8rem; /* Adjust font size */
+    font-size: 1.8rem;
   }
 
   .photo-box {
-    width: 48%; /* 2 boxes per row on mobile screens */
+    width: 48%;
   }
 }
 
 @media (max-width: 480px) {
   .info-box {
-    width: 100%; /* Full width on very small screens */
+    width: 100%;
   }
 
   .main-heading {
-    font-size: 1.5rem; /* Smaller heading font size */
+    font-size: 1.5rem;
   }
-
   .info-box {
     width: 100%;
   }
   .main-heading {
     font-size: 1.8rem;
   }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .intro-text {
+  background-color: var(--dark-box-bg);
+  color: var(--dark-text);
+  border-left: 5px solid var(--dark-accent);
+  box-shadow: 0px 2px 8px var(--dark-shadow);
+}
+
+body.dark-mode .slider {
+  background-color: #333333; /* Përdorim gri të errët për slider */
+}
+
+body.dark-mode .info-box {
+  background-color: var(--dark-box-bg);
+  color: var(--dark-text);
+  box-shadow: 0 0 10px var(--dark-shadow);
+}
+
+body.dark-mode .read-more {
+  background-color: var(--medium-blue); /* Ruajmë ngjyrën e dritës për butonat */
+}
+
+body.dark-mode .read-more:hover {
+  background-color: var(--cream);
+}
+
+body.dark-mode .buttons button {
+  background-color: var(--medium-blue);
+  color: #fff;
+}
+
+body.dark-mode .buttons button:hover {
+  background-color: rgba(98, 158, 227, 0.8);
+}
+
+body.dark-mode .dots li {
+  background-color: var(--medium-blue);
+}
+
+body.dark-mode .dots li.active {
+  width: 30px;
+  background-color: var(--light-blue);
 }
