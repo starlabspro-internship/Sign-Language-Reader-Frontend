@@ -3,7 +3,6 @@ import { isAdmin } from './checkIfAdmin.js';
 import { fetchUserProfile } from '../profile/fetchUserProfile.js';
 import { sidebar } from './adminSidebar.js';
 
-
 document.querySelector('.container').insertAdjacentHTML('afterbegin', sidebar);
 
 document.addEventListener("DOMContentLoaded", async () => {
