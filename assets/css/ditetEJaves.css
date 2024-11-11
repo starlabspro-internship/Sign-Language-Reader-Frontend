@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
+@import "navbar-footer.css";
+
+:root {
+  --deep-blue: #001f3f;
+  --medium-blue: #3a6d8c;
+  --light-blue: #6a9ab0;
+  --cream: #ead8b1;
+  --font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+  }
