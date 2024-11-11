@@ -9,7 +9,6 @@ document.querySelectorAll('.box video').forEach(video => {
     });
   });
   
-  // Function to open the modal with the selected video
   function openModal(videoSrc) {
     const modal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
@@ -33,9 +32,7 @@ document.querySelectorAll('.box video').forEach(video => {
     modalVideo.src = ""; 
   }
 
-  function navigateTo(page) {
-    window.location.href = page;
-}
+
 
 
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perimet</title>
+    <link rel="stylesheet" href="./assets/css/perimet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Mësoni perimet ne gjuhën e shenjave </h1>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" onkeyup="searchTopics()" placeholder="Kërkoni për perimet...">
+    </div>
+
+    <div class="grid-container">
+        <div class="box" onclick="openModal('./videos/perimet/spec.mp4')" data-topic="spec">
+            <img src="./photos/perimet/spec.jpg" alt="spec">
+            <h2>Spec</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/domate.mp4')" data-topic="domate">
+            <img src="./photos/perimet/domate.jpg" alt="domate">
+            <h2>Domate</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/tranguj.mp4')" data-topic="tranguj">
+            <img src="./photos/perimet/tranguj.jpg" alt="tranguj">
+            <h2>Tranguj</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/patate.mp4')" data-topic="patate">
+            <img src="./photos/perimet/patate.jpg" alt="patate">
+            <h2>Patate</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/qep.mp4')" data-topic="qepe">
+            <img src="./photos/perimet/qep.jpg" alt="qepë">
+            <h2>Qepë</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/hudher.mp4')" data-topic="hudher">
+            <img src="./photos/perimet/hudher.jpg" alt="hudher">
+            <h2>Hudhër</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/karrote.mp4')" data-topic="karrot">
+            <img src="./photos/perimet/karrot.jpg" alt="karrot">
+            <h2>Karrot</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/kungull.mp4')" data-topic="Kungull">
+            <img src="./photos/perimet/kungull.jpg" alt="Kungull">
+            <h2>Kungull</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/spinaq.mp4')" data-topic="spinaq">
+            <img src="./photos/perimet/spinaq.jpg" alt="spinaq">
+            <h2>Spinaq</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/avokado.mp4')" data-topic="avokado">
+            <img src="./photos/perimet/avokado.png" alt="avokado">
+            <h2>Avokado</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/ullinj.mp4')" data-topic="ullinj">
+            <img src="./photos/perimet/ullinj.jpg" alt="ullinj">
+            <h2>Ullinjë</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/laker.mp4')" data-topic="laker">
+            <img src="./photos/perimet/laker.jpg" alt="laker">
+            <h2>Lakër</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/lulelaker.mp4')" data-topic="lulelaker">
+            <img src="./photos/perimet/lulelaker.jpg" alt="lulelaker">
+            <h2>Lule lakër</h2>
+        </div>
+        <div class="box" onclick="openModal('./videos/perimet/brokoli.mp4')" data-topic="brokoli">
+            <img src="./photos/perimet/brokoli.jpg" alt="brokoli">
+            <h2>Brokoli</h2>
+        </div>
+    </div>
+</div>
+
+<div id="videoModal" class="modal" onclick="closeModal()">
+    <div class="modal-content">
+        <video id="modalVideo" controls loop></video>
+    </div>
+</div>
+
+<div class="butonat">
+    <button id="goBack" onclick="navigateTo('mesimet.html')">Kthehu te Mësimet</button>
+    </div>
+
+<script src="./js/search.js"></script>
+<script src="./js/video.js"></script>
+<script type="module" src="./js/app.js"></script>
+
+
+</body>
+</html>

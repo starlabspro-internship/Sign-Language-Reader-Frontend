@@ -12,78 +12,99 @@
     <img src="photos/right.jpg" alt="Dora e majtë" class="hands left-hand">
     <img src="photos/hands.jpg" alt="Dora e djathtë" class="hands right-hand">
 
-
   <!-- Description of Seasons in Sign Language -->
-<div id="description-box">
-    <h1></h1>
-    <p>Stinët janë një element i rëndësishëm i natyrës që ndikojnë në jetën tonë të përditshme, dhe përmes gjuhës së shenjave, ne mund t’i shprehëm ato në mënyrë të veçantë.
-        <li> Pranvera sjell ngjyra të gjalla dhe aroma lulesh, duke simbolizuar rinovimin dhe shpresën.</li> 
-        <li>Vera është koha për aventurë dhe relaksim, përmes shenjave ne shprehim gëzimin e pushimeve nën diell dhe përjetimet e veçanta. </li>
-        <li>Vjeshta, me ngjyrat e saj të ngrohta, na fton të reflektojmë dhe të ndajmë bukurinë e fryteve të pjekura, duke përdorur shenjat për të treguar historitë tona.</li>
-        <li> Ndërsa dimri na mbulon me dëborë, ai sjell momente ngrohtësie dhe festash, ku komunikimi në gjuhën e shenjave na ndihmon të ndajmë gëzimin dhe traditat tona. Çdo stinë, e përshkruar përmes shenjave, na ofron një mundësi për të shprehur emocionet dhe për të krijuar lidhje të thella me natyrën dhe njeri-tjetrin.</li>
+  <div id="description-box">
+    <h1>Stinët ne Gjuhën e Shenjave</h1>
+    <p>
+        Stinët janë faza të ndryshueshme të vitit që ndikojnë në jetën tonë dhe natyrën përreth nesh. Përmes gjuhës së shenjave, këto stinë mund të shprehen në mënyra të ndryshme, duke i dhënë mundësinë individëve me aftësi të kufizuara për të komunikuar ndjesitë dhe veprimet që lidhen me çdo stinë. Ja si mund t’i shprehim ato:
     </p>
-    <p style="font-weight: bold; margin-top: 20px;">Duke klikuar në kutitë më poshtë, shikoni stinët të demonstruara në gjuhën e shenjave.</p>
+    <ul>
+        <li><strong>Pranvera:</strong> Një periudhë rinovimi dhe rigjallërimi, ku natyra përfshin ngjyra të gjalla dhe lule, duke sjellë shpresë dhe mundësi të reja.</li>
+        <li><strong>Vera:</strong> Koha e aventurave dhe pushimeve, simbolizuar me shenjën e diellit dhe pushimeve të relaksuara.</li>
+        <li><strong>Vjeshta:</strong> Një periudhë reflektimi dhe ngjyrosjeje të natyrës, ku shenjat ndihmojnë për të treguar bukurinë e fryteve të pjekura dhe mundësinë e ndarjes së kujtimeve.</li>
+        <li><strong>Dimri:</strong> Një periudhë e ftohtë, por gjithashtu e ngrohtë me tradita dhe festime, ku shenjërimi ndihmon për të shprehur gëzimin dhe ndjenjat festive.</li>
+    </ul>
+    <p style="font-weight: bold; margin-top: 20px;">Klikoni në kutitë më poshtë për të parë demonstrimet e stinëve në gjuhën e shenjave.</p>
+  </div>
+
+
+
+<!-- Season Container with Larger Images and Buttons -->
+<div id="season-container">
+  <div class="season" id="spring">
+    <img src="photos/flowers.jpg" alt="Pranvera" class="season-image">
+    <button class="season-btn">Pranvera</button>
+  </div>
+  <div class="season" id="summer">
+    <img src="photos/sun.jpg" alt="Vera" class="season-image">
+    <button class="season-btn">Vera</button>
+  </div>
+  <div class="season" id="fall">
+    <img src="photos/autumn.jpg" alt="Vjeshta" class="season-image">
+    <button class="season-btn">Vjeshta</button>
+  </div>
+  <div class="season" id="winter">
+    <img src="photos/snow.jpg" alt="Dimri" class="season-image">
+    <button class="season-btn">Dimri</button>
+  </div>
 </div>
 
-  <!-- HTML Structure -->
-  <div id="season-container">
-    <div class="season" id="spring">Pranvera</div>
-    <div class="season" id="summer">Vera</div>
-    <div class="season" id="fall">Vjeshta</div>
-    <div class="season" id="winter">Dimri</div>
+<!-- Video Modal -->
+<div id="video-modal">
+  <div class="modal-content">
+    <video id="season-video" controls>
+      <source src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div id="close-btn">Mbylle</div>
   </div>
+</div>
 
-  <!-- Video Modal -->
-  <div id="video-modal">
-    <div class="modal-content">
-      <video id="season-video" controls>
-        <source src="" type="video/mp4"> <!-- Empty source to be set dynamically -->
-        Your browser does not support the video tag.
-      </video>
-      <div id="close-btn">Mbylle</div>
-    </div>
-  </div>
+<!-- JavaScript for Animations and Video Modal -->
+<script>
+  const seasons = document.querySelectorAll(".season");
+  const videoModal = document.getElementById("video-modal");
+  const seasonVideo = document.getElementById("season-video");
+  const closeBtn = document.getElementById("close-btn");
+  const body = document.body;
 
-  <!-- JavaScript for Animations and Video Modal -->
-  <script>
-    const seasons = document.querySelectorAll(".season");
-    const videoModal = document.getElementById("video-modal");
-    const seasonVideo = document.getElementById("season-video");
-    const closeBtn = document.getElementById("close-btn");
+  const videoSources = {
+    spring: "photos/spring.mp4",
+    summer: "photos/vera.mp4",
+    fall: "photos/vjeshta.mp4",
+    winter: "photos/dimri.mp4"
+  };
 
-    const videoSources = {
-      spring: "photos/spring.mp4",
-      summer: "photos/vera.mp4",
-      fall: "photos/vjeshta.mp4",
-      winter: "photos/dimri.mp4"
-    };
+  seasons.forEach((season) => {
+    season.querySelector(".season-btn").addEventListener("click", () => {
+      // Set video source based on the season clicked
+      seasonVideo.src = videoSources[season.id];
+      videoModal.style.display = "flex";
+      seasonVideo.play();
 
-    seasons.forEach((season) => {
-      season.addEventListener("click", () => {
-        // Set video source based on the season clicked
-        seasonVideo.src = videoSources[season.id];
-        videoModal.style.display = "flex"; // Show modal with flexbox centering
-        seasonVideo.play(); // Play video
-
-        // Add the animate class to trigger the animation
-        season.classList.add("animate");
-
-        // Remove the animate class after the animation duration to reset it
-        setTimeout(() => {
-          season.classList.remove("animate");
-        }, 500);
-      });
+      // Change background based on season
+      body.style.backgroundImage = `url('photos/${season.id}.jpg')`;
+      body.style.backgroundSize = "cover";
+      body.style.backgroundPosition = "center";
     });
+  });
 
-    // Close modal
-    closeBtn.addEventListener("click", () => {
-        videoModal.style.display = "none";
-        document.body.style.overflow = "auto"; // Restore body overflow
-        seasonVideo.pause();
-        seasonVideo.currentTime = 0; // Reset the video time
-      });
-  </script>
-  <script type="module" src="./js/app.js"></script>
+  // Close modal
+  closeBtn.addEventListener("click", () => {
+    videoModal.style.display = "none";
+    document.body.style.overflow = "auto";
+    seasonVideo.pause();
+    seasonVideo.currentTime = 0;
+  });
 
+  function navigateTo(page) {
+    window.location.href = page;
+  }
+</script>
+
+<script type="module" src="./js/app.js"></script>
+<div class="butonat">
+  <button id="goBack" onclick="navigateTo('mesimet.html')">Kthehu te Mësimet</button>
+</div>
 </body>
 </html>
