@@ -18,7 +18,7 @@ export const sidebar = `
         </a>
       </li>
       <li>
-        <a href="createAdmin.html" class="${currentPage === '#' ? 'active' : ''}">
+        <a href="createAdmin.html" class="${currentPage.includes('createAdmin.html') ? 'active' : ''}">
           <i class="fa-solid fa-user-plus"></i> Krijo admin
         </a>
       </li>
