@@ -163,16 +163,33 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease; /* Added smooth transition for the animation */
 }
 
+/* Hover effect */
+.info-box:hover {
+  transform: translateY(-10px); /* Moves the box slightly up */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+}
+
+/* Info box titles */
 .info-box h3 {
   color: #333;
   margin-bottom: 10px;
+  transition: color 0.3s ease; /* Smooth transition for color */
 }
 
+/* Info box content */
 .info-box p {
   color: #555;
   line-height: 1.6;
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Hover effect on text */
+.info-box:hover h3,
+.info-box:hover p {
+  color: var(--medium-blue); /* Change text color on hover */
 }
 
 /* Full text and hidden text classes */
@@ -193,6 +210,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .read-more:hover {
