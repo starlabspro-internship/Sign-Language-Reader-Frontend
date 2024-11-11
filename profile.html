@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profili</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/profile.css" />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="user-info">
+                <h2 class="userName"></h2>
+                <h3 class="userSurname"></h3>
+                <p class="userEmail"></p>
+            </div>
+            <ul class="profile-nav-options">
+                <li><a href="#"><i class="fa-solid fa-user"></i> Profili</a></li>
+                <li><a href="#" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i>Dilni</a></li>
+            </ul>
+            <div id="logoutModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Konfirmo daljen</h2>
+                    <p>Jeni të sigurt që dëshironi të dilni?</p>
+                    <div class="confirmation-buttons">
+                    <button id="confirmLogoutButton">Po, dil</button>
+                    <button id="cancelLogoutButton">Anulo</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <h1>Profili im </h1>
+            <div id="profile">
+                <p>Emri: <span class="userName"></span></p>
+                <p>Mbiemri: <span class="userSurname"></span></p>
+                <p>E-mail: <span class="userEmail"></span></p>
+                <p>Telefoni: <span class="userPhone"></span></p>
+            </div>
+
+            <div class="control-buttons">
+                <button id="updateButton">Përditëso Profilin</button>
+                <button id="deleteAccountButton">Fshij Profilin</button>
+                <p id="delete-message"></p>
+                
+                <div id="updateProfileSection" style="display: none;">
+                    <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
+                    <form id="updateProfileForm">
+                        <input type="text" id="update-userName" placeholder="Përditëso Emrin" required />
+                        <input type="text" id="update-userSurname" placeholder="Përditëso Mbiemrim" required />
+                        <input type="email" id="update-userEmail" placeholder="Përditëso E-mailin" required />
+                        <input type="text" id="update-userPhone" placeholder="Përditëso Phone" required />
+                        <input type="password" id="update-userPassword" placeholder="Përditëso Fjalëkalimin (opsionale)" />
+                        <button type="submit" class="submit-btn">Ruaj Ndryshimet</button>
+                        <p id="update-message"></p>
+                    </form>
+                </div>
+                
+        </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/profile/profile.js"></script>
+    
+</body>
+
+
+
+</html>

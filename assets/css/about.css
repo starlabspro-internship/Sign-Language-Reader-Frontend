@@ -1,0 +1,385 @@
+.about-us {
+  display: flex;
+  justify-content: center;  
+  width: 100%;
+  align-items: center;
+  background-color:#bfc0bf;
+  border-radius: 60% 0 30% 90%;
+  height: 500px; 
+}
+
+
+.foto1{
+  margin-left: 20px;
+}
+.fotoabout{
+  width: 260px;
+  height: 260px;
+  border-radius: 100%;
+}
+.about-content {
+  display: flex;
+  text-align: center;
+  max-width: 800px;
+}
+
+.misioni h2{
+  text-align: start;
+}
+
+.about-content span{
+  font-weight: bold;
+
+}
+
+
+
+.about-content {
+  text-align: start;
+}
+
+.about-content {
+  color: rgb(0, 0, 0);
+  text-align: start;
+}
+
+.foto11{
+  margin-right: 20px;
+}
+
+
+.div4{
+  display: flex;
+  justify-content: center;
+}
+.content2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  text-align: start;
+  height: 400px;
+  max-width: 800px;
+}
+
+.content2 span{
+  font-weight: 900;
+}
+
+.content2 h2 {
+  text-align: start;
+}
+
+.content2 p {
+  color: rgb(0, 0, 0);
+  text-align: start;
+}
+
+hr {
+  border: none;
+  height: 2px;         
+  background-color: #001f3f;  
+  width: 70%;          
+  margin: 20px auto;   
+}
+
+
+
+
+/* Stilimi bazë për seksionin "Si Funksionon" */
+.how-it-works {
+  background-color: #f4f4f4; 
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 0; 
+}
+
+.how-it-works-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align:start; 
+  margin-bottom: 20px; 
+}
+.how-it-works-content h2 {
+  margin-bottom: 15px;
+}
+
+.how-it-works-content p {
+  color: black;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 25px;
+}
+
+.boxes {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  gap: 20px; 
+  flex-wrap: wrap;
+  max-width: 900px; 
+  margin: 0 auto; 
+}
+
+.flex-boxes {
+  background-color: #bfc0bf;
+  border-radius: 20px;
+  width: 280px;
+  height: 280px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 10px;
+}
+
+.flex-boxes:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.flex-boxes h4 {
+  color:#001f3f;
+}
+
+.flex-boxes p {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: start;
+}
+
+.start-learning{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#start-learning-btn{
+  margin-top: 15px;
+  display: inline-block;           
+  padding: 15px 30px;               
+  font-size: 1.2rem;                
+  color: white;                     
+  background-color:#001F3F;       
+  border: none;                     
+  border-radius: 5px;             
+  text-decoration: none;            
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s, transform 0.3s; 
+  }
+  
+  #start-learning-btn:hover {
+      color: black;
+      background-color: #bfc0bf;    
+      transform: translateY(-2px);   
+  }
+
+  #start-learning-btn:active {
+      transform: translateY(0);         
+  }
+
+
+
+ /* Responsive Styles */
+ @media (max-width: 1024px) {
+ 
+  nav {
+    flex-direction: column; 
+  }
+
+  .about-us,
+  .content2,
+  .how-it-works-content,
+  .div4 {
+    display: flex; 
+    flex-direction: column; 
+    text-align: center; 
+    padding: 20px; 
+  }
+
+  .boxes {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    width: 100%; 
+    margin: 0 auto; 
+    padding: 10px; 
+  }
+
+  .flex-boxes {
+    flex-direction: column; 
+    padding: 15px; 
+    text-align: center; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  }
+
+  .fotoabout {
+    width: 120px; 
+    height: 120px; 
+    margin-bottom: 10px; 
+  }
+
+  hr {
+    width: 50%; 
+    margin: 20px auto; 
+  }
+
+ 
+  #start-learning-btn {
+    width: 80%; 
+    font-size: 1rem; 
+    padding: 10px; 
+  }
+
+  
+  .how-it-works-content h2,
+  .flex-boxes a {
+    font-size: 1.2rem; 
+  }
+
+  .how-it-works-content p,
+  .flex-boxes p {
+    font-size: 0.9rem; 
+  }
+}
+
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .about-us, .content2, .how-it-works-content, .boxes, .flex-boxes, .start-learning {
+    padding: 15px;
+  }
+
+  .fotoabout {
+    width: 180px;
+    height: 180px;
+  }
+  .boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px; 
+  }
+
+
+  .flex-boxes {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  #start-learning-btn {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  hr {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .misioni h2, .misioni p, .how-it-works-content h2, .how-it-works-content p {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  .fotoabout {
+    width: 120px;
+    height: 120px;
+    margin: 10px 0;
+  }
+
+  .content2 {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .foto11 {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px;
+    margin: 10px auto;
+    width: 100%; 
+  }
+
+  .flex-boxes {
+    padding: 10px;
+    text-align: center;
+    width: 90%; 
+    max-width: 400px; 
+    margin: 0 auto;
+  }
+
+  .how-it-works-content h2 {
+    font-size: 1.2rem;
+  }
+
+
+  .how-it-works-content p, .flex-boxes p {
+    font-size: 0.9rem;
+  }
+
+  hr {
+    width: 60%;
+    height: 1px;
+    background-color: #001f3f;
+    margin: 20px auto;
+  }
+
+  .start-learning h3 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .start-learning p {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  #start-learning-btn {
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
