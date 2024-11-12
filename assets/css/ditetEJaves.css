@@ -20,3 +20,181 @@
     line-height: 1.6;
     background-color: #f4f4f4;
   }
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: black;
+    margin-bottom: 30px;
+}
+
+.intro-text {
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    text-align: start;
+}
+
+.intro-text p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.grid-container {
+    display: grid;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr); 
+    position: relative;
+}
+
+.day-box {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.day-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.day-box img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.day-box:hover img {
+    opacity: 0.8;
+}
+
+.day-box h2 {
+    font-size: 1.5em;
+    color: #333;
+    padding: 15px;
+    background-color: #f8f8f8;
+    text-align: center;
+    border-top: 2px solid #ff9a9e;
+}
+
+.grid-container .day-box:nth-last-child(1) {
+    grid-column: 1 / -1; /* Make it span across all columns */
+    justify-self: center; /* Center it horizontally */
+    align-self: center;  /* Center it vertically if there's extra space */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.4s ease;
+}
+
+.modal-content {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80%;
+    animation: slide-in 0.5s ease;
+}
+
+.modal-content video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal:target {
+    display: flex;
+    opacity: 1;
+}
+
+.butonat {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #goBack {
+    background-color: var(--deep-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    margin: 20px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px;
+    height: 50px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  #goBack:hover {
+    background-color: var(--medium-blue);
+    transform: scale(1.05);
+  }
+
+/* Slide-in animation */
+@keyframes slide-in {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close button for modal */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    color: #ffffff;
+    background: #ff9a9e;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.close-modal:hover {
+    background: #ff7e7e;
+}
+
+/* For medium screens (tablets or smaller desktops) */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+/* For small screens (mobile) */
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr); /* 2 columns on small screens */
+    }
+}
+
