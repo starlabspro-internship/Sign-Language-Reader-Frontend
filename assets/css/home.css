@@ -1,24 +1,21 @@
 @import 'style.css';
 
+/* Introductory Text Styling */
 .intro-text {
   font-family: "Montserrat", sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #333;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 20px auto;
   padding: 20px;
   text-align: center;
-  background-color: #f9f9f9;
-  border-left: 5px solid var(--cream); /* Accent color for added emphasis */
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-left: 5px solid var(--cream);
 }
 
 /* Slider */
 .slider {
   margin: 30px 0px 30px 0px;
-  width: 700px;
+  width: 100%;
   max-width: 100vw;
   height: 500px;
   margin: auto;
@@ -32,7 +29,7 @@
   left: 0;
   height: 100%;
   display: flex;
-  transition: left 2s ease; 
+  transition: left 2s ease;
   align-items: center;
 }
 
@@ -107,37 +104,51 @@
   margin-top: 20px;
 }
 
+/* Modify the info-box styles */
 .info-box {
-  background-color: white;
+  background-color: transparent; /* Make background transparent */
   border-radius: 10px;
   padding: 20px;
   width: 30%;
   margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative; /* For positioning the button */
-  display: flex; /* Make it a flex container */
-  flex-direction: column; /* Stack children vertically */
-  justify-content: space-between; /* Space out children */
-  align-items: center; /* Center items horizontally */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease; /* Added smooth transition for the animation */
 }
 
+
+
+/* Info box titles */
 .info-box h3 {
   color: #333;
   margin-bottom: 10px;
+  transition: color 0.3s ease; /* Smooth transition for color */
 }
 
+/* Info box content */
 .info-box p {
   color: #555;
   line-height: 1.6;
+  transition: color 0.3s ease; /* Smooth transition for text color */
 }
+
+/* Hover effect on text */
+.info-box:hover h3,
+.info-box:hover p {
+  color: var(--medium-blue); /* Change text color on hover */
+}
+
 
 /* Full text and hidden text classes */
 .full-text {
-  display: block; /* or flex, if needed */
+  display: block;
 }
 
 .hidden {
-  display: none; /* Hide the element */
+  display: none;
 }
 
 /* Button styles */
@@ -148,17 +159,18 @@
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px; /* Add some margin for spacing */
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .read-more:hover {
-  background-color: var(--deep-blue);
+  background-color: var(--cream);
 }
 
 .button-container {
   display: flex;
-  justify-content: center; /* Qendron në qendër */
-  margin-top: 20px; /* Hapesira nga kutitë informative */
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .main-button {
@@ -178,35 +190,33 @@
   background-color: var(--cream);
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .photo-box {
-    width: 30%; /* 3 boxes per row on medium screens */
+    width: 30%;
   }
 
   .info-box {
-    width: calc(45% - 20px); /* 2 boxes per row on smaller tablets */
+    width: calc(45% - 20px);
   }
 
   .main-heading {
-    font-size: 1.8rem; /* Adjust font size */
+    font-size: 1.8rem;
   }
 
   .photo-box {
-    width: 48%; /* 2 boxes per row on mobile screens */
+    width: 48%;
   }
 }
 
 @media (max-width: 480px) {
   .info-box {
-    width: 100%; /* Full width on very small screens */
+    width: 100%;
   }
 
   .main-heading {
-    font-size: 1.5rem; /* Smaller heading font size */
+    font-size: 1.5rem;
   }
-
   .info-box {
     width: 100%;
   }
@@ -214,3 +224,4 @@
     font-size: 1.8rem;
   }
 }
+
