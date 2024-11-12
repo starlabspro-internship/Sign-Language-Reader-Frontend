@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ditet e Javes</title>
+    <link rel="stylesheet" href="./assets/css/ditetEJaves.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Ditët e Javës në Gjuhën e Shenjave</h1>
+
+        <div class="intro-text">
+            <p>
+               Kjo faqe është krijuar për t'ju ndihmuar të mësoni dhe të praktikoni emrat e ditëve të javës në gjuhën e shenjave. Çdo ditë është paraqitur me një video të shkurtër që tregon gjestet e duhura për të shprehur secilën ditë. Klikoni mbi ditën për të parë videon dhe filloni të mësoni mënyrën e re për të komunikuar me komunitetin e personave me aftësi të kufizuara në dëgjim. Bashkohuni me ne në këtë udhëtim të gjuhës së shenjave!
+            </p>
+        </div>
+    
+        <div class="grid-container">
+            <div class="day-box" onclick="openModal('./videos/ditetEJaves/eHene.mp4')" data-day="Hënë">
+                <img src="./photos/diteJaves/eHene.jpg" alt="Hënë">
+            </div>
+            <div class="day-box" onclick="openModal('./videos/ditetEJaves/eMarte.mp4')" data-day="Martë">
+                <img src="./photos/diteJaves/eMarte.jpg" alt="Martë">
+            </div>
+            <div class="day-box" onclick="openModal('./videos/ditetEJaves/eMerkure.mp4')" data-day="Mërkurë">
+                <img src="./photos/diteJaves/eMerkure.jpg" alt="Mërkurë">
+            </div>
+            <div class="day-box" onclick="openModal('./videos/ditetEJaves/eEnjte.mp4')" data-day="Enjte">
+                <img src="./photos/diteJaves/eEnjte.jpg" alt="Enjte">
+            </div>
+            <div class="day-box" onclick="openModal('./videos/ditetEJaves/ePremte.mp4')" data-day="Premte">
+                <img src="./photos/diteJaves/ePremte.jpg" alt="Premte">
+            </div>
+            <div class="day-box" onclick="openModal('./videos/ditetEJaves/eShtune.mp4')" data-day="Shtunë">
+                <img src="./photos/diteJaves/eShtune.jpg" alt="Shtunë">
+            </div>
+            <div class="day-box" onclick="openModal('./videos/ditetEJaves/eDiel.mp4')" data-day="Dielë">
+                <img src="./photos/diteJaves/eDiel.jpg" alt="Dielë">
+            </div>
+        </div>
+    </div>
+    
+    <div id="videoModal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+            <video id="modalVideo" controls loop></video>
+        </div>
+    </div>
+    
+    <div class="butonat">
+        <button id="goBack" onclick="navigateTo('mesimet.html')">Kthehu te Mësimet</button>
+        </div>
+    
+    
+    <script type="module" src="./js/app.js"></script>
+    <script src="./js/ditetEJaves.js"></script>
+    
+    </body>
+    </html>
+    
