@@ -50,8 +50,8 @@ body {
 
 .image-container .overlay {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 250px;
   background-color: #b0b4b7; /* Same as original */
   top: 25px;
   left: -25px;
@@ -62,6 +62,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: o;
 }
 
 .text-container {
@@ -100,142 +101,7 @@ body {
   font-size: 14px;
 }
 
-/* Style adjustments for second button and image to match first */
-.image-container1 {
-  position: relative;
-  width: 250px; /* Adjust size to match the first image container */
-  height: 250px;
-}
 
-.image-container1 .overlay {
-  position: absolute;
-  width: 200px;
-  height: 250px;
-  background-color: #b0b4b7; /* Same as first image overlay */
-  top: 25px;
-  left: -85px;
-  z-index: -1;
-}
-
-.image-container1 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.details-btn1 {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border: 1px solid #2a3b5a;
-  background-color: transparent;
-  color: #2a3b5a;
-  font-size: 14px;
-  border-radius: 8px; /* Same button style as the first button */
-  cursor: pointer;
-}
-
-.details-btn1:hover {
-  background-color: #2a3b5a;
-  color: #fff;
-  transition: 0.3s;
-}
-
-.location1 {
-  font-size: 14px;
-  color: #8a9ca9;
-  margin-top: 15px;
-}
-
-.image-container1 .overlay1 {
-  position: absolute;
-  top: -20px;
-  right: -80px;
-  width: 100%;
-  height: 100%;
-  background-color:#b0b4b7; 
-  z-index: 0;
-}
-
-.image-container1 img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* Dark mode styles */
-body.dark-mode {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
-
-body.dark-mode .details-btn,
-body.dark-mode .details-btn1 {
-  border-color: var(--dark-accent);
-  color: var(--dark-text);
-}
-
-body.dark-mode .details-btn:hover,
-body.dark-mode .details-btn1:hover {
-  background-color: var(--cream);
-  color: var(--deep-blue);
-}
-
-.content-section1 {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 50px;
-}
-
-.text-content1 {
-  max-width: 400px;
-  color: #2a3b5a;
-}
-
-.text-content h3 {
-  font-size: 14px;
-  font-weight: normal;
-  color: #8a9ca9;
-  margin-bottom: 10px;
-}
-
-.text-content h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.text-content1 p {
-  font-size: 16px;
-  margin-bottom: 20px;
-  color: #5a6d82;
-}
-
-.details-btn1 {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border: 1px solid #2a3b5a;
-  color: #2a3b5a;
-  text-decoration: none;
-  font-size: 14px;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.details-btn1:hover {
-  background-color: #2a3b5a;
-  color: #fff;
-}
-
-.location1 {
-  font-size: 14px;
-  color: #8a9ca9;
-  margin-top: 15px;
-}
 .line {
   display: block;
   margin: 0 auto;
@@ -341,6 +207,30 @@ body.dark-mode .details-btn1:hover {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   width: 90%;  /* Përshtatur për ekranet e vogla */
   max-width: 350px;  /* Gjerësia maksimale e kutisë */
+}
+.upcoming-events {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;  /* Përshtatur për ekranet e vogla */
+  max-width: 350px;  /* Gjerësia maksimale e kutisë */
+  margin: 20px auto;  /* Vendos seksionin në qendër horizontalisht dhe me hapësirë më të vogël nga maja */
+  text-align: center;  /* Për ta mbajtur tekstin të qartë dhe të organizuar */
+}
+
+
+.upcoming-events h3{
+ 
+    font-size: 18px;
+    color: #3a6d8c;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+.upcoming-events li{
+  font-size: 14px;
+  color: #555;
 }
 
 .notification-item h4 {
