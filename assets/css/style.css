@@ -301,3 +301,88 @@ body.dark-mode .details-btn1:hover {
 }
 
 
+/* Style për seksionin e Njoftimeve të Fundit */
+.latest-notifications {
+  background-color: #f4f4f4;  /* Ngjyra e lehtë e pasme */
+  padding: 50px 20px;
+  margin-top: 50px; /* Hapësirë nga pjesët tjera */
+}
+
+.notifications-title {
+  font-size: 28px;
+  color: #2a3b5a;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Ikona e njoftimit përkrah titullit */
+.notification-icon {
+  position: absolute;
+  top: 0;
+  right: 900px;
+  width: 40px;
+  height: 40px;
+}
+
+/* Stili për njoftimet individuale */
+.notifications {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dy kolona për njoftimet */
+  gap: 20px;
+  justify-items: center;
+}
+
+.notification-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;  /* Përshtatur për ekranet e vogla */
+  max-width: 350px;  /* Gjerësia maksimale e kutisë */
+}
+
+.notification-item h4 {
+  font-size: 18px;
+  color: #3a6d8c;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.notification-item p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Stili për Njoftimet në Modalitetin Dark */
+body.dark-mode .latest-notifications {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .notification-item {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .notification-item h4 {
+  color: var(--dark-accent);
+}
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .details-btn,
+body.dark-mode .details-btn1 {
+  border-color: var(--dark-accent);
+  color: var(--dark-text);
+}
+
+body.dark-mode .details-btn:hover,
+body.dark-mode .details-btn1:hover {
+  background-color: var(--cream);
+  color: var(--deep-blue);
+  border-color: var(--deep-blue); /* Added border-color change for hover state */
+}
