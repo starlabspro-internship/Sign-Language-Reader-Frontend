@@ -236,3 +236,14 @@ body.dark-mode .details-btn1:hover {
   color: #8a9ca9;
   margin-top: 15px;
 }
+.line {
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  max-width: 500px;
+  height: 2px;
+  background-color: #000;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
