@@ -4,30 +4,10 @@
 :root {
   --deep-blue: #001f3f;
   --medium-blue: #3a6d8c;
-  --light-blue: #6a9ab0;
   --cream: #ead8b1;
-  --dark-bg: #212121; /* Ngjyrë më e errët, por jo tërësisht e zezë */
-  --dark-text: #d3d3d3; /* Ngjyrë më e butë e tekstit */
-  --dark-accent: #3a6d8c; /* Ngjyra akcentuese e njëjtë si për dritën */
-  --dark-box-bg: #2b2b2b; /* Ngjyrë gri e errët për kutitë */
-  --dark-shadow: rgba(0, 0, 0, 0.4); /* Hijë më e butë */
-}
-
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--medium-blue);
-}
-
-::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--light-blue);
+  --dark-bg: #212121;
+  --dark-text: #d3d3d3;
+  --dark-accent: #3a6d8c;
 }
 
 * {
@@ -36,236 +16,153 @@
   box-sizing: border-box;
 }
 
-/* General body font to Montserrat */
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
-}
-
-/* Introductory Text Styling */
-.intro-text {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 20px;
-  text-align: center;
-  border-left: 5px solid var(--cream);
-}
-
-/* Slider */
-.slider {
-  margin: 30px 0px 30px 0px;
-  width: 100%;
-  max-width: 100vw;
-  height: 500px;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.list {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  display: flex;
-  transition: left 2s ease;
-  align-items: center;
-}
-
-.list img {
-  width: 700px;
-  height: 100%;
-}
-
-.buttons {
-  position: relative;
-  top: 45%;
-  left: 5%;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.buttons button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--medium-blue);
-  color: #fff;
-  border: none;
-  font-family: monospace;
-  font-weight: bolder;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.buttons button:hover {
-  background-color: rgba(98, 158, 227, 0.8);
-}
-
-.dots {
-  position: absolute;
-  bottom: 30px;
-  color: var(--light-blue);
-  left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.dots li {
-  list-style: none;
-  width: 10px;
-  height: 10px;
-  background-color: var(--medium-blue);
-  margin: 0 5px;
-  border-radius: 50%;
-  transition: width 0.3s;
-}
-
-.dots li.active {
-  width: 30px;
-}
-
-@media screen and (max-width: 768px) {
-  .slider {
-      height: 400px;
-  }
-}
-
-/* General styles for the info boxes */
-.box-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-/* Modify the info-box styles */
-.info-box {
-  background-color: transparent; /* Make background transparent */
-  border-radius: 10px;
-  padding: 20px;
-  width: 30%;
-  margin-bottom: 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease; /* Added smooth transition for the animation */
-}
-
-
-
-/* Info box titles */
-.info-box h3 {
   color: #333;
-  margin-bottom: 10px;
-  transition: color 0.3s ease; /* Smooth transition for color */
 }
 
-/* Info box content */
-.info-box p {
-  color: #555;
-  line-height: 1.6;
-  transition: color 0.3s ease; /* Smooth transition for text color */
-}
-
-/* Hover effect on text */
-.info-box:hover h3,
-.info-box:hover p {
-  color: var(--medium-blue); /* Change text color on hover */
-}
-
-
-/* Full text and hidden text classes */
-.full-text {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Button styles */
-.read-more {
-  background-color: var(--medium-blue);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: background-color 0.3s ease;
-}
-
-.read-more:hover {
-  background-color: var(--cream);
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.main-button {
-  display: inline-block;
-  background-color: white;
-  color: black;
-  border: none;
-  padding: 10px 40px;
-  border-radius: 50px;
+.what-we-do {
   text-align: center;
-  text-decoration: none;
-  font-size: 1rem;
+  padding: 50px 20px;
+}
+
+.what-we-do h2 {
+  font-size: 36px;
+  color: #2a3b5a;
   margin-bottom: 40px;
 }
 
-.main-button:hover {
-  background-color: var(--cream);
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .photo-box {
-    width: 30%;
-  }
-
-  .info-box {
-    width: calc(45% - 20px);
-  }
-
-  .main-heading {
-    font-size: 1.8rem;
-  }
-
-  .photo-box {
-    width: 48%;
-  }
+.image-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
 }
 
-@media (max-width: 480px) {
-  .info-box {
-    width: 100%;
-  }
+.image-container .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #b0b4b7; /* Same as original */
+  top: 25px;
+  left: -25px;
+  z-index: -1;
+}
 
-  .main-heading {
-    font-size: 1.5rem;
-  }
-  .info-box {
-    width: 100%;
-  }
-  .main-heading {
-    font-size: 1.8rem;
-  }
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  max-width: 400px;
+  text-align: left;
+}
+
+.text-container p {
+  font-size: 16px;
+  color: #555;
+}
+
+.details-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 1px solid #2a3b5a;
+  background-color: transparent;
+  color: #2a3b5a;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none; /* Heq underline */
+  border-radius: 8px; /* Radius për qoshe të rrumbullakosura */
+}
+
+.details-btn:hover {
+  background-color: #2a3b5a;
+  color: #fff;
+  transition: 0.3s;
+}
+
+
+.location {
+  margin-top: 10px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* Style adjustments for second button and image to match first */
+.image-container1 {
+  position: relative;
+  width: 250px; /* Adjust size to match the first image container */
+  height: 250px;
+}
+
+.image-container1 .overlay {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  background-color: #b0b4b7; /* Same as first image overlay */
+  top: 25px;
+  left: -85px;
+  z-index: -1;
+}
+
+.image-container1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details-btn1 {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 1px solid #2a3b5a;
+  background-color: transparent;
+  color: #2a3b5a;
+  font-size: 14px;
+  border-radius: 8px; /* Same button style as the first button */
+  cursor: pointer;
+}
+
+.details-btn1:hover {
+  background-color: #2a3b5a;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.location1 {
+  font-size: 14px;
+  color: #8a9ca9;
+  margin-top: 15px;
+}
+
+.image-container1 .overlay1 {
+  position: absolute;
+  top: -20px;
+  right: -80px;
+  width: 100%;
+  height: 100%;
+  background-color:#b0b4b7; 
+  z-index: 0;
+}
+
+.image-container1 img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 /* Dark mode styles */
@@ -274,45 +171,15 @@ body.dark-mode {
   color: var(--dark-text);
 }
 
-body.dark-mode .intro-text {
-  background-color: var(--dark-box-bg);
+body.dark-mode .details-btn,
+body.dark-mode .details-btn1 {
+  border-color: var(--dark-accent);
   color: var(--dark-text);
-  border-left: 5px solid var(--dark-accent);
-  box-shadow: 0px 2px 8px var(--dark-shadow);
 }
 
-body.dark-mode .slider {
-  background-color: #333333; /* Përdorim gri të errët për slider */
-}
-
-body.dark-mode .info-box {
-  background-color: var(--dark-box-bg);
-  color: var(--dark-text);
-  box-shadow: 0 0 10px var(--dark-shadow);
-}
-
-body.dark-mode .read-more {
-  background-color: var(--medium-blue); /* Ruajmë ngjyrën e dritës për butonat */
-}
-
-body.dark-mode .read-more:hover {
+body.dark-mode .details-btn:hover,
+body.dark-mode .details-btn1:hover {
   background-color: var(--cream);
+  color: var(--deep-blue);
 }
 
-body.dark-mode .buttons button {
-  background-color: var(--medium-blue);
-  color: #fff;
-}
-
-body.dark-mode .buttons button:hover {
-  background-color: rgba(98, 158, 227, 0.8);
-}
-
-body.dark-mode .dots li {
-  background-color: var(--medium-blue);
-}
-
-body.dark-mode .dots li.active {
-  width: 30px;
-  background-color: var(--light-blue);
-}
