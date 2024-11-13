@@ -246,7 +246,6 @@ body.dark-mode .details-btn1:hover {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-
 /* Style for the photo section */
 .photo-section {
   text-align: center;
@@ -300,3 +299,5 @@ body.dark-mode .details-btn1:hover {
   object-fit: cover;
   border-radius: 8px;
 }
+
+
