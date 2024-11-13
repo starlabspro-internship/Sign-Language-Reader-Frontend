@@ -139,6 +139,7 @@ hr {
   text-align: center;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
   margin-bottom: 10px;
+  transition: .3s ease;
 }
 
 .flex-boxes:hover {

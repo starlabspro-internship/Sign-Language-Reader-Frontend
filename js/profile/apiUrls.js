@@ -4,9 +4,11 @@ const API_URL = {
   USERS: {
       ME: "/users/me",
       GET_BY_ID: (userId) => `/users/${userId}`,
+      GET_ALL: "/users",
       LOGIN: "/users/login", 
       SIGNUP: "/users/signup", 
       LOGOUT: "/users/logout",
+      CREATE_ADMIN: "/users/createAdmin"
   },
 
 };
