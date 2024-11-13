@@ -242,8 +242,61 @@ body.dark-mode .details-btn1:hover {
   width: 40%;
   max-width: 500px;
   height: 2px;
-  background-color: #000;
+  background-color:var(--cream);
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
+/* Style for the photo section */
+.photo-section {
+  text-align: center;
+  margin-top: 50px;  /* Space between the line and the title */
+}
+
+.photo-title {
+  font-size: 24px;
+  color: #2a3b5a;  /* Adjust the color as per your design */
+  margin-bottom: 20px;  /* Space between the title and the images */
+  font-weight: bold;
+}
+
+/* Photo Gallery container */
+.photo-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Large photo on the left */
+.large-photo {
+  width: 500px;  /* Set the size of the large image */
+  height: 500px;  /* Set the height of the large image */
+}
+
+.large-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Right photos container with grid layout */
+.right-photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+  gap: 10px;  /* Space between the smaller images */
+  width: 500px;  /* Width of the container for smaller images */
+}
+
+.small-photo {
+  width: 100%;
+  height: 250px;  /* Height of each small image */
+}
+
+.small-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
