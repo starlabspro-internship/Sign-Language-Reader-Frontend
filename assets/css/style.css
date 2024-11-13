@@ -167,11 +167,10 @@ body {
 }
 
 
-/* Style për seksionin e Njoftimeve të Fundit */
 .latest-notifications {
-  background-color: #f4f4f4;  /* Ngjyra e lehtë e pasme */
+  background-color: #f4f4f4;
   padding: 50px 20px;
-  margin-top: 50px; /* Hapësirë nga pjesët tjera */
+  margin-top: 50px;
 }
 
 .notifications-title {
@@ -183,19 +182,16 @@ body {
   position: relative;
 }
 
-/* Ikona e njoftimit përkrah titullit */
 .notification-icon {
-  position: absolute;
-  top: 0;
-  right: 900px;
   width: 40px;
   height: 40px;
+  vertical-align: middle;
 }
 
-/* Stili për njoftimet individuale */
+/* Styles for individual notifications */
 .notifications {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dy kolona për njoftimet */
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   justify-items: center;
 }
@@ -205,45 +201,32 @@ body {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;  /* Përshtatur për ekranet e vogla */
-  max-width: 350px;  /* Gjerësia maksimale e kutisë */
-}
-.upcoming-events {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;  /* Përshtatur për ekranet e vogla */
-  max-width: 350px;  /* Gjerësia maksimale e kutisë */
-  margin: 20px auto;  /* Vendos seksionin në qendër horizontalisht dhe me hapësirë më të vogël nga maja */
-  text-align: center;  /* Për ta mbajtur tekstin të qartë dhe të organizuar */
+  width: 90%;
 }
 
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
-.upcoming-events h3{
- 
-    font-size: 18px;
-    color: #3a6d8c;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-
-.upcoming-events li{
-  font-size: 14px;
-  color: #555;
+.icon {
+  width: 24px;
+  height: 24px;
 }
 
 .notification-item h4 {
+  margin: 0;
   font-size: 18px;
-  color: #3a6d8c;
-  margin-bottom: 10px;
-  font-weight: bold;
+  color: #2a3b5a;
 }
 
 .notification-item p {
   font-size: 14px;
   color: #555;
 }
+
 
 /* Stili për Njoftimet në Modalitetin Dark */
 body.dark-mode .latest-notifications {
