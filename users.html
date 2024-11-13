@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Përdoruesit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/admin/users.css" />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar comes here -->
+
+      <!-- Main content Starts-->
+      <div class="main-content users-main-content">
+        <h1 class="users-page-title">Përdoruesit</h1>
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Kërko nga emri..."
+            oninput="handleSearch()"
+          />
+        </div>
+        <div class="users-list users-table-container">
+          <table class="users-table">
+            <thead class="users-table-head">
+              <tr class="users-table-header-row">
+                <th class="users-table-header">Emri</th>
+                <th class="users-table-header">Mbiemri</th>
+                <th class="users-table-header">Email</th>
+                <th class="users-table-header">Telefoni</th>
+                <th class="users-table-header">Veprime</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody" class="users-table-body">
+              <!-- User rows will be dynamically inserted here -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="admin-table-container">
+          <h2>Adminët</h2>
+          <table class="users-table">
+            <thead class="users-table-head">
+              <tr class="users-table-header-row">
+                <th class="users-table-header">Emri</th>
+                <th class="users-table-header">Mbiemri</th>
+                <th class="users-table-header">Email</th>
+                <th class="users-table-header">Telefoni</th>
+                <th class="users-table-header">Veprime</th>
+              </tr>
+            </thead>
+            <tbody id="adminsTableBody" class="users-table-body">
+              <!-- Admin rows will be dynamically inserted here -->
+            </tbody>
+          </table>
+        </div>
+        
+       <!-- Update Profile Popup (Modal) -->
+      <div id="admin-updateProfileSection" style="display: none;">
+        <div class="popup-content">
+          <h2>Update Profile</h2>
+          <input type="text" id="update-userName" placeholder="Name" />
+          <input type="text" id="update-userSurname" placeholder="Surname" />
+          <input type="email" id="update-userEmail" placeholder="Email" />
+          <input type="tel" id="update-userPhone" placeholder="Phone" />
+          <div class="button-container">
+            <button id="saveChanges">Save Changes</button>
+            <button id="cancelChanges" type="button">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      <!-- Main content Ends-->
+
+      <script type="module" src="./js/admin/admin.js"></script>
+      <script type="module" src="./js/profile/profile.js"></script>
+      <script type="module" src="./js/admin/users.js"></script>
+    </div>
+  </body>
+</html>

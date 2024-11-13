@@ -24,18 +24,18 @@ export async function updateUserProfile(event) {
 
     const userName = document.getElementById("update-userName").value.trim();
     const userSurname = document.getElementById("update-userSurname").value.trim();
-    const userEmail = document.getElementById("update-userEmail").value.trim();
-    const userPhone = document.getElementById("update-userPhone").value.trim();
-    const userPassword = document.getElementById("update-userPassword").value.trim();
+    const userEmail = document.getElementById("update-userEmail").value.trim(); 
+    const userPhone = document.getElementById("update-userPhone").value.trim(); 
+    const userpassword = document.getElementById("update-userPassword").value.trim();
 
     const updatedData = { 
         userName, 
         userSurname, 
-        userEmail, 
-        userPhone 
+        useremail: userEmail, 
+        userphonenum: userPhone 
     };
     
-    if (userPassword) updatedData.userPassword = userPassword;
+    if (userpassword) updatedData.userpassword = userpassword;
 
     try {
         const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
@@ -69,7 +69,6 @@ export async function updateUserProfile(event) {
 document.addEventListener("DOMContentLoaded", () => {
     const updateButton = document.getElementById("updateButton");
     const updateProfileSection = document.getElementById("updateProfileSection");
-
 
     updateButton.addEventListener("click", () => {
         

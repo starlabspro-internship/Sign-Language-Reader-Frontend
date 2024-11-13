@@ -35,7 +35,7 @@ export function renderFooter() {
         <h4>learn</h4>
         <ul>
           <li><a href="Quiz.html">Kuizët</a></li>
-          <li><a href="learninghub.html">Mësimet</a></li>
+          <li><a href="mesimet.html">Mësimet</a></li>
         </ul>
       </div>
     </div>
