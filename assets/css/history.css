@@ -23,6 +23,17 @@ body {
   padding: 15px;
 }
 
+hr {
+  border: none;            
+  height: 2px;             
+  background-color: black;
+  width: 100%;               
+  margin: 20px auto;        
+  opacity: 0.8;             
+  border-radius: 10px;      
+}
+
+
 .foto, .text {
   width: 50%;
 }
