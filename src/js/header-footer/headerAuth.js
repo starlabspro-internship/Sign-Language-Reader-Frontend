@@ -1,5 +1,5 @@
-import API_URL from '../profile/apiUrls.js';
-import { isLoggedIn } from '../profile/isLoggedIn.js';
+import API_URL from '../../profile/profileFunctions/apiUrls.js';
+import { isLoggedIn } from '../../profile/profileFunctions/isLoggedIn.js';
 
 export async function handleAuthLinks() {
     const userIsLoggedIn = await isLoggedIn();

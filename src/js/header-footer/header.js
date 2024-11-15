@@ -1,15 +1,12 @@
 import { enforceReloadOnBackNavigation } from "../forceReload.js";
 import { handleAuthLinks } from "./headerAuth.js";
-import logo from '../../photos/demo-logo.png'; // Import the logo image
-
-
+import logo from '../../photos/demo-logo.png'; 
 
 export async function renderHeader() {
   enforceReloadOnBackNavigation();
   const header = document.createElement("header");
   const imageElement = document.createElement('img');
-    imageElement.src = logo; // Use the imported image path
-
+    imageElement.src = logo; 
   header.innerHTML = `
     <nav>
         <div class="logo">
@@ -42,7 +39,7 @@ export async function renderHeader() {
         <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
         <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
         <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
-        <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
+        <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
         <li id="authLinksMobile">
             <!-- Authentication links for mobile view will be injected here -->
         </li>
