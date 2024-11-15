@@ -96,3 +96,27 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Scroll buttons not found in the DOM. Ensure the HTML structure includes the buttons.");
     }
 });
+
+const signsHolder = document.getElementById("translationResults");
+const cardOverlay = document.getElementById("cardOverlay");
+const overlayContent = document.getElementById("overlayContent");
+
+// Add event listener to each sign card
+signsHolder.addEventListener("mouseover", (event) => {
+    if (event.target.closest(".sign-card")) {
+        const card = event.target.closest(".sign-card");
+        overlayContent.innerHTML = card.innerHTML; // Clone the card content
+        cardOverlay.style.opacity = 1;
+        cardOverlay.style.visibility = "visible";
+    }
+});
+
+// Hide the overlay when mouse leaves the overlay or when clicked
+cardOverlay.addEventListener("mouseleave", () => {
+    cardOverlay.style.opacity = 0;
+    cardOverlay.style.visibility = "hidden";
+});
+cardOverlay.addEventListener("click", () => {
+    cardOverlay.style.opacity = 0;
+    cardOverlay.style.visibility = "hidden";
+});
