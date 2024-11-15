@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/admin/admin.css" />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar comes here -->
+
+      <!-- Main content Starts-->
+      <div class="main-content">
+        <h1>Profili im</h1>
+        <div id="profile">
+          <p>Emri: <span class="userName"></span></p>
+          <p>Mbiemri: <span class="userSurname"></span></p>
+          <p>E-mail: <span class="userEmail"></span></p>
+          <p>Telefoni: <span class="userPhone"></span></p>
+        </div>
+
+        <div class="control-buttons">
+          <button id="updateButton">Përditëso Profilin</button>
+          <button id="deleteAccountButton">Fshij Profilin</button>
+          <p id="delete-message"></p>
+
+          <div id="updateProfileSection" style="display: none">
+            <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
+            <form id="updateProfileForm">
+              <input
+                type="text"
+                id="update-userName"
+                placeholder="Përditëso Emrin"
+                required
+              />
+              <input
+                type="text"
+                id="update-userSurname"
+                placeholder="Përditëso Mbiemrim"
+                required
+              />
+              <input
+                type="email"
+                id="update-userEmail"
+                placeholder="Përditëso E-mailin"
+                required
+              />
+              <input
+                type="text"
+                id="update-userPhone"
+                placeholder="Përditëso Phone"
+                required
+              />
+              <input
+                type="password"
+                id="update-userPassword"
+                placeholder="Përditëso Fjalëkalimin (opsionale)"
+              />
+              <button type="submit" class="submit-btn">Ruaj Ndryshimet</button>
+              <p id="update-message"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Main content Ends-->
+
+      <script type="module" src="./js/admin/admin.js"></script>
+      <script type="module" src="./js/profile/eventListeners.js"></script>
+    </div>
+  </body>
+</html>

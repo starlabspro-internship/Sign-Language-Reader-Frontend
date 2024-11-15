@@ -33,16 +33,26 @@ body {
     margin: 20px auto;
     position: relative;
     width: 50%;
+    color: #323232;
 }
 
 .search-bar input[type="text"] {
     width: 100%;
-    padding: 10px 15px 10px 40px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
+    padding: 12px 15px 12px 50px;
+    font-size: 18px;
+    border: 1px solid #0a0836;
+    border-radius: 30px;
     outline: none;
     box-sizing: border-box;
+    background: linear-gradient(135deg, #a7a6d9, #6f81a8);
+    color: #000000;
+    transition: 0.3s;
+}
+
+.search-bar input[type="text"]:focus {
+    border: 1px solid #0a0836;
+    background: linear-gradient(135deg, #6f81a8, #a7a6d9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar .fa-magnifying-glass {
@@ -50,8 +60,8 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 18px;
-    color: #666;
+    font-size: 20px;
+    color: #323232;
 }
 
 .grid-container {
@@ -65,7 +75,7 @@ body {
     background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(6, 3, 58, 0.1);
     cursor: pointer;
     transition: transform 0.2s, opacity 0.3s ease;
     visibility: visible; /* Make sure they are initially visible */
