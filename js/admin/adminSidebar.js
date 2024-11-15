@@ -28,6 +28,11 @@ export const sidebar = `
         </a>
       </li>
       <li>
+        <a href="Signs.html">
+          <i class="fa-solid fa-clipboard-question"></i> Signs
+        </a>
+      </li>
+      <li>
         <a href="#" id="logoutButton">
           <i class="fa-solid fa-right-from-bracket"></i> Dilni
         </a>

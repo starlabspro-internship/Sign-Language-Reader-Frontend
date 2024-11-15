@@ -85,6 +85,38 @@
     font-style: italic;
 }
 
+.make-q {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.make-q textarea, .make-q button {
+    width: 70%;
+}
+
+.make-q textarea {
+    height: 25vh;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+.make-q button {
+    width: fit-content;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #6A9AB0;
+    color: white;
+    transition: all 0.1s;
+}
+
+.make-q button:hover {
+    cursor: pointer;
+    background-color: #001F3F;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .faq-layout {
