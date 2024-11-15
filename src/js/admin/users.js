@@ -1,3 +1,6 @@
+import "./admin.js"
+
+import "../../assets/css/admin/users.css";
 import API_URL from '../profile/apiUrls.js'; 
 
 let allUsers = [];

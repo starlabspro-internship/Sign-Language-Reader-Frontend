@@ -1,22 +1,27 @@
+// NESE BENI NDONJE NDRYSHIM NE KETE FILE, MOS HARRONI TA RESTARTONI SERVERIN!!! (CTRL + C NE TERMINAL DHE NPM RUN DEV PERSERI)
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-// Define the pages and their corresponding entry points and specific chunks
+// Definoni html filet e rinje ketu me poshte...
 const pages = [
-  { template: "home.html", filename: "home", chunks: ["home"] },
-  { template: "about.html", filename: "about", chunks: ["about"] },
-  { template: "auth.html", filename: "auth", chunks: ["auth"] },
-  { template: "translate.html", filename: "translate", chunks: ["translate"] },
-  { template: "history.html", filename: "history", chunks: ["history"] },
-  { template: "mesimet.html", filename: "mesimet", chunks: ["mesimet"] },
-  { template: "faq-page.html", filename: "faq", chunks: ["faq"] },
-  { template: "profile.html", filename: "profile", chunks: ["profile"] },
-  { template: "admin.html", filename: "admin", chunks: ["admin", "eventListeners"] },
-  { template: "users.html", filename: "users", chunks: ["profile", "users"] },
+  //template eshte emri i file's, filename eshte ajo pjesa e url (si default lejeni si emri i file's)
+  // "Chunks" e injekton automatikisht javaScript filen ne html,
+  { template: "home.html", filename: "home.html", chunks: ["home"] },
+  { template: "about.html", filename: "about.html", chunks: ["about"] },
+  { template: "auth.html", filename: "auth.html", chunks: ["auth"] },
+  { template: "translate.html", filename: "translate.html", chunks: ["translate"] },
+  { template: "history.html", filename: "history.html", chunks: ["history"] },
+  { template: "mesimet.html", filename: "mesimet.html", chunks: ["mesimet"] },
+  { template: "faq-page.html", filename: "faq.html", chunks: ["faq"] },
+  { template: "profile.html", filename: "profile.html", chunks: ["profile"] },
+  { template: "admin.html", filename: "admin.html", chunks: ["admin"] },
+  { template: "users.html", filename: "users.html", chunks: ["users"] },
+  { template: "createAdmin.html", filename: "createAdmin.html", chunks: ["createAdmin"] },
 ];
 
 const entryPoints = {
+  //Pjesa e fileve JS ku do te injektohen lart
   app: "./src/js/app.js", 
   home: "./src/js/home.js",
   auth: "./src/js/auth.js",
@@ -36,11 +41,15 @@ const entryPoints = {
   eventListeners: "./src/js/profile/eventListeners.js",
   admin: "./src/js/admin/admin.js",
   users: "./src/js/admin/users.js",
+  createAdmin: "./src/js/admin/createAdmin.js",
+  api: "./src/js/profile/apiUrls.js",
+  forceReload: "./src/js/forceReload.js",
 };
 
 module.exports = {
+  //Nuk ka nevoje modifikim ne kete pjese
   mode: "development",
-  entry: entryPoints, // Using entryPoints from the defined object
+  entry: entryPoints, 
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
@@ -50,30 +59,30 @@ module.exports = {
   devServer: {
     watchFiles: ["./src/**/*.html"],
     open: {
-      target: "https://localhost:8080/home", // Automatically open home
+      target: "https://localhost:8080/home.html", // 
     },
     server: {
       type: "https",
     },
   },
   plugins: [
-    // Loop to generate HtmlWebpackPlugin for each page
+      //Ben lehtesim duke iteruar ne loop duke krijuar HtmlWebpackPlugin per secilin page
     ...pages.map(page => 
       new HtmlWebpackPlugin({
         template: `./src/${page.template}`,
         filename: page.filename,
-        chunks: ["app", ...page.chunks], // Add "app" chunk as a base for each page
+        chunks: ["app", ...page.chunks], // Si default, "app.js" shtohet ne secilin file
       })
     ),
     new MiniCssExtractPlugin({
-      filename: "[name].css", // Generate separate CSS files for each page
+      filename: "[name].css", // Gjeneron css
     }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"], // Extract CSS
+        use: [MiniCssExtractPlugin.loader, "css-loader"], 
       },
       {
         test: /\.html$/i,

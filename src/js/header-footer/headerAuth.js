@@ -9,12 +9,12 @@ export async function handleAuthLinks() {
         await updateAuthLink(userId);
     } else {
         document.getElementById("authLinks").innerHTML = `
-            <a href="auth" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
-            <a href="auth?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
+            <a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
+            <a href="auth.html?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
         `;
         document.getElementById("authLinksMobile").innerHTML = `
-            <a href="auth" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
-            <a href="auth?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
+            <a href="auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Kyçu</a>
+            <a href="auth.html?signup=true" class="auth-link sign-up"><i class="fa-solid fa-user-plus"></i> Regjistrohu</a>
         `;
     }
 }

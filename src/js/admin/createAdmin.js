@@ -1,3 +1,6 @@
+import "./admin.js"
+
+import "../../assets/css/admin/createAdmin.css";
 import API_URL from "../profile/apiUrls.js";
 // Admin Signup Form
 document

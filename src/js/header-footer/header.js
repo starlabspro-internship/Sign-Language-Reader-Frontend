@@ -18,12 +18,12 @@ export async function renderHeader() {
             </a>
         </div>
         <ul>
-            <li><a href="home"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
-            <li><a href="translate"><i class="fa-solid fa-language"></i> Translate</a></li>
-            <li><a href="about"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
-            <li><a href="history"><i class="fa-solid fa-book"></i> Historia</a></li>
-            <li><a href="mesimet"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
-            <li><a href="faq"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
+            <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
+            <li><a href="translate.html"><i class="fa-solid fa-language"></i> Translate</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
+            <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
+            <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
+            <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
             <li id="authLinks">
                 <!-- Authentication links will be injected here -->
             </li>
@@ -37,12 +37,12 @@ export async function renderHeader() {
     </nav>
     <div class="menubar">
     <ul>
-        <li><a href="home"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
-        <li><a href="translate"><i class="fa-solid fa-language"></i> Translate</a></li>
-        <li><a href="about"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
-        <li><a href="history"><i class="fa-solid fa-book"></i> Historia</a></li>
-        <li><a href="mesimet"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
-        <li><a href="faq-page"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
+        <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
+        <li><a href="translate.html"><i class="fa-solid fa-language"></i> Translate</a></li>
+        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
+        <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
+        <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
+        <li><a href="faq-page.html"><i class="fa-solid fa-circle-question"></i> Pyetje të Shpeshta</a></li>
         <li id="authLinksMobile">
             <!-- Authentication links for mobile view will be injected here -->
         </li>

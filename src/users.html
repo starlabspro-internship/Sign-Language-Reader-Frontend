@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Përdoruesit</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/admin/users.css" />
     <!-- Font Awesome CDN -->
     <link
       rel="stylesheet"
@@ -18,7 +16,20 @@
   <body>
     <div class="container">
       <!-- Sidebar comes here -->
-
+      <div id="sidebarContainer">
+        <div class="" style="display: none">
+          <a href="#" id="logoutButton"></a>
+          <div id="logoutModal" class="modal" style="display: none">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <div class="confirmation-buttons">
+                <button id="confirmLogoutButton"></button>
+                <button id="cancelLogoutButton"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Main content Starts-->
       <div class="main-content users-main-content">
         <h1 class="users-page-title">Përdoruesit</h1>
@@ -83,8 +94,8 @@
       </div>
       <!-- Main content Ends-->
 
-      <script type="module" src="./js/profile/profile.js"></script>
-      <script type="module" src="./js/admin/users.js"></script>
+      <!-- <script type="module" src="./js/profile/profile.js"></script>
+      <script type="module" src="./js/admin/users.js"></script> -->
     </div>
   </body>
 </html>

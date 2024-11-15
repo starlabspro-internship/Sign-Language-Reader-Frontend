@@ -1,10 +1,10 @@
 //import the css
 import "../assets/css/auth.css";
 
-// Check if user is already logged in
 import { enforceReloadOnBackNavigation } from "./forceReload.js";
 import API_URL from "./profile/apiUrls.js";
 
+// Check if user is already logged in
 document.addEventListener("DOMContentLoaded", async () => {
   enforceReloadOnBackNavigation();
   const errorMessage = document.getElementById("login-error-message");
