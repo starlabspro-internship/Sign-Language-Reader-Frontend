@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin FAQ Management</title>
-</head>
-<body>
-  <div class="faq-container">
-    <h1 class="faq-h1">FAQ Management</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin FAQ Management</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="faq-container">
+        <div id="sidebarContainer">
+          <div class="" style="display: none">
+            <a href="#" id="logoutButton"></a>
+            <div id="logoutModal" class="modal" style="display: none">
+              <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="confirmation-buttons">
+                  <button id="confirmLogoutButton"></button>
+                  <button id="cancelLogoutButton"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1 class="faq-h1">FAQ Management</h1>
 
-    <div class="faq-section">
-      <h2 class="faq-h2">FAQs Without Showcase & No Answer</h2>
-      <ul id="faq-list-no-showcase-no-answer" class="faq-list"></ul>
+        <div class="faq-section">
+          <h2 class="faq-h2">FAQs Without Showcase & No Answer</h2>
+          <ul id="faq-list-no-showcase-no-answer" class="faq-list"></ul>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="faq-h2">FAQs Without Showcase & With Answer</h2>
+          <ul id="faq-list-no-showcase-with-answer" class="faq-list"></ul>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="faq-h2">Showcased FAQs</h2>
+          <ul id="faq-list-showcased" class="faq-list"></ul>
+        </div>
+      </div>
     </div>
-
-    <div class="faq-section">
-      <h2 class="faq-h2">FAQs Without Showcase & With Answer</h2>
-      <ul id="faq-list-no-showcase-with-answer" class="faq-list"></ul>
-    </div>
-
-    <div class="faq-section">
-      <h2 class="faq-h2">Showcased FAQs</h2>
-      <ul id="faq-list-showcased" class="faq-list"></ul>
-    </div>
-  </div>
-
-</body>
+  </body>
 </html>

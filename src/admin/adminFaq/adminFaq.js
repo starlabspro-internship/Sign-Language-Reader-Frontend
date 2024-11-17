@@ -30,14 +30,37 @@ function displayFaqs(faqs, elementId, hasAnswer = false, isShowcased = false) {
             ${faq.question}
             <ul>
                 ${hasAnswer ? `<li>Answer: ${faq.answer}</li>` : ''}
-                <li><button onclick="deleteFaq('${faq._id}')">Delete FAQ</button></li>
-                ${!isShowcased ? `<li><button onclick="editAnswer('${faq._id}', '${faq.answer || ''}')">Edit Answer</button></li>
-                <li><button onclick="toggleShowcase('${faq._id}', true)">Showcase FAQ</button></li>` : ''}
-                ${isShowcased ? `<li><button onclick="editAnswer('${faq._id}', '${faq.answer}')">Edit Answer</button></li>
-                <li><button onclick="toggleShowcase('${faq._id}', false)">Remove Showcase</button></li>` : ''}
+                <li><button class="delete-faq" data-id="${faq._id}">Delete FAQ</button></li>
+                ${!isShowcased ? `
+                    <li><button class="edit-answer" data-id="${faq._id}" data-answer="${faq.answer || ''}">Edit Answer</button></li>
+                    <li><button class="toggle-showcase" data-id="${faq._id}" data-showcase="true">Showcase FAQ</button></li>` : ''}
+                ${isShowcased ? `
+                    <li><button class="edit-answer" data-id="${faq._id}" data-answer="${faq.answer}">Edit Answer</button></li>
+                    <li><button class="toggle-showcase" data-id="${faq._id}" data-showcase="false">Remove Showcase</button></li>` : ''}
             </ul>
         `;
         list.appendChild(listItem);
+    });
+
+    // Add event listeners after FAQ items are added to the DOM
+    attachEventListeners();
+}
+
+function attachEventListeners() {
+    // Attach event listeners for Delete, Edit Answer, and Toggle Showcase buttons
+    const deleteButtons = document.querySelectorAll('.delete-faq');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => deleteFaq(button.dataset.id));
+    });
+
+    const editAnswerButtons = document.querySelectorAll('.edit-answer');
+    editAnswerButtons.forEach(button => {
+        button.addEventListener('click', () => editAnswer(button.dataset.id, button.dataset.answer));
+    });
+
+    const toggleShowcaseButtons = document.querySelectorAll('.toggle-showcase');
+    toggleShowcaseButtons.forEach(button => {
+        button.addEventListener('click', () => toggleShowcase(button.dataset.id, button.dataset.showcase === 'true'));
     });
 }
 
