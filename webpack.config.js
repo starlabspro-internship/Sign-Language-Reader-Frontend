@@ -1,4 +1,4 @@
-// NESE BENI NDONJE NDRYSHIM NE KETE FILE, MOS HARRONI TA RESTARTONI SERVERIN!!! (CTRL + C NE TERMINAL DHE NPM RUN DEV PERSERI)
+// GJATE NDRYSHIMIT TE WEBPACK, MOS HARRONI TA RESTARTONI SERVERIN!!! (CTRL + C NE TERMINAL DHE NPM RUN DEV PERSERI)
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
