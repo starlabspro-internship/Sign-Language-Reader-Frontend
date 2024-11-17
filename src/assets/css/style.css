@@ -1,34 +1,13 @@
-/* THIS IS THE MAIN CSS FILE */
 @import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
 @import "navbar-footer.css";
 
 :root {
   --deep-blue: #001f3f;
   --medium-blue: #3a6d8c;
-  --light-blue: #6a9ab0;
   --cream: #ead8b1;
-  --dark-bg: #212121; /* Ngjyrë më e errët, por jo tërësisht e zezë */
-  --dark-text: #d3d3d3; /* Ngjyrë më e butë e tekstit */
-  --dark-accent: #3a6d8c; /* Ngjyra akcentuese e njëjtë si për dritën */
-  --dark-box-bg: #2b2b2b; /* Ngjyrë gri e errët për kutitë */
-  --dark-shadow: rgba(0, 0, 0, 0.4); /* Hijë më e butë */
-}
-
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--medium-blue);
-}
-
-::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--light-blue);
+  --dark-bg: #212121;
+  --dark-text: #d3d3d3;
+  --dark-accent: #3a6d8c;
 }
 
 * {
@@ -41,53 +20,6 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
+  color: #333;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
-
-body.dark-mode .intro-text {
-  background-color: var(--dark-box-bg);
-  color: var(--dark-text);
-  border-left: 5px solid var(--dark-accent);
-  box-shadow: 0px 2px 8px var(--dark-shadow);
-}
-
-body.dark-mode .slider {
-  background-color: #333333; /* Përdorim gri të errët për slider */
-}
-
-body.dark-mode .info-box {
-  background-color: var(--dark-box-bg);
-  color: var(--dark-text);
-  box-shadow: 0 0 10px var(--dark-shadow);
-}
-
-body.dark-mode .read-more {
-  background-color: var(--medium-blue); /* Ruajmë ngjyrën e dritës për butonat */
-}
-
-body.dark-mode .read-more:hover {
-  background-color: var(--cream);
-}
-
-body.dark-mode .buttons button {
-  background-color: var(--medium-blue);
-  color: #fff;
-}
-
-body.dark-mode .buttons button:hover {
-  background-color: rgba(98, 158, 227, 0.8);
-}
-
-body.dark-mode .dots li {
-  background-color: var(--medium-blue);
-}
-
-body.dark-mode .dots li.active {
-  width: 30px;
-  background-color: var(--light-blue);
-}
