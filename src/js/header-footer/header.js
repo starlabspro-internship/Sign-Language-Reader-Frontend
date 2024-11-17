@@ -16,7 +16,7 @@ export async function renderHeader() {
         </div>
         <ul>
             <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
-            <li><a href="translate.html"><i class="fa-solid fa-language"></i> Translate</a></li>
+            <li><a href="translate.html"><i class="fa-solid fa-language"></i> Përkthe</a></li>
             <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
             <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
             <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
@@ -35,7 +35,7 @@ export async function renderHeader() {
     <div class="menubar">
     <ul>
         <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
-        <li><a href="translate.html"><i class="fa-solid fa-language"></i> Translate</a></li>
+        <li><a href="translate.html"><i class="fa-solid fa-language"></i> Përkthe</a></li>
         <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
         <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
         <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
