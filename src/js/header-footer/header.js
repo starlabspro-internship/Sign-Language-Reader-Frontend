@@ -10,7 +10,7 @@ export async function renderHeader() {
   header.innerHTML = `
     <nav>
         <div class="logo">
-            <a href="home">
+            <a href="home.html">
                 <img src="${logo}" alt="logo" />
             </a>
         </div>

@@ -28,6 +28,11 @@ export const sidebar = `
         </a>
       </li>
       <li>
+        <a href="signs.html" class="${currentPage.includes('signs.html') ? 'active' : ''}">
+          <i class="fa-solid fa-folder-plus"></i> Shto Shenja
+        </a>
+      </li>
+      <li>
         <a href="#" id="logoutButton">
           <i class="fa-solid fa-right-from-bracket"></i> Dilni
         </a>

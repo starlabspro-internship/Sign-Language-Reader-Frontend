@@ -22,7 +22,8 @@ const pages = [
   { template: "mesimetPages/perimet/perimet.html", filename: "perimet.html", chunks: ["perimet"] },
   { template: "mesimetPages/sportet/sportet.html", filename: "sportet.html", chunks: ["sportet"] },
   { template: "auth/auth.html", filename: "auth.html", chunks: ["auth"] },
-  { template: "admin/admin.html", filename: "admin.html", chunks: ["admin"] },
+  { template: "admin/admin.html", filename: "admin.html", chunks: ["admin", "eventListeners"] },
+  { template: "admin/signs/signs.html", filename: "signs.html", chunks: ["signs"] },
   { template: "admin/users/users.html", filename: "users.html", chunks: ["users"] },
   { template: "admin/createAdmin/createAdmin.html", filename: "createAdmin.html", chunks: ["createAdmin"] },
   { template: "profile/profile.html", filename: "profile.html", chunks: ["profile"] },
@@ -46,12 +47,12 @@ const entryPoints = {
   sportet: "./src/mesimetPages/sportet/sportet.js",
   auth: "./src/auth/auth.js",
   admin: "./src/admin/admin.js",
+  eventListeners: "./src/profile/profileFunctions/eventListeners.js",
   createAdmin: "./src/admin/createAdmin/createAdmin.js",
   users: "./src/admin/users/users.js",
   profile: "./src/profile/profile.js",
-
-  
   home: "./src/js/home.js",
+  signs: "./src/admin/signs/signs.js",
 };
 
 module.exports = {

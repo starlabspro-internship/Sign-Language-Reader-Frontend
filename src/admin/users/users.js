@@ -83,8 +83,6 @@ function showPopup() {
 }
 
 
-
-
 // Function to handle search input
 function handleSearch() {
   const searchQuery = document.getElementById('searchInput').value.toLowerCase(); 
