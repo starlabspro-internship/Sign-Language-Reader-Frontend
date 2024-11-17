@@ -1,0 +1,97 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.faq-h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #001f3f;
+}
+
+.faq-h2 {
+  color: #3a6d8c;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.faq-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-list {
+  list-style-type: none;
+}
+
+.faq-list li {
+  padding: 10px;
+  background-color: #fafafa;
+  margin: 10px 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.faq-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Buttons */
+button {
+  padding: 8px 15px;
+  background-color: #73a7c7;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #3a6d8c;
+}
+
+button:active {
+  background-color: #001f3f;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Scrollbar */
+.faq-list::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.faq-list::-webkit-scrollbar-thumb {
+  background-color: #3a6d8c;
+  border-radius: 6px;
+}
+
+.faq-list::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+  border-radius: 6px;
+}

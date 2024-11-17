@@ -26,6 +26,7 @@ const pages = [
   { template: "admin/signs/signs.html", filename: "signs.html", chunks: ["signs"] },
   { template: "admin/users/users.html", filename: "users.html", chunks: ["users"] },
   { template: "admin/createAdmin/createAdmin.html", filename: "createAdmin.html", chunks: ["createAdmin"] },
+  { template: "admin/adminFaq/adminFaq.html", filename: "adminFaq.html", chunks: ["adminFaq"] },
   { template: "profile/profile.html", filename: "profile.html", chunks: ["profile"] },
 ];
 
@@ -53,6 +54,7 @@ const entryPoints = {
   profile: "./src/profile/profile.js",
   home: "./src/js/home.js",
   signs: "./src/admin/signs/signs.js",
+  adminFaq: "./src/admin/adminFaq/adminFaq.js",
 };
 
 module.exports = {

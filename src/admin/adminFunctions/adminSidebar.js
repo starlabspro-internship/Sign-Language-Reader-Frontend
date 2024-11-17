@@ -23,7 +23,7 @@ export const sidebar = `
         </a>
       </li>
       <li>
-        <a href="#" class="${currentPage === '#' ? 'active' : ''}">
+        <a href="adminFaq.html" class="${currentPage.includes('adminFaq.html') ? 'active' : ''}">
           <i class="fa-solid fa-clipboard-question"></i> Pyetje të shpeshta
         </a>
       </li>

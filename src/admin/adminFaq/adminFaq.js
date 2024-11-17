@@ -1,3 +1,6 @@
+import "../admin.js"
+import "./adminFaq.css"
+
 const BASE_URL = 'https://localhost:5000/api/faq'; 
 
 async function fetchFaqs() {
