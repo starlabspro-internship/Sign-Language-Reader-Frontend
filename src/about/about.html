@@ -18,10 +18,12 @@
             qasje në burime që lehtësojnë komunikimin dhe kuptimin mes
             komuniteteve të ndryshme.
           </p>
+
+          <hr class="hr1">
         </div>
 
         <div class="foto1">
-          <img class="fotoabout" src="../photos/about.jpg" alt="about" />
+          <img class="fotoabout" src="../photos/about.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -29,7 +31,7 @@
     <div class="div4">
       <div class="content2">
         <div class="foto11">
-          <img class="fotoabout" src="../photos/vizioni.png" alt="vizioni" />
+          <img class="fotoabout" src="../photos/vizioni.png" alt="" />
         </div>
 
         <div>
@@ -107,7 +109,7 @@
         </div>
 
         <div class="flex-boxes">
-          <h4>NDJEKJA E PROGRESIT DHE ARRITJET</h4>
+            <h4> NDJEKJA E PROGRESIT DHE ARRITJET</h4>
           <p>
             Platforma ofron një sistem për ndjekjen e progresit të përdoruesve.
             Kjo veçori lejon përdoruesit të shikojnë sa larg kanë arritur dhe
@@ -135,13 +137,16 @@
           Lidhuni me të afërm, miq ose kolegë që nuk dëgjojnë dhe filloni të
           mësoni gjuhën shqipe të shenjave në Duartë.
         </p>
+
+        <button id="start-learning-btn">Fillo të  Mësosh</button>
+
+       
       </div>
-      <button id="start-learning-btn">Fillo të  Mësosh</button>
+      <script>
+         document.getElementById('start-learning-btn').addEventListener('click', function() {
+            window.location.href = 'mesimet.html'; 
+        });
+      </script>
     </div>
-    <script>
-      document.getElementById('start-learning-btn').addEventListener('click', function() {
-         window.location.href = 'mesimet.html'; 
-     });
-   </script>
   </body>
 </html>
