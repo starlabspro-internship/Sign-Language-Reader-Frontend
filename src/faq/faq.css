@@ -54,6 +54,7 @@
     list-style-type: none;
     padding: 0;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .Faq-list ul li {
@@ -68,8 +69,7 @@
 
 .Faq-list ul li:hover {
     background-color: #6A9AB0; 
-    color: #FFFFFF; 
-    transform: translateY(-5px);
+    color: #fff; 
 }
 
 .Faq-list ul li p {
