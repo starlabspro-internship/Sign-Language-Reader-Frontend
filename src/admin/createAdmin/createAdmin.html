@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krijo admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+       <!-- Sidebar comes here -->
+       <div id="sidebarContainer">
+        <div class="" style="display: none">
+          <a href="#" id="logoutButton"></a>
+          <div id="logoutModal" class="modal" style="display: none">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <div class="confirmation-buttons">
+                <button id="confirmLogoutButton"></button>
+                <button id="cancelLogoutButton"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main content Starts-->
+      <div class="main-content">
+        <h1>Krijo Admin</h1>
+        <form id="admin-signup-form">
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="admin-signup-name" placeholder="Emri" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="admin-signup-surname" placeholder="Mbiemri" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="admin-signup-email" placeholder="E-mail" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-phone"></i>
+            <input type="tel" id="admin-signup-phone" placeholder="Nr Tel (opsionale)" />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="admin-signup-password" placeholder="Password" required />
+          </div>
+          <button type="submit" class="submit-button">Krijo Admin</button>
+          <p id="admin-signup-error-message" style="display: none; color: red;"></p>
+          <p id="admin-signup-success-message" style="display: none; color: green;"></p>
+        </form>
+      </div>
+    </div>
+    <!-- <script type="module" src="./js/admin/createAdmin.js"></script>
+    <script type="module" src="./js/profile/eventListeners.js"></script> -->
+  </body>
+</html>

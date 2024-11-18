@@ -1,0 +1,243 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.literatura {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; 
+    background-color: #f0f2f5; 
+    margin-top: 20px;
+}
+
+/* Styling for the introductory text */
+#intro-text {
+    margin-bottom: 20px; 
+    text-align: start; 
+    max-width: 1100px; 
+    width: auto; 
+    padding: 0 15px;
+}
+
+#intro-text h1 {
+    font-size: 24px; 
+    color: #000000; 
+    margin-bottom: 10px; 
+    text-align: center;
+}
+
+#intro-text p {
+    color: #000000;
+    font-size: 16px; 
+}
+
+
+#main-container {
+    width: 90%; 
+    max-width: 950px; 
+    height: auto; 
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+#alphabet {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+#alphabet button {
+    width: 41px;
+    height: 41px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--medium-blue);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#alphabet button:hover {
+    background-color: #6c84b4;
+}
+
+#alphabet button.active {
+    background-color: #0f0045; 
+    color: #fff;
+}
+
+#display {
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
+    margin-top: 20px;
+}
+
+
+#letterImage {
+    max-width: 250px; 
+    height: 250px; 
+    margin: 50px 50px 20px 50px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(4, 2, 51, 0.6); 
+}
+
+#letterDescription {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 800;
+    margin-left: 30px;
+}
+
+.butonat{
+    display: flex;
+    gap: 20px;
+}
+
+#startQuiz {
+    background-color: var(--deep-blue);
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    font-size: 14px; 
+    margin: 20px 0; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    width: 180px;
+    height: 50px;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+#startQuiz:hover {
+    background-color: #6c84b4; 
+    transform: scale(1.05);
+}
+
+#goBack {
+    background-color: var(--deep-blue);
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    font-size: 14px; 
+    margin: 20px 0; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    width: 180px; /* Default size for larger screens */
+    height: 50px; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+#goBack:hover {
+    background-color: #6c84b4; 
+    transform: scale(1.05);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    #intro-text h1 {
+        font-size: 22px; /* Reduce font size */
+    }
+    #intro-text p {
+        font-size: 15px; /* Adjust paragraph font size */
+    }
+}
+
+@media (max-width: 992px) {
+    #main-container {
+        width: 95%; 
+        padding: 15px; 
+    }
+
+    #letterImage {
+        margin: 30px 30px 0 30px; 
+    }
+
+    #letterDescription {
+        margin-left: 20px; 
+    }
+    #intro-text h1 {
+        font-size: 20px; /* Further reduce font size */
+    }
+    #intro-text p {
+        font-size: 14px; /* Adjust paragraph font size */
+    }
+}
+
+@media (max-width: 768px) {
+    #display {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    #letterImage {
+        margin: 20px 0; 
+    }
+
+    #letterDescription {
+        margin-left: 0; 
+        text-align: center; 
+    }
+
+    #startQuiz , #goBack {
+        width: 100%; 
+        height: 45px; 
+    }
+
+    #intro-text h1 {
+        font-size: 18px; /* Further reduce font size */
+    }
+    #intro-text p {
+        font-size: 13px; /* Adjust paragraph font size */
+    }
+
+    #goBack {
+        width: 100%; /* Expand to full width */
+        height: 45px; /* Slightly reduce height */
+        font-size: 13px; /* Adjust font size for readability */
+    }
+}
+
+@media (max-width: 576px) {
+    #intro-text h1 {
+        font-size: 20px; 
+    }
+
+    #alphabet button {
+        width: 35px; 
+        height: 35px;
+        font-size: 14px; 
+    }
+
+    #startQuiz , #goBack {
+        height: 40px; 
+    }
+    #intro-text h1 {
+        font-size: 16px; /* Minimum font size for small devices */
+    }
+    #intro-text p {
+        font-size: 12px; /* Minimum paragraph font size */
+    }
+
+    #goBack {
+        width: 100%; /* Full width for smaller screens */
+        height: 40px; /* Reduce height further */
+        font-size: 12px; /* Minimum font size for small devices */
+        padding: 8px 15px; /* Adjust padding for a balanced look */
+    }
+}
