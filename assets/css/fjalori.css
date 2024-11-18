@@ -99,7 +99,7 @@ video {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  object-fit: cover;
+  object-fit: cover;  /* Make sure video maintains proper aspect ratio */
   transition: filter 0.3s ease;
   filter: brightness(70%);
 }
@@ -118,6 +118,8 @@ h2 {
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 1.2em;
+  width: calc(100% - 20px); /* Ensure it doesn't overflow the box */
+  box-sizing: border-box;
 }
 
 .modal {
@@ -191,7 +193,7 @@ h2 {
     width: 80%;
   }
   .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* Adjust grid layout for 2 columns */
+    grid-template-columns: repeat(3, 1fr); /* Adjust grid layout for 3 columns */
     gap: 15px;
   }
   .box {
@@ -208,7 +210,7 @@ h2 {
 /* Small devices (tablets, 768px and below) */
 @media (max-width: 768px) {
   .grid-container {
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: repeat(2, 1fr); /* Adjust grid layout for 2 columns */
     gap: 15px;
   }
   .box {
@@ -224,23 +226,39 @@ h2 {
 
 /* Extra small devices (phones, 480px and below) */
 @media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 15px;
+  }
+
   .search-bar input[type="text"] {
     font-size: 14px; /* Adjust font size of the input for smaller screens */
     padding: 10px 15px 10px 35px; /* Adjust padding */
   }
+
   .box {
-    height: 200px; /* Reduce box height */
+    height: auto; /* Allow the box to adjust height based on video aspect ratio */
+    width: 100%; /* Ensure box takes full width */
   }
+
+  .box video {
+    object-fit: contain; /* Ensure video is not cropped */
+    width: 100%;
+    height: 100%;
+  }
+
   .modal-content {
     width: 90%;
     max-width: 250px;
     height: auto;
   }
+
   .closing-text {
     font-size: 0.9em; /* Smaller font size */
     padding: 10px;
     margin: 10px;
   }
+
   #goBack {
     width: 130px;
     height: 40px;
@@ -248,3 +266,4 @@ h2 {
     padding: 8px 14px;
   }
 }
+

@@ -78,9 +78,9 @@ body {
     box-shadow: 0 4px 8px rgba(6, 3, 58, 0.1);
     cursor: pointer;
     transition: transform 0.2s, opacity 0.3s ease;
-    visibility: visible; /* Ensure boxes are visible */
+    visibility: visible; 
     opacity: 1;
-    text-align: center; /* Center content in the box */
+    text-align: center; 
     }
     
     .box img {
