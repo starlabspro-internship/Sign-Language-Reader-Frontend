@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
-@import "../css/navbar-footer.css";
+@import './navbar-footer.css';
 
 :root {
     --deep-blue: #001f3f;
@@ -155,7 +155,7 @@ body {
     margin: 20px 0; 
     cursor: pointer; 
     border-radius: 5px; 
-    width: 180px; /* Default size for larger screens */
+    width: 180px; 
     height: 50px; 
     transition: background-color 0.3s, transform 0.2s; 
 }
@@ -168,10 +168,10 @@ body {
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
     #intro-text h1 {
-        font-size: 22px; /* Reduce font size */
+        font-size: 22px; 
     }
     #intro-text p {
-        font-size: 15px; /* Adjust paragraph font size */
+        font-size: 15px; 
     }
 }
 
@@ -189,10 +189,10 @@ body {
         margin-left: 20px; 
     }
     #intro-text h1 {
-        font-size: 20px; /* Further reduce font size */
+        font-size: 20px; 
     }
     #intro-text p {
-        font-size: 14px; /* Adjust paragraph font size */
+        font-size: 14px; 
     }
 }
 
@@ -217,17 +217,17 @@ body {
     }
 
     #goBack {
-        width: 100%; /* Expand to full width */
-        height: 45px; /* Slightly reduce height */
-        font-size: 13px; /* Adjust font size for readability */
+        width: 100%; 
+        height: 45px; 
+        font-size: 13px; 
     }
 
     
     #intro-text h1 {
-        font-size: 18px; /* Further reduce font size */
+        font-size: 18px; 
     }
     #intro-text p {
-        font-size: 13px; /* Adjust paragraph font size */
+        font-size: 13px; 
     }
 }
 
@@ -247,15 +247,15 @@ body {
     }
 
     #goBack {
-        width: 100%; /* Full width for smaller screens */
-        height: 40px; /* Reduce height further */
-        font-size: 12px; /* Minimum font size for small devices */
-        padding: 8px 15px; /* Adjust padding for a balanced look */
+        width: 100%; 
+        height: 40px; 
+        font-size: 12px;
+        padding: 8px 15px; 
     }
     #intro-text h1 {
-        font-size: 16px; /* Minimum font size for small devices */
+        font-size: 16px; 
     }
     #intro-text p {
-        font-size: 12px; /* Minimum paragraph font size */
+        font-size: 12px; 
     }
 }
