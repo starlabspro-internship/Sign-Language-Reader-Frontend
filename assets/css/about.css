@@ -3,8 +3,6 @@
   justify-content: center;  
   width: 100%;
   align-items: center;
-  background-color:#bfc0bf;
-  border-radius: 60% 0 30% 90%;
   height: 500px; 
 }
 
@@ -68,6 +66,7 @@
 
 .content2 h2 {
   text-align: start;
+  color: black;
 }
 
 .content2 p {
@@ -80,6 +79,14 @@ hr {
   height: 2px;         
   background-color: #001f3f;  
   width: 70%;          
+  margin: 20px auto;   
+}
+
+.hr1 {
+  border: none;
+  height: 2px;         
+  background-color: #001f3f;  
+  width: 100%;          
   margin: 20px auto;   
 }
 
@@ -236,7 +243,7 @@ hr {
   }
 
   hr {
-    width: 50%; 
+    width: 60%; 
     margin: 20px auto; 
   }
 
