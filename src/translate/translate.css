@@ -1,0 +1,276 @@
+body {
+    background: linear-gradient(135deg, #f4f4f4, #d1e3e8);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    font-family: "Montserrat", sans-serif;
+    color: var(--deep-blue);
+    margin: 0;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.tran-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 20px;
+    background: linear-gradient(to right, var(--deep-blue), var(--medium-blue));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5em;
+}
+
+.tran-description {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: #444;
+    max-width: 900px;
+    margin: 15px auto;
+    padding: 18px 25px;
+    text-align: justify;
+    background-color: #eef2f3;
+    border-top: 4px solid var(--cream);
+    border-radius: 8px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tinput, .translate-form {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.translate-form textarea {
+    width: 100%;
+    height: 20vh;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: var(--deep-blue);
+    border: 2px solid var(--medium-blue);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.translate-input, .clear-prev {
+    padding: 12px 40px;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--medium-blue);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.translate-input:hover, .clear-prev:hover {
+    background-color: var(--cream);
+    transform: translateY(-3px);
+}
+
+.signs-holder {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+    width: clamp(100%, 200%, 90vw);
+}
+
+.sign-card {
+    width: 220px;
+    height: 280px; 
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+}
+
+
+.sign-card img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover;
+    display: block;
+}
+
+.sign-card p {
+    margin: 0;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--medium-blue);
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: break-word;
+    height: 50px; 
+    line-height: 1.2; 
+}
+.sign-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.15);
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.signs-holder .sign-card:first-child p {
+    text-transform: capitalize;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--medium-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; 
+    z-index: 1;
+}
+
+.scroll-btn-left {
+    left: 10px;
+}
+
+.scroll-btn-right {
+    right: 10px;
+}
+
+.scroll-btn:hover {
+    background-color: var(--cream);
+    transform: translateY(-50%) scale(1.1); 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.scroll-btn:active {
+    transform: translateY(-50%) scale(0.95); 
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); 
+}
+
+/* Default Styles (Desktop) */
+
+@media (max-width: 1024px) {
+    /* Tablet - Adjusting for medium screens */
+    .tran-title {
+        font-size: 2rem;
+    }
+
+    .tran-description {
+        font-size: 1rem;
+        max-width: 85%;
+        padding: 15px 20px;
+    }
+
+    .sign-card {
+        width: 220px;
+        height: 280px;
+    }
+
+    .translate-form textarea {
+        height: 15vh;
+    }
+
+    .scroll-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Large Mobile Devices */
+    .tran-title {
+        font-size: 1.8rem;
+    }
+
+    .tran-description {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+
+    .tinput, .translate-form {
+        width: 90%;
+    }
+
+    .sign-card {
+        width: 220px;
+        height: 280px;
+    }
+
+    .translate-form textarea {
+        height: 12vh;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small Mobile Devices */
+    .tran-title {
+        font-size: 1.5rem;
+    }
+
+    .tran-description {
+        font-size: 0.9rem;
+        max-width: 90%;
+    }
+
+    .signs-holder {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .sign-card {
+        width: 220px;
+        max-width: 280px;
+    }
+
+    .scroll-btn {
+        width: 30px;
+        height: 30px;
+        padding: 8px;
+    }
+
+    .translate-form textarea {
+        height: 10vh;
+    }
+}

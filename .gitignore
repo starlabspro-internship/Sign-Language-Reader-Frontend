@@ -1,0 +1,4 @@
+#These files don't need to be pushed into github
+node_modules
+
+dist/

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Language Reader</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <h1 class="tran-title">Përkthe një fjalë në gjuhën e shenjave.</h1>
+    <p class="tran-description">
+        Faqja e përkthimit është një hapësirë ku përdoruesit mund të shkruajnë fjalë ose fraza dhe t'i shohin ato të shndërruara në imazhe që paraqesin gjuhën e shenjave të Kosovës (KSL). Ky funksionalitet është krijuar për të ndihmuar në mësimin dhe praktikimin e KSL-së, duke ofruar një mënyrë të thjeshtë dhe vizuale për të kuptuar dhe komunikuar më mirë. Qëllimi është të mbështesim përfshirjen dhe ndërgjegjësimin për komunitetin me dëgjim të kufizuar dhe të kontribuojmë në përmirësimin e aftësive të komunikimit për të gjithë
+    </p>
+
+    <div class="tinput">
+        <form class="translate-form">
+            <textarea id="translateInput" style="resize: none;" placeholder="Vendosni fjalën për ta përkthyer në gjuhën e shenjave"></textarea>
+            <button type="submit" class="translate-input" id="translateButton">Përkthe në Gjuhën e Shenjave</button>    
+            <button type="button" class="clear-prev" id="clearButton" style="display: none;">Fshi Përkthimin e Mëparshëm</button>    
+        </form>
+        <div class="signs-holder" id="translationResults">
+            
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <button class="scroll-btn scroll-btn-left">◀</button>
+        <div class="signs-holder" id="translationResults">
+            
+        </div>
+        <button class="scroll-btn scroll-btn-right">▶</button>
+    </div>
+    
+</body>
+</html>
