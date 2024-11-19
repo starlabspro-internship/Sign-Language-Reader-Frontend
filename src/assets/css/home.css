@@ -1,3 +1,6 @@
+*{
+  list-style: none;
+}
 .what-we-do {
   text-align: center;
   padding: 50px 20px;
@@ -69,13 +72,11 @@
   color: #fff;
 }
 
-
 .location {
   margin-top: 10px;
   color: #888;
   font-size: 14px;
 }
-
 
 .line {
   display: block;
@@ -83,20 +84,22 @@
   width: 40%;
   max-width: 500px;
   height: 2px;
-  background-color:var(--cream);
+  background-color: var(--cream);
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+/* Style for the photo section */
 /* Style for the photo section */
 .photo-section {
   text-align: center;
-  margin-top: 50px;  /* Space between the line and the title */
+  margin-top: 50px; /* Space between the line and the title */
 }
 
 .photo-title {
   font-size: 24px;
-  color: var(--deep-blue);  /* Adjust the color as per your design */
-  margin-bottom: 20px;  /* Space between the title and the images */
+  color: var(--deep-blue); /* Adjust the color as per your design */
+  margin-bottom: 20px; /* Space between the title and the images */
   font-weight: bold;
 }
 
@@ -110,8 +113,8 @@
 
 /* Large photo on the left */
 .large-photo {
-  width: 500px;  /* Set the size of the large image */
-  height: 500px;  /* Set the height of the large image */
+  width: 500px; 
+  height: 500px; 
 }
 
 .large-photo img {
@@ -124,14 +127,14 @@
 /* Right photos container with grid layout */
 .right-photos {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* 2 columns */
-  gap: 10px;  /* Space between the smaller images */
-  width: 500px;  /* Width of the container for smaller images */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px; /* Space between the smaller images */
+  width: 500px; /* Width of the container for smaller images */
 }
 
 .small-photo {
   width: 100%;
-  height: 250px;  /* Height of each small image */
+  height: 250px; 
 }
 
 .small-photo img {
@@ -141,7 +144,7 @@
   border-radius: 8px;
 }
 
-
+/*  NOTIFICATIONS */
 .latest-notifications {
   background-color: #f4f4f4;
   padding: 50px 20px;
@@ -165,10 +168,10 @@
 
 /* Styles for individual notifications */
 .notifications {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 20px; 
 }
 
 .notification-item {
@@ -176,7 +179,9 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
+  flex: 1 1 calc(50% - 20px); 
+  /* max-width: 400px;  */
+  /* box-sizing: border-box; */
 }
 
 .icon-text {
@@ -184,6 +189,11 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  list-style: none;
+}
+
+.icon-text strong{
+  color: var(--medium-blue);
 }
 
 .icon {
@@ -201,7 +211,6 @@
   font-size: 14px;
   color: #555;
 }
-
 
 /* Stili për Njoftimet në Modalitetin Dark */
 body.dark-mode .latest-notifications {
@@ -232,5 +241,57 @@ body.dark-mode .details-btn:hover,
 body.dark-mode .details-btn1:hover {
   background-color: var(--cream);
   color: var(--deep-blue);
-  border-color: var(--deep-blue); /* Added border-color change for hover state */
+  border-color: var(
+    --deep-blue
+  ); 
+}
+
+
+@media (max-width: 768px) {
+  .what-we-do h2 {
+    font-size: 24px;
+  }
+  .image-container{
+    margin-bottom: 28px;
+  }
+  .line {
+    margin: 0 auto;
+  }
+  .notification-item {
+    flex: 1 1 calc(100% - 20px); 
+  }
+
+  .photo-gallery {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .large-photo {
+    width: 90%; 
+    height: auto; 
+  }
+
+  .right-photos {
+    width: 90%; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .photo-title {
+    font-size: 20px; 
+  }
+
+  .large-photo {
+    width: 100%; 
+  }
+
+  .right-photos {
+    width: 100%; 
+    gap: 8px; 
+  }
+
+  .small-photo {
+    height: 150px;
+  }
 }
