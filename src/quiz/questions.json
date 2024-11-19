@@ -1,7 +1,7 @@
 [
     {
         "question": "Based on the video you see, which number is she signing?",
-        "fileLocation": "videos/numrat/0.mp4",
+        "fileLocation": "../videos/numrat/0.mp4",
         "fileType": "video",
         "choice1": "The number 3",
         "choice2": "The number 0",
@@ -12,7 +12,7 @@
     },
     {
         "question": "Based on the video you see, which number is he signing?",
-        "fileLocation": "videos/numrat/1.mp4",
+        "fileLocation": "../videos/numrat/1.mp4",
         "fileType": "video",
         "choice1": "The number 1",
         "choice2": "The number 2",
@@ -23,7 +23,7 @@
     },
     {
         "question": "Based on the video you see, which sport is she signing?",
-        "fileLocation": "videos/sportet/basketboll.mp4",
+        "fileLocation": "../videos/sportet/basketboll.mp4",
         "fileType": "video",
         "choice1": "Shah",
         "choice2": "Tenis",
@@ -34,7 +34,7 @@
     },
     {
         "question": "Based on the video you see, which sport is she signing?",
-        "fileLocation": "videos/sportet/futboll.mp4",
+        "fileLocation": "../videos/sportet/futboll.mp4",
         "fileType": "video",
         "choice1": "Shah",
         "choice2": "Tenis",
@@ -45,7 +45,7 @@
     },
     {
         "question": "Based on the video you see, which vegetable is she signing?",
-        "fileLocation": "videos/perimet/domate.mp4",
+        "fileLocation": "../videos/perimet/domate.mp4",
         "fileType": "video",
         "choice1": "spec",
         "choice2": "domate",
@@ -56,7 +56,7 @@
     },
     {
         "question": "Based on the video you see, which vegetable is he signing?",
-        "fileLocation": "videos/perimet/ullinj.mp4",
+        "fileLocation": "../videos/perimet/ullinj.mp4",
         "fileType": "video",
         "choice1": "ullinj",
         "choice2": "laker",
@@ -67,7 +67,7 @@
     },
     {
         "question": "Based on the video you see, which number is he signing?",
-        "fileLocation": "videos/numrat/3.mp4",
+        "fileLocation": "../videos/numrat/3.mp4",
         "fileType": "video",
         "choice1": "The number 41",
         "choice2": "The number 22",

@@ -28,11 +28,14 @@ const pages = [
   { template: "admin/createAdmin/createAdmin.html", filename: "createAdmin.html", chunks: ["createAdmin"] },
   { template: "admin/adminFaq/adminFaq.html", filename: "adminFaq.html", chunks: ["adminFaq"] },
   { template: "profile/profile.html", filename: "profile.html", chunks: ["profile"] },
+  { template: "profile/profile.html", filename: "profile.html", chunks: ["profile"] },
+  { template: "quiz/quiz.html", filename: "quiz.html", chunks: ["quiz"] },
+
 ];
 
 const entryPoints = {
   //Pjesa e fileve JS ku do te injektohen me lart
-  app: "./src/js/app.js", 
+  app: "./src/js/app.js",
   about: "./src/about/about.js",
   translate: "./src/translate/translate.js",
   history: "./src/history/history.js",
@@ -55,12 +58,13 @@ const entryPoints = {
   home: "./src/js/home.js",
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
+  quiz: "./src/quiz/quiz.js",
 };
 
 module.exports = {
   //Nuk ka nevoje modifikim ne kete pjese
   mode: "development",
-  entry: entryPoints, 
+  entry: entryPoints,
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
@@ -77,8 +81,8 @@ module.exports = {
     },
   },
   plugins: [
-      //Ben lehtesim duke iteruar ne loop duke krijuar HtmlWebpackPlugin per secilin page
-    ...pages.map(page => 
+    //Ben lehtesim duke iteruar ne loop duke krijuar HtmlWebpackPlugin per secilin page
+    ...pages.map(page =>
       new HtmlWebpackPlugin({
         template: `./src/${page.template}`,
         filename: page.filename,
@@ -93,7 +97,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"], 
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.html$/i,
@@ -109,7 +113,11 @@ module.exports = {
         generator: {
           filename: 'videos/[name].[hash][ext]',
         }
-      }
+      },
+      {
+        test: /\.json$/,
+        type: 'json',
+      },
     ],
   },
 };

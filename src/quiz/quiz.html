@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./game.css">
+    <!-- <link rel="stylesheet" href="./quiz.css"> -->
     <title>Quiz</title>
-
 </head>
 
 <body>
@@ -14,6 +13,9 @@
         <div id="home" class="home">
             <h1>Quick quiz</h1>
             <div class="choices">
+
+
+
                 <fieldset>
                     <legend>Zgjedhni nga cilat tema deshironi pytje ne kuiz</legend>
                     <div class="choice">
@@ -51,7 +53,8 @@
                     </div>
                 </fieldset>
             </div>
-            <button class="btn" onclick="play()">Play</button>
+            <!-- <button class="btn" id="playfunctionid" >Play</button> -->
+            <button class="btn" onclick="playfunction()" >Play</button>
             <button class="btn" onclick="goHighestScore();">Highest Score</button>
         </div>
     </div>
@@ -108,8 +111,8 @@
             </form> -->
             <input type="text" name="username" id="username" placeholder="Username">
             <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore()">Save</button>
-            <a class="btn" onclick="play()">Play Again</a>
-            <a class="btn" onclick="goHome()">Go Home</a>
+            <button class="btn" onclick="playfunction()">Play Again</button>
+            <button class="btn" onclick="goHome()">Go Home</button>
         </div>
     </div>
     
@@ -121,6 +124,8 @@
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script>
+        
+    </script>
 </body> 
 </html>
