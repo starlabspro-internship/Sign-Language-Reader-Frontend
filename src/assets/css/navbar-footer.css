@@ -1,7 +1,7 @@
 /* Navbar styling starts*/
 nav {
   background-color: var(--deep-blue);
-  padding: 10px 4%;
+  padding: 6px 2%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,22 +22,22 @@ nav .logo img {
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   width: 100%;
   margin: 0;
 }
 
 nav ul li {
-  margin-left: 1rem;
+  margin-left: 0.8rem;
 }
 
 nav ul li a {
   text-decoration: none;
   color: var(--cream);
-  font-size: 95%;
+  font-size: 15px;
   font-weight: 500;
-  padding: 4px 6px;
+  padding: 4px 4px;
   border-radius: 5px;
   transition: 0.3s;
 }
@@ -62,7 +62,7 @@ nav ul .dark-mode-toggle-container {
   background: none;
   border: none;
   color: var(--cream);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -71,10 +71,9 @@ nav ul .dark-mode-toggle-container {
   color: var(--medium-blue); /* Optional: Add hover effect */
 }
 
-
 .auth-link{
   background-color: #fff;
-  padding: 10px;
+  padding: 8px;
   color: var(--deep-blue);
   border: none;
   border-radius: 4px;

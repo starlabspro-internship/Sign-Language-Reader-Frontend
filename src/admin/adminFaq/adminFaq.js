@@ -30,19 +30,18 @@ function displayFaqs(faqs, elementId, hasAnswer = false, isShowcased = false) {
             ${faq.question}
             <ul>
                 ${hasAnswer ? `<li>Answer: ${faq.answer}</li>` : ''}
-                <li><button class="delete-faq" data-id="${faq._id}">Delete FAQ</button></li>
-                ${!isShowcased ? `
-                    <li><button class="edit-answer" data-id="${faq._id}" data-answer="${faq.answer || ''}">Edit Answer</button></li>
-                    <li><button class="toggle-showcase" data-id="${faq._id}" data-showcase="true">Showcase FAQ</button></li>` : ''}
-                ${isShowcased ? `
-                    <li><button class="edit-answer" data-id="${faq._id}" data-answer="${faq.answer}">Edit Answer</button></li>
-                    <li><button class="toggle-showcase" data-id="${faq._id}" data-showcase="false">Remove Showcase</button></li>` : ''}
+                <div class="button-group">
+                    <button class="delete-faq" data-id="${faq._id}">Delete</button>
+                    <button class="edit-answer" data-id="${faq._id}" data-answer="${faq.answer || ''}">Edit</button>
+                    <button class="toggle-showcase" data-id="${faq._id}" data-showcase="${isShowcased ? 'false' : 'true'}">
+                        ${isShowcased ? 'Remove Showcase' : 'Showcase'}
+                    </button>
+                </div>
             </ul>
         `;
         list.appendChild(listItem);
     });
 
-    // Add event listeners after FAQ items are added to the DOM
     attachEventListeners();
 }
 

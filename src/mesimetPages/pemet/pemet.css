@@ -165,6 +165,29 @@ h2 {
   background-color: #6c84b4;
   transform: scale(1.05);
 }
+.butonat{
+  width: 75%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#goBack, #startQuiz{
+  width: 30%;
+  height: 50px;
+  background-color: #001f3f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#goBack:hover{
+  opacity: 80%;
+  transform:scale(1.05);
+}
+#startQuiz:hover{
+  opacity: 80%;
+  transform:scale(1.05);
+}
 
 /* Responsive */
 

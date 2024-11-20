@@ -159,6 +159,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin:30px;
     width: 100%;
 }
 p{
@@ -200,6 +201,7 @@ p{
 #hud {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 100px;
     padding-left: 30px;
     padding-right: 30px;
@@ -210,6 +212,7 @@ p{
     font-size: 2em;
     margin: 0;
 }
+
 #progressText{
     margin: 10px 0px 25px;
 }
@@ -247,6 +250,15 @@ p{
         width: 100%; /* Full width on smaller screens for better usability */
     }
 }
+/* ====================END========== */
+#end{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /*  ========HIGHEST SCORE========*/
 #highScoresList {
     list-style: none;
@@ -258,7 +270,6 @@ p{
 }
 
 .high-score {
-    margin-bottom: 1rem;
     color: #001f3f;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

@@ -1,8 +1,7 @@
 .signs-main {
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   display: flex;
-  margin-bottom: 2em;
 }
 
 .signs-left {

@@ -1,5 +1,13 @@
 import "./numrat.css";
 
+document.getElementById('startQuiz').addEventListener('click', () => {
+  window.location.href = 'quiz.html';
+});
+
+document.getElementById('goBack').addEventListener('click', () => {
+  window.location.href = '../mesimet.html';
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const signVideo = document.getElementById("sign-video");
 
@@ -28,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Handle case when video is not found
     if (!videoFound) {
       console.error(`Video for number ${number} not found.`);
     }
@@ -59,30 +66,26 @@ document.addEventListener("DOMContentLoaded", function () {
       buttonContainer.appendChild(button);
     }
 
-    // Automatically click the first button on the current page load
     const firstButton = buttonContainer.querySelector(".button");
     if (firstButton) firstButton.click();
   }
 
-  // Define back and next functions
   function backBtn() {
     if (currentPage > 1) {
-      currentPage--; // Go to the previous page
+      currentPage--;
       renderButtons();
     }
   }
 
   function nextBtn() {
     if (currentPage < totalPages) {
-      currentPage++; // Go to the next page
+      currentPage++; 
       renderButtons();
     }
   }
 
-  // Initial render
   renderButtons();
 
-  // Attach navigation functions to buttons
   window.backBtn = backBtn;
   window.nextBtn = nextBtn;
 });
