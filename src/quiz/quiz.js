@@ -1,9 +1,6 @@
 import './quiz.css';
 import questionsJson from './questions.json';
-console.log('questions1', questionsJson)
 
-// import questions from './questions.json';
-// console.log('questions2',questions)
 
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
@@ -17,33 +14,11 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-// import video0 from '../videos/pemet/banane.mp4';
-
-// import video0 from '../videos/numrat/0.mp4';
-// const videoContext = require.context('../videos', true, /\.(mp4)$/);
-
-// const videoContext = require.context('../videos', true, /\.(mp4)$/);
-
-// //DUMMY ARRAY, reason testing
-// // let questions =questionsJson;
-// let questions = questionsJson.map(question => ({
-
-//     ...question,
-//     // fileLocation: video0
-//     // fileLocation: videoContext(`/pemet/banane.mp4`)
-//     // require.context('${question.fileLocation}', true, /\.(mp4)$/);
-
-
-//     // fileLocation: video0
-//     // fileLocation: require(`${question.fileLocation}`) // Webpack resolves the path
-//   }));
-// Create a Webpack context for the videos directory
 const videoContext = require.context('../videos', true, /\.(mp4)$/);
 
 // Map through the questions and dynamically resolve file locations
 let questions = questionsJson.map(question => {
-    // Assuming the fileLocation in questionsJson is like '/pemet/banane.mp4'
-    const relativePath = question.fileLocation.replace('../videos', '').replace(/^\/+/, '');  // Remove leading slashes or incorrect path
+    const relativePath = question.fileLocation.replace('../videos', '').replace(/^\/+/, ''); 
 
     return {
         ...question,
@@ -115,19 +90,6 @@ function goHighestScore() {
         }).join("");
     }
 }
-// let choises_chosen = []
-
-// let choises_chosen = localStorage.getItem('choises_chosen')|| [];
-
-// document.getElementById('playfunctionid').addEventListener('click', () => {
-//     // window.location.href = 'quiz.html';
-//     playfunction()
-//   });
-//   document.getElementById('playfunctionid').addEventListener('click', () => {
-//     // window.location.href = 'quiz.html';
-//     playfunction()
-//   });
-// console.log('loadeeedscript')
 
 function playfunction() {
     console.log('playyy')
@@ -146,8 +108,6 @@ function playfunction() {
     document.getElementById('secondDiv').style.display = 'block'
     startGame()
 }
-
-// let chosenCategories = localStorage.getItem('choises_chosen', JSON.stringify(choises_chosen));
 
 // CONSTANTS
 const CORRECT_BONUS = 10
@@ -283,38 +243,14 @@ const saveScoreBtn = document.getElementById('saveScoreBtn');
 const finalScore = document.getElementById('finalScore');
 
 var mostRecentScore = localStorage.getItem('mostRecentScore');
-// const choices = Array.from(document.getElementsByClassName('choice-text'));
 
-// const choices_chosen = JSON.parse(localStorage.getItem('choices_chosen'))
-// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-// console.log('highScores');
 const MAX_HIGH_SCORES = 5;
-
-// const choices_chosen = choices.length
 
 finalScore.innerText = `Score: ${mostRecentScore}`;
 
 username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value;
 })
-
-// const choiceS = JSON.parse(localStorage.getItem('choises_chosen')) || [];
-// console.log(choiceS, 'choiceS')
-
-
-// const choicesString = choiceS.map((str) => {
-//     return ' ' + str;
-
-// });
-
-// const choiceS = JSON.parse(localStorage.getItem('choises_chosen')) || [];
-// console.log(choiceS, 'choiceS')
-
-
-
-// const choicesString = choiceS.map((str) => {
-//     return ' ' + str;
-// });
 
 const choicesStringS = () => {
     const choiceS = JSON.parse(localStorage.getItem('choises_chosen')) || [];
@@ -326,12 +262,6 @@ const choicesStringS = () => {
         return ' ' + str;
     });
 }
-
-// console.log(choicesString, 'choicesString')
-
-// console.log(choicesString);
-
-// const mostRecentScore = localStorage.getItem('mostRecentScore');
 
 const saveHighScore = () => {
     const score = {
@@ -348,12 +278,8 @@ const saveHighScore = () => {
     localStorage.setItem('highScores', JSON.stringify(highScores));
     localStorage.setItem('mostRecentScore', 0);
 
-    // var mostRecentScore = localStorage.getItem('mostRecentScore');
-
     goHighestScore();
 };
-
-
 
 
 window.playfunction = playfunction;
@@ -362,8 +288,3 @@ window.startgame = startGame;
 window.goHighestScore = goHighestScore;
 window.goHome = goHome;
 window.goHome = goHome;
-
-
-
-
-
