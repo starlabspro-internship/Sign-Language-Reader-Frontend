@@ -1,9 +1,9 @@
-import logo from '../../photos/demo-logo.png'; // Import the logo image
+import logo from '../../photos/logo/logo2.png'; 
 
 export function renderFooter() {
   const footer = document.createElement("footer");
   const imageElement = document.createElement('img');
-imageElement.src = logo; // Use the imported image path
+imageElement.src = logo; 
   footer.innerHTML = `
   <link
       rel="stylesheet"
@@ -21,7 +21,7 @@ imageElement.src = logo; // Use the imported image path
     </a>
     </div>
       <div class="footer-col">
-        <h4>Gjuha e shenjave</h4>
+        <h4>Duartë</h4>
         <ul>
           <li><a href="home.html">Kryefaqja</a></li>
           <li><a href="about.html">Rreth nesh</a></li>
@@ -29,17 +29,16 @@ imageElement.src = logo; // Use the imported image path
         </ul>
       </div>
       <div class="footer-col">
-        <h4>merrni ndihmë</h4>
-        <ul>
-          <li><a href="faq-page.html">PTSH</a></li>
-          <li><a href="#">politika e privatësisë</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>learn</h4>
+        <h4>mëso</h4>
         <ul>
           <li><a href="Quiz.html">Kuizët</a></li>
           <li><a href="mesimet.html">Mësimet</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>merr ndihmë</h4>
+        <ul>
+          <li><a href="faq.html">PTSH</a></li>
         </ul>
       </div>
     </div>

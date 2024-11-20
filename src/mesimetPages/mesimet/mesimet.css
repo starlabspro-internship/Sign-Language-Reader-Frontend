@@ -1,57 +1,51 @@
-body {
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-}
-
 .container {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .search-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    position: relative;
-    width: 50%;
-    color: #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  position: relative;
+  width: 50%;
+  color: #fff;
 }
 
 .search-bar input[type="text"] {
-    width: 100%;
-    padding: 12px 15px 12px 50px;
-    font-size: 18px;
-    border: 1px solid #0a0836;
-    border-radius: 30px;
-    outline: none;
-    box-sizing: border-box;
-    background: linear-gradient(135deg, #a7a6d9, #6f81a8);
-    color: #000000;
-    transition: 0.3s;
+  width: 100%;
+  padding: 12px 15px 12px 50px;
+  font-size: 18px;
+  border: 1px solid #0a0836;
+  border-radius: 30px;
+  outline: none;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #7da2e6, #a8ccda);
+  color: #fff;
+  transition: 0.3s;
 }
 
 .search-bar input[type="text"]:focus {
-    border: 1px solid #0a0836;
-    background: linear-gradient(135deg, #6f81a8, #a7a6d9);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #0a0836;
+  background: linear-gradient(135deg, #a7a6d9, #a8ccda);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar .fa-magnifying-glass {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #323232;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fff;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
 .box {
@@ -84,7 +78,7 @@ body {
 }
 
 .box:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 /* Responsive styles */

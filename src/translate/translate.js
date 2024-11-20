@@ -1,4 +1,5 @@
 import "./translate.css";
+import placeholderImage from '../assets/placeholder-images/notFound.png';
 
 document.addEventListener("DOMContentLoaded", () => {
     const translateForm = document.querySelector(".translate-form");
@@ -47,10 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     signCard.innerHTML += `<p>${item.word}</p>`;
                 } else {
                     const img = document.createElement("img");
-                    img.src = "assets/placeholder-images/question_mark.png";
+                    img.src = `${placeholderImage}`;
                     img.alt = "Unsupported word";
                     signCard.appendChild(img);
-                    signCard.innerHTML += `<p>Unsupported word - "${item.word}"</p>`;
+                    signCard.innerHTML += `<p>"${item.word}" <br> nuk u gjet</p>`;
                 }
 
                 signsHolder.appendChild(signCard);
@@ -64,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             clearButton.style.display = "inline-block"; // Show the Clear button
 
+            // After the content is loaded, check if scroll buttons should be visible
+            checkOverflow();
         } catch (error) {
             console.error("Error fetching translation:", error);
             const errorMessage = document.createElement("p");
@@ -79,20 +82,40 @@ document.addEventListener("DOMContentLoaded", () => {
         translateInput.value = '';
         clearButton.style.display = "none";
     });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const signsHolder = document.getElementById("translationResults");
+    // Function to check overflow and toggle the visibility of scroll buttons
+    function checkOverflow() {
+        const scrollLeftButton = document.querySelector(".scroll-btn-left");
+        const scrollRightButton = document.querySelector(".scroll-btn-right");
+
+        if (signsHolder.scrollWidth > signsHolder.clientWidth) {
+            // Show scroll buttons if the content overflows
+            scrollLeftButton.style.display = "flex";
+            scrollRightButton.style.display = "flex";
+        } else {
+            // Hide scroll buttons if the content doesn't overflow
+            scrollLeftButton.style.display = "none";
+            scrollRightButton.style.display = "none";
+        }
+    }
+
+    // Check overflow after page load
+    checkOverflow();
+
+    // Also check for overflow when the window is resized
+    window.addEventListener("resize", checkOverflow);
+
+    // Scroll left and right buttons functionality
     const scrollLeftButton = document.querySelector(".scroll-btn-left");
     const scrollRightButton = document.querySelector(".scroll-btn-right");
 
     if (scrollLeftButton && scrollRightButton) {
         scrollLeftButton.addEventListener('click', () => {
-            signsHolder.scrollBy({ left: -200, behavior: 'smooth' }); // Scrolls left by 200px
+            signsHolder.scrollBy({ left: -200, behavior: 'smooth' });
         });
 
         scrollRightButton.addEventListener('click', () => {
-            signsHolder.scrollBy({ left: 200, behavior: 'smooth' }); // Scrolls right by 200px
+            signsHolder.scrollBy({ left: 200, behavior: 'smooth' });
         });
     } else {
         console.error("Scroll buttons not found in the DOM. Ensure the HTML structure includes the buttons.");
