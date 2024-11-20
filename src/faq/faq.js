@@ -46,12 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
     sendButton.addEventListener("click", async () => {
       const question = questionInput.value.trim();
       if (!question) {
-        alert("Please enter a question.");
+        showNotification("Please enter a question.", "error");
         return;
       }
     
       try {
-        const response = await fetch("https://localhost:5000/api/faq  ", {
+        const response = await fetch("https://localhost:5000/api/faq", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -61,28 +61,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     
         if (!response.ok) {
-          // Check if the response is a valid JSON before parsing
-          const responseText = await response.text();  // Get the raw response as text
+          const responseText = await response.text();  
           let responseData;
           try {
-            responseData = JSON.parse(responseText);  // Try to parse as JSON
+            responseData = JSON.parse(responseText);  
           } catch (error) {
-            responseData = { message: responseText };  // If not valid JSON, return the raw text
+            responseData = { message: responseText };  
           }
-          alert(`Error: ${responseData.message || responseText}`);
+          // showNotification(`Error: ${responseData.message || responseText}`, "error");
+          showNotification(`Error: Please log-in`);
           return;
         }
     
         const newFaq = await response.json();
-        alert("Your question has been submitted!");
+        showNotification("Your question has been submitted!", "success");
         questionInput.value = "";
         loadShowcasedFaqs();
       } catch (error) {
         console.error("Error submitting question:", error);
-        alert("Failed to submit your question. Please try again later.");
+        showNotification("Failed to submit your question. Please try again later.", "error");
       }
     });
     
+    function showNotification(message, type) {
+      const notification = document.getElementById("notification");
+      const notificationMessage = document.getElementById("notification-message");
+    
+      notificationMessage.textContent = message;
+      notification.className = `notification ${type}`;
+    
+      notification.style.display = "block"; 
+    
+      setTimeout(() => {
+        notification.style.display = "none"; 
+      }, 4000);
+    }
     
     
     loadShowcasedFaqs();
