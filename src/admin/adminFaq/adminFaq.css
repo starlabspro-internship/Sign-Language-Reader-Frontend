@@ -1,7 +1,8 @@
+*{
+  list-style: none;
+}
 .faq-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  width: calc(100% - 250px);
 }
 
 .faq-h1 {
@@ -18,7 +19,7 @@
 }
 
 .faq-section {
-  background-color: #fff;
+  background-color: var(--cream);
   padding: 20px;
   margin-bottom: 40px;
   border-radius: 8px;
@@ -35,10 +36,6 @@
   margin: 10px 0;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.faq-list li:hover {
-  background-color: #f0f0f0;
 }
 
 /* Buttons */
@@ -80,4 +77,52 @@ button:disabled {
 .faq-list::-webkit-scrollbar-track {
   background-color: #f4f4f4;
   border-radius: 6px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #73a7c7;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  /* flex: 1;  Optional: Equal button width */
+}
+
+button.delete-faq{
+ background: rgb(102, 0, 0);
+}
+
+button.edit-answer{
+  background: rgb(102, 66, 0);
+ }
+ 
+
+button:hover {
+  background-color: #3a6d8c;
+}
+
+button:active {
+  background-color: #001f3f;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+@media (max-width: 768px) {
+  .faq-container {
+    width: 100%;
+  }
+  
 }
