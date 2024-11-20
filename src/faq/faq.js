@@ -49,31 +49,41 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please enter a question.");
         return;
       }
-  
+    
       try {
-        const response = await fetch("https://localhost:5000/api/faq", {
+        const response = await fetch("https://localhost:5000/api/faq  ", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ question }),
+          credentials: "include",
         });
-  
+    
         if (!response.ok) {
-          const errorData = await response.json();
-          alert(`Error: ${errorData.message}`);
+          // Check if the response is a valid JSON before parsing
+          const responseText = await response.text();  // Get the raw response as text
+          let responseData;
+          try {
+            responseData = JSON.parse(responseText);  // Try to parse as JSON
+          } catch (error) {
+            responseData = { message: responseText };  // If not valid JSON, return the raw text
+          }
+          alert(`Error: ${responseData.message || responseText}`);
           return;
         }
-  
+    
         const newFaq = await response.json();
         alert("Your question has been submitted!");
-        questionInput.value = ""; 
-        loadShowcasedFaqs(); 
+        questionInput.value = "";
+        loadShowcasedFaqs();
       } catch (error) {
         console.error("Error submitting question:", error);
         alert("Failed to submit your question. Please try again later.");
       }
     });
+    
+    
     
     loadShowcasedFaqs();
   });
