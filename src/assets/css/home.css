@@ -297,20 +297,29 @@ body.dark-mode .details-btn1:hover {
 }
 /* Style for the Internship Section */
 .internship-section {
-  padding: 40px 20px;
-  margin-top: 50px;
+  padding: 20px;
+  margin-top: 20px;
   text-align: center;
 }
 
+.internship-section img{
+  width: 180px;
+}
 
+.internship-section .text-container {
+  background: #ebebeb;
+  padding: 36px;
+  max-width: 800px; 
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%; 
+  /* margin: 0 auto; */
+}
 
 .internship-section p {
   font-size: 16px;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 20px;
-  max-width: 800px;
-  margin: 0 auto;
   font-family: italic;
 }
 
@@ -336,5 +345,5 @@ body.dark-mode .details-btn1:hover {
 
 /* Add some space before and after the internship section */
 .internship-section + .line {
-  margin-top: 50px;
+  margin-top: 10px;
 }
