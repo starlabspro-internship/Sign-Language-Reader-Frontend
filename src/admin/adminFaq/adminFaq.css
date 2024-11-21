@@ -79,13 +79,9 @@ button:disabled {
   border-radius: 6px;
 }
 
-.button-group {
-  display: flex;
-  gap: 10px; /* Space between buttons */
-  margin-top: 10px;
-}
-
 button {
+  display: flex;
+  margin-top: 10px;  
   padding: 8px 15px;
   background-color: #73a7c7;
   border: none;
@@ -97,11 +93,11 @@ button {
   /* flex: 1;  Optional: Equal button width */
 }
 
-button.delete-faq{
+button.btn-delete{
  background: rgb(102, 0, 0);
 }
 
-button.edit-answer{
+button.btn-edit{
   background: rgb(102, 66, 0);
  }
  

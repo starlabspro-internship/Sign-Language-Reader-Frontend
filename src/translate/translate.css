@@ -101,7 +101,7 @@ body {
 
 .signs-holder {
     display: flex;
-    justify-content: center;
+    justify-content: flex start;
     align-items: center;
     flex-wrap: nowrap;
     overflow-x: auto;

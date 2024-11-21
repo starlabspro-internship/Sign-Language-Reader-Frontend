@@ -9,16 +9,15 @@
   <body>
     <div class="faq-layout">
       <div class="top-container">
-        <h1>Frequently Asked Questions</h1>
+        <div class="title-container">
+          <h1><i class="fa-solid fa-circle-question"></i>&nbsp; Pyetje Të Shpeshta</h1>
+      </div>
         <p>
-          Quiz can be bewildering. We've done our best to clarify details and
-          give you everything you need to get started.
+          Ne e kuptojmë se kuizet ndonjëherë mund të jenë konfuze. Për t'ju ndihmuar të filloni, ne kemi përpiluar përgjigjet për pyetjet më të zakonshme dhe kemi ofruar të gjithë informacionin që ju nevojitet.
         </p>
-        <p>
-          If you still have questions, our team will be happy to help. Please
-          reach out at blahblahblah@gmail.com. If you're already using the app,
-          you can also call +12345678
-        </p>
+        <!-- <p>
+          If you have any further inquiries, our team is here to assist you!
+        </p> -->
       </div>
       <div class="Faq-list">
         <legend>Questions & Answers</legend>
@@ -29,6 +28,9 @@
         <p>Ask any question here!</p>
         <textarea style="resize: none;"></textarea>
         <button>Send</button>
+      </div>
+      <div id="notification" class="notification hidden">
+        <p id="notification-message"></p>
       </div>
     </div>
   </body>
