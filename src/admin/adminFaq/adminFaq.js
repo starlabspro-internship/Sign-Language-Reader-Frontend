@@ -1,7 +1,7 @@
 import "../admin.js"
 import "./adminFaq.css"
 
-const BASE_URL = 'https://localhost:5000/api/faq'; 
+const BASE_URL = 'https://localhost:5000/api/faq';
 
 async function fetchFaqs() {
     try {
@@ -22,44 +22,47 @@ async function fetchFaqs() {
 
 function displayFaqs(faqs, elementId, hasAnswer = false, isShowcased = false) {
     const list = document.getElementById(elementId);
-    list.innerHTML = '';
+    list.innerHTML = ''; 
 
     faqs.forEach(faq => {
         const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            ${faq.question}
-            <ul>
-                ${hasAnswer ? `<li>Answer: ${faq.answer}</li>` : ''}
-                <div class="button-group">
-                    <button class="delete-faq" data-id="${faq._id}">Delete</button>
-                    <button class="edit-answer" data-id="${faq._id}" data-answer="${faq.answer || ''}">Edit</button>
-                    <button class="toggle-showcase" data-id="${faq._id}" data-showcase="${isShowcased ? 'false' : 'true'}">
-                        ${isShowcased ? 'Remove Showcase' : 'Showcase'}
-                    </button>
-                </div>
-            </ul>
-        `;
+        listItem.classList.add('faq-item');
+
+        const question = document.createElement('p');
+        question.className = 'faq-question';
+        question.textContent = faq.question;
+
+        const actions = document.createElement('ul');
+        actions.className = 'faq-actions';
+
+        if (hasAnswer) {
+            const answerItem = document.createElement('li');
+            answerItem.textContent = `Answer: ${faq.answer}`;
+            actions.appendChild(answerItem);
+        }
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'btn-delete';
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteFaq(faq._id);
+        actions.appendChild(deleteButton);
+
+        const editButton = document.createElement('button');
+        editButton.className = 'btn-edit';
+        editButton.textContent = 'Edit Answer';
+        editButton.onclick = () => editAnswer(faq._id, faq.answer || '');
+        actions.appendChild(editButton);
+
+        const showcaseButton = document.createElement('button');
+        showcaseButton.className = isShowcased ? 'btn-remove-showcase' : 'btn-showcase';
+        showcaseButton.textContent = isShowcased ? 'Remove Showcase' : 'Showcase';
+        showcaseButton.onclick = () => toggleShowcase(faq._id, faq.showcased);
+        actions.appendChild(showcaseButton);
+
+        listItem.appendChild(question);
+        listItem.appendChild(actions);
+
         list.appendChild(listItem);
-    });
-
-    attachEventListeners();
-}
-
-function attachEventListeners() {
-    // Attach event listeners for Delete, Edit Answer, and Toggle Showcase buttons
-    const deleteButtons = document.querySelectorAll('.delete-faq');
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', () => deleteFaq(button.dataset.id));
-    });
-
-    const editAnswerButtons = document.querySelectorAll('.edit-answer');
-    editAnswerButtons.forEach(button => {
-        button.addEventListener('click', () => editAnswer(button.dataset.id, button.dataset.answer));
-    });
-
-    const toggleShowcaseButtons = document.querySelectorAll('.toggle-showcase');
-    toggleShowcaseButtons.forEach(button => {
-        button.addEventListener('click', () => toggleShowcase(button.dataset.id, button.dataset.showcase === 'true'));
     });
 }
 
@@ -102,21 +105,22 @@ async function updateFaqAnswer(id, answer) {
     }
 }
 
-async function toggleShowcase(id, setShowcaseTo) {
+async function toggleShowcase(id, currentShowcaseStatus) {
+    const newShowcaseStatus = !currentShowcaseStatus; 
+
     try {
         const response = await fetch(`${BASE_URL}/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
-            body: JSON.stringify({ showcased: setShowcaseTo })
+            body: JSON.stringify({ showcased: newShowcaseStatus }),
         });
-        
         const data = await response.json();
-        
+
         if (data.message === 'FAQ updated successfully.') {
-            alert(`FAQ ${setShowcaseTo ? 'showcased' : 'removed from showcase'} successfully.`);
+            alert(`FAQ ${newShowcaseStatus ? 'showcased' : 'removed from showcase'} successfully.`);
             fetchFaqs();
-        } else if (data.message === 'Only 6 FAQs can be showcased at a time.') {
+        } else if (data.message === 'Cannot showcase more than 6 FAQs.') {
             alert('Error: You cannot showcase more than 6 FAQs.');
         } else {
             alert('Failed to update showcase status.');
