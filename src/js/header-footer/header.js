@@ -24,7 +24,7 @@ export async function renderHeader() {
             <li id="authLinks">
                 <!-- Authentication links will be injected here -->
             </li>
-          <!--  <li><button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button></li>-->
+          <!-- <li><button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button></li>-->
         </ul>
         <div class="hamburger">
             <span class="line"></span>
@@ -66,29 +66,29 @@ export async function renderHeader() {
   });
 
   // Dark Mode Toggle
-  const darkModeToggle = document.getElementById('dark-mode-toggle');
-  const body = document.body;
+ // const darkModeToggle = document.getElementById('dark-mode-toggle');
+ // const body = document.body;
 
   // Check for dark mode preference in localStorage
-  if (localStorage.getItem('dark-mode') === 'enabled') {
-      body.classList.add('dark-mode');
-  }
+ // if (localStorage.getItem('dark-mode') === 'enabled') {
+     // body.classList.add('dark-mode');
+ // }
 
   // Toggle dark mode when the button is clicked
-  darkModeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      const isDarkMode = body.classList.contains('dark-mode');
+ // darkModeToggle.addEventListener('click', () => {
+     // body.classList.toggle('dark-mode');
+     // const isDarkMode = body.classList.contains('dark-mode');
       
       // Save the dark mode preference in localStorage
-      if (isDarkMode) {
-          localStorage.setItem('dark-mode', 'enabled');
-      } else {
-          localStorage.setItem('dark-mode', 'disabled');
-      }
+     // if (isDarkMode) {
+        //  localStorage.setItem('dark-mode', 'enabled');
+    //  } else {
+     //     localStorage.setItem('dark-mode', 'disabled');
+     // }
       
       // Change the icon based on the mode
-      darkModeToggle.textContent = isDarkMode ? '🌞' : '🌙';
-  });
+      //darkModeToggle.textContent = isDarkMode ? '🌞' : '🌙';
+//  });
   //Kryen funksionet e nevojshme per butonin e profilit
   await handleAuthLinks();
 }
