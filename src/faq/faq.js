@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
     async function loadShowcasedFaqs() {
       try {
-        const response = await fetch("https://localhost:5000/api/faq"); 
+        const response = await fetch("https://localhost:5000/api/faq", {
+          credentials: "include", 
+        });
+
         if (!response.ok) {
           throw new Error("Failed to load FAQs");
         }
@@ -57,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ question }),
+          credentials: "include",
         });
   
         if (!response.ok) {
@@ -77,4 +81,3 @@ document.addEventListener("DOMContentLoaded", () => {
     
     loadShowcasedFaqs();
   });
-  
