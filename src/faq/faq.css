@@ -140,6 +140,30 @@
     ul li {
         font-size: 0.9rem;
     }
+
+    @media (max-width: 480px) {
+        .faq-layout {
+            padding: 10px;
+        }
+    
+        .top-container h1 {
+            font-size: 1.5rem; 
+            margin-bottom: 10px;
+        }
+    
+        .Faq-list ul li {
+            font-size: 0.8rem;
+            padding: 10px;
+        }
+    
+        .make-q textarea {
+            height: 12vh;
+            width: 90%;
+        }
+    
+      
+    }
+    
 }
 
 
