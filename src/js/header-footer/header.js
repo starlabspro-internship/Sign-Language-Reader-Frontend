@@ -24,7 +24,7 @@ export async function renderHeader() {
             <li id="authLinks">
                 <!-- Authentication links will be injected here -->
             </li>
-            <li><button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button></li>
+          <!--  <li><button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button></li>-->
         </ul>
         <div class="hamburger">
             <span class="line"></span>
