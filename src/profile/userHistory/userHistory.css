@@ -1,0 +1,58 @@
+h2 {
+    text-align: center;
+    margin: 2em 0;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+.translation-history-holder {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.history-card {
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+}
+
+.phrase-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination-holder {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0px;
+  }
+  
+  .pagination-button {
+    padding: 10px 18px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  
+  .pagination-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .pagination-button:hover {
+    background-color: #949090;
+  }
+  
+  
