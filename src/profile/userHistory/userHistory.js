@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Previous Button
     if (currentPage > 1) {
       const prevButton = document.createElement("button");
-      prevButton.textContent = "Previous";
+      prevButton.innerHTML = '<i class="fa-regular fa-hand-point-left"></i>';
       prevButton.classList.add("pagination-button");
       prevButton.addEventListener("click", () => {
         renderHistory(actions, currentPage - 1);
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Next Button
     if (currentPage < totalPages) {
       const nextButton = document.createElement("button");
-      nextButton.textContent = "Next";
+      nextButton.innerHTML = '<i class="fa-regular fa-hand-point-right"></i>';
       nextButton.classList.add("pagination-button");
       nextButton.addEventListener("click", () => {
         renderHistory(actions, currentPage + 1);

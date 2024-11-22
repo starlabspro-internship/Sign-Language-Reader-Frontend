@@ -12,6 +12,7 @@ export const sidebar = `
           <i class="fa-solid fa-user-pen"></i> Profil i adminit
         </a>
       </li>
+      
       <li>
         <a href="users.html" class="${currentPage.includes('users.html') ? 'active' : ''}">
           <i class="fa-solid fa-users-gear"></i> Përdoruesit
