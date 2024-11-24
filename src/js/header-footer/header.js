@@ -1,9 +1,9 @@
-import { enforceReloadOnBackNavigation } from "../forceReload.js";
+// import { enforceReloadOnBackNavigation } from "../forceReload.js";
 import { handleAuthLinks } from "./headerAuth.js";
 import logo from '../../photos/logo/logo2.png'; 
 
 export async function renderHeader() {
-  enforceReloadOnBackNavigation();
+  // enforceReloadOnBackNavigation();
   const header = document.createElement("header");
   const imageElement = document.createElement('img');
     imageElement.src = logo; 

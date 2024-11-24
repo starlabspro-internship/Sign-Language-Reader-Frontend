@@ -2,3 +2,4 @@
 
 NPM INSTALL - instalimi i resurseve te nevojshme
 NPM RUN DEV - startimi i serverit
+NPM RUN BUILD - krijimi i dist folderit
