@@ -1,131 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./quiz.css"> -->
     <title>Quiz</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container" id="firstDiv">
-        <div id="home" class="home">
-            <h1>Quick quiz</h1>
-            <div class="choices">
-
-
-
-                <fieldset>
-                    <legend>Zgjedhni nga cilat tema deshironi pytje ne kuiz</legend>
-                    <div class="choice">
-                        <input type="checkbox" id="shkronjat" name="Shkronjat" />
-                        <label for="scales">Alfabeti</label>
-                    </div>
-
-                    <div class="choice">
-                        <input type="checkbox" id="numrat" name="Numrat" checked />
-                        <label for="scales">Numrat</label>
-                    </div>
-
-                    <div class="choice">
-                        <input type="checkbox" id="stinet" name="Stinet" />
-                        <label for="scales">Stinet</label>
-                    </div>
-                    <div class="choice">
-                        <input type="checkbox" id="ditet" name="Ditet" />
-                        <label for="scales">Ditet E Javes</label>
-                    </div>
-
-                    <div class="choice">
-                        <input type="checkbox" id="pemet" name="Pemet" />
-                        <label for="scales">Pemet</label>
-                    </div>
-
-                    <div class="choice">
-                        <input type="checkbox" id="perimet" name="Perimet" />
-                        <label for="scales">Perimet</label>
-                    </div>
-
-                    <div class="choice">
-                        <input type="checkbox" id="sportet" name="Sportet" />
-                        <label for="scales">Sportet</label>
-                    </div>
-                </fieldset>
-            </div>
-            <!-- <button class="btn" id="playfunctionid" >Play</button> -->
-            <button class="btn" onclick="playfunction()" >Play</button>
-            <button class="btn" onclick="goHighestScore();">Highest Score</button>
+      <div id="home" class="home">
+        <h1>Kuiz Gjeneral</h1>
+        <div class="choices">
+            <fieldset class="checkbox-group">
+              <legend class="checkbox-h1">Zgjedhni temat për të cilat dëshironi të merrni pyetje</legend>
+              
+              <!-- Alfabeti -->
+              <div class="checkbox">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="shkronjat" name="Shkronjat" class="checkbox-input" />
+                  <span class="checkbox-tile">
+                    <span class="checkbox-icon">
+                      <i class="fas fa-font"></i> 
+                    </span>
+                    <span class="checkbox-label">Alfabeti</span>
+                  </span>
+                </label>
+              </div>
+          
+              <!-- Numrat -->
+              <div class="checkbox">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="numrat" name="Numrat" class="checkbox-input" checked />
+                  <span class="checkbox-tile">
+                    <span class="checkbox-icon">
+                      <i class="fas fa-hashtag"></i> 
+                    </span>
+                    <span class="checkbox-label">Numrat</span>
+                  </span>
+                </label>
+              </div>
+          
+              <!-- Stinet -->
+              <div class="checkbox">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="stinet" name="Stinet" class="checkbox-input" />
+                  <span class="checkbox-tile">
+                    <span class="checkbox-icon">
+                      <i class="fas fa-tree"></i> 
+                    </span>
+                    <span class="checkbox-label">Stinët</span>
+                  </span>
+                </label>
+              </div>
+          
+              <!-- Ditet E Javes -->
+              <div class="checkbox">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="ditet" name="Ditet" class="checkbox-input" />
+                  <span class="checkbox-tile">
+                    <span class="checkbox-icon">
+                      <i class="fas fa-calendar-day"></i> 
+                    </span>
+                    <span class="checkbox-label">Ditët</span>
+                  </span>
+                </label>
+              </div>
+          
+              <!-- Pemet -->
+              <div class="checkbox">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="pemet" name="Pemet" class="checkbox-input" />
+                  <span class="checkbox-tile">
+                    <span class="checkbox-icon">
+                        <i class="fas fa-apple-alt"></i> 
+                    </span>
+                    <span class="checkbox-label">Pemët</span>
+                  </span>
+                </label>
+              </div>
+          
+              <!-- Perimet -->
+              <div class="checkbox">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="perimet" name="Perimet" class="checkbox-input" />
+                  <span class="checkbox-tile">
+                    <span class="checkbox-icon">
+                      <i class="fa-solid fa-carrot"></i>
+                    </span>
+                    <span class="checkbox-label">Perimet</span>
+                  </span>
+                </label>
+              </div>
+          
+              <!-- Sportet -->
+              <div class="checkbox">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="sportet" name="Sportet" class="checkbox-input" />
+                  <span class="checkbox-tile">
+                    <span class="checkbox-icon">
+                      <i class="fas fa-basketball-ball"></i> 
+                    </span>
+                    <span class="checkbox-label">Sportet</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          
+        <!-- <button class="btn" id="playfunctionid" >Play</button> -->
+        <div class="button-container">
+          <button class="btn" onclick="playfunction()"><i class="fa-solid fa-play"></i> &nbsp; Fillo Kuizin</button>
+          <button class="btn" onclick="goHighestScore();"><i class="fa-solid fa-square-poll-vertical"></i>&nbsp; Rezultatet</button>
         </div>
+      </div>
     </div>
 
-    <div class="container" id="secondDiv" style="display: none;">
-        <div id="game" class="justify-center flex-column">
-            <div id="hud">
-                <div id="hud-item">
-                    <p id="progressText" class="hud-prefix">
-                        Question
-                    </p>
-                    <div id="progressBar">
-                        <div id="progressBarFull">
-
-                        </div>
-                    </div>
-                    <h1 class="hud-main-text" id="questionCounter"></h1>
-                </div>
-                <div id="hud-item">
-                    <p class="hud-prefix">
-                        Score
-                    </p>
-                    <h1 class="hud-main-text" id="score">
-                        0
-                    </h1>
-                </div>
+    <div class="container" id="secondDiv" style="display: none">
+      <div id="game" class="justify-center flex-column">
+        <div id="hud">
+          <div id="hud-item">
+            <p id="progressText" class="hud-prefix">Question</p>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
             </div>
-            <h2 id="question">What is the answer to this question ?</h2>
-            <div class="choices">
-                <div class="choice-container">
-                    <p class="choice-prefix">A</p>
-                    <p class="choice-text" data-number="1">Choice 1</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">B</p>
-                    <p class="choice-text" data-number="2">Choice 2</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">C</p>
-                    <p class="choice-text" data-number="3">Choice 3</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">D</p>
-                    <p class="choice-text" data-number="4">Choice 4</p>
-                </div>
-            </div>
+            <h1 class="hud-main-text" id="questionCounter"></h1>
+          </div>
+          <div id="hud-item">
+            <p class="hud-prefix">Score</p>
+            <h1 class="hud-main-text" id="score">0</h1>
+          </div>
         </div>
+        <h2 id="question">What is the answer to this question ?</h2>
+        <div class="choices">
+          <div class="choice-container">
+            <p class="choice-prefix">A</p>
+            <p class="choice-text" data-number="1">Choice 1</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">B</p>
+            <p class="choice-text" data-number="2">Choice 2</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">C</p>
+            <p class="choice-text" data-number="3">Choice 3</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">D</p>
+            <p class="choice-text" data-number="4">Choice 4</p>
+          </div>
+        </div>
+        <div class="button-container">
+          <button class="btn" style="background-color: orangered; width: auto;" onclick="goHome()">Kthehu ne menu</button>
+        </div>
+      </div>
     </div>
-    <div class="container"id="thirdDiv" style="display: none;">
-        <div id="end" class="flex-center flex-column">
-            
-            <h1 id="finalScore">Score</h1>
-            <!-- <form>
+    <div class="container" id="thirdDiv" style="display: none">
+      <div id="end" class="flex-center flex-column">
+        <h1 id="finalScore">Score</h1>
+        <!-- <form>
             </form> -->
-            <input type="text" name="username" id="username" placeholder="Username">
-            <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore()">Save</button>
-            <button class="btn" onclick="playfunction()">Play Again</button>
-            <button class="btn" onclick="goHome()">Go Home</button>
-        </div>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username"
+        />
+        <div class="end-button-container">
+        <button
+          type="submit"
+          class="btn"
+          id="saveScoreBtn"
+          onclick="saveHighScore()"
+        >
+          Save
+        </button>
+        <button class="btn" onclick="playfunction()">Play Again</button>
+        <button class="btn" onclick="goHome()">Back To Quiz</button>
     </div>
-    
-    <div class="container" id="fourthDiv" style="display: none;">
-        <div id="highScores" class="flex-center flex-column">
-            <h1 id="finalScoreList">Highest Scores</h1>
-            <ul id="highScoresList"></ul>
-            <a class="btn" onclick="goHome()">Go Home</a>
-        </div>
+      </div>
     </div>
 
-    <script>
-        
-    </script>
-</body> 
+    <div class="container" id="fourthDiv" style="display: none">
+      <div id="highScores" class="flex-center flex-column">
+        <h1 id="finalScoreList">Highest Scores</h1>
+        <ul id="highScoresList"></ul>
+        <a class="btn" onclick="goHome()">Go Home</a>
+      </div>
+    </div>
+
+    <script></script>
+  </body>
 </html>

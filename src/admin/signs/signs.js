@@ -1,8 +1,8 @@
-import "./signs.css"
-import "../admin.js"
+import "./signs.css";
+import "../admin.js";
 
 // Get references to elements
-const signHolder = document.querySelector(".sign-holder"); // Container for sign cards
+const signHolder = document.querySelector(".sign-holder"); 
 const signImageLabel = document.querySelector(".sign-image");
 const fileInput = document.getElementById("fileInput");
 const spinnerContainer = document.getElementById("spinnerContainer");
@@ -10,14 +10,21 @@ const submitButton = document.querySelector(".create-sign-button");
 const signForm = document.getElementById("signForm");
 const errorDiv = document.querySelector(".error-div");
 const errorMessage = document.getElementById("errorMessage");
+const paginationHolder = document.querySelector(".pagination-holder");
+const searchInput = document.getElementById("searchInput");
 
-// Fetch and display signs
-async function fetchAndDisplaySigns() {
+const itemsPerPage = 9;  
+
+// Fetch and display signs with optional search query
+async function fetchAndDisplaySigns(page = 1, searchQuery = "") {
     try {
         const response = await fetch("https://localhost:5000/api/signs");
         if (response.ok) {
             const signs = await response.json();
-            renderSigns(signs);
+            const filteredSigns = searchQuery
+                ? signs.filter(sign => sign.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                : signs;
+            renderSigns(filteredSigns, page);
         } else {
             console.error("Failed to fetch signs");
         }
@@ -27,10 +34,12 @@ async function fetchAndDisplaySigns() {
 }
 
 // Render signs in the sign-holder div
-function renderSigns(signs) {
-    signHolder.innerHTML = ""; // Clear existing content
+function renderSigns(signs, page = 1) {
+    signHolder.innerHTML = ""; 
+    const startIndex = (page - 1) * itemsPerPage;
+    const paginatedSigns = signs.slice(startIndex, startIndex + itemsPerPage);
 
-    signs.forEach(sign => {
+    paginatedSigns.forEach(sign => {
         const signCard = document.createElement("div");
         signCard.classList.add("sign-card");
 
@@ -42,14 +51,59 @@ function renderSigns(signs) {
             </div>
         `;
 
-        // Add the delete event listener to the button
         const deleteButton = signCard.querySelector("button");
         deleteButton.addEventListener("click", () => deleteSign(sign._id));
 
         signHolder.appendChild(signCard);
     });
+
+    renderPagination(signs.length, page); 
 }
 
+// Render pagination buttons
+function renderPagination(totalItems, currentPage = 1) {
+    paginationHolder.innerHTML = ""; 
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const maxButtons = 5; 
+    const startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+    const endPage = Math.min(totalPages, startPage + maxButtons - 1);
+  
+    // Previous Button
+    if (currentPage > 1) {
+        const prevButton = document.createElement("button");
+        prevButton.innerHTML = '<i class="fa-regular fa-hand-point-left"></i>';
+        prevButton.classList.add("pagination-button");
+        prevButton.addEventListener("click", () => {
+            fetchAndDisplaySigns(currentPage - 1);
+        });
+        paginationHolder.appendChild(prevButton);
+    }
+  
+    // Page Buttons
+    for (let i = startPage; i <= endPage; i++) {
+        const pageButton = document.createElement("button");
+        pageButton.textContent = i;
+        pageButton.classList.add("pagination-button");
+        if (i === currentPage) pageButton.classList.add("active");
+  
+        pageButton.addEventListener("click", () => {
+            fetchAndDisplaySigns(i);
+        });
+  
+        paginationHolder.appendChild(pageButton);
+    }
+  
+    // Next Button
+    if (currentPage < totalPages) {
+        const nextButton = document.createElement("button");
+        nextButton.innerHTML = '<i class="fa-regular fa-hand-point-right"></i>';
+        nextButton.classList.add("pagination-button");
+        nextButton.addEventListener("click", () => {
+            fetchAndDisplaySigns(currentPage + 1);
+        });
+        paginationHolder.appendChild(nextButton);
+    }
+}
 
 // Delete a sign
 async function deleteSign(signId) {
@@ -60,7 +114,7 @@ async function deleteSign(signId) {
 
         if (response.ok) {
             showSuccess("Sign deleted successfully!");
-            await fetchAndDisplaySigns(); // Refetch signs to update list
+            await fetchAndDisplaySigns(); 
         } else {
             const errorText = await response.text();
             showError(errorText);
@@ -91,7 +145,7 @@ fileInput.addEventListener("change", (event) => {
         signImageLabel.style.backgroundSize = "cover";
         signImageLabel.style.backgroundPosition = "center";
     } else {
-        signImageLabel.style.backgroundImage = 'url("../assets/placeholder-images/insert.png")';
+        signImageLabel.style.backgroundImage = 'url("../assets/placeholder-images/upload.png")';
         signImageLabel.style.backgroundSize = "50%";
     }
 });
@@ -121,7 +175,7 @@ signForm.addEventListener("submit", async (event) => {
         if (response.ok) {
             showSuccess("Sign uploaded successfully!");
             signForm.reset();
-            signImageLabel.style.backgroundImage = 'url("../assets/placeholder-images/insert.png")';
+            signImageLabel.style.backgroundImage = 'url("../assets/placeholder-images/upload.png")';
             await fetchAndDisplaySigns(); // Refetch signs to update list
         } else {
             const errorText = await response.text();
@@ -157,5 +211,11 @@ function showSuccess(message) {
     }, 3000);
 }
 
+// Event listener for search input
+searchInput.addEventListener("input", (event) => {
+    const searchQuery = event.target.value.trim();
+    fetchAndDisplaySigns(1, searchQuery);
+});
+
 // Initialize by fetching and displaying signs
-fetchAndDisplaySigns();
+fetchAndDisplaySigns(1);

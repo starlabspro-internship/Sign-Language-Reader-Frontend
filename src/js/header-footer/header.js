@@ -1,9 +1,9 @@
-import { enforceReloadOnBackNavigation } from "../forceReload.js";
+// import { enforceReloadOnBackNavigation } from "../forceReload.js";
 import { handleAuthLinks } from "./headerAuth.js";
 import logo from '../../photos/logo/logo2.png'; 
 
 export async function renderHeader() {
-  enforceReloadOnBackNavigation();
+  // enforceReloadOnBackNavigation();
   const header = document.createElement("header");
   const imageElement = document.createElement('img');
     imageElement.src = logo; 
@@ -24,7 +24,6 @@ export async function renderHeader() {
             <li id="authLinks">
                 <!-- Authentication links will be injected here -->
             </li>
-          <!-- <li><button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button></li>-->
         </ul>
         <div class="hamburger">
             <span class="line"></span>

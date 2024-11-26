@@ -23,21 +23,21 @@
 }
 
 .sign-image {
-  width: 15em;
-  height: 15em;
+  width: 12em;
+  height: 12em;
   border: 2px solid var(--medium-blue );
   border-radius: 12px;
   cursor: pointer;
-  background-image: url('../../assets/placeholder-images/insert.png');
-  background-size: 50%; 
+  background-image: url('../../assets/placeholder-images/upload.png');
+  background-size: 40%; 
   background-position: center;
   background-repeat: no-repeat;
   transition: 0.3s;
 }
 
 .sign-image:hover {
-  background-size: 60%;
-  opacity: 0.8;
+  /* background-size: 60%; */
+  opacity: 0.7;
 }
 
 .signs-left input{
@@ -46,6 +46,14 @@
   border-radius: 5px;
   border: 2px solid var(--medium-blue);
   background-color: var(--dark-text);
+}
+
+.search-container{
+  width: 100%;
+}
+
+#searchInput{
+  width: 100%;
 }
 
 .create-sign-button {
@@ -146,3 +154,27 @@
 .s-buttons button:hover {
   background-color: #0056b3;
 }
+
+/*Pagination*/
+.pagination-holder {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0px;
+}
+
+.pagination-holder button {
+  padding: 10px 18px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.pagination-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+

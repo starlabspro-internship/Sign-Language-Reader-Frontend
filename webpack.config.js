@@ -29,7 +29,7 @@ const pages = [
   { template: "admin/adminFaq/adminFaq.html", filename: "adminFaq.html", chunks: ["adminFaq"] },
   { template: "profile/profile.html", filename: "profile.html", chunks: ["profile"] },
   { template: "quiz/quiz.html", filename: "quiz.html", chunks: ["quiz"] },
-  { template: "admin/userHistory/userHistory.html", filename: "userHistory.html", chunks: ["userHistory"] },
+  { template: "profile/userHistory/userHistory.html", filename: "userHistory.html", chunks: ["userHistory"] },
 ];
 
 const entryPoints = {
@@ -57,7 +57,7 @@ const entryPoints = {
   home: "./src/js/home.js",
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
-  userHistory: "./src/admin/userHistory/userHistory.js",
+  userHistory: "./src/profile/userHistory/userHistory.js",
   quiz: "./src/quiz/quiz.js"
 };
 
