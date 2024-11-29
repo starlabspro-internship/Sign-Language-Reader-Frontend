@@ -1,17 +1,16 @@
-import "../admin.js"
-import "./users.css"
-
-// import "./users.css";
-import API_URL from '../../profile/profileFunctions/apiUrls.js';
+import "../admin.js";
+import "./users.css";
+import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
 let allUsers = [];
 
+// Fetch Users
 export async function fetchUsers() {
   try {
     const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_ALL}`, {
-      method: 'GET',
-      credentials: 'include', 
-      cache: 'no-cache',
+      method: "GET",
+      credentials: "include",
+      cache: "no-cache",
     });
 
     if (!response.ok) {
@@ -19,24 +18,23 @@ export async function fetchUsers() {
     }
 
     const users = await response.json();
-    allUsers = users; 
+    allUsers = users;
     populateUsersTable(users);
-
   } catch (error) {
     console.error("Error fetching users:", error);
   }
 }
 
-// Function to populate the users and admin tables
+// Populate Users Table
 function populateUsersTable(users) {
-  const usersTableBody = document.getElementById('usersTableBody');
-  const adminsTableBody = document.getElementById('adminsTableBody');
-  
-  usersTableBody.innerHTML = ''; 
-  adminsTableBody.innerHTML = ''; 
+  const usersTableBody = document.getElementById("usersTableBody");
+  const adminsTableBody = document.getElementById("adminsTableBody");
 
-  users.forEach(user => {
-    const row = document.createElement('tr');
+  usersTableBody.innerHTML = "";
+  adminsTableBody.innerHTML = "";
+
+  users.forEach((user) => {
+    const row = document.createElement("tr");
 
     row.innerHTML = `
       <td>${user.userName}</td>
@@ -52,88 +50,80 @@ function populateUsersTable(users) {
     `;
 
     if (user.userIsAdmin) {
-      adminsTableBody.appendChild(row);  
+      adminsTableBody.appendChild(row);
     } else {
-      usersTableBody.appendChild(row);  
+      usersTableBody.appendChild(row);
     }
   });
 
-  document.querySelectorAll('.edit-button').forEach(button => {
-    button.addEventListener('click', (event) => {
-      const userId = event.target.getAttribute('data-id');
+  // Attach event listeners
+  document.querySelectorAll(".edit-button").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const userId = event.target.getAttribute("data-id");
       editUser(userId);
     });
   });
 
-  document.querySelectorAll('.delete-button').forEach(button => {
-    button.addEventListener('click', (event) => {
-      const userId = event.target.getAttribute('data-id');
-      deleteUser(userId);
+  document.querySelectorAll(".delete-button").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const userId = event.target.getAttribute("data-id");
+      showDeletePopup(userId);
     });
   });
 
-  document.getElementById('cancelChanges').addEventListener('click', function() {
-    document.getElementById('admin-updateProfileSection').style.display = 'none';
+  document.getElementById("cancelChanges").addEventListener("click", function () {
+    document.getElementById("admin-updateProfileSection").style.display = "none";
   });
 }
 
-// Show the popup
-function showPopup() {
-  document.getElementById('admin-updateProfileSection').style.display = 'flex'; 
+// Show Delete Confirmation Popup
+function showDeletePopup(userId) {
+  const deleteConfirmationModal = document.getElementById("deleteConfirmationModal");
+  deleteConfirmationModal.style.display = "flex";
+
+  const confirmDeleteButton = document.getElementById("confirmDeleteButton");
+  const cancelDeleteButton = document.getElementById("cancelDeleteButton");
+
+  confirmDeleteButton.onclick = () => {
+    deleteUser(userId);
+    deleteConfirmationModal.style.display = "none";
+  };
+
+  cancelDeleteButton.onclick = () => {
+    deleteConfirmationModal.style.display = "none";
+  };
+
+  // Close modal if clicking outside
+  window.onclick = (event) => {
+    if (event.target === deleteConfirmationModal) {
+      deleteConfirmationModal.style.display = "none";
+    }
+  };
 }
 
-
-// Function to handle search input
-function handleSearch() {
-  const searchQuery = document.getElementById('searchInput').value.toLowerCase(); 
-
-  // Filter users based on the search query
-  const filteredUsers = allUsers.filter(user =>
-    user.userName.toLowerCase().includes(searchQuery) ||  
-    user.useremail.toLowerCase().includes(searchQuery)    
-  );
-
-  populateUsersTable(filteredUsers);
-}
-
-
-window.deleteUser = async function(userId) {
-  const deleteMessage = document.getElementById("delete-message");
-
-  if (!confirm("Are you sure you want to delete this user account? This action cannot be undone.")) return;
-
+// Delete User
+async function deleteUser(userId) {
   try {
     const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
       method: "DELETE",
-      credentials: "include",  
+      credentials: "include",
     });
 
-    if (!response.ok) throw new Error((await response.json()).message || "Failed to delete user account");
+    if (!response.ok) throw new Error("Failed to delete user account");
 
-    deleteMessage.textContent = "User account deleted successfully!";
-    deleteMessage.style.color = "green";
-    
-    setTimeout(() => {
-      deleteMessage.textContent = ""; 
-      refreshUserList();  
-    }, 3000);
+    allUsers = allUsers.filter((user) => user._id !== userId);
+    populateUsersTable(allUsers);
 
+    console.log(`User with ID ${userId} deleted successfully.`);
   } catch (error) {
-    deleteMessage.textContent = `Error deleting account: ${error.message}`;
-    deleteMessage.style.color = "red";
-    console.error("Error deleting account:", error);
+    console.error("Error deleting user:", error);
   }
 }
 
-
-function refreshUserList() {
-  populateUsersTable(allUsers); 
-}
-
-// Function to edit user details
-window.editUser = async function(userId) {
+// Edit User
+window.editUser = async function (userId) {
   try {
-    const user = allUsers.find(user => user._id === userId); 
+    const user = allUsers.find((user) => user._id === userId);
     if (!user) throw new Error("User not found");
 
     document.getElementById("update-userName").value = user.userName;
@@ -146,14 +136,12 @@ window.editUser = async function(userId) {
     document.getElementById("saveChanges").addEventListener("click", () => {
       saveChanges(userId);
     });
-
   } catch (error) {
     console.error("Error editing user:", error);
   }
-}
+};
 
-
-// Function to save updated user details
+// Save Changes
 async function saveChanges(userId) {
   const updatedUser = {
     userName: document.getElementById("update-userName").value,
@@ -166,40 +154,40 @@ async function saveChanges(userId) {
     const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
       method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      credentials: "include", 
+      credentials: "include",
       body: JSON.stringify(updatedUser),
     });
 
     if (!response.ok) throw new Error("Failed to save changes");
 
-   
-    allUsers = allUsers.map(user =>
+    allUsers = allUsers.map((user) =>
       user._id === userId ? { ...user, ...updatedUser } : user
-    ); 
+    );
 
     populateUsersTable(allUsers);
+    document.getElementById("admin-updateProfileSection").style.display = "none";
 
-    document.getElementById("admin-updateProfileSection").style.display = "none"; 
-
-    const successMessage = document.createElement('p');
-    successMessage.textContent = "User details updated successfully!";
-    successMessage.style.color = "green";
-    successMessage.style.fontWeight = "bold";
-    successMessage.style.marginTop = "10px";
-
-    document.querySelector('.users-main-content').appendChild(successMessage);
-
-    setTimeout(() => {
-      successMessage.remove();
-    }, 3000);
+    console.log("User details updated successfully.");
   } catch (error) {
     console.error("Error saving user details:", error);
   }
 }
 
+// Handle Search
+function handleSearch() {
+  const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+
+  const filteredUsers = allUsers.filter(
+    (user) =>
+      user.userName.toLowerCase().includes(searchQuery) ||
+      user.useremail.toLowerCase().includes(searchQuery)
+  );
+
+  populateUsersTable(filteredUsers);
+}
+
 fetchUsers();
 
-
-document.getElementById('searchInput').addEventListener('input', handleSearch);
+document.getElementById("searchInput").addEventListener("input", handleSearch);

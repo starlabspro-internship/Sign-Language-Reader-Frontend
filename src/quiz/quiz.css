@@ -1,310 +1,208 @@
-:root {
-    --deep-blue: #001f3f;
-    --medium-blue: #3a6d8c;
-    --light-blue: #6a9ab0;
-    --beige: #ead8b1;
-  }
-  
-  body {
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    background-color: white; 
-  }
-  /* ======QUIZ CSS===== */
+@import "quizGame.css";
+
+/* ====== MAIN MENU STYLES ====== */
+
+/* General container styling */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 2px 4px 6px #aaa;
+  background-color: var(--cream);
+  padding: 20px 10px;
+}
+
+/* Header styling */
+h1 {
+  font-size: 2rem;
+  color: var(--deep-blue);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.choices legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--medium-blue);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Checkbox group layout */
+.checkbox-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+/* Styling for each checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Styling the checkbox tile */
+.checkbox-tile {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Hover and active states for checkbox tile */
+.checkbox-tile:hover {
+  background-color: #e0e0e0;
+}
+
+.checkbox-tile:active {
+  background-color: #d0d0d0;
+}
+
+/* Styling for checkbox icon */
+.checkbox-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #4b4b4b;
+}
+
+/* Styling for checkbox label */
+.checkbox-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Checked state styling */
+.checkbox-input:checked + .checkbox-tile {
+  background-color: #007bff;
+  color: white;
+}
+
+.checkbox-input:checked + .checkbox-tile .checkbox-icon {
+  color: white;
+}
+
+.checkbox-input:checked + .checkbox-tile .checkbox-label {
+  font-weight: bold;
+}
+
+/* Buttons Section starts */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  padding: 10px 20px;
+  background-color: var(--medium-blue);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--light-blue);
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn.go-back{
+  background-color: var(--medium-blue); 
+  width: auto;
+}
+
+/* ====== End of Main Menu Styles ====== */
+
+/* ====== RESPONSIVE STYLES ====== */
+@media (max-width: 768px) {
+  /* Container */
   .container {
-    width: 800px;
-    margin: auto;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 2px 4px 6px #aaa;
-    background-color: var(--beige);
-    padding: 20px;
+    width: 90%;
+    padding: 15px;
+    box-shadow: none; 
   }
-  
+
+  /* Header */
   h1 {
-    font-size: 45px;
-    color: var(--deep-blue);
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 1.8rem; 
   }
-  
-  .choices fieldset {
-    margin: auto;
-    border: none;
-    border-radius: 10px;
-    padding: 20px;
-    background: linear-gradient(to top, #ead8b1, #f8e7c3);
+
+  .choices {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .choices legend {
-    font-size: 25px;
-    font-weight: bold;
-    color: var(--deep-blue);
+
+  .checkbox-tile {
+    width: 100%;
+    padding: 10px;
     margin-bottom: 10px;
   }
-  
-  
-  .choices {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+
+  /* Buttons */
+  .button-container {
+    flex-direction: row;
   }
-  
-  
-  .choice {
-    display: inline-flex;
-    align-items: center;
-    gap:5px; 
-  }
-  
-  /* Customize the checkbox */
-  input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #3a6d8c;
-    border-radius: 4px;
-    background-color: transparent;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  
-  input[type="checkbox"]:checked {
-    background-color: #3a6d8c;
-  }
-  
-  
-  input[type="checkbox"]:checked::after {
-    content: '✔';
-    color: #ead8b1;
-    font-size: 14px;
-    position: absolute;
-    left: 4px;
-    top: -2px;
-  }
-  
-  
-  label {
-    font-size: 1rem;
-    color: var(--deep-blue);
-  }
-  
+
   .btn {
-    display: flex;
-    justify-content: center;
-    width: 150px;
-    padding: 10px 20px;
-    margin: 10px auto;
-    background-color: var(--medium-blue);
-    color: var(--beige);
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 10px;
   }
-  
-  .btn:hover {
-    background-color: var(--light-blue);
-    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 1.5rem; 
   }
-  
-  .btn:active {
-    transform: scale(0.95);
-}
 
-/* ========GAME CSS======== */
-.choices{
-    display: flex;
-    justify-content: center;
+  .checkbox-tile {
+    font-size: 0.8rem; 
+  }
 
-}
-.choice-container-wrapper {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 10px; 
-    margin-bottom: 20px;
-    
-}
+  .btn {
+    font-size: 0.9rem; 
+  }
 
-
-.choice-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    height: 60px;
-    font-size: 1.8rem;
-    border: 0.1rem solid rgba(58, 109, 140, 0.2);
-    background-color: #3a6d8c;
-    border-radius: 10px;
-    transition: width 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.choice-container:hover {
-    cursor: pointer;
-    opacity: 90%; 
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-}
-#question_div_video{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin:30px;
-    width: 100%;
-}
-p{
-    text-align: center;
-    color: #001f3f;
-}
-#sign-video{
-    object-fit: fill;
-    width: 50%;
-    height: 50%;
-    border: 2px solid #3a6d8c;;
-    border-radius: 5px;
-}
-
-.choice-prefix {
-    margin-left: -120px;
-    padding:15px 20px;
-    background-color: #001f3f;
-    color: white;
-    border-radius: 10px;
-}
-
-.choice-text {
-    width: 40%;
-    font-size: 16px;
-    color: #ead8b1;
-    padding: 16px;
-}
-
-.correct {
-    background-color: #28a745;
-}
-
-.incorrect {
-    background-color: #dc3545;
-}
-
-/* HUD (Heads-Up Display) */
-#hud {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.hud-prefix {
-    text-align: center;
-    font-size: 2em;
-    margin: 0;
-}
-
-#progressText{
-    margin: 10px 0px 25px;
-}
-
-.hud-main-text{
-    text-align: center;
-    background-color: #6a9ab0;
-    border-radius: 5px;
-    margin: 0;
-    padding: 0;
-}
-#score{
-    box-shadow:0px 0px 0px 2px #aaa;
-}
-
-/* Progress Bar */
-#progressBar {
-    width: 100%;
-    height: 8px;
-    background-color: #ddd;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-#progressBarFull {
-    width: 0%;
-    height: 100%;
-    background-color: #3a6d8c;
-    border-radius: 5px;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .choice-container {
-        width: 100%; /* Full width on smaller screens for better usability */
-    }
-}
-/* ====================END========== */
-#end{
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/*  ========HIGHEST SCORE========*/
-#highScoresList {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.high-score {
-    color: #001f3f;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.high-score:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.high-score table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 1.4rem;
-    background-color: #f2f6f9;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.high-score th, .high-score td {
-    padding: 12px 20px;
-    border: 1px solid #dde4ea; 
-    text-align: left;
-}
-
-.high-score th {
-    background-color: #6a9ab0;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.high-score td {
-    background-color: #e9f2f5;
-}
-
-.high-score:hover td {
-    background-color: #d7e5ea;
+  .checkbox {
+    margin: 5px 0;
+  }
 }

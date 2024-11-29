@@ -31,7 +31,7 @@ seasons.forEach((season) => {
         seasonVideo.play();
 
         // Change background based on selected season
-        // body.style.backgroundImage = url('../../photos/${season.id}.jpg');
+        // body.style.backgroundImage = `url('../../photos/${season.id}.jpg')`;
         body.style.backgroundSize = "cover";
         body.style.backgroundPosition = "center";
     });

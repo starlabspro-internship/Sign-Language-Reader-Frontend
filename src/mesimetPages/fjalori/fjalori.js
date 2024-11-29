@@ -63,5 +63,5 @@ document.getElementById('startQuiz').addEventListener('click', () => {
 
 // Add event listener for the "Kthehu te Mësimet" button
 document.getElementById('goBack').addEventListener('click', () => {
-  window.location.href = '../mesimet.html';
+  window.location.href = 'mesimet.html';
 });

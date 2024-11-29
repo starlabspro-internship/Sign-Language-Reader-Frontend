@@ -31,14 +31,14 @@ imageElement.src = logo;
       <div class="footer-col">
         <h4>mëso</h4>
         <ul>
-          <li><a href="Quiz.html">Kuizët</a></li>
+          <li><a href="quiz.html">Kuizët</a></li>
           <li><a href="mesimet.html">Mësimet</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>merr ndihmë</h4>
         <ul>
-          <li><a href="faq.html">PTSH</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>
     </div>
