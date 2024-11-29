@@ -41,9 +41,11 @@
                 placeholder="Fjalëkalimi"
                 required
               />
-              <i class="fa-solid fa-lock"></i>
+              
+            
+              <!-- Show Password Eye Icon -->
+              <i class="fa-solid fa-eye" id="toggle-password" class="show-password-icon"></i>
             </div>
-
             <!-- Forgot Link -->
             <!-- <div class="forgot-link">
               <a href="#">Forgot password?</a>
@@ -177,6 +179,24 @@ document.addEventListener("DOMContentLoaded", () => {
       window.history.pushState({}, "", "?signup=false"); // Update URL
     });
   });
+
+  const passwordField = document.getElementById('login-password');
+const togglePasswordIcon = document.getElementById('toggle-password');
+
+// Toggle password visibility when the eye icon is clicked
+togglePasswordIcon.addEventListener('click', function() {
+  const type = passwordField.type === 'password' ? 'text' : 'password';
+  passwordField.type = type;
+
+  // Toggle the eye icon (show or hide)
+  if (passwordField.type === 'password') {
+    togglePasswordIcon.classList.remove('fa-eye-slash');
+    togglePasswordIcon.classList.add('fa-eye');
+  } else {
+    togglePasswordIcon.classList.remove('fa-eye');
+    togglePasswordIcon.classList.add('fa-eye-slash');
+  }
+});
     </script>
   </body>
 </html>

@@ -80,7 +80,7 @@
     <!-- FINAL SCORE SECTION STARTS -->
     <div class="container" id="thirdDiv" style="display: none">
       <div id="end" class="flex-center flex-column">
-        <h1 id="finalScore">Score</h1>
+        <h1 id="finalScore">Skori <i class="fa-solid fa-star"></i></h1>
         <input
           type="text"
           name="username"
@@ -94,10 +94,10 @@
             id="saveScoreBtn"
             onclick="saveHighScore()"
           >
-            Save
+          <i class="fa-regular fa-square-check"></i> &nbsp; Ruaj
           </button>
-          <button class="btn" onclick="playfunction()">Play Again</button>
-          <button class="btn" onclick="goHome()">Back To Quiz</button>
+          <button class="btn" onclick="playfunction()"><i class="fa-solid fa-rotate-right"></i>&nbsp; Luaj përsëri</button>
+          <button class="btn" onclick="goHome()"><i class="fa-solid fa-hand-point-left"></i>&nbsp; Kthehu te Kuizet</button>
         </div>
       </div>
     </div>
@@ -106,9 +106,9 @@
     <!-- HIGH SCORE SECTION STARTS -->
     <div class="container" id="fourthDiv" style="display: none">
       <div id="highScores" class="flex-center flex-column">
-        <h1 id="finalScoreList">Highest Scores</h1>
+        <h1 id="finalScoreList">Bordi Liderëve</h1>
         <ul id="highScoresList"></ul>
-        <a class="btn" onclick="goHome()">Go Home</a>
+        <a class="btn" onclick="goHome()">Kthehu te Kuizet</a>
       </div>
     </div>
     <!-- HIGH SCORE SECTION ENDS -->
