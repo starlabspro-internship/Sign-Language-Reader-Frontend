@@ -12,102 +12,13 @@
       <div id="home" class="home">
         <h1>Kuiz Gjeneral</h1>
         <div class="choices">
-            <fieldset class="checkbox-group">
-              <legend class="checkbox-h1">Zgjedhni temat për të cilat dëshironi të merrni pyetje</legend>
-              
-              <!-- Alfabeti -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="shkronjat" name="Shkronjat" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-font"></i> 
-                    </span>
-                    <span class="checkbox-label">Alfabeti</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Numrat -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="numrat" name="Numrat" class="checkbox-input" checked />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-hashtag"></i> 
-                    </span>
-                    <span class="checkbox-label">Numrat</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Stinet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="stinet" name="Stinet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-tree"></i> 
-                    </span>
-                    <span class="checkbox-label">Stinët</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Ditet E Javes -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="ditet" name="Ditet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-calendar-day"></i> 
-                    </span>
-                    <span class="checkbox-label">Ditët</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Pemet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="pemet" name="Pemet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                        <i class="fas fa-apple-alt"></i> 
-                    </span>
-                    <span class="checkbox-label">Pemët</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Perimet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="perimet" name="Perimet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fa-solid fa-carrot"></i>
-                    </span>
-                    <span class="checkbox-label">Perimet</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Sportet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="sportet" name="Sportet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-basketball-ball"></i> 
-                    </span>
-                    <span class="checkbox-label">Sportet</span>
-                  </span>
-                </label>
-              </div>
-            </fieldset>
-          </div>
-          
+          <!-- Are generated on quiz.js -->
+          <fieldset class="checkbox-group" id="checkboxContainer">
+            <legend class="checkbox-h1">Zgjedhni temat për të cilat dëshironi të merrni pyetje</legend>
+          </fieldset>
+          <button id="randomButton" class="random-btn"><i class="fa-solid fa-shuffle"></i> Random</button>
+        </div>
+        
         <!-- <button class="btn" id="playfunctionid" >Play</button> -->
         <div class="button-container">
           <button class="btn" onclick="playfunction()"><i class="fa-solid fa-play"></i> &nbsp; Fillo Kuizin</button>
@@ -151,7 +62,7 @@
           </div>
         </div>
         <div class="button-container">
-          <button class="btn go-back" onclick="goHome()">Kthehu ne menu</button>
+          <button class="btn go-back" onclick="goHome()">Anulo Kuizin</button>
         </div>
       </div>
     </div>

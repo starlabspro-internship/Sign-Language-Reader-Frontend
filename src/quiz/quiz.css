@@ -151,6 +151,37 @@ h1 {
   width: auto;
 }
 
+/*Random Btn */
+.random-btn {
+  background: var(--medium-blue);
+  color: #fff;
+  border: 2px solid var(--deep-blue);
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.random-btn:hover {
+  background: var(--deep-blue);
+}
+
+.random-btn:hover i {
+  animation: moveIcon 0.5s infinite ease-in-out;
+}
+
+@keyframes moveIcon {
+  0%, 100% {
+    transform: translateX(0); 
+  }
+  50% {
+    transform: translateX(3px); 
+  }
+}
+
 /* ====== End of Main Menu Styles ====== */
 
 /* ====== RESPONSIVE STYLES ====== */

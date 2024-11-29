@@ -1,6 +1,60 @@
 import './quiz.css';
 import questionsJson from './questions.json';
 
+/* This snippet shortens the HTML CODE */
+const checkboxData = [
+    { id: "shkronjat", name: "Shkronjat", label: "Alfabeti", icon: "fas fa-font" },
+    { id: "numrat", name: "Numrat", label: "Numrat", icon: "fas fa-hashtag", checked: true },
+    { id: "stinet", name: "Stinet", label: "Stinët", icon: "fas fa-tree" },
+    { id: "ditet", name: "Ditet", label: "Ditët", icon: "fas fa-calendar-day" },
+    { id: "pemet", name: "Pemet", label: "Pemët", icon: "fas fa-apple-alt" },
+    { id: "perimet", name: "Perimet", label: "Perimet", icon: "fa-solid fa-carrot" },
+    { id: "sportet", name: "Sportet", label: "Sportet", icon: "fas fa-basketball-ball" },
+  ];
+  
+  const container = document.getElementById("checkboxContainer");
+  
+  checkboxData.forEach(({ id, name, label, icon, checked }) => {
+    const checkboxWrapper = document.createElement("div");
+    checkboxWrapper.className = "checkbox";
+  
+    checkboxWrapper.innerHTML = `
+      <label class="checkbox-wrapper">
+        <input type="checkbox" id="${id}" name="${name}" class="checkbox-input" ${checked ? "checked" : ""} />
+        <span class="checkbox-tile">
+          <span class="checkbox-icon">
+            <i class="${icon}"></i> 
+          </span>
+          <span class="checkbox-label">${label}</span>
+        </span>
+      </label>
+    `;
+    
+    container.appendChild(checkboxWrapper);
+  });
+/* This snippet shortens the HTML CODE */
+
+/* Random Button */
+document.getElementById("randomButton").addEventListener("click", () => {
+    const checkboxes = document.querySelectorAll(".checkbox-input");
+    
+    // Clear all selections
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  
+    // Randomly select 3-5 checkboxes
+    const randomCount = Math.floor(Math.random() * (5 - 3 + 1)) + 3; // Random number between 3 and 5
+    const randomIndexes = [...checkboxes.keys()]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, randomCount); // Shuffle and pick random indexes
+  
+    randomIndexes.forEach((index) => {
+      checkboxes[index].checked = true;
+      playfunction();
+    });
+  });
+/* Random Button */
 
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
@@ -92,7 +146,6 @@ function goHighestScore() {
 }
 
 function playfunction() {
-    console.log('playyy')
     let choises_chosen = []
     choises_chosen['numrat'] = document.getElementById('numrat')?.checked ? choises_chosen.push('numrat') : null;
     choises_chosen['shkronjat'] = document.getElementById('shkronjat')?.checked ? choises_chosen.push('Alfabeti') : null;
