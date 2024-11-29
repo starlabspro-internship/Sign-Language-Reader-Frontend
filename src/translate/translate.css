@@ -205,7 +205,26 @@ body {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); 
 }
 
-/* Default Styles (Desktop) */
+/* Updated Floating Camera CSS */
+.toggle-cam-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, var(--medium-blue), var(--deep-blue));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toggle-cam-btn:hover {
+    background: linear-gradient(135deg, var(--deep-blue), var(--medium-blue));
+    transform: scale(1.1);
+}
 
 @media (max-width: 1024px) {
     /* Tablet - Adjusting for medium screens */
@@ -291,5 +310,122 @@ body {
 
     .translate-form textarea {
         height: 10vh;
+    }
+}
+
+.container {
+    position: relative;
+}
+
+/* Webcam Floating Box */
+#floatingCam {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 200px; /* Default square size */
+    height: 200px; /* Default square size */
+    min-width: 150px; /* Enforce minimum size */
+    min-height: 150px; /* Enforce minimum size */
+    background: var(--deep-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 999;
+    display: none; /* Initially hidden */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Header with Title and Minimize Button */
+.floating-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--medium-blue);
+    color: white;
+    padding: 8px 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+/* Video (Webcam Stream) */
+#mirror-cam {
+    width: 100%;
+    height: calc(100% - 40px); /* Deduct header height */
+    object-fit: cover; /* Ensure video fills the box */
+    transform: scaleX(-1);
+}
+
+/* Resize Handle */
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: nwse-resize;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+/* Toggle Button */
+.toggle-cam-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    background: var(--medium-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Media Queries for Extra Responsiveness */
+@media (max-width: 768px) {
+    #floatingCam {
+        width: 40%;
+        height: 35%;
+        bottom: 5%;
+        right: 5%;
+    }
+
+    .floating-header {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    #mirror-cam {
+        height: calc(100% - 35px);
+    }
+
+    .resize-handle {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #floatingCam {
+        width: 60%;
+        height: 40%;
+        bottom: 5%;
+        right: 5%;
+    }
+
+    .floating-header {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+
+    #mirror-cam {
+        height: calc(100% - 30px);
+    }
+
+    .resize-handle {
+        width: 10px;
+        height: 10px;
     }
 }
