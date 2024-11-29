@@ -3,30 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Quiz</title>
   </head>
 
   <body>
+    <!-- MAIN MENU STARTS -->
     <div class="container" id="firstDiv">
       <div id="home" class="home">
         <h1>Kuiz Gjeneral</h1>
         <div class="choices">
           <!-- Are generated on quiz.js -->
           <fieldset class="checkbox-group" id="checkboxContainer">
-            <legend class="checkbox-h1">Zgjedhni temat për të cilat dëshironi të merrni pyetje</legend>
+            <legend class="checkbox-h1">
+              Zgjedhni temat për të cilat dëshironi të merrni pyetje
+            </legend>
           </fieldset>
-          <button id="randomButton" class="random-btn"><i class="fa-solid fa-shuffle"></i> Random</button>
+          <button id="randomButton" class="random-btn">
+            <i class="fa-solid fa-shuffle"></i> Random
+          </button>
         </div>
-        
-        <!-- <button class="btn" id="playfunctionid" >Play</button> -->
+
         <div class="button-container">
-          <button class="btn" onclick="playfunction()"><i class="fa-solid fa-play"></i> &nbsp; Fillo Kuizin</button>
-          <button class="btn" onclick="goHighestScore();"><i class="fa-solid fa-square-poll-vertical"></i>&nbsp; Rezultatet</button>
+          <button class="btn" onclick="playfunction()">
+            <i class="fa-solid fa-play"></i> &nbsp; Fillo Kuizin
+          </button>
+          <button class="btn" onclick="goHighestScore();">
+            <i class="fa-solid fa-square-poll-vertical"></i>&nbsp; Rezultatet
+          </button>
         </div>
       </div>
     </div>
+    <!-- MAIN MENU ENDS -->
 
+    <!-- QUIZ SECTION STARTS -->
     <div class="container" id="secondDiv" style="display: none">
       <div id="game" class="justify-center flex-column">
         <div id="hud">
@@ -66,6 +75,9 @@
         </div>
       </div>
     </div>
+    <!-- QUIZ SECTION ENDS -->
+
+    <!-- FINAL SCORE SECTION STARTS -->
     <div class="container" id="thirdDiv" style="display: none">
       <div id="end" class="flex-center flex-column">
         <h1 id="finalScore">Score</h1>
@@ -78,20 +90,22 @@
           placeholder="Username"
         />
         <div class="end-button-container">
-        <button
-          type="submit"
-          class="btn"
-          id="saveScoreBtn"
-          onclick="saveHighScore()"
-        >
-          Save
-        </button>
-        <button class="btn" onclick="playfunction()">Play Again</button>
-        <button class="btn" onclick="goHome()">Back To Quiz</button>
-    </div>
+          <button
+            type="submit"
+            class="btn"
+            id="saveScoreBtn"
+            onclick="saveHighScore()"
+          >
+            Save
+          </button>
+          <button class="btn" onclick="playfunction()">Play Again</button>
+          <button class="btn" onclick="goHome()">Back To Quiz</button>
+        </div>
       </div>
     </div>
+    <!-- FINAL SCORE SECTION ENDS -->
 
+    <!-- HIGH SCORE SECTION STARTS -->
     <div class="container" id="fourthDiv" style="display: none">
       <div id="highScores" class="flex-center flex-column">
         <h1 id="finalScoreList">Highest Scores</h1>
@@ -99,6 +113,6 @@
         <a class="btn" onclick="goHome()">Go Home</a>
       </div>
     </div>
-
+    <!-- HIGH SCORE SECTION ENDS -->
   </body>
 </html>
