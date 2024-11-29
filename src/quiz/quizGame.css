@@ -12,7 +12,7 @@
 #question {
   font-size: 1.2rem;
   color: #001f3f;
-  text-align: left;
+  text-align: center;
   margin: 20px;
 }
 
@@ -32,6 +32,7 @@
 }
 
 /* Choices Section */
+/* General styling for the choices container */
 .choices {
   display: flex;
   flex-wrap: wrap;
@@ -40,6 +41,7 @@
   margin-bottom: 40px;
 }
 
+/* Wrapper for individual choice containers */
 .choice-container-wrapper {
   display: flex;
   justify-content: center;
@@ -48,13 +50,14 @@
   width: 100%;
 }
 
+/* Individual choice container */
 .choice-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 350px;
-  height: 50px;
+  height: auto;
   font-size: 1.5rem;
   color: #333;
   background-color: #f5f7fa;
@@ -66,11 +69,13 @@
   box-sizing: border-box;
 }
 
+/* Hover effect for choice containers */
 .choice-container:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
+/* Prefix circle for choices (numbering or icons) */
 .choice-prefix {
   display: inline-block;
   margin-left: -30px;
@@ -90,6 +95,15 @@
   font-size: 16px;
   color: var(--medium-blue);
   padding: 16px;
+}
+
+.choice-container img {
+  max-width: 100%;           
+  height: auto;               
+  border-radius: 8px;         
+  margin: 0;                  
+  padding: 0;                 
+  object-fit: cover;         
 }
 
 .correct {
@@ -155,7 +169,6 @@
   }
 
   #question {
-    width: 100%;
     margin-bottom: 20px;
     font-size: 1.4rem;
     padding-right: 0;
@@ -168,9 +181,8 @@
 
   .choice-container {
     width: 100%;
-    max-width: 100%;
-    font-size: 1.3rem; /* Slightly smaller font for smaller screens */
-    padding: 0 10px; /* Adjust padding for smaller screens */
+    font-size: 1.3rem; 
+    padding: 0 10px;
   }
 
   /* Adjust HUD for smaller screens */
