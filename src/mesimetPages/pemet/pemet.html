@@ -19,88 +19,51 @@
         <input
           type="text"
           id="searchInput"
-          onkeyup="searchTopics()"
           placeholder="Kërkoni për pemët..."
         />
       </div>
 
       <div class="grid-container">
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/molle.mp4')"
-          data-topic="Molle"
-        >
+        <div class="box" data-topic="Molle">
           <img src="../../photos/pemet/molle.jpg" alt="molle" />
           <h2>Mollë</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/dardhe.mp4')"
-          data-topic="Dardhe"
-        >
+        <div class="box" data-topic="Dardhe">
           <img src="../../photos/pemet/dardhe.jpg" alt="dardhe" />
           <h2>Dardhë</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/kumbull.mp4')"
-          data-topic="Kumbull"
-        >
+        <div class="box" data-topic="Kumbull">
           <img src="../../photos/pemet/kumbull.jpg" alt="kumbull" />
           <h2>Kumbull</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/qershi.mp4')"
-          data-topic="Qershi"
-        >
+        <div class="box" data-topic="Qershi">
           <img src="../../photos/pemet/qershi.jpg" alt="qershi" />
           <h2>Qershi</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/luleshtrydhe.mp4')"
-          data-topic="Luleshtrydhe"
-        >
+        <div class="box" data-topic="Luleshtrydhe">
           <img src="../../photos/pemet/dredhez.jpg" alt="Luleshtrydhe" />
           <h2>Luleshtrydhe</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/portokall.mp4')"
-          data-topic="Portokall"
-        >
+        <div class="box" data-topic="Portokall">
           <img src="../../photos/pemet/portokall.jpg" alt="portokall" />
           <h2>Portokall</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/shalqi.mp4')"
-          data-topic="Shalqi"
-        >
+        <div class="box" data-topic="Shalqi">
           <img src="../../photos/pemet/bostan.jpg" alt="shalqi" />
           <h2>Shalqi</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/pjeshke.mp4')"
-          data-topic="Pjeshka"
-        >
+        <div class="box" data-topic="Pjeshka">
           <img src="../../photos/pemet/pjeshke.jpg" alt="pjeshke" />
           <h2>Pjeshka</h2>
         </div>
-        <div
-          class="box"
-          onclick="openModal('../../videos/pemet/banane.mp4')"
-          data-topic="Banane"
-        >
+        <div class="box" data-topic="Banane">
           <img src="../../photos/pemet/banane.jpg" alt="Banane" />
           <h2>Banane</h2>
         </div>
       </div>
     </div>
 
-    <div id="videoModal" class="modal" onclick="closeModal()">
+    <div id="videoModal" class="modal">
       <div class="modal-content">
         <video id="modalVideo" controls loop></video>
       </div>
@@ -114,7 +77,7 @@
     </div>
 
     <script src="../../js/video.js"></script>
-
     <script src="../../js/search.js"></script>
+    <script src="./pemet.js"></script>
   </body>
 </html>
