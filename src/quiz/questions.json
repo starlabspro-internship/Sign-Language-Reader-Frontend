@@ -13,12 +13,32 @@
           "fileType": "image"
         },
         "choice4": {
-          "fileLocation": "2f8a1aa2c93c91ec5893.png",
+          "fileLocation": "4dbe3b63c7d48ddd6bb5.png",
           "fileType": "image"
         },
         "answer": 1,
         "category": "Alfabeti"
-      },      
+      },
+      {
+        "question": "What is the sign for the letter 'z' ?", 
+        "choice1": {
+          "fileLocation": "60a3740e283d88816292.png"
+        },
+        "choice2": {
+          "fileLocation": "ae3264e4d5d7ed9c06b2.png",
+          "fileType": "image"
+        },
+        "choice3": {
+          "fileLocation": "2f8a1aa2c93c91ec5893.png",
+          "fileType": "image"
+        },
+        "choice4": {
+          "fileLocation": "dfa93ffd4b7603c2a7f0.png",
+          "fileType": "image"
+        },
+        "answer": 2,
+        "category": "Alfabeti"
+      },            
     {
         "question": "Based on the video, which number is she signing?",
         "fileLocation": "../videos/numrat/0.mp4",

@@ -1,8 +1,4 @@
-body {
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-}
+@import '../mesimetGlobal.css';
 
 .literatura {
     display: flex;
@@ -104,50 +100,6 @@ body {
     margin-left: 30px;
 }
 
-.butonat{
-    display: flex;
-    gap: 20px;
-}
-
-#startQuiz {
-    background-color: var(--deep-blue);
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    text-align: center; 
-    font-size: 14px; 
-    margin: 20px 0; 
-    cursor: pointer; 
-    border-radius: 5px; 
-    width: 180px;
-    height: 50px;
-    transition: background-color 0.3s, transform 0.2s; 
-}
-
-#startQuiz:hover {
-    background-color: #6c84b4; 
-    transform: scale(1.05);
-}
-
-#goBack {
-    background-color: var(--deep-blue);
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    text-align: center; 
-    font-size: 14px; 
-    margin: 20px 0; 
-    cursor: pointer; 
-    border-radius: 5px; 
-    width: 180px; /* Default size for larger screens */
-    height: 50px; 
-    transition: background-color 0.3s, transform 0.2s; 
-}
-
-#goBack:hover {
-    background-color: #6c84b4; 
-    transform: scale(1.05);
-}
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {

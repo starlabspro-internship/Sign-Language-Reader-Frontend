@@ -14,7 +14,6 @@ const checkboxData = [
     name: "Numrat",
     label: "Numrat",
     icon: "fas fa-hashtag",
-    checked: true,
   },
   { id: "stinet", name: "Stinet", label: "Stinët", icon: "fas fa-tree" },
   { id: "ditet", name: "Ditet", label: "Ditët", icon: "fas fa-calendar-day" },
