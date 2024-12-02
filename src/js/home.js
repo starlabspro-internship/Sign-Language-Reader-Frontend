@@ -1,7 +1,27 @@
 import "../assets/css/home.css";
+import { makeVisible } from "./handlers/visibilityHandler.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Read more functionality
+
+  // makeVisible('.wwd-left', 'wwd-left-visible');
+
+  makeVisible('.wwd-h2', 'wwd-h2-visible');
+  makeVisible('.wwd-p', 'wwd-p-visible');
+  makeVisible('.details-btn', 'details-btn-visible');
+  
+  makeVisible('.ts-p', 'ts-p-visible');
+  makeVisible('.trans-image', 'trans-image-visible');
+  makeVisible('.trans-hyper', 'trans-hyper-visible');
+
+  makeVisible('.c-h1', 'c-h1-visible');
+  makeVisible('.c-h2', 'c-h2-visible');
+
+  makeVisible('.c-card', 'c-card-visible');
+
+  makeVisible('.quote-div', 'quote-div-visible')
+  makeVisible('.qd2', 'qd2-visible')
+  makeVisible('.qd3', 'qd3-visible')
+
   document.querySelectorAll('.read-more').forEach(button => {
     button.addEventListener('click', () => {
       const infoBox = button.closest('.info-box');
