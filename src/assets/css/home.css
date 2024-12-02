@@ -1,4 +1,4 @@
-*{
+* {
   list-style: none;
 }
 
@@ -819,8 +819,8 @@
 
 /* Large photo on the left */
 .large-photo {
-  width: 500px; 
-  height: 500px; 
+  width: 500px;
+  height: 500px;
 }
 
 .large-photo img {
@@ -840,7 +840,7 @@
 
 .small-photo {
   width: 100%;
-  height: 250px; 
+  height: 250px;
 }
 
 .small-photo img {
@@ -875,9 +875,9 @@
 /* Styles for individual notifications */
 .notifications {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* 
@@ -900,7 +900,7 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 1 1 calc(50% - 20px); 
+  flex: 1 1 calc(50% - 20px);
   /* max-width: 400px;  */
   /* box-sizing: border-box; */
 
@@ -947,7 +947,7 @@
   list-style: none;
 }
 
-.icon-text strong{
+.icon-text strong {
   color: var(--medium-blue);
 }
 
@@ -967,80 +967,46 @@
   color: #555;
 }
 
-/* Stili për Njoftimet në Modalitetin Dark */
-body.dark-mode .latest-notifications {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
-
-body.dark-mode .notification-item {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
-
-body.dark-mode .notification-item h4 {
-  color: var(--dark-accent);
-}
-body.dark-mode {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
-
-body.dark-mode .details-btn,
-body.dark-mode .details-btn1 {
-  border-color: var(--dark-accent);
-  color: var(--dark-text);
-}
-
-body.dark-mode .details-btn:hover,
-body.dark-mode .details-btn1:hover {
-  background-color: var(--cream);
-  color: var(--deep-blue);
-  border-color: var(
-    --deep-blue
-  ); 
-}
-
-
 @media (max-width: 768px) {
+
   .image-container{
+
     margin-bottom: 28px;
   }
   .line {
     margin: 0 auto;
   }
   .notification-item {
-    flex: 1 1 calc(100% - 20px); 
+    flex: 1 1 calc(100% - 20px);
   }
 
   .photo-gallery {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 
   .large-photo {
-    width: 90%; 
-    height: auto; 
+    width: 90%;
+    height: auto;
   }
 
   .right-photos {
-    width: 90%; 
+    width: 90%;
   }
 }
 
-
 @media (max-width: 480px) {
   .photo-title {
-    font-size: 20px; 
+    font-size: 20px;
   }
 
   .large-photo {
-    width: 100%; 
+    width: 100%;
   }
 
   .right-photos {
-    width: 100%; 
-    gap: 8px; 
+    width: 100%;
+    gap: 8px;
   }
 
   .small-photo {
@@ -1054,17 +1020,17 @@ body.dark-mode .details-btn1:hover {
   text-align: center;
 }
 
-.internship-section img{
+.internship-section img {
   width: 180px;
 }
 
 .internship-section .text-container {
   background: #ebebeb;
   padding: 36px;
-  max-width: 800px; 
+  max-width: 800px;
   margin-bottom: 20px;
   text-align: center;
-  width: 100%; 
+  width: 100%;
   /* margin: 0 auto; */
 }
 

@@ -12,7 +12,7 @@ const videos = {
   Banane: require('../../videos/pemet/banane.mp4'),
 };
 
-
+// Adding event listeners for the boxes
 document.querySelectorAll('.box').forEach((box) => {
   const topic = box.dataset.topic;
   if (videos[topic]) {
@@ -20,17 +20,21 @@ document.querySelectorAll('.box').forEach((box) => {
   }
 });
 
+
 function openModal(videoPath) {
   const modal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
   modalVideo.src = videoPath;
   modal.style.display = 'flex';
+  modalVideo.play();
 }
+
 
 function closeModal() {
   const modal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
   modal.style.display = 'none';
+  modalVideo.pause();
   modalVideo.src = '';
 }
 
@@ -42,6 +46,7 @@ document.getElementById('startQuiz').addEventListener('click', () => {
   window.location.href = 'quiz.html';
 });
 
+
 document.getElementById('goBack').addEventListener('click', () => {
-  window.location.href = '../mesimet.html';
+  window.location.href = 'mesimet.html';
 });

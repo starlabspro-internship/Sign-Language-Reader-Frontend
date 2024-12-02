@@ -101,57 +101,19 @@
       </div>
     </div>
 
-    <!-- JavaScript for Animations and Video Modal -->
+    <!-- Button to navigate back -->
+    <div class="butonat">
+      <button id="goBack">
+        Kthehu te Mësimet
+      </button>
+      <button id="startQuiz">Fillo Kuizin</button>
+    </div>
+
+
     <script>
-      const seasons = document.querySelectorAll(".season");
-      const videoModal = document.getElementById("video-modal");
-      const seasonVideo = document.getElementById("season-video");
-      const closeBtn = document.getElementById("close-btn");
-      const body = document.body;
-
-      // Define video sources based on season id
-      const videoSources = {
-        spring: "../../videos/stinet/spring.mp4",
-        summer: "../../videos/stinet/summer.mp4",
-        fall: "../../videos/stinet/fall.mp4",
-        winter: "../../videos/stinet/winter.mp4",
-      };
-
-      // Event listener for each season button
-      seasons.forEach((season) => {
-        season.querySelector(".season-btn").addEventListener("click", () => {
-          // Set video source dynamically based on season
-          seasonVideo.src = videoSources[season.id];
-          videoModal.style.display = "flex";
-          seasonVideo.play();
-
-          // Change background based on selected season
-          body.style.backgroundImage = `url('../../photos/${season.id}.jpg')`;
-          body.style.backgroundSize = "cover";
-          body.style.backgroundPosition = "center";
-        });
-      });
-
-      // Close modal functionality
-      closeBtn.addEventListener("click", () => {
-        videoModal.style.display = "none";
-        document.body.style.overflow = "auto";
-        seasonVideo.pause();
-        seasonVideo.currentTime = 0;
-      });
-
       // Function for navigating to another page
       function navigateTo(page) {
         window.location.href = page;
       }
     </script>
-
-    <!-- Button to navigate back -->
-    <div class="butonat">
-      <button id="goBack" onclick="navigateTo('../mesimet.html')">
-        Kthehu te Mësimet
-      </button>
-      <button id="startQuiz">Fillo Kuizin</button>
-    </div>
   </body>
-</html>

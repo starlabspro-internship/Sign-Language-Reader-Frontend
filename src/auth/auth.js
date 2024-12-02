@@ -89,9 +89,7 @@ document
     const userName = document.getElementById("signup-name").value.trim();
     const userSurname = document.getElementById("signup-surname").value.trim();
     const useremail = document.getElementById("signup-email").value.trim();
-    const userpassword = document
-      .getElementById("signup-password")
-      .value.trim();
+    const userpassword = document.getElementById("signup-password").value.trim();
     const errorMessage = document.getElementById("signup-error-message");
     const successMessage = document.getElementById("signup-success-message");
 
@@ -108,6 +106,7 @@ document
     }
 
     try {
+      // Sign-Up Request
       const response = await fetch(`${API_URL.BASE}${API_URL.USERS.SIGNUP}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -125,17 +124,44 @@ document
         successMessage.textContent = "Sign up successful!";
         successMessage.style.display = "block";
 
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
-      } else {
-        if (result.msg === "User already exists") {
-          errorMessage.textContent =
-            "Email already exists. Please use a different email.";
+        // Auto-login after sign-up
+        const loginResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.LOGIN}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ useremail, userpassword }),
+          credentials: "include", // Important for session cookies
+        });
+
+        const loginResult = await loginResponse.json();
+
+        if (loginResponse.ok) {
+          // Redirect based on user type
+          const userDetailsResponse = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
+            method: "GET",
+            credentials: "include",
+          });
+
+          if (userDetailsResponse.ok) {
+            const userDetails = await userDetailsResponse.json();
+
+            if (userDetails.userIsAdmin) {
+              window.location.href = "admin.html";
+            } else {
+              window.location.href = "profile.html";
+            }
+          } else {
+            throw new Error("Failed to fetch user details after login.");
+          }
         } else {
-          errorMessage.textContent =
-            result.message || "Signup failed! Please check your input.";
+          console.error("Auto-login failed:", loginResult.message || "Unknown error");
+          errorMessage.textContent = "Sign-up was successful, but login failed. Please log in manually.";
+          errorMessage.style.display = "block";
         }
+      } else {
+        errorMessage.textContent =
+          result.msg === "User already exists"
+            ? "Email already exists. Please use a different email."
+            : result.message || "Signup failed! Please check your input.";
         errorMessage.style.display = "block";
       }
     } catch (error) {
