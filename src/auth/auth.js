@@ -171,3 +171,44 @@ document
       console.error("Signup error:", error);
     }
   });
+
+
+/* Guest Login Logic */
+  document.getElementById("guest-login-button").addEventListener("click", async () => {
+    const errorMessage = document.getElementById("login-error-message");
+  
+    try {
+      // Send login request as the guest account (without the password field)
+      const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GUEST_LOGIN}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include", // Ensure credentials are sent for cookie storage
+        body: JSON.stringify({
+          useremail: "guest@example.com", // Only the email is sent, password is handled on the server
+        }),
+      });
+  
+      console.log("Guest login response:", response); // Debugging line
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Guest login successful:", result);
+  
+        // Redirect to the profile page or appropriate page for the guest
+        window.location.href = "profile.html";
+      } else {
+        const result = await response.json();
+        console.error("Guest login failed:", result); // Debugging line
+        errorMessage.textContent = result.message || "Guest login failed!";
+        errorMessage.style.display = "block";
+      }
+    } catch (error) {
+      console.error("Guest login error:", error);
+      errorMessage.textContent = "An error occurred. Please try again later.";
+      errorMessage.style.display = "block";
+    }
+  });
+  
+  
+  
+  

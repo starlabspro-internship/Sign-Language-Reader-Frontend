@@ -50,12 +50,12 @@
   
   .quiz-intro h2 {
     font-size: 24px;
-    color: var(--deep-blue);
+    color: #fff;
   }
   
   .quiz-intro p {
     font-size: 16px;
-    color: #414141;
+    color: #fff;
     margin: 15px 0;
   }
   

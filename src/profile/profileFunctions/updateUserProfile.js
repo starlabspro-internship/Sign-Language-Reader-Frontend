@@ -60,11 +60,11 @@ export async function updateUserProfile(event) {
     updateMessage.style.color = "green";
     updateUI(result);
 
-    document.getElementById("update-userName").value = "";
-    document.getElementById("update-userSurname").value = "";
-    document.getElementById("update-userEmail").value = "";
-    document.getElementById("update-userPhone").value = "";
-    document.getElementById("update-userPassword").value = "";
+    // document.getElementById("update-userName").value = "";
+    // document.getElementById("update-userSurname").value = "";
+    // document.getElementById("update-userEmail").value = "";
+    // document.getElementById("update-userPhone").value = "";
+    // document.getElementById("update-userPassword").value = "";
   } catch (error) {
     updateMessage.textContent = `Error updating profile: ${error.message}`;
     updateMessage.style.color = "red";

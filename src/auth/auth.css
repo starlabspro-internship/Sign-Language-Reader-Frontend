@@ -111,7 +111,7 @@
   text-decoration: none;
 }
 
-.auth-btn {
+.auth-btn, .guest-login-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,8 +128,17 @@
   font-weight: 600;
   transition: 0.3s ease;
 }
+.guest-login-btn {
+  background: var(--light-blue);
+}
 
-.auth-btn:hover {
+.guest-login-btn i{
+  align-items: center;
+  justify-content: center;
+}
+
+
+.auth-btn:hover, .guest-login-btn:hover {
   opacity: 70%;
 }
 
