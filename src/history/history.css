@@ -1,110 +1,254 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+a {
+  color: #929292;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover,
+a.selected {
+  color: var(--medium-blue);
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  line-height: 1.6;
+.timeline h1,
+.timeline h2,
+.timeline h5,
+.timeline h6 {
+  text-align: center;
+  color: #929292;
+  /* text-shadow: #000 1px 1px 2px; */
+  margin-bottom: 5px;
+}
+h1 {
+  font-size: 18px;
+}
+h2 {
+  font-size: 14px;
+}
+.sociales {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #f4f4f4;
+#timeline {
+  width: 900px; /* Adjust to accommodate the wider #issues */
+  height: 700px;
+  overflow: hidden;
+  margin: 20px auto; /* Increased top margin for better spacing */
+  position: relative;
+  background: url("http://www.csslab.cl/ejemplos/timelinr/latest/images/dot.gif")
+    3px top repeat-y;
+}
+#dates {
+  width: 120px;
+  height: 600px;
+  overflow: hidden;
+  float: left;
+}
+#dates li {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 24px;
+  padding-left: 10px;
+  background: url("http://www.csslab.cl/ejemplos/timelinr/latest/images/biggerdot.png")
+    left center no-repeat;
+}
+#dates a {
+  line-height: 38px;
+  padding-bottom: 10px;
+}
+#dates .selected {
+  font-size: 38px;
 }
 
-.first, .second, .third, .fourth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
+#issues {
+  width: 700px; 
+  height: 600px;
+  overflow: hidden;
+  float: left;
+  margin-top: 40px;
 }
 
-hr {
-  border: none;            
-  height: 2px;             
-  background-color: black;
-  width: 100%;               
-  margin: 20px auto;        
-  opacity: 0.8;             
-  border-radius: 10px;      
+#issues li {
+  max-width: 650px; /* Match or complement the new width */
+  width: 600px;      /* Increased to match the #issues width */
+  height: 600px;
+  list-style: none;
+  text-align: center;
+}
+
+/* #issues::after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+#issues li.selected img {
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -o-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+#issues li img {
+  width: 200px;
+  margin: 10px 30px 10px 50px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE 8 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF); /* IE 6 & 7 */
+  zoom: 1;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  -webkit-transform: scale(0.7, 0.7);
+  -moz-transform: scale(0.7, 0.7);
+  -o-transform: scale(0.7, 0.7);
+  -ms-transform: scale(0.7, 0.7);
+  transform: scale(0.7, 0.7);
+}
+#issues li h1 {
+  color: var(--medium-blue);
+  font-size: 48px;
+  text-align: center;
+  /* text-shadow: #000 1px 1px 2px; */
+  z-index: 999;
+}
+#issues li p {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  text-shadow: #8f8f8f 1px 1px 2px;
+
 }
 
 
-.foto, .text {
-  width: 50%;
+#grad_top,
+#grad_bottom {
+  width: 500px;
+  height: 80px;
+  position: absolute;
+}
+#grad_top {
+  top: 0;
+  /* background: url("http://www.csslab.cl/ejemplos/timelinr/latest/images/grad_top.png")
+    repeat-x; */
+}
+#grad_bottom {
+  bottom: 0;
+  /* background: url("http://www.csslab.cl/ejemplos/timelinr/latest/images/grad_bottom.png")
+    repeat-x; */
 }
 
-.text {
-  padding: 20px;
-  line-height: 1.6;
-  font-size: 1em;
+#next,
+#prev {
+  position: absolute;
+  left: 45%;
+  font-size: 70px;
+  width: 38px;
+  height: 22px;
+  background-position: 0 -44px;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+#next:hover,
+#prev:hover {
+  background-position: 0 0;
+}
+#next {
+  bottom: 0;
+  background-image: url("http://www.csslab.cl/ejemplos/timelinr/latest/images/next_v.png");
+}
+#prev {
+  top: 0;
+  background-image: url("http://www.csslab.cl/ejemplos/timelinr/latest/images/prev_v.png");
+}
+#next.disabled,
+#prev.disabled {
+  opacity: 0.2;
 }
 
-.foto img {
-  width: 100%;
-  height:auto;
-}
 
-p{
-  font-size: 1em;
-
-}
-
-
-
+/* Add responsive styles */
 @media (max-width: 1024px) {
-  .container {
-      padding: 10px;
-      gap: 20px;
+  #timeline {
+    width: 90%; /* Adjust timeline width to take up more space */
+    margin: 20px auto; /* Reduce margin for smaller screens */
   }
 
-  .first, .second, .third, .fourth {
-      flex-direction: column;
-      text-align: center;
+  #dates {
+    width: 80px; /* Reduce dates width */
   }
 
-  .foto, .text {
-      width: 100%;
+  #issues {
+    width: calc(100% - 100px); /* Take up the remaining space after #dates */
+    height: auto; /* Allow height to adjust based on content */
+    float: none; /* Clear float for smaller screens */
+    margin: 20px auto; /* Center align for better display */
   }
 
-  .text {
-      padding: 10px;
-      font-size: 1em;
+  #issues li {
+    width: 90%; /* Reduce item width */
+    max-width: none; /* Remove max-width for flexibility */
+    height: auto; /* Adjust height to fit content */
   }
 
-  #text {
-      max-width: 80%; 
-      font-size: 0.95em; 
+  #issues li img {
+    width: 150px; /* Reduce image size for smaller screens */
+    margin: 10px auto; /* Center align images */
+  }
+
+  #next,
+  #prev {
+    left: 40%; /* Adjust position for navigation buttons */
+    font-size: 50px; /* Reduce size */
   }
 }
 
 @media (max-width: 768px) {
-  .text {
-      font-size: 0.9em;
+  h1,
+  h2,
+  h4,
+  h5,
+  h6 {
+    font-size: 12px; /* Reduce font size for headings */
   }
 
-  #text {
-      max-width: 90%; 
-      font-size: 0.9em; 
-      padding: 15px; 
+  #dates {
+    display: none; /* Hide #dates section for very small screens */
+  }
+
+  #issues {
+    width: 100%; /* Take full width */
+  }
+
+  #issues li h1 {
+    font-size: 24px; /* Adjust title size */
+  }
+
+  #issues li img {
+    width: 100px; /* Smaller image for very small screens */
+  }
+
+  #next,
+  #prev {
+    font-size: 40px; /* Further reduce size */
   }
 }
 
 @media (max-width: 480px) {
-  .text {
-      font-size: 0.8em;
+  #timeline {
+    width: 100%; /* Full width for small devices */
+    margin: 10px auto; /* Reduce margin */
   }
 
-  .foto img {
-      border: none;
-  }
-  #text {
-      max-width: 95%; 
-      font-size: 0.85em; 
-      padding: 10px; 
+  #issues li p {
+    font-size: 12px; /* Reduce paragraph font size */
+    line-height: 18px; /* Adjust line height */
   }
 }

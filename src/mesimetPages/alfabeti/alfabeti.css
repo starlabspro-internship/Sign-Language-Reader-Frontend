@@ -94,6 +94,7 @@ body {
     margin: 50px 50px 20px 50px; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(4, 2, 51, 0.6); 
+    object-fit: cover;
 }
 
 #letterDescription {

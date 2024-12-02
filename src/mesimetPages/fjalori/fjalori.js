@@ -27,7 +27,7 @@ const videos = {
   Ose: require('../../videos/pershendetjet/ose.mp4'),
 };
 
-
+// Adding event listeners for the boxes
 document.querySelectorAll('.box').forEach((box) => {
   const topic = box.dataset.topic; 
   if (videos[topic]) {
@@ -35,28 +35,33 @@ document.querySelectorAll('.box').forEach((box) => {
   }
 });
 
+// Function to open the modal with the correct video
 function openModal(videoPath) {
   const modal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
-  modalVideo.src = videoPath; // Webpack-resolved path
+  modalVideo.src = videoPath; // Set the video source
   modal.style.display = 'flex';
+  modalVideo.play(); // Automatically play the video when the modal opens
 }
 
+// Function to close the modal and stop the video
 function closeModal() {
   const modal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
   modal.style.display = 'none';
-  modalVideo.src = ''; 
+  modalVideo.pause(); // Pause the video to stop playback
+  modalVideo.src = ''; // Clear the video source to reset
 }
 
-
+// Add event listener for closing the modal by clicking on it
 document.getElementById('videoModal').addEventListener('click', closeModal);
 
-
+// Add event listener for the "Fillo Kuizin" button
 document.getElementById('startQuiz').addEventListener('click', () => {
   window.location.href = 'quiz.html';
 });
 
+// Add event listener for the "Kthehu te Mësimet" button
 document.getElementById('goBack').addEventListener('click', () => {
-  window.location.href = '../mesimet.html';
+  window.location.href = 'mesimet.html';
 });

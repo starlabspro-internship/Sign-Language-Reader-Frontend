@@ -25,26 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 // Dark mode toggle functionality
-const darkModeToggle = document.getElementById('dark-mode-toggle');
+// const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-if (darkModeToggle) {
-  // Check localStorage for saved dark mode preference
-  if (localStorage.getItem('dark-mode') === 'enabled') {
-    document.body.classList.add('dark-mode');
-  }
+// if (darkModeToggle) {
+//   // Check localStorage for saved dark mode preference
+//   if (localStorage.getItem('dark-mode') === 'enabled') {
+//     document.body.classList.add('dark-mode');
+//   }
 
-  // Toggle Dark Mode
-  darkModeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+//   // Toggle Dark Mode
+//   darkModeToggle.addEventListener('click', () => {
+//     document.body.classList.toggle('dark-mode');
 
-    // Save the user's preference in localStorage
-    if (document.body.classList.contains('dark-mode')) {
-      localStorage.setItem('dark-mode', 'enabled');
-    } else {
-      localStorage.removeItem('dark-mode');
-    }
-  });
-} else {
-  console.error('Dark mode toggle button not found.');
-}
+//     // Save the user's preference in localStorage
+//     if (document.body.classList.contains('dark-mode')) {
+//       localStorage.setItem('dark-mode', 'enabled');
+//     } else {
+//       localStorage.removeItem('dark-mode');
+//     }
+//   });
+// } else {
+//   console.error('Dark mode toggle button not found.');
+// }
 });

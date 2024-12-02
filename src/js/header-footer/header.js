@@ -1,9 +1,9 @@
-import { enforceReloadOnBackNavigation } from "../forceReload.js";
+// import { enforceReloadOnBackNavigation } from "../forceReload.js";
 import { handleAuthLinks } from "./headerAuth.js";
 import logo from '../../photos/logo/logo2.png'; 
 
 export async function renderHeader() {
-  enforceReloadOnBackNavigation();
+  // enforceReloadOnBackNavigation();
   const header = document.createElement("header");
   const imageElement = document.createElement('img');
     imageElement.src = logo; 
@@ -19,12 +19,11 @@ export async function renderHeader() {
             <li><a href="translate.html"><i class="fa-solid fa-language"></i> Përkthe</a></li>
             <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
             <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
-            <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
+            <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mësimet</a></li>
             <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ </a></li>
             <li id="authLinks">
                 <!-- Authentication links will be injected here -->
             </li>
-          <!-- <li><button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button></li>-->
         </ul>
         <div class="hamburger">
             <span class="line"></span>
@@ -38,7 +37,7 @@ export async function renderHeader() {
         <li><a href="translate.html"><i class="fa-solid fa-language"></i> Përkthe</a></li>
         <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
         <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
-        <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mesimet</a></li>
+        <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mësimet</a></li>
         <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ </a></li>
         <li id="authLinksMobile">
             <!-- Authentication links for mobile view will be injected here -->

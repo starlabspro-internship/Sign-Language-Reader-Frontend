@@ -1,8 +1,24 @@
-import "../admin.js"
-import "./adminFaq.css"
+import "../admin.js";
+import "./adminFaq.css";
 
 const BASE_URL = 'https://localhost:5000/api/faq';
 
+// Modal elements
+const editModal = document.getElementById("editModal");
+const editAnswerInput = document.getElementById("editAnswerInput");
+const saveEditButton = document.getElementById("saveEditButton");
+const cancelEditButton = document.getElementById("cancelEditButton");
+
+const deleteModal = document.getElementById("deleteModal");
+const confirmDeleteButton = document.getElementById("confirmDeleteButton");
+const cancelDeleteButton = document.getElementById("cancelDeleteButton");
+
+const showcaseModal = document.getElementById("showcaseModal");
+const showcaseMessage = document.getElementById("showcaseMessage");
+const confirmShowcaseButton = document.getElementById("confirmShowcaseButton");
+const cancelShowcaseButton = document.getElementById("cancelShowcaseButton");
+
+// Fetch FAQs and display them in appropriate lists
 async function fetchFaqs() {
     try {
         const response = await fetch(`${BASE_URL}/admin`, { credentials: 'include' });
@@ -20,9 +36,10 @@ async function fetchFaqs() {
     }
 }
 
+// Display FAQs in a given list element
 function displayFaqs(faqs, elementId, hasAnswer = false, isShowcased = false) {
     const list = document.getElementById(elementId);
-    list.innerHTML = ''; 
+    list.innerHTML = '';
 
     faqs.forEach(faq => {
         const listItem = document.createElement('li');
@@ -66,24 +83,27 @@ function displayFaqs(faqs, elementId, hasAnswer = false, isShowcased = false) {
     });
 }
 
-async function deleteFaq(id) {
-    try {
-        await fetch(`${BASE_URL}/${id}`, { method: 'DELETE', credentials: 'include' });
-        alert('FAQ deleted successfully.');
-        fetchFaqs(); 
-    } catch (error) {
-        console.error('Error deleting FAQ:', error);
-        alert('Failed to delete FAQ.');
-    }
-}
-
+// Open modal to edit FAQ answer
 function editAnswer(id, currentAnswer) {
-    const newAnswer = prompt('Enter new answer:', currentAnswer);
-    if (newAnswer !== null) {
-        updateFaqAnswer(id, newAnswer);
-    }
+    editModal.style.display = "flex";
+    editAnswerInput.value = currentAnswer;
+
+    saveEditButton.onclick = () => {
+        const newAnswer = editAnswerInput.value.trim();
+        if (newAnswer) {
+            updateFaqAnswer(id, newAnswer);
+            editModal.style.display = "none";
+        } else {
+            alert("Answer cannot be empty.");
+        }
+    };
+
+    cancelEditButton.onclick = () => {
+        editModal.style.display = "none";
+    };
 }
 
+// Update FAQ answer
 async function updateFaqAnswer(id, answer) {
     try {
         const response = await fetch(`${BASE_URL}/${id}`, {
@@ -96,7 +116,7 @@ async function updateFaqAnswer(id, answer) {
 
         if (data.message === 'FAQ updated successfully.') {
             alert('Answer updated successfully.');
-            fetchFaqs(); 
+            fetchFaqs();
         } else {
             alert('Failed to update FAQ answer.');
         }
@@ -105,30 +125,64 @@ async function updateFaqAnswer(id, answer) {
     }
 }
 
-async function toggleShowcase(id, currentShowcaseStatus) {
-    const newShowcaseStatus = !currentShowcaseStatus; 
+// Open modal to confirm FAQ deletion
+function deleteFaq(id) {
+    deleteModal.style.display = "flex";
 
-    try {
-        const response = await fetch(`${BASE_URL}/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify({ showcased: newShowcaseStatus }),
-        });
-        const data = await response.json();
-
-        if (data.message === 'FAQ updated successfully.') {
-            alert(`FAQ ${newShowcaseStatus ? 'showcased' : 'removed from showcase'} successfully.`);
+    confirmDeleteButton.onclick = async () => {
+        try {
+            await fetch(`${BASE_URL}/${id}`, { method: 'DELETE', credentials: 'include' });
+            alert('FAQ deleted successfully.');
             fetchFaqs();
-        } else if (data.message === 'Cannot showcase more than 6 FAQs.') {
-            alert('Error: You cannot showcase more than 6 FAQs.');
-        } else {
-            alert('Failed to update showcase status.');
+            deleteModal.style.display = "none";
+        } catch (error) {
+            console.error('Error deleting FAQ:', error);
+            alert('Failed to delete FAQ.');
         }
-    } catch (error) {
-        console.error('Error updating showcase status:', error);
-        alert('Failed to update showcase status.');
-    }
+    };
+
+    cancelDeleteButton.onclick = () => {
+        deleteModal.style.display = "none";
+    };
 }
 
+// Open modal to confirm showcase toggle
+function toggleShowcase(id, currentShowcaseStatus) {
+    const newShowcaseStatus = !currentShowcaseStatus;
+    showcaseMessage.textContent = newShowcaseStatus
+        ? "Do you want to showcase this FAQ?"
+        : "Remove this FAQ from showcase?";
+
+    showcaseModal.style.display = "flex";
+
+    confirmShowcaseButton.onclick = async () => {
+        try {
+            const response = await fetch(`${BASE_URL}/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ showcased: newShowcaseStatus }),
+            });
+            const data = await response.json();
+
+            if (data.message === 'FAQ updated successfully.') {
+                alert(`FAQ ${newShowcaseStatus ? 'showcased' : 'removed from showcase'} successfully.`);
+                fetchFaqs();
+            } else if (data.message === 'Cannot showcase more than 6 FAQs.') {
+                alert('Error: You cannot showcase more than 6 FAQs.');
+            }
+        } catch (error) {
+            console.error('Error updating showcase status:', error);
+            alert('Failed to update showcase status.');
+        } finally {
+            showcaseModal.style.display = "none";
+        }
+    };
+
+    cancelShowcaseButton.onclick = () => {
+        showcaseModal.style.display = "none";
+    };
+}
+
+// Fetch FAQs on page load
 fetchFaqs();

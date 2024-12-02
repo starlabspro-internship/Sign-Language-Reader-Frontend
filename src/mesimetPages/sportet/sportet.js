@@ -44,5 +44,5 @@ document.getElementById('startQuiz').addEventListener('click', () => {
 });
 
 document.getElementById('goBack').addEventListener('click', () => {
-  window.location.href = '../mesimet.html';
+  window.location.href = 'mesimet.html';
 });
