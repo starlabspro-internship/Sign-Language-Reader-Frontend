@@ -178,23 +178,19 @@ document
     const errorMessage = document.getElementById("login-error-message");
   
     try {
-      // Send login request as the guest account (without the password field)
       const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GUEST_LOGIN}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // Ensure credentials are sent for cookie storage
+        credentials: "include", 
         body: JSON.stringify({
-          useremail: "guest@example.com", // Only the email is sent, password is handled on the server
+          useremail: "guest@example.com", 
         }),
       });
-  
-      console.log("Guest login response:", response); // Debugging line
   
       if (response.ok) {
         const result = await response.json();
         console.log("Guest login successful:", result);
   
-        // Redirect to the profile page or appropriate page for the guest
         window.location.href = "profile.html";
       } else {
         const result = await response.json();

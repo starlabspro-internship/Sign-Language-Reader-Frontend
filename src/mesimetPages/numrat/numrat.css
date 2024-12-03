@@ -3,7 +3,6 @@
 .top-content {
   width: 100%;
   max-width: 900px;
-  font-family: var(--font-family);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
