@@ -20,21 +20,29 @@
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
+  background-color: #113356;
   color: #333;
 }
 
 /* Custom Scrollbar */
+/* width */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px; 
+  width: 10px;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 50px;
+  margin: 5px 10px; /* Adjust the margin values as needed */
+}
+
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--medium-blue);
+  background: #295786; 
+  border-radius: 10px;
 }
 
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--light-blue);
+  background: #27486a; 
 }
-
