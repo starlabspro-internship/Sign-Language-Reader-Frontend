@@ -8,12 +8,72 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearButton = document.getElementById("clearButton");
     const signsHolder = document.getElementById("translationResults");
 
-    // Handle form submission
+    // Dictionary for corrections
+    const corrections = {
+        "pershendetje": "përshëndetje",
+        "miredita": "mirëdita",
+        "te": "të",
+        "me": "më",
+        "faleminderit": "faleminderit",
+        "une": "unë"
+    };
+
+    // Funksioni Levenshtein bistance
+    function levenshteinDistance(a, b) {
+        const matrix = Array.from({ length: a.length + 1 }, () =>
+            Array(b.length + 1).fill(0)
+        );
+
+        for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+        for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+
+        for (let i = 1; i <= a.length; i++) {
+            for (let j = 1; j <= b.length; j++) {
+                const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j] + 1, // Deletion
+                    matrix[i][j - 1] + 1, // Insertion
+                    matrix[i - 1][j - 1] + cost // Substitution
+                );
+            }
+        }
+
+        return matrix[a.length][b.length];
+    }
+
+    
+    // Gjej fjalen me te perafert duke perdor Levenshtein distance
+    function findClosestWord(input, dictionary) {
+        let closestMatch = null;
+        let minDistance = Infinity;
+
+        for (const word of Object.keys(dictionary)) {
+            const distance = levenshteinDistance(input.toLowerCase(), word.toLowerCase());
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestMatch = word;
+            }
+        }
+
+       
+        return minDistance <= 2 ? dictionary[closestMatch] : input;
+    }
+
+    // Normalize the input text by correcting misspellings
+    function normalizeSentence(sentence) {
+        const words = sentence.split(/\s+/);
+        const correctedWords = words.map((word) => findClosestWord(word, corrections));
+        return correctedWords.join(" "); 
+    }
+
     translateForm.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const inputText = translateInput.value.trim();
+        let inputText = translateInput.value.trim();
         if (!inputText) return;
+
+        // Correct misspellings in the input text
+        inputText = normalizeSentence(inputText);
 
         signsHolder.innerHTML = ''; // Clear previous results
 
@@ -89,11 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollRightButton = document.querySelector(".scroll-btn-right");
 
         if (signsHolder.scrollWidth > signsHolder.clientWidth) {
-            // Show scroll buttons if the content overflows
             scrollLeftButton.style.display = "flex";
             scrollRightButton.style.display = "flex";
         } else {
-            // Hide scroll buttons if the content doesn't overflow
             scrollLeftButton.style.display = "none";
             scrollRightButton.style.display = "none";
         }

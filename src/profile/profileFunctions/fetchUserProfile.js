@@ -31,8 +31,18 @@
       if (!userResponse.ok) throw new Error("Failed to fetch user details");
 
       const user = await userResponse.json();
+      if (user.userIsGuest) {
+        document.getElementById("updateButton").style.display = "none";
+        document.getElementById("deleteAccountButton").style.display = "none";
+        document.getElementById("userHistory").style.display = "none";  
+        document.getElementById("guestHidden").style.display = "none"; 
+        document.getElementById("profile").style.display = "none"; 
+        document.getElementById("guest-message").style.display = "block";       
+      } 
+      
       updateUI(user);
+
     } catch (error) {
-      console.error("Error fetching profile:", error);
+      return;
     }
   }

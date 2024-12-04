@@ -3,124 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Quiz</title>
   </head>
 
   <body>
+    <!-- MAIN MENU STARTS -->
     <div class="container" id="firstDiv">
       <div id="home" class="home">
         <h1>Kuiz Gjeneral</h1>
         <div class="choices">
-            <fieldset class="checkbox-group">
-              <legend class="checkbox-h1">Zgjedhni temat për të cilat dëshironi të merrni pyetje</legend>
-              
-              <!-- Alfabeti -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="shkronjat" name="Shkronjat" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-font"></i> 
-                    </span>
-                    <span class="checkbox-label">Alfabeti</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Numrat -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="numrat" name="Numrat" class="checkbox-input" checked />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-hashtag"></i> 
-                    </span>
-                    <span class="checkbox-label">Numrat</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Stinet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="stinet" name="Stinet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-tree"></i> 
-                    </span>
-                    <span class="checkbox-label">Stinët</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Ditet E Javes -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="ditet" name="Ditet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-calendar-day"></i> 
-                    </span>
-                    <span class="checkbox-label">Ditët</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Pemet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="pemet" name="Pemet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                        <i class="fas fa-apple-alt"></i> 
-                    </span>
-                    <span class="checkbox-label">Pemët</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Perimet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="perimet" name="Perimet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fa-solid fa-carrot"></i>
-                    </span>
-                    <span class="checkbox-label">Perimet</span>
-                  </span>
-                </label>
-              </div>
-          
-              <!-- Sportet -->
-              <div class="checkbox">
-                <label class="checkbox-wrapper">
-                  <input type="checkbox" id="sportet" name="Sportet" class="checkbox-input" />
-                  <span class="checkbox-tile">
-                    <span class="checkbox-icon">
-                      <i class="fas fa-basketball-ball"></i> 
-                    </span>
-                    <span class="checkbox-label">Sportet</span>
-                  </span>
-                </label>
-              </div>
-            </fieldset>
-          </div>
-          
-        <!-- <button class="btn" id="playfunctionid" >Play</button> -->
+          <!-- Are generated on quiz.js -->
+          <fieldset class="checkbox-group" id="checkboxContainer">
+            <legend class="checkbox-h1">
+              Zgjedhni temat për të cilat dëshironi të merrni pyetje
+            </legend>
+          </fieldset>
+          <button id="randomButton" class="random-btn">
+            <i class="fa-solid fa-shuffle"></i> Random
+          </button>
+        </div>
+
         <div class="button-container">
-          <button class="btn" onclick="playfunction()"><i class="fa-solid fa-play"></i> &nbsp; Fillo Kuizin</button>
-          <button class="btn" onclick="goHighestScore();"><i class="fa-solid fa-square-poll-vertical"></i>&nbsp; Rezultatet</button>
+          <button class="btn" onclick="playfunction()">
+            <i class="fa-solid fa-play"></i> &nbsp; Fillo Kuizin
+          </button>
+          <button class="btn" onclick="goHighestScore();">
+            <i class="fa-solid fa-square-poll-vertical"></i>&nbsp; Rezultatet
+          </button>
         </div>
       </div>
     </div>
+    <!-- MAIN MENU ENDS -->
 
+    <!-- QUIZ SECTION STARTS -->
     <div class="container" id="secondDiv" style="display: none">
       <div id="game" class="justify-center flex-column">
         <div id="hud">
           <div id="hud-item">
-            <p id="progressText" class="hud-prefix">Question</p>
+            <p id="progressText" class="hud-prefix">Pyetja</p>
             <div id="progressBar">
               <div id="progressBarFull"></div>
             </div>
@@ -151,15 +71,16 @@
           </div>
         </div>
         <div class="button-container">
-          <button class="btn go-back" onclick="goHome()">Kthehu ne menu</button>
+          <button class="btn go-back" onclick="goHome()">Anulo Kuizin</button>
         </div>
       </div>
     </div>
+    <!-- QUIZ SECTION ENDS -->
+
+    <!-- FINAL SCORE SECTION STARTS -->
     <div class="container" id="thirdDiv" style="display: none">
       <div id="end" class="flex-center flex-column">
-        <h1 id="finalScore">Score</h1>
-        <!-- <form>
-            </form> -->
+        <h1 id="finalScore">Skori <i class="fa-solid fa-star"></i></h1>
         <input
           type="text"
           name="username"
@@ -167,27 +88,29 @@
           placeholder="Username"
         />
         <div class="end-button-container">
-        <button
-          type="submit"
-          class="btn"
-          id="saveScoreBtn"
-          onclick="saveHighScore()"
-        >
-          Save
-        </button>
-        <button class="btn" onclick="playfunction()">Play Again</button>
-        <button class="btn" onclick="goHome()">Back To Quiz</button>
-    </div>
+          <button
+            type="submit"
+            class="btn"
+            id="saveScoreBtn"
+            onclick="saveHighScore()"
+          >
+          <i class="fa-regular fa-square-check"></i> &nbsp; Ruaj
+          </button>
+          <button class="btn" onclick="playfunction()"><i class="fa-solid fa-rotate-right"></i>&nbsp; Luaj përsëri</button>
+          <button class="btn" onclick="goHome()"><i class="fa-solid fa-hand-point-left"></i>&nbsp; Kthehu te Kuizet</button>
+        </div>
       </div>
     </div>
+    <!-- FINAL SCORE SECTION ENDS -->
 
+    <!-- HIGH SCORE SECTION STARTS -->
     <div class="container" id="fourthDiv" style="display: none">
       <div id="highScores" class="flex-center flex-column">
-        <h1 id="finalScoreList">Highest Scores</h1>
+        <h1 id="finalScoreList">Bordi Liderëve</h1>
         <ul id="highScoresList"></ul>
-        <a class="btn" onclick="goHome()">Go Home</a>
+        <a class="btn" onclick="goHome()">Kthehu te Kuizet</a>
       </div>
     </div>
-
+    <!-- HIGH SCORE SECTION ENDS -->
   </body>
 </html>

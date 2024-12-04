@@ -1,3 +1,5 @@
+@import '../mesimetGlobal.css';
+
 .container {
     text-align: center;
     padding: 20px;
@@ -105,31 +107,6 @@ h1 {
     opacity: 1;
 }
 
-.butonat {
-    display: flex;
-    justify-content: center;
-  }
-  
-  #goBack {
-    background-color: var(--deep-blue);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 14px;
-    margin: 20px 0;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 180px;
-    height: 50px;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  #goBack:hover {
-    background-color: var(--medium-blue);
-    transform: scale(1.05);
-  }
-
 /* Slide-in animation */
 @keyframes slide-in {
     from {
@@ -160,29 +137,6 @@ h1 {
 .close-modal:hover {
     background: #ff7e7e;
 }
-.butonat{
-    width: 75%;
-    margin: 10px auto;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  #goBack, #startQuiz{
-    width: 30%;
-    height: 50px;
-    background-color: #001f3f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  #goBack:hover{
-    opacity: 80%;
-    transform:scale(1.05);
-  }
-  #startQuiz:hover{
-    opacity: 80%;
-    transform:scale(1.05);
-  }
 
 /* For medium screens (tablets or smaller desktops) */
 @media (max-width: 768px) {

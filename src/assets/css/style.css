@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arima&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
 @import "navbar-footer.css";
 
 :root {
@@ -6,9 +6,7 @@
   --medium-blue: #3a6d8c;
   --light-blue: #73a7c7;
   --cream: #ead8b1;
-  --dark-bg: #212121;
-  --dark-text: #d3d3d3;
-  --dark-accent: #3a6d8c;
+  --dark-cream: #c7b388;
 }
 
 * {
@@ -20,20 +18,24 @@
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
-  background-color: #113356;
+  /* background-color: #113356; */
+  background-color: #f4f4f4;
   color: #333;
 }
 
-/* Custom Scrollbar */
 /* width */
 ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 50px;
   width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   border-radius: 50px;
-  margin: 5px 10px; /* Adjust the margin values as needed */
 }
 
 /* Handle */
@@ -46,3 +48,55 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #27486a; 
 }
+
+.hero {
+  text-align: center;
+  padding: 40px 15px;
+  background: linear-gradient(135deg, var(--medium-blue), var(--dark-cream));
+  color: #fff;
+  border-bottom-left-radius: 80px; 
+  border-bottom-right-radius: 80px; 
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.hero i{
+  font-size: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+.hero h1 span{
+  color: var(--cream);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0 50px;
+}
+
+@media (max-width: 768px) {
+  .hero i{
+    font-size: 1.4rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero h1 span{
+    color: var(--cream);
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0 30px;
+  }
+}
+

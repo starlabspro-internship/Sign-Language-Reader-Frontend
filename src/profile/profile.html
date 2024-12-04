@@ -19,14 +19,14 @@
         <div class="user-info">
           <h2 class="userName"></h2>
           <h3 class="userSurname"></h3>
-          <p class="userEmail"></p>
+          <p id="guestHidden" class="userEmail"></p>
         </div>
         <ul class="profile-nav-options">
           <li>
             <a href="#"><i class="fa-solid fa-user-pen"></i> Profili</a>
           </li>
           <li>
-            <a href="userHistory.html"><i class="fa-solid fa-magnifying-glass"></i>Historia Kërkimeve</a>
+            <a id="userHistory" href="userHistory.html"><i class="fa-solid fa-magnifying-glass"></i>Historia Kërkimeve</a>
           </li>
           <li>
             <a href="#" id="logoutButton"
@@ -48,16 +48,16 @@
       </div>
       <div class="main-content">
         <h1>Profili im</h1>
-        <div id="profile">
+        <div id="profile">  
           <p>Emri: <span class="userName"></span></p>
           <p>Mbiemri: <span class="userSurname"></span></p>
           <p>E-mail: <span class="userEmail"></span></p>
-          <p>Telefoni: <span class="userPhone"></span></p>
+          <p>Telefoni: <span class="userPhone"></span></p>  
         </div>
-
         <div class="control-buttons">
           <button id="updateButton">Përditëso Profilin</button>
           <button id="deleteAccountButton">Fshij Profilin</button>
+          <p id="guest-message" style="display: none;">Krijoni një llogari dhe shijoni të gjitha veçoritë!</p>
           <p id="delete-message"></p>
 
           <div id="updateProfileSection" style="display: none">
