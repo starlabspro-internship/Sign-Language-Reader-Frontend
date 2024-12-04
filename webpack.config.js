@@ -104,7 +104,6 @@ const pages = [
   },
   { template: "games/games.html", filename: "games.html", chunks: ["games"] },
 
-  { template: "games/puzzle.html", filename: "puzzle.html", chunks: ["puzzle"] },
 
 
 
@@ -138,8 +137,6 @@ const entryPoints = {
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
   userHistory: "./src/profile/userHistory/userHistory.js",
   quiz: "./src/quiz/quiz.js",
-  games:"./src/games/games.js",
-  puzzle: "./src/games/puzzle.js"
 };
 
 module.exports = {
