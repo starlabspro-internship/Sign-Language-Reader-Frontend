@@ -10,8 +10,8 @@
  .all-cont {
      display: flex;
      flex-direction: column;
-     background: url('../photos/puzzle1.png') no-repeat center center fixed;
      background-size: cover;
+     background-color: #fff;
      position: relative;
      color: #fff;
  }

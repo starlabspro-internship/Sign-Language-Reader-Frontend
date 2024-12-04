@@ -30,6 +30,8 @@ const pages = [
   { template: "profile/profile.html", filename: "profile.html", chunks: ["profile"] },
   { template: "quiz/quiz.html", filename: "quiz.html", chunks: ["quiz"] },
   { template: "profile/userHistory/userHistory.html", filename: "userHistory.html", chunks: ["userHistory"] },
+  { template: "games/games.html", filename: "games.html", chunks: ["games"] },
+
 ];
 
 const entryPoints = {
@@ -58,7 +60,8 @@ const entryPoints = {
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
   userHistory: "./src/profile/userHistory/userHistory.js",
-  quiz: "./src/quiz/quiz.js"
+  quiz: "./src/quiz/quiz.js",
+  games:"./src/games/games.js"
 };
 
 module.exports = {
