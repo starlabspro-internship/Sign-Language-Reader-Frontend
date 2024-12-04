@@ -102,6 +102,7 @@ const pages = [
     filename: "userHistory.html",
     chunks: ["userHistory"],
   },
+  
 ];
 
 const entryPoints = {
