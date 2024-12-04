@@ -9,14 +9,13 @@ export async function isLoggedIn() {
         });
 
         if (!response.ok) {
-            // console.warn("User is not logged in.");
             return false;
         }
 
         const data = await response.json();
         return !!data.userId;
-    } catch (error) {
-        // console.error("Error checking login status:", error);
+    } catch {
+        // Do nothing; just return false
         return false;
     }
 }

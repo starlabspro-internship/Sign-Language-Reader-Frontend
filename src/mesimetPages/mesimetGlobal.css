@@ -1,0 +1,25 @@
+/*Butonat ne fund te faqeve*/
+.butonat{
+  width: 75%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+#goBack, #startQuiz{
+  width: 30%;
+  height: 50px;
+  background-color: #001f3f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#startQuiz:hover, #goBack:hover {
+  background-color: var(--medium-blue); 
+  transform: scale(1.05);
+}
+/*Butonat ne fund te faqeve*/

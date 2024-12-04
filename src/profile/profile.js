@@ -1,9 +1,9 @@
 import "./profile.css";
-import { enforceReloadOnBackNavigation } from '../js/forceReload.js';
 import { fetchUserProfile } from './profileFunctions/fetchUserProfile.js';
 import { initializeEventListeners } from './profileFunctions/eventListeners.js';
+// import { enforceReloadOnBackNavigation } from '../js/forceReload.js';
 
-enforceReloadOnBackNavigation();
+// enforceReloadOnBackNavigation();
 
 document.addEventListener("DOMContentLoaded", () => {
   try {
