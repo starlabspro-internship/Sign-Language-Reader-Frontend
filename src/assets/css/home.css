@@ -52,9 +52,11 @@
 }
 
 .ttle {
-  background: -webkit-linear-gradient(45deg ,#d4bc34, #daa301, #be8f00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--cream);
+}
+
+.ttle span{
+  color: #fff;
 }
 
 .wwd-p {
