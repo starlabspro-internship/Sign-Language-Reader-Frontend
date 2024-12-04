@@ -1,9 +1,6 @@
-
- body {
-     font-family: "Montserrat", sans-serif;
-     margin: 0;
- }
-
+.hero{
+    margin-bottom: 20px;
+}
  .all-cont {
      display: flex;
      flex-direction: column;

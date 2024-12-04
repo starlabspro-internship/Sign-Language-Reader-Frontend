@@ -102,6 +102,11 @@ const pages = [
     filename: "userHistory.html",
     chunks: ["userHistory"],
   },
+  {
+    template: "games/games.html",
+    filename: "games.html",
+    chunks: ["games"],
+  },
 ];
 
 const entryPoints = {

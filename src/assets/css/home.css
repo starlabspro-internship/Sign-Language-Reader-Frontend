@@ -176,7 +176,7 @@
 
 .trans-hyper {
   border: solid 2px #2a3b5a;
-  color: #2a3b5a;
+  color: var(--deep-blue);
   text-decoration: none;
   margin-top: 10px;
   padding: 5px 30px;
@@ -194,8 +194,8 @@
 }
 
 .trans-hyper-visible:hover {
-  background-color: #2a3b5a;
-  color: var(--dark-text);
+  background-color: var(--deep-blue);
+  color: #fff;
 }
 
 .back-image {
@@ -303,7 +303,7 @@
   background-color: var(--dark-text);
   padding: 20px;
   border-radius: 12px;
-  color: var(--deep-blue);
+  color: #fff;
 
   opacity: 0;
   transform: translateY(20px);
