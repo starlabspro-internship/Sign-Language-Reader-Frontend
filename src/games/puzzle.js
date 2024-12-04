@@ -1,11 +1,9 @@
-import './puzzle.css'
 const puzzles = [
     "../photos/pz1.jpg",
     "../photos/pz2.jpg",
     "../photos/pz3.jpg",
     "../photos/pz4.jpg",
-    "../photos/pz55.jpg",
-    
+    "../photos/pz5.jpg",
   ];
   
   const puzzleBtns = document.querySelectorAll(".puzzle-btn");
@@ -15,9 +13,12 @@ const puzzles = [
   const puzzlePiecesContainer = document.getElementById("puzzle-pieces");
   const puzzleImage = document.getElementById("puzzle-image");
   const nextPuzzleBtn = document.getElementById("next-puzzle");
+  const prevPuzzleBtn = document.getElementById("prev-puzzle");
+  const movesCounter = document.getElementById("moves-counter");
   const puzzleTitle = document.getElementById("puzzle-title");
   
   let currentPuzzleIndex;
+  let moves;
   
   // Event listeners for puzzle selection
   puzzleBtns.forEach((btn, index) => {
@@ -29,6 +30,9 @@ const puzzles = [
   
   // Start the puzzle
   function startPuzzle(index) {
+    moves = 0;
+    updateMovesCounter();
+  
     puzzleSelection.classList.add("hidden");
     gameArea.classList.remove("hidden");
   
@@ -93,8 +97,15 @@ const puzzles = [
       e.target.style.backgroundPosition = piece.style.backgroundPosition;
       piece.remove();
       e.target.dataset.filled = "true"; // Mark the cell as filled
+      moves++;
+      updateMovesCounter();
       checkCompletion();
     }
+  }
+  
+  // Update moves counter
+  function updateMovesCounter() {
+    movesCounter.textContent = `Moves: ${moves}`;
   }
   
   // Check if the puzzle is complete
@@ -113,10 +124,24 @@ const puzzles = [
   
   // Event listener for next puzzle
   nextPuzzleBtn.addEventListener("click", () => {
-    nextPuzzleBtn.classList.add("hidden");
-    puzzleSelection.classList.remove("hidden");
-    gameArea.classList.add("hidden");
+    navigatePuzzle(1);
+  });
+  
+  // Event listener for previous puzzle
+  prevPuzzleBtn.addEventListener("click", () => {
+    navigatePuzzle(-1);
+  });
+  
+  // Navigate puzzles
+  function navigatePuzzle(direction) {
     const congratsMessage = document.querySelector(".congrats-message");
     if (congratsMessage) congratsMessage.remove();
-  });
+  
+    currentPuzzleIndex += direction;
+  
+    if (currentPuzzleIndex < 0) currentPuzzleIndex = puzzles.length - 1;
+    if (currentPuzzleIndex >= puzzles.length) currentPuzzleIndex = 0;
+  
+    startPuzzle(currentPuzzleIndex);
+  }
   
