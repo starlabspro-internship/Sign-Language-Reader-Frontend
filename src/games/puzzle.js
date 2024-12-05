@@ -1,3 +1,5 @@
+import "./puzzle.css"
+
 const puzzles = [
     "../photos/pz1.jpg",
     "../photos/pz2.jpg",
