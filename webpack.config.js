@@ -102,16 +102,15 @@ const pages = [
     filename: "userHistory.html",
     chunks: ["userHistory"],
   },
-  {
-    template: "games/games.html",
-    filename: "games.html",
-    chunks: ["games"],
-  },
+  { template: "games/games.html", filename: "games.html", chunks: ["games"] },
+
   {
     template: "games/puzzle.html",
     filename: "puzzle.html",
     chunks: ["puzzle"],
   },
+  { template: "games/memory.html", filename: "memory.html", chunks: ["memory"] },
+
 ];
 
 const entryPoints = {
@@ -142,7 +141,9 @@ const entryPoints = {
   userHistory: "./src/profile/userHistory/userHistory.js",
   quiz: "./src/quiz/quiz.js",
   games:"./src/games/games.js",
-  puzzle:"./src/games/puzzle.js"
+  puzzle:"./src/games/puzzle.js",
+  memory:"./src/games/memory.js"
+
 };
 
 module.exports = {
