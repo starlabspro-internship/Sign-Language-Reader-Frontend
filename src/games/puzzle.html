@@ -10,20 +10,19 @@
   <div class="puzzle-selection">
     <h1>Choose a Puzzle</h1>
     <div class="puzzles">
-      <button class="puzzle-btn" data-puzzle="1">Puzzle 1</button>
-      <button class="puzzle-btn" data-puzzle="2">Puzzle 2</button>
-      <button class="puzzle-btn" data-puzzle="3">Puzzle 3</button>
-      <button class="puzzle-btn" data-puzzle="4">Puzzle 4</button>
-      <button class="puzzle-btn" data-puzzle="5">Puzzle 5</button>
-      <button class="puzzle-btn" data-puzzle="6">Puzzle 6</button>
-      <button class="puzzle-btn" data-puzzle="7">Puzzle 7</button>
-      <button class="puzzle-btn" data-puzzle="8">Puzzle 8</button>
-      <button class="puzzle-btn" data-puzzle="9">Puzzle 9</button>
-      <button class="puzzle-btn" data-puzzle="10">Puzzle 10</button>
+      <button class="puzzle-btn">Puzzle 1</button>
+      <button class="puzzle-btn">Puzzle 2</button>
+      <button class="puzzle-btn">Puzzle 3</button>
+      <button class="puzzle-btn">Puzzle 4</button>
+      <button class="puzzle-btn">Puzzle 5</button>
     </div>
   </div>
 
   <div class="game-area hidden">
+    <div class="quiz-intro">
+      <h2>Welcome to Puzzle Game</h2>
+      <p>Drag and drop the puzzle pieces to complete the image. Good luck!</p>
+    </div>
     <h2 id="puzzle-title">Puzzle</h2>
     <div class="game-container">
       <div class="puzzle-grid" id="drop-zone"></div>
@@ -33,8 +32,21 @@
         <img id="puzzle-image" src="../photos/logo/demo-logo.png" alt="Reference Image">
       </div>
     </div>
-    <button id="next-puzzle" class="hidden">Next Puzzle</button>
+    <div class="congrats-message hidden">Congratulations! You completed the puzzle!</div>
+    
+    <button id="prev-puzzle">Previous Puzzle</button>
+    <button id="reset-puzzle">Reset Puzzle</button> <!-- Reset button -->
+
+    <button id="next-puzzle" ">Next Puzzle</button>
+
+    <div class="game-status">
+        <div id="progress-info" class="status-item">Progress: 0/5 puzzles completed</div>
+        <div id="moves-counter" class="status-item">Moves: 0</div>
+      </div>
+      
   </div>
+
+  <div id="fireworks-container" class="fireworks-container"></div>
 
   <script src="puzzle.js"></script>
 </body>
