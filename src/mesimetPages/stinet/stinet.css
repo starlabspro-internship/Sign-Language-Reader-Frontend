@@ -1,10 +1,4 @@
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    line-height: 1.6;
-    transition: background-image 0.5s ease-in-out;
-}
+@import '../mesimetGlobal.css';
 
 #description {
     text-align: center;
@@ -181,73 +175,5 @@ body {
   margin-top: 20px;
 }
 
+/*Buttons*/
 
-/* Hand decoration */
-.hands {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1;
-    opacity: 0.15;
-}
-
-.left-hand {
-    left: 10px;
-    width: 100px;
-    height: auto;
-}
-
-.right-hand {
-    right: 10px;
-    width: 100px;
-    height: auto;
-}
-
-.butonat {
-    display: flex;
-    justify-content: center;
-}
-
-#goBack {
-    background-color: var(--deep-blue);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 14px;
-    margin: 20px 0;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 180px;
-    height: 50px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-#goBack:hover {
-    background-color: #6c84b4;
-    transform: scale(1.05);
-}
-
-.butonat{
-    width: 75%;
-    margin: 10px auto;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  #goBack, #startQuiz{
-    width: 30%;
-    height: 50px;
-    background-color: #001f3f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  #goBack:hover {
-    opacity: 80%;
-    transform: scale(1.05);
-}
-  #startQuiz:hover{
-    opacity: 80%;
-    transform:scale(1.05);
-  }

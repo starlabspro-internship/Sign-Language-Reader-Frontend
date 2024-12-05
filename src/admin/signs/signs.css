@@ -120,8 +120,8 @@
 
 /* Card styling */
 .sign-card {
-  background-color: #f9f9f9; /* Background color */
-  border-radius: 8px; /* Optional: rounded corners */
+  background-color: #f9f9f9; 
+  border-radius: 8px; 
   padding: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -129,10 +129,10 @@
 
 /* Image styling */
 .sign-card img {
-  width: 100%; /* Full width of container */
-  aspect-ratio: 1 / 1; /* Makes the image square */
-  object-fit: cover; /* Prevents stretching and keeps image centered */
-  border-radius: 8px; /* Optional: matching rounded corners */
+  width: 100%; 
+  aspect-ratio: 1 / 1; 
+  object-fit: cover; 
+  border-radius: 8px; 
   overflow: hidden;
 }
 
@@ -176,5 +176,61 @@
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .signs-main {
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .create-title{
+    font-size: 23px;
+    text-align: center;
+  }
+
+  .sign-holder {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+
+  .sign-image {
+    width: 10em;
+    height: 10em; 
+  }
+
+  .create-sign-button {
+    width: 100%;
+    text-align: center; 
+    padding: 8px;
+  }
+
+  .pagination-holder button {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  .sign-card {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .signs-left, .signs-right {
+    padding: 0 10px; 
+  }
+
+  .sign-image {
+    width: 8em;
+    height: 8em; 
+  }
+
+  .s-buttons button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
 }
 

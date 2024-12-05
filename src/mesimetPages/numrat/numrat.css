@@ -1,7 +1,8 @@
+@import '../mesimetGlobal.css';
+
 .top-content {
   width: 100%;
   max-width: 900px;
-  font-family: var(--font-family);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -14,12 +15,11 @@
   text-align: center;
   color: var(--deep-blue);
   font-size: 2.5rem;
-  margin-bottom: 10px;
 }
 
 .top-content p {
-  margin: 15px 0;
-  text-align: justify;
+  margin: 8px 0;
+  text-align: center;
   color: var(--deep-blue);
   font-size: 1rem;
 }
@@ -42,7 +42,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 8px;
   margin-bottom: 20px;
 }
 
@@ -55,7 +55,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s;
   border-radius: 5px;
-  min-width: 80px;
+  min-width: 50px;
   text-align: center;
 }
 
@@ -78,7 +78,7 @@
 }
 
 #sign-video {
-  max-width: 70%;
+  max-width: 40%;
   height: auto;
   margin: auto;
   border-radius: 10px;
@@ -90,45 +90,20 @@
   display: inline-flex;
   align-items: center;
   font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--deep-blue);
+  color: #fff;
   background: transparent;
   border: none;
   cursor: pointer;
   margin: 0 15px;
   transition: color 0.3s ease;
-  background-color: var(--medium-blue);
-  padding: 2px 8px;
+  background-color: var(--deep-blue);
+  padding: 8px 10px;
   border-radius: 50%;
 }
 
 .prev:hover,
 .next:hover {
-  color: var(--medium-blue); 
   background-color: var(--light-blue);
-} 
-.butonat{
-  width: 75%;
-  margin: 10px auto;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-#goBack, #startQuiz{
-  width: 30%;
-  height: 50px;
-  background-color: #001f3f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-#goBack:hover{
-  opacity: 80%;
-  transform:scale(1.05);
-}
-#startQuiz:hover{
-  opacity: 80%;
-  transform:scale(1.05);
 } 
 
 /* Responsive Adjustments */

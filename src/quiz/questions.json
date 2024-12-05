@@ -1,6 +1,46 @@
 [
     {
-        "question": "Based on the video you see, which number is she signing?",
+        "question": "What is the sign for the letter 'a' ?", 
+        "choice1": {
+          "fileLocation": "040e819eba20ee2a441a.jpg"
+        },
+        "choice2": {
+          "fileLocation": "9410f4809af645333dca.png",
+          "fileType": "image"
+        },
+        "choice3": {
+          "fileLocation": "2f8a1aa2c93c91ec5893.png",
+          "fileType": "image"
+        },
+        "choice4": {
+          "fileLocation": "4dbe3b63c7d48ddd6bb5.png",
+          "fileType": "image"
+        },
+        "answer": 1,
+        "category": "Alfabeti"
+      },
+      {
+        "question": "What is the sign for the letter 'z' ?", 
+        "choice1": {
+          "fileLocation": "60a3740e283d88816292.png"
+        },
+        "choice2": {
+          "fileLocation": "ae3264e4d5d7ed9c06b2.png",
+          "fileType": "image"
+        },
+        "choice3": {
+          "fileLocation": "2f8a1aa2c93c91ec5893.png",
+          "fileType": "image"
+        },
+        "choice4": {
+          "fileLocation": "dfa93ffd4b7603c2a7f0.png",
+          "fileType": "image"
+        },
+        "answer": 2,
+        "category": "Alfabeti"
+      },            
+    {
+        "question": "Based on the video, which number is she signing?",
         "fileLocation": "../videos/numrat/0.mp4",
         "fileType": "video",
         "choice1": "The number 3",
@@ -11,7 +51,7 @@
         "category":"numrat"
     },
     {
-        "question": "Based on the video you see, which number is he signing?",
+        "question": "Based on the video, which number is he signing?",
         "fileLocation": "../videos/numrat/1.mp4",
         "fileType": "video",
         "choice1": "The number 1",
@@ -22,7 +62,7 @@
         "category":"numrat"
     },
     {
-        "question": "Based on the video you see, which sport is she signing?",
+        "question": "Based on the video, which sport is she signing?",
         "fileLocation": "../videos/sportet/basketboll.mp4",
         "fileType": "video",
         "choice1": "Shah",
@@ -33,7 +73,7 @@
         "category":"sportet"
     },
     {
-        "question": "Based on the video you see, which sport is she signing?",
+        "question": "Based on the video, which sport is she signing?",
         "fileLocation": "../videos/sportet/futboll.mp4",
         "fileType": "video",
         "choice1": "Shah",
@@ -44,7 +84,7 @@
         "category":"sportet"
     },
     {
-        "question": "Based on the video you see, which vegetable is she signing?",
+        "question": "Based on the video, which vegetable is she signing?",
         "fileLocation": "../videos/perimet/domate.mp4",
         "fileType": "video",
         "choice1": "spec",
@@ -55,7 +95,7 @@
         "category":"perimet"
     },
     {
-        "question": "Based on the video you see, which vegetable is he signing?",
+        "question": "Based on the video, which vegetable is he signing?",
         "fileLocation": "../videos/perimet/ullinj.mp4",
         "fileType": "video",
         "choice1": "ullinj",
@@ -66,7 +106,7 @@
         "category":"perimet"
     },
     {
-        "question": "Based on the video you see, which number is he signing?",
+        "question": "Based on the video, which number is he signing?",
         "fileLocation": "../videos/numrat/3.mp4",
         "fileType": "video",
         "choice1": "The number 41",

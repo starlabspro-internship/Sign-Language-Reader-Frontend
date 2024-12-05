@@ -9,32 +9,114 @@ const pages = [
   // "Chunks" e injekton automatikisht javaScript filen ne html,
   { template: "home.html", filename: "home.html", chunks: ["home"] },
   { template: "about/about.html", filename: "about.html", chunks: ["about"] },
-  { template: "translate/translate.html", filename: "translate.html", chunks: ["translate"] },
-  { template: "history/history.html", filename: "history.html", chunks: ["history"] },
+  {
+    template: "translate/translate.html",
+    filename: "translate.html",
+    chunks: ["translate"],
+  },
+  {
+    template: "history/history.html",
+    filename: "history.html",
+    chunks: ["history"],
+  },
   { template: "faq/faq.html", filename: "faq.html", chunks: ["faq"] },
-  { template: "mesimetPages/mesimet/mesimet.html", filename: "mesimet.html", chunks: ["mesimet"] },
-  { template: "mesimetPages/alfabeti/alfabeti.html", filename: "alfabeti.html", chunks: ["alfabeti"] },
-  { template: "mesimetPages/numrat/numrat.html", filename: "numrat.html", chunks: ["numrat"] },
-  { template: "mesimetPages/fjalori/fjalori.html", filename: "fjalori.html", chunks: ["fjalori"] },
-  { template: "mesimetPages/stinet/stinet.html", filename: "stinet.html", chunks: ["stinet"] },
-  { template: "mesimetPages/ditetEJaves/ditetEJaves.html", filename: "ditetEJaves.html", chunks: ["ditetEJaves"] },
-  { template: "mesimetPages/pemet/pemet.html", filename: "pemet.html", chunks: ["pemet"] },
-  { template: "mesimetPages/perimet/perimet.html", filename: "perimet.html", chunks: ["perimet"] },
-  { template: "mesimetPages/sportet/sportet.html", filename: "sportet.html", chunks: ["sportet"] },
+  {
+    template: "mesimetPages/mesimet/mesimet.html",
+    filename: "mesimet.html",
+    chunks: ["mesimet"],
+  },
+  {
+    template: "mesimetPages/alfabeti/alfabeti.html",
+    filename: "alfabeti.html",
+    chunks: ["alfabeti"],
+  },
+  {
+    template: "mesimetPages/numrat/numrat.html",
+    filename: "numrat.html",
+    chunks: ["numrat"],
+  },
+  {
+    template: "mesimetPages/fjalori/fjalori.html",
+    filename: "fjalori.html",
+    chunks: ["fjalori"],
+  },
+  {
+    template: "mesimetPages/stinet/stinet.html",
+    filename: "stinet.html",
+    chunks: ["stinet"],
+  },
+  {
+    template: "mesimetPages/ditetEJaves/ditetEJaves.html",
+    filename: "ditetEJaves.html",
+    chunks: ["ditetEJaves"],
+  },
+  {
+    template: "mesimetPages/pemet/pemet.html",
+    filename: "pemet.html",
+    chunks: ["pemet"],
+  },
+  {
+    template: "mesimetPages/perimet/perimet.html",
+    filename: "perimet.html",
+    chunks: ["perimet"],
+  },
+  {
+    template: "mesimetPages/sportet/sportet.html",
+    filename: "sportet.html",
+    chunks: ["sportet"],
+  },
   { template: "auth/auth.html", filename: "auth.html", chunks: ["auth"] },
-  { template: "admin/admin.html", filename: "admin.html", chunks: ["admin", "eventListeners"] },
-  { template: "admin/signs/signs.html", filename: "signs.html", chunks: ["signs"] },
-  { template: "admin/users/users.html", filename: "users.html", chunks: ["users"] },
-  { template: "admin/createAdmin/createAdmin.html", filename: "createAdmin.html", chunks: ["createAdmin"] },
-  { template: "admin/adminFaq/adminFaq.html", filename: "adminFaq.html", chunks: ["adminFaq"] },
-  { template: "profile/profile.html", filename: "profile.html", chunks: ["profile"] },
+  {
+    template: "admin/admin.html",
+    filename: "admin.html",
+    chunks: ["admin", "eventListeners"],
+  },
+  {
+    template: "admin/signs/signs.html",
+    filename: "signs.html",
+    chunks: ["signs"],
+  },
+  {
+    template: "admin/users/users.html",
+    filename: "users.html",
+    chunks: ["users"],
+  },
+  {
+    template: "admin/createAdmin/createAdmin.html",
+    filename: "createAdmin.html",
+    chunks: ["createAdmin"],
+  },
+  {
+    template: "admin/adminFaq/adminFaq.html",
+    filename: "adminFaq.html",
+    chunks: ["adminFaq"],
+  },
+  {
+    template: "profile/profile.html",
+    filename: "profile.html",
+    chunks: ["profile"],
+  },
   { template: "quiz/quiz.html", filename: "quiz.html", chunks: ["quiz"] },
-  { template: "profile/userHistory/userHistory.html", filename: "userHistory.html", chunks: ["userHistory"] },
+  {
+    template: "profile/userHistory/userHistory.html",
+    filename: "userHistory.html",
+    chunks: ["userHistory"],
+  },
+  {
+    template: "games/games.html",
+    filename: "games.html",
+    chunks: ["games"],
+  },
+  {
+    template: "games/puzzle.html",
+    filename: "puzzle.html",
+    chunks: ["puzzle"],
+  },
 ];
 
 const entryPoints = {
   //Pjesa e fileve JS ku do te injektohen me lart
-  app: "./src/js/app.js", 
+  app: "./src/js/app.js",
   about: "./src/about/about.js",
   translate: "./src/translate/translate.js",
   history: "./src/history/history.js",
@@ -58,13 +140,15 @@ const entryPoints = {
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
   userHistory: "./src/profile/userHistory/userHistory.js",
-  quiz: "./src/quiz/quiz.js"
+  quiz: "./src/quiz/quiz.js",
+  games:"./src/games/games.js",
+  puzzle:"./src/games/puzzle.js"
 };
 
 module.exports = {
   //Nuk ka nevoje modifikim ne kete pjese
   mode: "development",
-  entry: entryPoints, 
+  entry: entryPoints,
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
@@ -74,20 +158,21 @@ module.exports = {
   devServer: {
     watchFiles: ["./src/**/*.html"],
     open: {
-      target: "https://localhost:8080/home.html", // 
+      target: "https://localhost:8080/home.html", //
     },
     server: {
       type: "https",
     },
   },
   plugins: [
-      //Ben lehtesim duke iteruar ne loop duke krijuar HtmlWebpackPlugin per secilin page
-    ...pages.map(page => 
-      new HtmlWebpackPlugin({
-        template: `./src/${page.template}`,
-        filename: page.filename,
-        chunks: ["app", ...page.chunks], // Si default, "app.js" shtohet ne secilin file
-      })
+    //Ben lehtesim duke iteruar ne loop duke krijuar HtmlWebpackPlugin per secilin page
+    ...pages.map(
+      (page) =>
+        new HtmlWebpackPlugin({
+          template: `./src/${page.template}`,
+          filename: page.filename,
+          chunks: ["app", ...page.chunks], // Si default, "app.js" shtohet ne secilin file
+        })
     ),
     new MiniCssExtractPlugin({
       filename: "[name].css", // Gjeneron css
@@ -97,7 +182,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"], 
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.html$/i,
@@ -109,11 +194,11 @@ module.exports = {
       },
       {
         test: /\.(mp4|webm|ogv)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'videos/[name].[hash][ext]',
-        }
-      }
+          filename: "videos/[name].[hash][ext]",
+        },
+      },
     ],
   },
 };

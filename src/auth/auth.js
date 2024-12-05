@@ -171,3 +171,40 @@ document
       console.error("Signup error:", error);
     }
   });
+
+
+/* Guest Login Logic */
+  document.getElementById("guest-login-button").addEventListener("click", async () => {
+    const errorMessage = document.getElementById("login-error-message");
+  
+    try {
+      const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GUEST_LOGIN}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include", 
+        body: JSON.stringify({
+          useremail: "guest@example.com", 
+        }),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Guest login successful:", result);
+  
+        window.location.href = "profile.html";
+      } else {
+        const result = await response.json();
+        console.error("Guest login failed:", result); // Debugging line
+        errorMessage.textContent = result.message || "Guest login failed!";
+        errorMessage.style.display = "block";
+      }
+    } catch (error) {
+      console.error("Guest login error:", error);
+      errorMessage.textContent = "An error occurred. Please try again later.";
+      errorMessage.style.display = "block";
+    }
+  });
+  
+  
+  
+  
