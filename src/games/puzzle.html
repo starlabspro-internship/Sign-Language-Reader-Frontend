@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle Game</title>
+  <link rel="stylesheet" href="puzzle.css">
+</head>
+<body>
+  <div class="puzzle-selection">
+    <h1>Choose a Puzzle</h1>
+    <div class="puzzles">
+      <button class="puzzle-btn" data-puzzle="1">Puzzle 1</button>
+      <button class="puzzle-btn" data-puzzle="2">Puzzle 2</button>
+      <button class="puzzle-btn" data-puzzle="3">Puzzle 3</button>
+      <button class="puzzle-btn" data-puzzle="4">Puzzle 4</button>
+      <button class="puzzle-btn" data-puzzle="5">Puzzle 5</button>
+      <button class="puzzle-btn" data-puzzle="6">Puzzle 6</button>
+      <button class="puzzle-btn" data-puzzle="7">Puzzle 7</button>
+      <button class="puzzle-btn" data-puzzle="8">Puzzle 8</button>
+      <button class="puzzle-btn" data-puzzle="9">Puzzle 9</button>
+      <button class="puzzle-btn" data-puzzle="10">Puzzle 10</button>
+    </div>
+  </div>
+
+  <div class="game-area hidden">
+    <h2 id="puzzle-title">Puzzle</h2>
+    <div class="game-container">
+      <div class="puzzle-grid" id="drop-zone"></div>
+      <div class="puzzle-pieces" id="puzzle-pieces"></div>
+      <div class="puzzle-reference">
+        <h3>Reference</h3>
+        <img id="puzzle-image" src="" alt="Reference Image">
+      </div>
+    </div>
+    <button id="next-puzzle" class="hidden">Next Puzzle</button>
+  </div>
+
+  <script src="puzzle.js"></script>
+</body>
+</html>
