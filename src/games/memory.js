@@ -20,16 +20,16 @@ let currentLevel = 1;
 let totalPairs = 4;
 
 const images = [
-    '../photos/123.jpg',
+    '../photos/a.png',
     '../photos/about.jpg',
     '../photos/alfabet.jpg',
-    '../photos/perime.jpg',
-    '../photos/photo1.jpg',
-    '../photos/photo2.jpg',
-    '../photos/photo3.jpg',
-    '../photos/puzzle1.jpg',
-    '../photos/stinet.jpg',
-    '../photos/vizioni.jpg',
+    '../photos/shkronjat/a.jpg',
+    '../photos/shkronjat/z.jpg',
+    '../photos/shkronjat/g.jpg',
+    '../photos/right.jpg',
+    '../photos/photo.jpg',
+    '../photos/photo5.jpg',
+    '../photos/photo6.jpg',
 ];
 
 // Event listener for Start button
