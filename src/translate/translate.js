@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const corrections = {
         "pershendetje": "përshëndetje",
         "miredita": "mirëdita",
-        "te": "të",
-        "me": "më",
         "faleminderit": "faleminderit",
         "une": "unë"
     };
@@ -95,8 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json();
 
-            // Display each translated word or an error
-            data.translation.forEach((item) => {
+             // Display each translated word or an error
+             data.translation.forEach((item) => {
                 const signCard = document.createElement("div");
                 signCard.className = "sign-card";
 
