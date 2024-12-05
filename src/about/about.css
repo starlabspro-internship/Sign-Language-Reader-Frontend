@@ -57,13 +57,44 @@ hr {
 }
 
 .step {
-  background: linear-gradient(145deg, var(--cream), var(--dark-cream)); /* Gradient background */
+  position: relative; 
+  background: linear-gradient(145deg, var(--cream), var(--dark-cream));
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  overflow: hidden; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, var(--dark-cream), var(--cream));
+  z-index: 1;
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+  border-radius: 10px; 
+}
+
+.step:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.step:hover::before {
+  opacity: 1; 
+}
+
+.step > * {
+  position: relative; 
+  z-index: 2;
+}
+
 
 
 .step i{

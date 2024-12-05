@@ -1,6 +1,4 @@
-
 body {
-    font-family: Arial, sans-serif;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -37,11 +35,11 @@ body {
     max-width: 600px;
     height: auto;
     border: 1px solid rgb(255, 255, 255);
+    background: var(--cream);
     padding: 20px; 
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-
 
 
 h1 {
