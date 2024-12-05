@@ -18,6 +18,7 @@ const movesCounter = document.getElementById("moves-counter");
 const puzzleTitle = document.getElementById("puzzle-title");
 const fireworksContainer = document.getElementById("fireworks-container");
 const progressInfo = document.getElementById("progress-info"); // Progress info element
+const resetPuzzleBtn = document.getElementById("reset-puzzle"); // Reset puzzle button
 
 let currentPuzzleIndex;
 let moves;
@@ -142,7 +143,7 @@ function showFireworks() {
         firework.style.top = `${Math.random() * window.innerHeight}px`;
         fireworksContainer.appendChild(firework);
 
-        // Remove firework after animation
+        // Remove fireworks after animation
         setTimeout(() => {
             firework.remove();
         }, 1500);
@@ -154,25 +155,23 @@ function updateProgressInfo() {
     progressInfo.textContent = `Progress: ${puzzlesCompleted}/5 puzzles completed`;
 }
 
-// Event listener for next puzzle
+// Next puzzle button
 nextPuzzleBtn.addEventListener("click", () => {
-    navigatePuzzle(1);
+    if (currentPuzzleIndex < puzzles.length - 1) {
+        currentPuzzleIndex++;
+        startPuzzle(currentPuzzleIndex);
+    }
 });
 
-// Event listener for previous puzzle
+// Previous puzzle button
 prevPuzzleBtn.addEventListener("click", () => {
-    navigatePuzzle(-1);
+    if (currentPuzzleIndex > 0) {
+        currentPuzzleIndex--;
+        startPuzzle(currentPuzzleIndex);
+    }
 });
 
-// Navigate puzzles
-function navigatePuzzle(direction) {
-    const congratsMessage = document.querySelector(".congrats-message");
-    if (congratsMessage) congratsMessage.remove();
-
-    currentPuzzleIndex += direction;
-
-    if (currentPuzzleIndex < 0) currentPuzzleIndex = puzzles.length - 1;
-    if (currentPuzzleIndex >= puzzles.length) currentPuzzleIndex = 0;
-
+// Reset puzzle button
+resetPuzzleBtn.addEventListener("click", () => {
     startPuzzle(currentPuzzleIndex);
-}
+});

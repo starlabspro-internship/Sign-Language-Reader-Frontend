@@ -123,6 +123,7 @@
   }
   
   #prev-puzzle,
+  #reset-puzzle,
   #next-puzzle {
     color: white;
     background-color: var(--deep-blue);
@@ -205,5 +206,43 @@
       transform: scale(1) translate(200px, -200px);
       opacity: 0;
     }
+  }
+  /* Styling for the game-status container */
+.game-status {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0; /* Light background to distinguish it */
+    border-radius: 10px; /* Rounded corners for a sleek look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Styling for each individual status item (progress & moves) */
+  .status-item {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 5px 15px;
+    background-color: #fff; /* White background to contrast */
+    border: 1px solid #ccc; /* Light border around each section */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow to lift the items */
+  }
+  
+  #progress-info {
+    background-color: #e1f5fe; /* Soft blue background for progress */
+    color: #0288d1; /* Blue text for progress */
+  }
+  
+  #moves-counter {
+    background-color: #fce4ec; /* Soft pink background for moves */
+    color: #d81b60; /* Pink text for moves */
+  }
+  
+  /* Add some spacing between the status sections */
+  .game-status > .status-item:not(:last-child) {
+    margin-right: 10px;
   }
   
