@@ -1,6 +1,7 @@
 import "./userHistory.css";
 import "../profile.css";
 import "../profile.js";
+import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const historyHolder = document.querySelector(".translation-history-holder");
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function checkAuth() {
     try {
-      const response = await fetch("https://localhost:5000/api/users/me", {
+      const response = await fetch(`${API_URL.BASE}${API_URL.USERS.ME}`, {
         credentials: "include",
       });
       if (!response.ok) throw new Error("Unauthorized");
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function fetchUserActions(userId) {
     try {
-      const response = await fetch(`https://localhost:5000/api/users/${userId}`, {
+      const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
         credentials: "include",
       });
       if (!response.ok) throw new Error("Failed to fetch user data");

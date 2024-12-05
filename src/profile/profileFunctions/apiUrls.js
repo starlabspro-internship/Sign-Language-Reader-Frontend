@@ -1,4 +1,4 @@
-// Ky file perdoret per ta shkurtuar punen e url've te API-ve
+// Ky file perdoret per ta shkurtuar punen e url've te API-ve dhe t'i centralizuar ato ne nje file te vetme!
 const API_URL = {
   BASE: "https://localhost:5000/api",
   USERS: {
@@ -11,7 +11,14 @@ const API_URL = {
       LOGOUT: "/users/logout",
       CREATE_ADMIN: "/users/createAdmin"
   },
-
+  FAQ: {
+    BASE_URL: "/faq"
+  },
+  SIGNS: {
+    BASE_URL: "/signs",
+    GET_BY_ID: (signId) => `/signs/${signId}`,
+    TRANSLATE: (phrase) => `/signs/translate?phrase=${encodeURIComponent(phrase)}`
+  }
 };
 
 export default API_URL;

@@ -1,4 +1,7 @@
 import "./faq.css";
+import API_URL from "../profile/profileFunctions/apiUrls";
+
+const BASE_URL = `${API_URL.BASE}${API_URL.FAQ.BASE_URL}`;
 
 document.addEventListener("DOMContentLoaded", () => {
     const questionsList = document.getElementById("questions");
@@ -7,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     async function loadShowcasedFaqs() {
       try {
-        const response = await fetch("https://localhost:5000/api/faq", {
+        const response = await fetch(BASE_URL, {
           credentials: "include", 
         });
 
@@ -54,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     
       try {
-        const response = await fetch("https://localhost:5000/api/faq", {
+        const response = await fetch(BASE_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
