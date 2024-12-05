@@ -6,14 +6,27 @@
   <title>Puzzle Game</title>
 </head>
 <body>
-  <div class="puzzle-selection">
-    <h1>Choose a Puzzle</h1>
-    <div class="puzzles">
-      <button class="puzzle-btn">Puzzle 1</button>
-      <button class="puzzle-btn">Puzzle 2</button>
-      <button class="puzzle-btn">Puzzle 3</button>
-      <button class="puzzle-btn">Puzzle 4</button>
-      <button class="puzzle-btn">Puzzle 5</button>
+  <div class="puzzle-container">
+    <div class="puzzle-selection">  
+      <h1>Choose a Puzzle</h1>
+      <div class="puzzles">
+        <button class="puzzle-btn">
+          <i class="fa-solid fa-puzzle-piece"></i> Puzzle 1
+        </button>
+        <button class="puzzle-btn">
+          <i class="fa-solid fa-puzzle-piece"></i> Puzzle 2
+        </button>
+        <button class="puzzle-btn">
+          <i class="fa-solid fa-puzzle-piece"></i> Puzzle 3
+        </button>
+        <button class="puzzle-btn">
+          <i class="fa-solid fa-puzzle-piece"></i> Puzzle 4
+        </button>
+        <button class="puzzle-btn">
+          <i class="fa-solid fa-puzzle-piece"></i> Puzzle 5
+        </button>
+      </div>
+      
     </div>
   </div>
 
@@ -28,15 +41,20 @@
       <div class="puzzle-pieces" id="puzzle-pieces"></div>
       <div class="puzzle-reference">
         <h3>Reference</h3>
-        <img id="puzzle-image" src="../photos/logo/demo-logo.png" alt="Reference Image">
+        <img id="puzzle-image" src="../photos/pz1.jpg" alt="Reference Image">
       </div>
     </div>
     <div class="congrats-message hidden">Congratulations! You completed the puzzle!</div>
     
-    <button id="prev-puzzle">Previous Puzzle</button>
-    <button id="reset-puzzle">Reset Puzzle</button> <!-- Reset button -->
-
-    <button id="next-puzzle" ">Next Puzzle</button>
+    <button id="prev-puzzle">
+      <i class="fa-solid fa-arrow-left"></i> 
+    </button>  
+    <button id="reset-puzzle">
+      <i class="fa-solid fa-rotate-right"></i> 
+    </button>
+    <button id="next-puzzle">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
 
     <div class="game-status">
         <div id="progress-info" class="status-item">Progress: 0/5 puzzles completed</div>
