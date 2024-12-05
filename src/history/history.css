@@ -36,7 +36,7 @@ h2 {
   width: 900px; /* Adjust to accommodate the wider #issues */
   height: 700px;
   overflow: hidden;
-  margin: 20px auto; /* Increased top margin for better spacing */
+  margin: 20px auto;
   position: relative;
   background: url("http://www.csslab.cl/ejemplos/timelinr/latest/images/dot.gif")
     3px top repeat-y;
@@ -224,20 +224,27 @@ h2 {
   }
 
   #issues {
-    width: 100%; /* Take full width */
+    width: auto;
+    margin: 30px;
   }
 
   #issues li h1 {
-    font-size: 24px; /* Adjust title size */
+    font-size: 24px; 
   }
 
   #issues li img {
-    width: 100px; /* Smaller image for very small screens */
+    width: 100px; 
   }
 
   #next,
   #prev {
     font-size: 40px; /* Further reduce size */
+  }
+  #timeline {
+    width: 100%; /* Adjust to accommodate the wider #issues */
+    height: 700px;
+    overflow: hidden;
+    margin: 20px;
   }
 }
 

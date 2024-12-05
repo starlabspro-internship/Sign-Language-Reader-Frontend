@@ -1,15 +1,15 @@
-/* General styles */
-body {
-    font-family: "Montserrat", sans-serif;
-    margin: 0;
-}
 
-.all-cont {
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-    position: relative;
-}
+ body {
+     font-family: "Montserrat", sans-serif;
+     margin: 0;
+ }
+
+ .all-cont {
+     display: flex;
+     flex-direction: column;
+     background-size: cover;
+     position: relative;
+ }
 
 /* Main container for the page */
 .container {
