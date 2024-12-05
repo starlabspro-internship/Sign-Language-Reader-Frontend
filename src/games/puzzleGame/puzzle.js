@@ -1,10 +1,10 @@
 import "./puzzle.css"
 
-import pz1 from "../photos/pz1.jpg";
-import pz2 from "../photos/pz2.jpg";
-import pz3 from "../photos/pz3.jpg";
-import pz4 from "../photos/pz4.jpg";
-import pz5 from "../photos/pz5.jpg";
+import pz1 from "../../photos/pz1.jpg";
+import pz2 from "../../photos/pz2.jpg";
+import pz3 from "../../photos/pz3.jpg";
+import pz4 from "../../photos/pz4.jpg";
+import pz5 from "../../photos/pz5.jpg";
 
 const puzzles = [pz1, pz2, pz3, pz4, pz5];
 

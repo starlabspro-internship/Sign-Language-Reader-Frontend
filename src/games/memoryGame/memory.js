@@ -20,16 +20,16 @@ let currentLevel = 1;
 let totalPairs = 4;
 
 const images = [
-    '../photos/123.jpg',
-    '../photos/about.jpg',
-    '../photos/alfabet.jpg',
-    '../photos/perime.jpg',
-    '../photos/photo1.jpg',
-    '../photos/photo2.jpg',
-    '../photos/photo3.jpg',
-    '../photos/puzzle1.jpg',
-    '../photos/stinet.jpg',
-    '../photos/vizioni.jpg',
+    require('../../photos/pz1.jpg'),
+    require('../../photos/pz2.jpg'),
+    require('../../photos/pz3.jpg'),
+    require('../../photos/pz4.jpg'),
+    require('../../photos/pz5.jpg'),
+    require('../../photos/photo2.jpg'),
+    require('../../photos/photo3.jpg'),
+    require('../../photos/logo/duarte-logo.png'),
+    require('../../photos/logo/starlabs.png'),
+    require('../../photos/logo/starlabs.png'),
 ];
 
 // Event listener for Start button
