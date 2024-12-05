@@ -1,15 +1,39 @@
-/* General styles */
-body {
-    font-family: "Montserrat", sans-serif;
-    margin: 0;
+
+ body {
+     font-family: "Montserrat", sans-serif;
+     margin: 0;
+ }
+
+ .all-cont {
+     display: flex;
+     flex-direction: column;
+     background-size: cover;
+     position: relative;
+ }
+
+/* Main container for the page */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    min-width: 400px;
+    padding: 10px;
+    margin: 30px auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 11px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-.all-cont {
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-    position: relative;
+.container h1 {
+    margin: 0;
+    font-size: 2.5rem;
 }
+
+.container p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
 /* Game Cards Container */
 .game-container {
     display: flex;

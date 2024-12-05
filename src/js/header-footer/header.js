@@ -41,7 +41,7 @@ export async function renderHeader() {
         <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
         <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mësimet</a></li>
         <li><a href="games.html"><i class="fa-solid fa-gamepad"></i> Lojërat</a></li>
-
+        <li><a href="#"><i class="fa-solid fa-users"></i> Komuniteti</a></li>
         <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ </a></li>
         <li id="authLinksMobile">
             <!-- Authentication links for mobile view will be injected here -->
