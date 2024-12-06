@@ -141,45 +141,34 @@ button:active {
     transform: translateY(0);
 }
 .congrats-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
-    background-color: rgba(27, 20, 20, 0.1);
+    margin-top: 50px;
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .congrats-message h1 {
-    font-size: 2em;
-    color: #000000;
-}
-
-.congrats-message p {
-    color: black;
+    color: #28a745;
+    font-size: 2rem;
 }
 
 .congrats-message button {
+    margin-top: 20px;
     padding: 10px 20px;
-    font-size: 1.2em;
-    background-color:var(--medium-blue);
-    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-
 .congrats-message button:hover {
-    background-color: #5c7892;
-    transform: translateY(-2px);
+    background-color: #0056b3;
 }
 
-.congrats-message button:active {
-    background-color: #004080;
-}
 
 /* Responsiveness */
 @media (max-width: 768px) {
