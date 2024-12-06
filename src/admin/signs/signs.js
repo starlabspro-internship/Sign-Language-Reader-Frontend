@@ -1,5 +1,7 @@
 import "./signs.css";
 import "../admin.js";
+import API_URL from "../../profile/profileFunctions/apiUrls.js";
+
 
 // Get references to elements
 const signHolder = document.querySelector(".sign-holder"); 
@@ -18,7 +20,7 @@ const itemsPerPage = 9;
 // Fetch and display signs with optional search query
 async function fetchAndDisplaySigns(page = 1, searchQuery = "") {
     try {
-        const response = await fetch("https://localhost:5000/api/signs");
+        const response = await fetch(`${API_URL.BASE}${API_URL.SIGNS.BASE_URL}`);
         if (response.ok) {
             const signs = await response.json();
             const filteredSigns = searchQuery
@@ -108,7 +110,7 @@ function renderPagination(totalItems, currentPage = 1) {
 // Delete a sign
 async function deleteSign(signId) {
     try {
-        const response = await fetch(`https://localhost:5000/api/signs/${signId}`, {
+        const response = await fetch(`${API_URL.BASE}${API_URL.SIGNS.GET_BY_ID(signId)}`, {
             method: "DELETE",
         });
 
@@ -167,7 +169,7 @@ signForm.addEventListener("submit", async (event) => {
     errorMessage.textContent = "";
 
     try {
-        const response = await fetch("https://localhost:5000/api/signs", {
+        const response = await fetch(`${API_URL.BASE}${API_URL.SIGNS.BASE_URL}`, {
             method: "POST",
             body: formData,
         });

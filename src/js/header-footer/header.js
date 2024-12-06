@@ -1,6 +1,6 @@
 // import { enforceReloadOnBackNavigation } from "../forceReload.js";
 import { handleAuthLinks } from "./headerAuth.js";
-import logo from '../../photos/logo/logo2.png'; 
+import logo from '../../photos/logo/duarte-logo.png'; 
 
 export async function renderHeader() {
   // enforceReloadOnBackNavigation();
