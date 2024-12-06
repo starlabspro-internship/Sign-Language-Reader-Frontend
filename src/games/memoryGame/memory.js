@@ -25,11 +25,11 @@ const images = [
     require('../../photos/pz3.jpg'),
     require('../../photos/pz4.jpg'),
     require('../../photos/pz5.jpg'),
-    require('../../photos/photo2.jpg'),
+    require('../../photos/photo5.jpg'),
     require('../../photos/photo3.jpg'),
-    require('../../photos/logo/duarte-logo.png'),
+    require('../../photos/shkronjat/a.jpg'),
     require('../../photos/logo/starlabs.png'),
-    require('../../photos/logo/starlabs.png'),
+    require('../../photos/photo.jpg'),
 ];
 
 // Event listener for Start button
