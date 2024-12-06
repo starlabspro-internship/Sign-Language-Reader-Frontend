@@ -1,4 +1,4 @@
-import "./memory.css"
+import "./memory.css";
 
 const gameBoard = document.querySelector('.game-board');
 const startButton = document.getElementById('startButton');
@@ -167,19 +167,14 @@ function checkMatch() {
             stopTimer();
 
             if (currentLevel === 3) {
-                const gameContainer = document.querySelector('.game-container');
-                if (gameContainer) {
-                    gameContainer.remove();
+                const gameWrapper = document.querySelector('.game-wrapper');
+                if (gameWrapper) {
+                    gameWrapper.innerHTML = `
+                        <div class="congrats-message">
+                            <h1>Urime! Ju keni fituar!</h1>
+                            <button onclick="window.location.href='games.html'">Kthehu tek Lojërat</button>
+                        </div>`;
                 }
-
-                const congratsDiv = document.createElement('div');
-                congratsDiv.classList.add('congrats-message');
-                congratsDiv.innerHTML = `
-                    <h1>Urime! Ju keni fituar!</h1>
-                   
-                    <button onclick="window.location.href='games.html'">Kthehu tek Lojërat</button>
-                `;
-                document.body.appendChild(congratsDiv);
             } else {
                 message.textContent = "Level Complete!";
                 nextLevelButton.style.display = "inline-block";
