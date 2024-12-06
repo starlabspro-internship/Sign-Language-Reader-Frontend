@@ -35,24 +35,25 @@ body {
     max-width: 600px;
     height: auto;
     border: 1px solid rgb(255, 255, 255);
-    background: var(--cream);
+    background: linear-gradient(135deg, var(--light-blue), rgb(209, 211, 186));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px; 
     border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 
 h1 {
     font-size: 2rem;
-    color: #333333;
+    color: #ffffff;
     margin-bottom: 20px;
     margin-top: 50px;
+    text-shadow: 1px 1px #01172c;
 }
 
 .game-status p {
     margin: 5px 0;
     font-size: 1.1rem;
-    color: #555555;
+    color: #ffffff;
 }
 
 .game-board {
@@ -67,11 +68,11 @@ h1 {
 
 .card {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     perspective: 1000px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transform-style: preserve-3d; 
     transition: transform 0.4s ease-in-out; 
@@ -141,33 +142,42 @@ button:active {
     transform: translateY(0);
 }
 .congrats-message {
+    position: relative;
+    margin: 200px;
+    margin-left: 500px;
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin-top: 50px;
-    background-color: #f9f9f9;
+    background-color:transparent;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.congrats-message h1 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  }
+  
+  .congrats-message h1 {
     color: #28a745;
     font-size: 2rem;
-}
-
-.congrats-message button {
+  }
+  
+  .congrats-message button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #007bff;
+    background-color: #0f3154;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.congrats-message button:hover {
+  }
+  
+  .congrats-message button:hover {
     background-color: #0056b3;
-}
+  }
+  
+  .game-wrapper {
+    position: relative;
+  }
+  
 
 
 /* Responsiveness */
