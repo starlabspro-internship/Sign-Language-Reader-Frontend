@@ -1,5 +1,6 @@
 import "./translate.css";
 import placeholderImage from '../assets/placeholder-images/notFound.png';
+import API_URL from "../profile/profileFunctions/apiUrls";
 
 document.addEventListener("DOMContentLoaded", () => {
     const translateForm = document.querySelector(".translate-form");
@@ -79,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // Fetch translation from the API
-            const response = await fetch(`https://localhost:5000/api/signs/translate?phrase=${encodeURIComponent(inputText)}`, {
+            const response = await fetch(`${API_URL.BASE}${API_URL.SIGNS.TRANSLATE(inputText)}`, {
                 credentials: "include"
             });
 

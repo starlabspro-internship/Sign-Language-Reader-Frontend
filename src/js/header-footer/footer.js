@@ -1,4 +1,4 @@
-import logo from '../../photos/logo/logo2.png'; 
+import logo from '../../photos/logo/duarte-logo.png'; 
 
 export function renderFooter() {
   const footer = document.createElement("footer");
