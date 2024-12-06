@@ -6,7 +6,20 @@
     --dark-cream: #c7b388;
   }
   
- 
+    .puzzle-container {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - var(--header-height)); /* Zëvendësoni var(--header-height) me lartësinë e saktë të header-it */
+      margin: 0; /* Hiqni margjinën */
+      padding-top: var(--header-height); /* Ose shtoni hapësirë mbi lojën nëse preferoni */
+    }
+    
+  #puzzle-title{
+    color:var(--deep-blue);
+    text-align: center;
+  }
   
   .hidden {
     display: none;
@@ -35,6 +48,8 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    
+
   }
   
   .puzzle-btn:hover {
@@ -97,6 +112,7 @@
     text-align: center;
     margin: 50px 0;
     padding: 20px;
+    margin-top: auto;
     background: linear-gradient(135deg, var(--light-blue), var(--cream));
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
@@ -123,6 +139,8 @@
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    
   }
   
   #prev-puzzle:hover,
@@ -142,9 +160,17 @@
   }
   
   .game-area {
-    animation: fadeIn 1s ease-in-out;
-  }
-  
+    position: relative; /* E pozicionon menjëherë poshtë header-it */
+    margin-top: 80px; /* Përputhet me lartësinë e header-it */
+    padding: 20px;
+    background-color: #f5f5f5;
+    z-index: 999; /* Siguron që është nën header */
+}
+
+.hidden {
+    display: none;
+}
+
   /* Styling për mesazhin e suksesit që shfaqet kur përfundoni një puzzle */
   .congrats-message {
     animation: fadeIn 1.5s ease-out;
@@ -235,4 +261,92 @@
   .game-status > .status-item:not(:last-child) {
     margin-right: 10px;
   }
-  
+  /* Responsive Styles */
+
+/* Ensure buttons stack vertically on small screens */
+@media (max-width: 768px) {
+  .puzzle-selection .puzzles {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .puzzle-btn {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+  }
+}
+
+/* Adjust puzzle grid and pieces for smaller screens */
+@media (max-width: 600px) {
+  .puzzle-grid {
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 3px;
+  }
+
+  .drop-zone-cell,
+  .puzzle-piece {
+    width: 60px;
+    height: 60px;
+  }
+
+  .puzzle-pieces {
+    width: 250px;
+    height: 250px;
+    gap: 3px;
+  }
+
+  .puzzle-reference img {
+    max-width: 80px;
+  }
+}
+
+/* Adjust margins and padding for mobile screens */
+@media (max-width: 480px) {
+  .puzzle-selection {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+
+  .quiz-intro {
+    margin: 20px 10px;
+    padding: 10px;
+  }
+
+  #prev-puzzle,
+  #reset-puzzle,
+  #next-puzzle {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .game-status {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* General Improvements for Medium Screens */
+@media (max-width: 1024px) {
+  .puzzle-selection {
+    padding: 40px;
+  }
+
+  .puzzle-grid {
+    grid-template-columns: repeat(4, 65px);
+    grid-template-rows: repeat(4, 65px);
+    gap: 5px;
+  }
+
+  .puzzle-piece {
+    width: 65px;
+    height: 65px;
+  }
+}
