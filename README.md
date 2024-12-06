@@ -1,4 +1,4 @@
-# Sign Language Web
+# Sign Language Reader - DUARTË (Frontend)
 
 A web platform designed to facilitate learning and translating from Albanian to sign language. Built with **JavaScript** and **Webpack**, this application offers interactive lessons, quizzes, games, community and a translation feature.
 
