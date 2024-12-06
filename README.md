@@ -34,3 +34,9 @@ Make sure you have the following installed on your system:
    ```bash
    git clone https://github.com/starlabspro-internship/Sign-Language-Reader-Frontend.git
    cd Sign-Language-Reader-Frontend
+
+### Usage
+  ```bash
+  cd Sign-Language-Reader-Frontend
+  npm install
+  npm run dev
