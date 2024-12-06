@@ -6,7 +6,14 @@
     --dark-cream: #c7b388;
   }
   
- 
+  .puzzle-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+  }
   
   .hidden {
     display: none;
@@ -35,6 +42,8 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    
+
   }
   
   .puzzle-btn:hover {
@@ -97,6 +106,7 @@
     text-align: center;
     margin: 50px 0;
     padding: 20px;
+    margin-top: auto;
     background: linear-gradient(135deg, var(--light-blue), var(--cream));
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
@@ -123,6 +133,7 @@
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    
   }
   
   #prev-puzzle:hover,
