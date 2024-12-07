@@ -8,15 +8,81 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearButton = document.getElementById("clearButton");
     const signsHolder = document.getElementById("translationResults");
 
-    // Dictionary for corrections
+    // Dictionary for single-word corrections
     const corrections = {
         "pershendetje": "përshëndetje",
         "miredita": "mirëdita",
         "faleminderit": "faleminderit",
-        "une": "unë"
+        "une": "unë",
+        "te": "të", // Correct "te" to "të"
+        "per": "për"
     };
 
-    // Funksioni Levenshtein bistance
+    // Multi-word expressions mapping and corrections
+    const multiWordCorrections = {
+        "te lutem": "të lutem",
+        "mirë se vjen": "mirë se vjen",
+        "faleminderit shumë": "faleminderit shumë",
+        "per pak" : "për pak",
+        "vjen nje dite" : "vjen_një_dite",
+        "te befte mire" : "te_beftë_mirë",
+        "nuk ia var" : "nuk_ia_var",
+        "nuk ia ve veshin" : "nuk_ia_ve_veshin",
+        "gjysme i shurdher" : "gjysme_i_shurdher",
+        "gjysme e shurdher" : "gjysme_e_shurdher",
+        "me shume" : "me_shume",
+        "i ri" : "i_ri"
+    };
+
+    const multiWordExpressions = {
+        "të lutem": "te_lutem", // Backend key for "të lutem"
+        "mirë se vjen": "mire_se_vjen",
+        "faleminderit shumë": "faleminderit_shume",
+        "për pak" : "për_pak",
+        "i pari" : "i_pari",
+        "e para" : "e_para",
+        "i pamundur" : "i_pamundur",
+        "e pamundur" : "e_pamundur",
+        "e shtrenjte" : "e_shtrenjte",
+        "i shtrenjte" : "i_shtrenjte",
+        "e merzitur"  : "e_merzitur",
+        "i merzitur" : "i_merzitur",
+        "i bezdisshm" : "i_bezdisshm",
+        "e bezdisshme" : "e_bezdisshme", 
+        "i preferuar" : "i_preferuar",
+        "e preferuar" : "e_preferuar",
+        "i trash" : "i_trash",
+        "e trash" : "e_trash",
+        "faqe trash" : "faqe_trash",
+        "me shume" : "me_shume",
+        "kurban bajrami" : "kurban_bajrami"
+    };
+
+    // Normalize the input text by replacing multi-word expressions and correcting misspellings
+    function normalizeInput(input) {
+        let normalizedInput = input.toLowerCase().trim();
+
+        // Correct multi-word phrases first
+        for (const [expression, corrected] of Object.entries(multiWordCorrections)) {
+            const regex = new RegExp(`\\b${expression}\\b`, "gi");
+            normalizedInput = normalizedInput.replace(regex, corrected);
+        }
+
+        // Correct single words after multi-word corrections
+        const words = normalizedInput.split(/\s+/);
+        const correctedWords = words.map(word => findClosestWord(word, corrections));
+        normalizedInput = correctedWords.join(" ");
+
+        // Replace corrected multi-word expressions with backend keys
+        for (const [expression, backendKey] of Object.entries(multiWordExpressions)) {
+            const regex = new RegExp(`\\b${expression}\\b`, "gi");
+            normalizedInput = normalizedInput.replace(regex, backendKey);
+        }
+
+        return normalizedInput;
+    }
+
+    // Levenshtein distance function for spell-checking
     function levenshteinDistance(a, b) {
         const matrix = Array.from({ length: a.length + 1 }, () =>
             Array(b.length + 1).fill(0)
@@ -39,12 +105,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return matrix[a.length][b.length];
     }
 
-    
-    // Gjej fjalen me te perafert duke perdor Levenshtein distance
     function findClosestWord(input, dictionary) {
+        const exactMatches = ["e", "i", "para", "dhe", "unë", "është"]; // Words that shouldn't be corrected
+        if (exactMatches.includes(input.toLowerCase())) {
+            return input; // Return the word unchanged
+        }
+    
         let closestMatch = null;
         let minDistance = Infinity;
-
+    
         for (const word of Object.keys(dictionary)) {
             const distance = levenshteinDistance(input.toLowerCase(), word.toLowerCase());
             if (distance < minDistance) {
@@ -52,17 +121,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 closestMatch = word;
             }
         }
-
-       
-        return minDistance <= 2 ? dictionary[closestMatch] : input;
+    
+        // Only correct if the distance is 1 or 2 and the word is not an exact match
+        if (minDistance > 2) {
+            return input; // Ignore correction if the match is too distant
+        }
+    
+        return dictionary[closestMatch] || input;
     }
-
-    // Normalize the input text by correcting misspellings
-    function normalizeSentence(sentence) {
-        const words = sentence.split(/\s+/);
-        const correctedWords = words.map((word) => findClosestWord(word, corrections));
-        return correctedWords.join(" "); 
-    }
+    
 
     translateForm.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -70,8 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let inputText = translateInput.value.trim();
         if (!inputText) return;
 
-        // Correct misspellings in the input text
-        inputText = normalizeSentence(inputText);
+        // Normalize the input text
+        const originalInput = inputText; // Save the original input for display
+        inputText = normalizeInput(inputText);
 
         signsHolder.innerHTML = ''; // Clear previous results
 
@@ -93,8 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json();
 
-             // Display each translated word or an error
-             data.translation.forEach((item) => {
+            // Display each translated word or an error
+            data.translation.forEach((item) => {
                 const signCard = document.createElement("div");
                 signCard.className = "sign-card";
 
@@ -103,13 +171,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     img.src = item.image;
                     img.alt = item.word;
                     signCard.appendChild(img);
-                    signCard.innerHTML += `<p>${item.word}</p>`;
+
+                    // Replace underscores with spaces for display
+                    const formattedWord = item.word.replace(/_/g, " ").replace("te", "të"); // Ensure "te" is corrected to "të"
+                    signCard.innerHTML += `<p>${formattedWord}</p>`;
                 } else {
                     const img = document.createElement("img");
                     img.src = `${placeholderImage}`;
                     img.alt = "Unsupported word";
                     signCard.appendChild(img);
-                    signCard.innerHTML += `<p>"${item.word}" <br> nuk u gjet</p>`;
+
+                    // Replace underscores with spaces for error display
+                    const formattedWord = item.word.replace(/_/g, " ").replace("te", "të"); // Ensure "te" is corrected to "të"
+                    signCard.innerHTML += `<p>"${formattedWord}" <br> nuk u gjet</p>`;
                 }
 
                 signsHolder.appendChild(signCard);
@@ -123,8 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             clearButton.style.display = "inline-block"; // Show the Clear button
 
-            // After the content is loaded, check if scroll buttons should be visible
-            checkOverflow();
         } catch (error) {
             console.error("Error fetching translation:", error);
             const errorMessage = document.createElement("p");
