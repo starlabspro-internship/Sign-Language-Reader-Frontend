@@ -80,12 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
         const newFaq = await response.json();
-        showNotification("Your question has been submitted!", "success");
+        showNotification("Pyetja juaj është dërguar!", "success");
         questionInput.value = "";
         loadShowcasedFaqs();
       } catch (error) {
-        console.error("Error submitting question:", error);
-        showNotification("Failed to submit your question. Please try again later.", "error");
+        // console.error("Error submitting question:", error);
+        showNotification("Dështoi në dorëzimin e pyetjes suaj. Ju lutemi provoni përsëri më vonë..", "error");
       }
     });
     
