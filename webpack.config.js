@@ -94,7 +94,7 @@ const pages = [
   {
     template: "profile/profile.html",
     filename: "profile.html",
-    chunks: ["profile"],
+    chunks: ["profilePage"],
   },
   { template: "quiz/quiz.html", filename: "quiz.html", chunks: ["quiz"] },
   {
@@ -134,7 +134,8 @@ const entryPoints = {
   eventListeners: "./src/profile/profileFunctions/eventListeners.js",
   createAdmin: "./src/admin/createAdmin/createAdmin.js",
   users: "./src/admin/users/users.js",
-  profile: "./src/profile/profile.js",
+  profile: "./src/profile/profileManager.js",
+  profilePage: "./src/profile/profilePage.js",
   home: "./src/js/home.js",
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
