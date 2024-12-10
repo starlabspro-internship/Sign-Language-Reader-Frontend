@@ -22,8 +22,12 @@ jobs:
         script: |
           # Navigate to the project directory on the server
           cd /var/www/Duarte/Sign-Language-Reader-Frontend
-          # Pull changes directly from the GitHub repository
+          # Pull the latest changes from the GitHub repository
           git pull origin main
+          # Install dependencies
+          npm install
+          # Run the build
+          npm run build
 
     - name: Restart Nginx
       uses: appleboy/ssh-action@v0.1.5
