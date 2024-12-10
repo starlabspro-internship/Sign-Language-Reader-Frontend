@@ -2,7 +2,6 @@ import "./signs.css";
 import "../admin.js";
 import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
-
 // Get references to elements
 const signHolder = document.querySelector(".sign-holder"); 
 const signImageLabel = document.querySelector(".sign-image");
@@ -15,7 +14,14 @@ const errorMessage = document.getElementById("errorMessage");
 const paginationHolder = document.querySelector(".pagination-holder");
 const searchInput = document.getElementById("searchInput");
 
-const itemsPerPage = 9;  
+// Edit Modal Elements
+const editModal = document.getElementById("editModal");
+const editNameInput = document.getElementById("editName");
+const editFileInput = document.getElementById("editFileInput");
+const editSignId = document.getElementById("editSignId");
+const editForm = document.getElementById("editForm");
+
+const itemsPerPage = 9;
 
 // Fetch and display signs with optional search query
 async function fetchAndDisplaySigns(page = 1, searchQuery = "") {
@@ -49,12 +55,16 @@ function renderSigns(signs, page = 1) {
             <img src="${sign.signImage}" alt="${sign.name}">
             <p>${sign.name}</p> 
             <div class="s-buttons">
-                <button>Delete Sign</button>
+                <button class="edit-button"><i class="fa-solid fa-pen-to-square"></i> Përditëso </button>
+                <button class="delete-button"><i class="fa-solid fa-trash"></i> Fshi</button>
             </div>
         `;
 
-        const deleteButton = signCard.querySelector("button");
+        const deleteButton = signCard.querySelector(".delete-button");
+        const editButton = signCard.querySelector(".edit-button");
+
         deleteButton.addEventListener("click", () => deleteSign(sign._id));
+        editButton.addEventListener("click", () => openEditModal(sign));
 
         signHolder.appendChild(signCard);
     });
@@ -69,7 +79,7 @@ function renderPagination(totalItems, currentPage = 1) {
     const maxButtons = 5; 
     const startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
     const endPage = Math.min(totalPages, startPage + maxButtons - 1);
-  
+
     // Previous Button
     if (currentPage > 1) {
         const prevButton = document.createElement("button");
@@ -80,21 +90,21 @@ function renderPagination(totalItems, currentPage = 1) {
         });
         paginationHolder.appendChild(prevButton);
     }
-  
+
     // Page Buttons
     for (let i = startPage; i <= endPage; i++) {
         const pageButton = document.createElement("button");
         pageButton.textContent = i;
         pageButton.classList.add("pagination-button");
         if (i === currentPage) pageButton.classList.add("active");
-  
+
         pageButton.addEventListener("click", () => {
             fetchAndDisplaySigns(i);
         });
-  
+
         paginationHolder.appendChild(pageButton);
     }
-  
+
     // Next Button
     if (currentPage < totalPages) {
         const nextButton = document.createElement("button");
@@ -127,6 +137,54 @@ async function deleteSign(signId) {
     }
 }
 
+// Open edit modal
+function openEditModal(sign) {
+    editNameInput.value = sign.name;
+    editSignId.value = sign._id;
+    editModal.style.display = "block";
+}
+
+// Update sign
+async function updateSign(event) {
+    event.preventDefault();
+    const formData = new FormData(editForm);
+    const signId = formData.get("signId");
+
+    try {
+        const response = await fetch(`${API_URL.BASE}${API_URL.SIGNS.GET_BY_ID(signId)}`, {
+            method: "PUT",
+            body: formData,
+        });
+
+        if (response.ok) {
+            showSuccess("Sign updated successfully!");  // Show success alert
+            editModal.style.display = "none";
+            await fetchAndDisplaySigns();  // Refresh the signs list
+        } else {
+            const errorText = await response.text();
+            showError(errorText);
+        }
+    } catch (error) {
+        console.error("Network error:", error);
+        showError("Network error occurred.");
+    }
+}
+
+// Close modal
+function closeEditModal() {
+    const editModal = document.getElementById("editModal");
+    editModal.style.display = "none";  
+  }
+
+  window.closeEditModal = closeEditModal;
+
+  window.addEventListener("click", function(event) {
+    const editModal = document.getElementById("editModal");
+    if (event.target === editModal) {
+      closeEditModal();
+    }
+  });
+
 // Toggle loading state
 function toggleLoadingState(isLoading) {
     if (isLoading) {
@@ -138,7 +196,7 @@ function toggleLoadingState(isLoading) {
     }
 }
 
-// Display selected image
+// Display selected image preview
 fileInput.addEventListener("change", (event) => {
     const file = event.target.files[0];
     if (file && file.type.startsWith("image/")) {
@@ -158,15 +216,7 @@ signForm.addEventListener("submit", async (event) => {
     toggleLoadingState(true);
 
     const formData = new FormData(signForm);
-    
-    // Convert the name field to lowercase
-    const name = formData.get("name");
-    if (name) {
-        formData.set("name", name.toLowerCase());
-    }
-
-    errorDiv.style.display = "none";
-    errorMessage.textContent = "";
+    formData.set("name", formData.get("name").toLowerCase());
 
     try {
         const response = await fetch(`${API_URL.BASE}${API_URL.SIGNS.BASE_URL}`, {
@@ -177,8 +227,7 @@ signForm.addEventListener("submit", async (event) => {
         if (response.ok) {
             showSuccess("Sign uploaded successfully!");
             signForm.reset();
-            signImageLabel.style.backgroundImage = 'url("../assets/placeholder-images/upload.png")';
-            await fetchAndDisplaySigns(); // Refetch signs to update list
+            await fetchAndDisplaySigns(); 
         } else {
             const errorText = await response.text();
             showError(errorText);
@@ -191,33 +240,35 @@ signForm.addEventListener("submit", async (event) => {
     }
 });
 
-// Show error
+// Show messages
 function showError(message) {
     errorMessage.textContent = message;
     errorDiv.style.display = "block";
-    setTimeout(() => {
-        errorDiv.style.display = "none";
-    }, 3000);
+    setTimeout(() => errorDiv.style.display = "none", 3000);
 }
 
-// Show success message
 function showSuccess(message) {
-    errorMessage.textContent = message;
-    errorMessage.style.padding = "10px";
-    errorMessage.style.borderRadius = "12px";
-    errorMessage.style.color = "green";
-    errorMessage.style.backgroundColor = "lightGreen";
-    errorDiv.style.display = "block";
+     const notification = document.createElement("div");
+    notification.classList.add("notification", "success");
+
+    const p = document.createElement("p");
+    p.textContent = message;
+    
+    notification.appendChild(p);
+    document.body.appendChild(notification);
+
+    // Show notification and hide after 3 seconds
     setTimeout(() => {
-        errorDiv.style.display = "none";
+        notification.classList.add("hidden");
     }, 3000);
 }
 
-// Event listener for search input
-searchInput.addEventListener("input", (event) => {
-    const searchQuery = event.target.value.trim();
-    fetchAndDisplaySigns(1, searchQuery);
+// Event listeners
+editForm.addEventListener("submit", updateSign);
+window.addEventListener("click", (event) => {
+    if (event.target === editModal) closeEditModal();
 });
+searchInput.addEventListener("input", (event) => fetchAndDisplaySigns(1, event.target.value.trim()));
 
-// Initialize by fetching and displaying signs
+// Initialize
 fetchAndDisplaySigns(1);

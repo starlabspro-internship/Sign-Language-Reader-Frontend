@@ -1,6 +1,6 @@
 import "./userHistory.css";
 import "../profile.css";
-import "../profile.js";
+import "../profileManager.js";
 import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -23,14 +23,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function fetchUserActions(userId) {
     try {
-      const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
-        credentials: "include",
-      });
+      const response = await fetch(
+        `${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`,
+        {
+          credentials: "include",
+        }
+      );
       if (!response.ok) throw new Error("Failed to fetch user data");
       const user = await response.json();
       return [...user.userCompleted, ...user.userTranslations].sort(
         (a, b) =>
-          new Date(b.date || b.date_of_completion) - new Date(a.date || a.date_of_completion)
+          new Date(b.date || b.date_of_completion) -
+          new Date(a.date || a.date_of_completion)
       );
     } catch (error) {
       console.error("Error fetching user actions:", error);
@@ -40,7 +44,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   function renderHistory(actions, page = 1) {
     historyHolder.innerHTML = "";
     const startIndex = (page - 1) * itemsPerPage;
-    const paginatedActions = actions.slice(startIndex, startIndex + itemsPerPage);
+    const paginatedActions = actions.slice(
+      startIndex,
+      startIndex + itemsPerPage
+    );
 
     paginatedActions.forEach((action) => {
       const card = document.createElement("div");
@@ -81,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const maxButtons = 5; // Number of buttons to display
     const startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
     const endPage = Math.min(totalPages, startPage + maxButtons - 1);
-  
+
     // Previous Button
     if (currentPage > 1) {
       const prevButton = document.createElement("button");
@@ -93,22 +100,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
       paginationHolder.appendChild(prevButton);
     }
-  
+
     // Page Buttons
     for (let i = startPage; i <= endPage; i++) {
       const pageButton = document.createElement("button");
       pageButton.textContent = i;
       pageButton.classList.add("pagination-button");
       if (i === currentPage) pageButton.classList.add("active");
-  
+
       pageButton.addEventListener("click", () => {
         renderHistory(actions, i);
         renderPagination(totalItems, i);
       });
-  
+
       paginationHolder.appendChild(pageButton);
     }
-  
+
     // Next Button
     if (currentPage < totalPages) {
       const nextButton = document.createElement("button");
@@ -121,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       paginationHolder.appendChild(nextButton);
     }
   }
-  
+
   const userId = await checkAuth();
   const actions = await fetchUserActions(userId);
   if (actions) {
