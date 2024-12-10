@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="icon" href="../../photos/logo/duarte-image-logo.webp" />
+  </head>
+  <body>
+    <div class="quiz-intro">
+      <h2>Memory Game</h2>
+      <p>
+        Një lojë argëtuese për të sfiduar mendjen tuaj dhe për të përmirësuar aftësitë e kujtesës. Zbuloni kartat, gjeni çiftet dhe kaloni nivelet për të arritur fitoren! 
+      </p>
+    </div>
+    <div class="game-wrapper">
+      <div class="game-container">
+        <h1>Memory Game</h1>
+        <p id="level" style="display: none">Level: 1</p>
+    
+        <div class="game-board"></div>
+    
+        <button id="goBackButton" onclick="window.location.href='games.html'">
+          Kthehu
+        </button>
+        <button id="startButton">Fillo Lojen</button>
+    
+        <button id="nextLevelButton" style="display: none">Next Level</button>
+        <button id="resetButton" style="display: none">Reset Game</button>
+        <button id="stopButton" style="display: none">Stop</button>
+        <button id="resumeButton" style="display: none">Resume</button>
+        <div class="game-status">
+          <p id="message"></p>
+          <p id="moveCountText" style="display: none">
+            Moves: <span id="moveCount">0</span>
+          </p>
+          <p id="timerText" style="display: none">
+            Time: <span id="timer">00:00</span>
+          </p>
+        </div>
+      </div>
+    
+      <!-- Congratulations message container -->
+      <div class="congrats-message" style="display: none;">
+        <h1>Urime! Ju keni fituar lojen Memory!</h1>
+        <button onclick="window.location.href='games.html'">Kthehu tek Lojërat</button>
+      </div>
+    </div>
+    
+    </div>
+  </body>
+</html>

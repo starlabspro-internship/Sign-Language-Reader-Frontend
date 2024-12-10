@@ -94,7 +94,7 @@ const pages = [
   {
     template: "profile/profile.html",
     filename: "profile.html",
-    chunks: ["profile"],
+    chunks: ["profilePage"],
   },
   { template: "quiz/quiz.html", filename: "quiz.html", chunks: ["quiz"] },
   {
@@ -102,16 +102,15 @@ const pages = [
     filename: "userHistory.html",
     chunks: ["userHistory"],
   },
+  { template: "games/games.html", filename: "games.html", chunks: ["games"] },
+
   {
-    template: "games/games.html",
-    filename: "games.html",
-    chunks: ["games"],
-  },
-  {
-    template: "games/puzzle.html",
+    template: "games/puzzleGame/puzzle.html",
     filename: "puzzle.html",
     chunks: ["puzzle"],
   },
+  { template: "games/memoryGame/memory.html", filename: "memory.html", chunks: ["memory"] },
+
 ];
 
 const entryPoints = {
@@ -135,14 +134,16 @@ const entryPoints = {
   eventListeners: "./src/profile/profileFunctions/eventListeners.js",
   createAdmin: "./src/admin/createAdmin/createAdmin.js",
   users: "./src/admin/users/users.js",
-  profile: "./src/profile/profile.js",
+  profile: "./src/profile/profileManager.js",
+  profilePage: "./src/profile/profilePage.js",
   home: "./src/js/home.js",
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
   userHistory: "./src/profile/userHistory/userHistory.js",
   quiz: "./src/quiz/quiz.js",
   games:"./src/games/games.js",
-  puzzle:"./src/games/puzzle.js"
+  puzzle:"./src/games/puzzleGame/puzzle.js",
+  memory:"./src/games/memoryGame/memory.js"
 };
 
 module.exports = {

@@ -1,7 +1,8 @@
 import "../admin.js";
 import "./adminFaq.css";
+import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
-const BASE_URL = 'https://localhost:5000/api/faq';
+const BASE_URL = `${API_URL.BASE}${API_URL.FAQ.BASE_URL}`;
 
 // Modal elements
 const editModal = document.getElementById("editModal");
