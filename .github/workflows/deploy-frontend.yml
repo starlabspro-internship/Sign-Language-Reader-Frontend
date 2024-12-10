@@ -1,0 +1,61 @@
+name: Deploy Frontend to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.12.0
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Frontend
+      run: npm run build
+
+    - name: Deploy to Server
+      uses: appleboy/ssh-action@v0.1.11
+      with:
+        host: 116.203.213.63 
+        username: root
+        key: ${{ secrets.server }}
+        passphrase: ""
+        script: |
+          # Navigate to the project directory
+          cd /var/www/Duart/Sign-Language-Reader-Frontend
+          # Pull the latest code from the repository
+          git pull origin main
+          # Remove old build files
+          rm -rf *
+          # Create the dist directory
+          mkdir -p dist
+
+    - name: Upload Build Files
+      uses: appleboy/scp-action@v0.1.11
+      with:
+        host: 116.203.213.63
+        username: root
+        key: ${{ secrets.server }}
+        source: ./dist/*
+        target: /var/www/Duart/Sign-Language-Reader-Frontend
+
+    - name: Restart Nginx (Optional)
+      uses: appleboy/ssh-action@v0.1.11
+      with:
+        host: 116.203.213.63
+        username: root
+        key: ${{ secrets.server }}
+        passphrase: ""
+        script: |
+          sudo systemctl restart nginx
