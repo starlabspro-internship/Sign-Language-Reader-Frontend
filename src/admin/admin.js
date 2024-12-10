@@ -2,7 +2,7 @@ import "./admin.css";
 import "../profile/profileManager.js";
 import { sidebar } from "./adminFunctions/adminSidebar.js";
 import { isAdmin } from "./adminFunctions/checkIfAdmin.js";
-
+import { handleLogout } from "../profile/profileFunctions/handleLogout.js";
 
 (async () => {
   const userIsAdmin = await isAdmin();
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.insertAdjacentHTML("afterbegin", sidebar);
   }
 
-  
   const logoutModal = document.getElementById("logoutModal");
   const closeButton = document.querySelector(".close-button");
   const confirmLogoutButton = document.getElementById("confirmLogoutButton");
