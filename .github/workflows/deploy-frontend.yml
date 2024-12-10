@@ -24,6 +24,8 @@ jobs:
           cd /var/www/Duarte/Sign-Language-Reader-Frontend
           # Pull the latest changes from the GitHub repository
           git pull origin main
+          # Remove the old dist folder if it exists
+          rm -rf dist
           # Install dependencies
           npm install
           # Run the build
