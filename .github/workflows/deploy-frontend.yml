@@ -13,17 +13,6 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '22'
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Build Frontend
-      run: npm run build
-
     - name: Deploy to Server
       uses: appleboy/ssh-action@v0.1.5
       with:
@@ -31,20 +20,10 @@ jobs:
         username: root
         key: ${{ secrets.server }}
         script: |
+          # Navigate to the project directory on the server
           cd /var/www/Duarte/Sign-Language-Reader-Frontend
+          # Pull changes directly from the GitHub repository
           git pull origin main
-          # Only delete old dist files instead of everything
-          rm -rf dist
-          mkdir -p dist
-
-    - name: Upload Build Files
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: 116.203.213.63
-        username: root
-        key: ${{ secrets.server }}
-        source: ./dist/*
-        target: /var/www/Duarte/Sign-Language-Reader-Frontend/dist
 
     - name: Restart Nginx
       uses: appleboy/ssh-action@v0.1.5
