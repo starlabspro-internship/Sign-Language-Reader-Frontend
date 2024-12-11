@@ -101,6 +101,7 @@
   color: #888;
 }
 
+/*Forgot Password*/
 .forgot-link {
   margin: 4px;
 }
@@ -108,9 +109,92 @@
 .forgot-link a {
   font-size: 14.5px;
   color: #333;
-  text-decoration: none;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
+.forgotPassword-modal {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); 
+  background: var(--deep-blue);
+  color: var(--cream);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; 
+  animation: popup 0.2s ease-out forwards; 
+}
+
+@keyframes popup {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.forgotPassword-modal-content h2 {
+  margin-bottom: 16px;
+}
+
+#resetEmail {
+  padding: 10px;        
+  border: none;
+  border-radius: 6px;
+  width: 100%;          
+  box-sizing: border-box; 
+  font-size: 16px;       
+}
+
+.forgotPassword-modal-content .close-button {
+  position: absolute;
+  top: 0;
+  left: 94%;
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.forgotPassword-modal-content .close-button:hover {
+  color: rgb(187, 0, 0);
+}
+
+.reset-message {
+  margin-top: 1rem;
+  color: rgb(196, 134, 0);
+}
+
+.confirmation-buttons {
+  margin-top: 24px;
+}
+
+.confirmation-buttons button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--cream);
+  color: var(--deep-blue);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.confirmation-buttons button:hover {
+  background-color: var(--medium-blue);
+  color: var(--cream);
+}
+
+
+/*Auth buttons*/
 .auth-btn, .guest-login-btn {
   display: flex;
   align-items: center;
@@ -285,6 +369,21 @@
   .auth-container.active .toggle-panel.toggle-right {
     bottom: 0;
   }
+
+  .forgotPassword-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    margin: auto;
+  }
+
+  .confirmation-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 }
 
 @media (max-width: 480px) {

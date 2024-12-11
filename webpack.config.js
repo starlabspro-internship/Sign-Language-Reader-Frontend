@@ -102,6 +102,11 @@ const pages = [
     filename: "userHistory.html",
     chunks: ["userHistory"],
   },
+  {
+    template: "profile/resetPassword/reset-password.html",
+    filename: "reset-password.html",
+    chunks: ["resetPassword"],
+  },
   { template: "games/games.html", filename: "games.html", chunks: ["games"] },
 
   {
@@ -136,6 +141,7 @@ const entryPoints = {
   users: "./src/admin/users/users.js",
   profile: "./src/profile/profileManager.js",
   profilePage: "./src/profile/profilePage.js",
+  resetPassword: "./src/profile/resetPassword/reset-password.js",
   home: "./src/js/home.js",
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
