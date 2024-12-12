@@ -1,11 +1,10 @@
-//import the css
 import "./auth.css";
-import { enforceReloadOnBackNavigation } from "../js/forceReload.js";
+// import { enforceReloadOnBackNavigation } from "../js/forceReload.js";
 import API_URL from "../profile/profileFunctions/apiUrls.js";
 
 // Check if user is already logged in
 document.addEventListener("DOMContentLoaded", async () => {
-  enforceReloadOnBackNavigation();
+  // enforceReloadOnBackNavigation();
   const errorMessage = document.getElementById("login-error-message");
 
   try {
@@ -15,7 +14,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     if (response.ok) {
-      window.location.href = "profile.html";
+      const userDetails = await response.json();
+      if (userDetails.userIsAdmin) {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "profile.html";
+      }
     } else {
       document.getElementById("login-form").style.display = "block";
     }
@@ -25,7 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     errorMessage.style.display = "block";
   }
 
-  
   // Forgot Password Functionality
   const forgotPasswordLink = document.getElementById("forgotPasswordLink");
   const forgotPasswordModal = document.getElementById("forgotPasswordModal");
@@ -34,13 +37,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   const cancelResetButton = document.getElementById("cancelResetButton");
   const resetMessage = document.getElementById("reset-message");
 
-  // Open the Modal
+  let cooldownActive = false;
+
   forgotPasswordLink.addEventListener("click", (event) => {
     event.preventDefault();
     forgotPasswordModal.style.display = "flex";
   });
 
-  // Close the Modal
   closeButton.addEventListener("click", () => {
     forgotPasswordModal.style.display = "none";
     resetMessage.textContent = "";
@@ -51,13 +54,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     resetMessage.textContent = "";
   });
 
+  // Send Reset Email Button Logic
   sendResetEmailButton.addEventListener("click", async () => {
+    if (cooldownActive) {
+      resetMessage.textContent = "Please wait before trying again.";
+      resetMessage.style.color = "red";
+      return; 
+    }
+
     const resetEmail = document.getElementById("resetEmail").value.trim();
 
     if (!resetEmail) {
       resetMessage.textContent = "Please enter a valid email address.";
       return;
     }
+
+    // Disable the button and show loading state
+    sendResetEmailButton.disabled = true;
+    sendResetEmailButton.classList.add("disabled");
+    sendResetEmailButton.textContent = "Sending...";
 
     try {
       const response = await fetch(
@@ -73,8 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (response.ok) {
         resetMessage.style.color = "green";
-        resetMessage.textContent =
-          "Password reset instructions have been sent.";
+        resetMessage.textContent = "Password reset instructions have been sent.";
       } else {
         resetMessage.style.color = "red";
         resetMessage.textContent = result.message || "Reset request failed.";
@@ -82,6 +96,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
       console.error("Error sending reset email:", error);
       resetMessage.textContent = "An error occurred. Please try again later.";
+    } finally {
+      sendResetEmailButton.disabled = false;
+      sendResetEmailButton.textContent = "Send Reset Email";
+      sendResetEmailButton.classList.remove("disabled"); 
+
+
+      // Start cooldown timer
+      cooldownActive = true;
+      setTimeout(() => {
+        cooldownActive = false;
+      }, 120000); // 2 minutes cooldown
     }
   });
 });
@@ -196,14 +221,13 @@ document
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ useremail, userpassword }),
-            credentials: "include", // Important for session cookies
+            credentials: "include",
           }
         );
 
         const loginResult = await loginResponse.json();
 
         if (loginResponse.ok) {
-          // Redirect based on user type
           const userDetailsResponse = await fetch(
             `${API_URL.BASE}${API_URL.USERS.ME}`,
             {
@@ -247,7 +271,7 @@ document
     }
   });
 
-/* Guest Login Logic */
+// Guest Login Logic
 document
   .getElementById("guest-login-button")
   .addEventListener("click", async () => {
@@ -267,13 +291,9 @@ document
       );
 
       if (response.ok) {
-        const result = await response.json();
-        console.log("Guest login successful:", result);
-
         window.location.href = "profile.html";
       } else {
         const result = await response.json();
-        console.error("Guest login failed:", result); // Debugging line
         errorMessage.textContent = result.message || "Guest login failed!";
         errorMessage.style.display = "block";
       }
