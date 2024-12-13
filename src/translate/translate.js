@@ -16,14 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
         "faleminderit": "faleminderit",
         "une": "unë",
         "te": "të", // Correct "te" to "të"
-        "per": "për"
+        "per": "për",
+        "nje": "një",
+        "kater": "katër",
+        "pese": "pesë",
+        "gjashte": "gjashtë",
+        "shtate": "shtatë",
+        "tete": "tete",
+        "nente": "nënte",
+        "dhjete": "dhjetë"
     };
 
     // Multi-word expressions mapping and corrections
     const multiWordCorrections = {
         "te lutem": "të lutem",
-        "mirë se vjen": "mirë se vjen",
-        "faleminderit shumë": "faleminderit shumë",
         "per pak" : "për pak",
         "vjen nje dite" : "vjen_një_dite",
         "te befte mire" : "te_beftë_mirë",
@@ -31,13 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "nuk ia ve veshin" : "nuk_ia_ve_veshin",
         "gjysme i shurdher" : "gjysme_i_shurdher",
         "gjysme e shurdher" : "gjysme_e_shurdher",
-        "me shume" : "me_shume",
+        "me shume" : "më_shumë",
         "i ri" : "i_ri"
     };
 
     const multiWordExpressions = {
         "të lutem": "te_lutem", // Backend key for "të lutem"
-        "mirë se vjen": "mire_se_vjen",
         "faleminderit shumë": "faleminderit_shume",
         "për pak" : "për_pak",
         "i pari" : "i_pari",
@@ -54,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "e preferuar" : "e_preferuar",
         "i trash" : "i_trash",
         "e trash" : "e_trash",
-        "faqe trash" : "faqe_trash",
         "me shume" : "me_shume",
         "kurban bajrami" : "kurban_bajrami"
     };
@@ -124,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
         // Only correct if the distance is 1 or 2 and the word is not an exact match
-        if (minDistance > 2) {
+        if (minDistance > 1) {
             return input; // Ignore correction if the match is too distant
         }
     
