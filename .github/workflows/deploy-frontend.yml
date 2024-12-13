@@ -1,0 +1,36 @@
+name: Deploy Frontend to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Deploy to Server
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.ip }}
+        username: root
+        key: ${{ secrets.server }}
+        script: |
+          cd /var/www/Duarte/Sign-Language-Reader-Frontend
+          git pull origin main
+          rm -rf dist
+          npm install
+          npm run build
+
+    - name: Restart Nginx
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.ip }}
+        username: root
+        key: ${{ secrets.server }}
+        script: |
+          sudo systemctl restart nginx
