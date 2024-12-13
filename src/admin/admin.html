@@ -26,18 +26,18 @@
       <!-- Main content Starts-->
       <div class="main-content">
         <h1>Profili im</h1>
-        <div id="profile">
+        <div id="profile" style="visibility: hidden;">
           <p>Emri: <span class="userName"></span></p>
           <p>Mbiemri: <span class="userSurname"></span></p>
           <p>E-mail: <span class="userEmail"></span></p>
           <p>Telefoni: <span class="userPhone"></span></p>
         </div>
 
-        <div class="control-buttons">
+        <div id="control-buttons" class="control-buttons" style="visibility: hidden;">
           <button id="updateButton">Përditëso Profilin</button>
           <button id="deleteAccountButton">Fshij Profilin</button>
           <p id="delete-message"></p>
-
+        </div>
           <div id="updateProfileSection" style="display: none">
             <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
             <form id="updateProfileForm">
@@ -74,7 +74,7 @@
               <p id="update-message"></p>
             </form>
           </div>
-        </div>
+
       </div>
       <!-- Main content Ends-->
     </div>

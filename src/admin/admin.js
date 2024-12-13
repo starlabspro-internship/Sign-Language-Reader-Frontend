@@ -6,6 +6,11 @@ import { handleLogout } from "../profile/profileFunctions/handleLogout.js";
 
 (async () => {
   const userIsAdmin = await isAdmin();
+  if (userIsAdmin) {
+    document.body.classList.add('admin-visible');
+  } else {
+    window.location.href = "profile.html"; 
+  }
 })();
 
 document.addEventListener("DOMContentLoaded", async () => {

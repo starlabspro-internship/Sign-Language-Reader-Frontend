@@ -31,13 +31,18 @@ export async function fetchUserProfile() {
     if (!userResponse.ok) throw new Error("Failed to fetch user details");
 
     const user = await userResponse.json();
+    if (!user.userIsGuest ) {
+      const userHistoryButton = document.getElementById("userHistory");
+      const profileSection = document.getElementById("profile");
+      const controlButtons = document.getElementById("control-buttons");
+
+      // Show elements only if they exist
+      if (userHistoryButton) userHistoryButton.style.visibility = "visible"; 
+      if (profileSection) profileSection.style.visibility = "visible";  
+      if (controlButtons) controlButtons.style.visibility = "visible"; 
+    }
     if (user.userIsGuest) {
-      document.getElementById("updateButton").style.display = "none";
-      document.getElementById("deleteAccountButton").style.display = "none";
-      document.getElementById("userHistory").style.display = "none";
-      document.getElementById("guestHidden").style.display = "none";
-      document.getElementById("profile").style.display = "none";
-      document.getElementById("guest-message").style.display = "block";
+      document.getElementById("guest-message").style.visibility = "visible";
     }
 
     updateUI(user);
