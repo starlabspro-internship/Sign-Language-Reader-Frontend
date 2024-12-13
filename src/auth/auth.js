@@ -59,21 +59,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (cooldownActive) {
       resetMessage.textContent = "Please wait before trying again.";
       resetMessage.style.color = "red";
-      return; 
+      return;
     }
-
+  
     const resetEmail = document.getElementById("resetEmail").value.trim();
-
+  
     if (!resetEmail) {
       resetMessage.textContent = "Please enter a valid email address.";
       return;
     }
-
+  
     // Disable the button and show loading state
     sendResetEmailButton.disabled = true;
     sendResetEmailButton.classList.add("disabled");
     sendResetEmailButton.textContent = "Sending...";
-
+  
     try {
       const response = await fetch(
         `${API_URL.BASE}${API_URL.USERS.RESET_PASSWORD_REQUEST}`,
@@ -83,12 +83,27 @@ document.addEventListener("DOMContentLoaded", async () => {
           body: JSON.stringify({ useremail: resetEmail }),
         }
       );
-
+  
       const result = await response.json();
-
+  
       if (response.ok) {
         resetMessage.style.color = "green";
-        resetMessage.textContent = "Password reset instructions have been sent.";
+        resetMessage.textContent =
+          "Password reset instructions have been sent.";
+  
+        const cooldownEnd = new Date(result.cooldownEnd); 
+        const currentTime = new Date();
+  
+        if (cooldownEnd > currentTime) {
+          cooldownActive = true;
+          const remainingTime = cooldownEnd - currentTime;
+          setTimeout(() => {
+            cooldownActive = false;
+            sendResetEmailButton.disabled = false; 
+            sendResetEmailButton.classList.remove("disabled"); 
+            sendResetEmailButton.textContent = "Send Reset Email"; 
+          }, remainingTime); 
+        }
       } else {
         resetMessage.style.color = "red";
         resetMessage.textContent = result.message || "Reset request failed.";
@@ -97,18 +112,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("Error sending reset email:", error);
       resetMessage.textContent = "An error occurred. Please try again later.";
     } finally {
-      sendResetEmailButton.disabled = false;
-      sendResetEmailButton.textContent = "Send Reset Email";
-      sendResetEmailButton.classList.remove("disabled"); 
-
-
-      // Start cooldown timer
-      cooldownActive = true;
-      setTimeout(() => {
-        cooldownActive = false;
-      }, 120000); // 2 minutes cooldown
+      if (!cooldownActive) {
+        sendResetEmailButton.disabled = false;
+        sendResetEmailButton.textContent = "Send Reset Email";
+        sendResetEmailButton.classList.remove("disabled");
+      }
     }
   });
+  
 });
 
 // Login Form
