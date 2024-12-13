@@ -165,14 +165,13 @@ module.exports = {
   devServer: {
     watchFiles: ["./src/**/*.html"],
     open: {
-      target: "https://localhost:8080/home.html", //
+      target: "https://localhost:8080/home.html",
     },
     server: {
       type: "https",
     },
   },
   plugins: [
-    //Ben lehtesim duke iteruar ne loop duke krijuar HtmlWebpackPlugin per secilin page
     ...pages.map(
       (page) =>
         new HtmlWebpackPlugin({
@@ -182,7 +181,7 @@ module.exports = {
         })
     ),
     new MiniCssExtractPlugin({
-      filename: "[name].css", // Gjeneron css
+      filename: "[name].css",
     }),
   ],
   module: {
