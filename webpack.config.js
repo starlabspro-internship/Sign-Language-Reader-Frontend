@@ -74,22 +74,22 @@ const pages = [
   {
     template: "admin/signs/signs.html",
     filename: "signs.html",
-    chunks: ["signs"],
+    chunks: ["admin","signs"],
   },
   {
     template: "admin/users/users.html",
     filename: "users.html",
-    chunks: ["users"],
+    chunks: ["admin","users"],
   },
   {
     template: "admin/createAdmin/createAdmin.html",
     filename: "createAdmin.html",
-    chunks: ["createAdmin"],
+    chunks: ["admin","createAdmin"],
   },
   {
     template: "admin/adminFaq/adminFaq.html",
     filename: "adminFaq.html",
-    chunks: ["adminFaq"],
+    chunks: ["admin","adminFaq"],
   },
   {
     template: "profile/profile.html",
