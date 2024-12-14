@@ -1,5 +1,4 @@
 import "./userHistory.css";
-import "../profile.css";
 import "../profileManager.js";
 import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
