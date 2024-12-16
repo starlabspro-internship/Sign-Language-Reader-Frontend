@@ -102,6 +102,11 @@ const pages = [
     filename: "userHistory.html",
     chunks: ["userHistory"],
   },
+  {
+    template: "profile/dailyQuestion/dailyQuestion.html",
+    filename: "dailyQuestion.html",
+    chunks: ["dailyQuestion"],
+  },
   { template: "games/games.html", filename: "games.html", chunks: ["games"] },
 
   {
@@ -140,6 +145,7 @@ const entryPoints = {
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
   userHistory: "./src/profile/userHistory/userHistory.js",
+  dailyQuestion: "./src/profile/dailyQuestion/dailyQuestion.js",
   quiz: "./src/quiz/quiz.js",
   games:"./src/games/games.js",
   puzzle:"./src/games/puzzleGame/puzzle.js",

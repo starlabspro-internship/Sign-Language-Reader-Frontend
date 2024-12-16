@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyetja e dites</title>
+  </head>
+  <body>
+    
+    <!-- MAIN MENU STARTS -->
+    <!-- <div class="container" id="firstDiv">
+      <div id="home" class="home">
+        <h1>Kuiz Gjeneral</h1>
+        <div class="choices">
+          <-- Are generated on quiz.js --
+          <fieldset class="checkbox-group" id="checkboxContainer">
+            <legend class="checkbox-h1">
+              Zgjedhni temat për të cilat dëshironi të merrni pyetje
+            </legend>
+          </fieldset>
+          <button id="randomButton" class="random-btn">
+            <i class="fa-solid fa-shuffle"></i> Random
+          </button>
+        </div>
+
+        <div class="button-container">
+          <button class="btn" onclick="playfunction()">
+            <i class="fa-solid fa-play"></i> &nbsp; Fillo Kuizin
+          </button>
+          <button class="btn" onclick="goHighestScore();">
+            <i class="fa-solid fa-square-poll-vertical"></i>&nbsp; Rezultatet
+          </button>
+        </div>
+      </div>
+    </div> -->
+    <!-- MAIN MENU ENDS -->
+
+    <!-- QUIZ SECTION STARTS -->
+    <div class="container" id="firstDiv" style="display: block">
+      <div id="game" class="justify-center flex-column">
+        <div id="hud">
+          <div id="hud-item">
+            <p id="progressText" class="hud-prefix">Pyetja</p>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
+            </div>
+            <h1 class="hud-main-text" id="questionCounter"></h1>
+          </div>
+          <div id="hud-item">
+            <!-- <p class="hud-prefix">Score</p>
+            <h1 class="hud-main-text" id="score">0</h1> -->
+          </div>
+        </div>
+        <h2 id="question">What is the answer to this question ?</h2>
+        <div class="choices">
+          <div class="choice-container">
+            <p class="choice-prefix">A</p>
+            <p class="choice-text" data-number="1">Choice 1</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">B</p>
+            <p class="choice-text" data-number="2">Choice 2</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">C</p>
+            <p class="choice-text" data-number="3">Choice 3</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">D</p>
+            <p class="choice-text" data-number="4">Choice 4</p>
+          </div>
+        </div>
+        <div class="button-container">
+          <button class="btn go-back" onclick="goHome()">Kthehu </button>
+        </div>
+      </div>
+    </div>
+    <!-- QUIZ SECTION ENDS -->
+
+    <!-- FINAL SCORE SECTION STARTS -->
+    <div class="container" id="secondDiv" style="display: none">
+      <div id="end" class="flex-center flex-column">
+        <h1 id="finalSay"> </h1>
+        
+        <div class="end-button-container">  
+          <button class="btn" onclick="playfunction()"><i class="fa-solid fa-rotate-right"></i>&nbsp; Luaj quize</button>
+          <button class="btn" onclick="goHome()"><i class="fa-solid fa-hand-point-left"></i>&nbsp; Kthehu te Profili</button>
+        </div>
+      </div>
+    </div> -->
+    <!-- FINAL SCORE SECTION ENDS -->
+
+    <!-- HIGH SCORE SECTION STARTS -->
+    <!-- <div class="container" id="fourthDiv" style="display: none">
+      <div id="highScores" class="flex-center flex-column">
+        <h1 id="finalScoreList">Bordi Liderëve</h1>
+        <ul id="highScoresList"></ul>
+        <a class="btn" onclick="goHome()">Kthehu te Kuizet</a>
+      </div>
+    </div> -->
+    <!-- HIGH SCORE SECTION ENDS -->
+  
+    <!-- <div class="container">
+      <div class="sidebar">
+        <div class="user-info">
+          <h2 class="userName"></h2>
+          <h3 class="userSurname"></h3>
+          <p id="guestHidden" class="userEmail"></p>
+        </div>
+        
+          <a style="color: black; font-style:none" id="dailyQuestion" href="dailyQuestion.html"><i class="fas fa-bell"></i> Pyetja e dites</a>
+        
+        <ul class="profile-nav-options">
+          <li>
+            <a href="#"><i class="fa-solid fa-user-pen"></i> Profili</a>
+          </li>
+          <li>
+            <a id="userHistory" href="userHistory.html"><i class="fa-solid fa-magnifying-glass"></i>Historia Kërkimeve</a>
+          </li>
+          <li>
+            <a href="#" id="logoutButton"
+              ><i class="fa-solid fa-right-from-bracket"></i>Dilni</a
+            >
+          </li>
+        </ul>
+        <div id="logoutModal" class="modal" style="display: none">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Konfirmo daljen</h2>
+            <p>Jeni të sigurt që dëshironi të dilni?</p>
+            <div class="confirmation-buttons">
+              <button id="confirmLogoutButton">Po, dil</button>
+              <button id="cancelLogoutButton">Anulo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <h1>Profili im</h1>
+        <div id="profile">  
+          <p>Emri: <span class="userName"></span></p>
+          <p>Mbiemri: <span class="userSurname"></span></p>
+          <p>E-mail: <span class="userEmail"></span></p>
+          <p>Telefoni: <span class="userPhone"></span></p>  
+        </div>
+        <div class="control-buttons">
+          <button id="updateButton">Përditëso Profilin</button>
+          <button id="deleteAccountButton">Fshij Profilin</button>
+          <p id="guest-message" style="display: none;">Krijoni një llogari dhe shijoni të gjitha veçoritë!</p>
+          <p id="delete-message"></p>
+
+          <div id="updateProfileSection" style="display: none">
+            <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
+            <form id="updateProfileForm">
+              <input
+                type="text"
+                id="update-userName"
+                placeholder="Përditëso Emrin"
+                required
+              />
+              <input
+                type="text"
+                id="update-userSurname"
+                placeholder="Përditëso Mbiemrim"
+                required
+              />
+              <input
+                type="email"
+                id="update-userEmail"
+                placeholder="Përditëso E-mailin"
+                required
+              />
+              <input
+                type="text"
+                id="update-userPhone"
+                placeholder="Përditëso Phone"
+                required
+              />
+              <input
+                type="password"
+                id="update-userPassword"
+                placeholder="Përditëso Fjalëkalimin (opsionale)"
+              />
+              <button type="submit" class="submit-btn">Ruaj Ndryshimet</button>
+              <p id="update-message"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>
