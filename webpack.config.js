@@ -103,9 +103,15 @@ const pages = [
     chunks: ["userHistory"],
   },
   {
+<<<<<<< HEAD
     template: "profile/dailyQuestion/dailyQuestion.html",
     filename: "dailyQuestion.html",
     chunks: ["dailyQuestion"],
+=======
+    template: "profile/resetPassword/reset-password.html",
+    filename: "reset-password.html",
+    chunks: ["resetPassword"],
+>>>>>>> b3b9cc38c79822dccecd3e92e9279712cf194867
   },
   { template: "games/games.html", filename: "games.html", chunks: ["games"] },
 
@@ -141,6 +147,7 @@ const entryPoints = {
   users: "./src/admin/users/users.js",
   profile: "./src/profile/profileManager.js",
   profilePage: "./src/profile/profilePage.js",
+  resetPassword: "./src/profile/resetPassword/reset-password.js",
   home: "./src/js/home.js",
   signs: "./src/admin/signs/signs.js",
   adminFaq: "./src/admin/adminFaq/adminFaq.js",
@@ -165,14 +172,13 @@ module.exports = {
   devServer: {
     watchFiles: ["./src/**/*.html"],
     open: {
-      target: "https://localhost:8080/home.html", //
+      target: "https://localhost:8080/home.html",
     },
     server: {
       type: "https",
     },
   },
   plugins: [
-    //Ben lehtesim duke iteruar ne loop duke krijuar HtmlWebpackPlugin per secilin page
     ...pages.map(
       (page) =>
         new HtmlWebpackPlugin({
@@ -182,7 +188,7 @@ module.exports = {
         })
     ),
     new MiniCssExtractPlugin({
-      filename: "[name].css", // Gjeneron css
+      filename: "[name].css",
     }),
   ],
   module: {

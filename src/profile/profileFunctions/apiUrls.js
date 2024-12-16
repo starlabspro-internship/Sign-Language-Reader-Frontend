@@ -10,7 +10,9 @@ const API_URL = {
       GUEST_LOGIN: "/users/guestLogin", 
       SIGNUP: "/users/signup", 
       LOGOUT: "/users/logout",
-      CREATE_ADMIN: "/users/createAdmin"
+      CREATE_ADMIN: "/users/createAdmin",
+      RESET_PASSWORD_REQUEST: "/users/reset-password",
+      RESET_PASSWORD: (token) => `/users/reset-password/${token}`, 
   },
   FAQ: {
     BASE_URL: "/faq"

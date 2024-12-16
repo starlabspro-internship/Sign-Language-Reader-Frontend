@@ -1,4 +1,10 @@
 @import "../profile/profile.css";
+*{
+  visibility: hidden;
+}
+.admin-visible * {
+  visibility: visible;
+}
 
 .sidebar {
   background: var(--deep-blue);

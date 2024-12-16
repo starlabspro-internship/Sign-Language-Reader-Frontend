@@ -18,7 +18,6 @@ export async function renderHeader() {
             <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
             <li><a href="translate.html"><i class="fa-solid fa-language"></i> Përkthe</a></li>
             <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
-            <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
             <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mësimet</a></li>
             <li><a href="games.html"><i class="fa-solid fa-gamepad"></i> Lojërat</a></li>
             <li><a href="#"><i class="fa-solid fa-users"></i> Komuniteti</a></li>
@@ -38,7 +37,6 @@ export async function renderHeader() {
         <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
         <li><a href="translate.html"><i class="fa-solid fa-language"></i> Përkthe</a></li>
         <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
-        <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
         <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mësimet</a></li>
         <li><a href="games.html"><i class="fa-solid fa-gamepad"></i> Lojërat</a></li>
         <li><a href="#"><i class="fa-solid fa-users"></i> Komuniteti</a></li>
