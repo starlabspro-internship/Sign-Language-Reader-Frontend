@@ -75,6 +75,7 @@ document.getElementById("randomButton").addEventListener("click", () => {
   });
   playfunction();
 });
+
 /* Random Button */
 
 const question = document.getElementById("question");
