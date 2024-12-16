@@ -9,6 +9,7 @@ const getBaseURL = () => {
 // Centralized API URLs
 const API_URL = {
   BASE: getBaseURL(),
+  
   USERS: {
     ME: "/users/me",
     GET_BY_ID: (userId) => `/users/${userId}`,
