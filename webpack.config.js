@@ -103,15 +103,9 @@ const pages = [
     chunks: ["userHistory"],
   },
   {
-<<<<<<< HEAD
     template: "profile/dailyQuestion/dailyQuestion.html",
     filename: "dailyQuestion.html",
     chunks: ["dailyQuestion"],
-=======
-    template: "profile/resetPassword/reset-password.html",
-    filename: "reset-password.html",
-    chunks: ["resetPassword"],
->>>>>>> b3b9cc38c79822dccecd3e92e9279712cf194867
   },
   { template: "games/games.html", filename: "games.html", chunks: ["games"] },
 
