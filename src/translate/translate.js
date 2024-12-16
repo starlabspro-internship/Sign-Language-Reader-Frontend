@@ -262,114 +262,129 @@ document.addEventListener("DOMContentLoaded", function () {
     const minimizeCamButton = document.getElementById("minimizeCam");
     const video = document.getElementById("mirror-cam");
 
-    let isDragging = false; // Enable dragging
-    let isResizing = false; // Enable resizing
-    let offsetX, offsetY;
-    let initialMouseX, initialMouseY, initialSize;
+    let isDragging = false;
+    let isResizing = false;
+    let offsetX, offsetY, initialMouseX, initialMouseY, initialSize;
     let webcamStream = null;
 
+  
     // Start Webcam Stream
     function startWebcam() {
         navigator.mediaDevices.getUserMedia({ video: true })
             .then((stream) => {
                 webcamStream = stream;
                 video.srcObject = stream;
-                video.onloadedmetadata = () => {
-                    video.play();
-                };
+                video.onloadedmetadata = () => video.play();
             })
             .catch((err) => {
                 console.error("Error accessing webcam:", err);
+                alert("Could not access your webcam. Please check permissions.");
             });
     }
 
     // Stop Webcam Stream
     function stopWebcam() {
         if (webcamStream) {
-            const tracks = webcamStream.getTracks(); // Get all tracks (audio/video)
-            tracks.forEach((track) => track.stop()); // Stop each track
-            webcamStream = null; // Clear the webcamStream reference
+            const tracks = webcamStream.getTracks();
+            tracks.forEach((track) => track.stop());
+            webcamStream = null;
         }
-        video.srcObject = null; // Clear the video element's source
+        video.srcObject = null;
     }
 
     // Toggle Floating Camera Visibility
     toggleCamButton.addEventListener("click", function () {
-        if (floatingCam.style.display === "none") {
-            floatingCam.style.display = "block";
-            toggleCamButton.style.display = "none"; // Hide toggle button
-            startWebcam();
-        }
+        floatingCam.style.display = "block";
+        toggleCamButton.style.display = "none"; // Hide toggle button
+        startWebcam();
     });
 
-    // Minimize Floating Camera (Stop Webcam)
+    // Minimize Floating Camera
     minimizeCamButton.addEventListener("click", function () {
-        floatingCam.style.display = "none"; // Hide the floating camera
-        toggleCamButton.style.display = "block"; // Show the toggle button
-        stopWebcam(); // Stop the webcam
+        floatingCam.style.display = "none";
+        toggleCamButton.style.display = "block"; // Show toggle button
+        stopWebcam();
     });
 
     // Dragging Functionality
-    floatingCam.addEventListener("mousedown", function (e) {
+    function startDrag(e) {
         if (e.target === resizeHandle) return; // Ignore drag if resizing
         isDragging = true;
-        offsetX = e.clientX - floatingCam.getBoundingClientRect().left;
-        offsetY = e.clientY - floatingCam.getBoundingClientRect().top;
 
-        document.body.style.cursor = "grabbing"; // Change cursor to indicate dragging
-    });
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-    window.addEventListener("mousemove", function (e) {
+        offsetX = clientX - floatingCam.getBoundingClientRect().left;
+        offsetY = clientY - floatingCam.getBoundingClientRect().top;
+
+        document.body.style.cursor = "grabbing";
+    }
+
+    function drag(e) {
         if (isDragging) {
-            floatingCam.style.left = `${e.clientX - offsetX}px`;
-            floatingCam.style.top = `${e.clientY - offsetY}px`;
-        }
-    });
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-    window.addEventListener("mouseup", function () {
-        if (isDragging) {
-            isDragging = false;
-            document.body.style.cursor = "default"; // Reset cursor
-        }
-    });
+            const newX = clientX - offsetX;
+            const newY = clientY - offsetY;
 
-    // Resizing Functionality (Maintain Square Aspect Ratio)
-    resizeHandle.addEventListener("mousedown", function (e) {
+            // Ensure the webcam stays within the viewport
+            const rect = floatingCam.getBoundingClientRect();
+            const maxX = window.innerWidth - rect.width;
+            const maxY = window.innerHeight - rect.height;
+
+            floatingCam.style.left = `${Math.max(0, Math.min(maxX, newX))}px`;
+            floatingCam.style.top = `${Math.max(0, Math.min(maxY, newY))}px`;
+        }
+    }
+
+    function stopDrag() {
+        isDragging = false;
+        document.body.style.cursor = "default";
+    }
+
+    // Resizing Functionality
+    function startResize(e) {
         isResizing = true;
-        initialMouseX = e.clientX;
-        initialMouseY = e.clientY;
-        initialSize = floatingCam.offsetWidth; // Square, so width = height
+
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+        initialMouseX = clientX;
+        initialMouseY = clientY;
+        initialSize = floatingCam.offsetWidth;
 
         document.body.style.cursor = "nwse-resize";
         e.preventDefault();
-    });
+    }
 
-    window.addEventListener("mousemove", function (e) {
+    function resize(e) {
         if (isResizing) {
-            const delta = Math.max(e.clientX - initialMouseX, e.clientY - initialMouseY); // Diagonal resize
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            const delta = Math.max(clientX - initialMouseX, clientY - initialMouseY);
             const newSize = initialSize + delta;
 
-            // Enforce minimum size
-            if (newSize >= 150) {
+            const maxSize = Math.min(window.innerWidth, window.innerHeight);
+
+            if (newSize >= 150 && newSize <= maxSize) {
                 floatingCam.style.width = `${newSize}px`;
-                floatingCam.style.height = `${newSize}px`; // Maintain square
+                floatingCam.style.height = `${newSize}px`;
             }
         }
-    });
+    }
 
-    window.addEventListener("mouseup", function () {
-        if (isResizing) {
-            isResizing = false;
-            document.body.style.cursor = "default"; // Reset cursor
-        }
-    });
+    function stopResize() {
+        isResizing = false;
+        document.body.style.cursor = "default";
+    }
 
-    // Responsive Adjustments for Window Resize
+    // Ensure the webcam stays within the viewport on resize
     function adjustFloatingCam() {
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
-        // Ensure the webcam stays within the viewport
         const rect = floatingCam.getBoundingClientRect();
         if (rect.right > screenWidth) {
             floatingCam.style.left = `${screenWidth - rect.width - 10}px`;
@@ -381,6 +396,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("resize", adjustFloatingCam);
 
+    // Attach event listeners for dragging
+    floatingCam.addEventListener("mousedown", startDrag);
+    floatingCam.addEventListener("touchstart", startDrag);
+
+    window.addEventListener("mousemove", drag);
+    window.addEventListener("touchmove", drag);
+
+    window.addEventListener("mouseup", stopDrag);
+    window.addEventListener("touchend", stopDrag);
+
+    // Attach event listeners for resizing
+    resizeHandle.addEventListener("mousedown", startResize);
+    resizeHandle.addEventListener("touchstart", startResize);
+
+    window.addEventListener("mousemove", resize);
+    window.addEventListener("touchmove", resize);
+
+    window.addEventListener("mouseup", stopResize);
+    window.addEventListener("touchend", stopResize);
+
+    
+
     // Ensure Webcam Starts Hidden
     floatingCam.style.display = "none";
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const toggleCamButton = document.getElementById("toggleFloatingCam");
+
+    async function checkLoginStatus() {
+        try {
+            const response = await fetch('https://localhost:5000/api/users/me', { credentials: 'include' });
+            if (response.status === 401) {
+                console.log("User is not logged in");
+                toggleCamButton.style.display = "none"; // Hide the button
+            } else {
+                console.log("User is logged in");
+                toggleCamButton.style.display = "block"; // Show the button
+            }
+        } catch (error) {
+            console.error("Error checking login status:", error);
+            toggleCamButton.style.display = "none"; // Hide the button on error
+        }
+    }
+    
+    // Call this function on page load
+    checkLoginStatus();
 });
