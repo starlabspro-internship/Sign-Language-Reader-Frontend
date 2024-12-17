@@ -194,6 +194,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 signsHolder.appendChild(signCard);
             });
 
+            checkOverflow();
+
             // Capitalize the first letter of the first image's caption
             const firstImageCaption = signsHolder.querySelector('.sign-card p');
             if (firstImageCaption) {
