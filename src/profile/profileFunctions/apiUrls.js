@@ -1,6 +1,7 @@
 // Ky file perdoret per ta shkurtuar punen e url've te API-ve dhe t'i centralizuar ato ne nje file te vetme!
 const API_URL = {
   BASE: "https://localhost:5000/api",
+  // BASE: 'https://duarte.devops99.pro/',
   USERS: {
       ME: "/users/me",
       GET_BY_ID: (userId) => `/users/${userId}`,
@@ -9,7 +10,9 @@ const API_URL = {
       GUEST_LOGIN: "/users/guestLogin", 
       SIGNUP: "/users/signup", 
       LOGOUT: "/users/logout",
-      CREATE_ADMIN: "/users/createAdmin"
+      CREATE_ADMIN: "/users/createAdmin",
+      RESET_PASSWORD_REQUEST: "/users/reset-password",
+      RESET_PASSWORD: (token) => `/users/reset-password/${token}`, 
   },
   FAQ: {
     BASE_URL: "/faq"
