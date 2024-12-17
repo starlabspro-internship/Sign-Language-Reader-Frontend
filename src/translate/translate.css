@@ -313,6 +313,8 @@ body {
     height: 200px; /* Default square size */
     min-width: 150px; /* Enforce minimum size */
     min-height: 150px; /* Enforce minimum size */
+    max-width: 80%;
+    max-height: 60%;
     background: var(--deep-blue);
     border-radius: 8px;
     overflow: hidden;
@@ -370,6 +372,11 @@ body {
     z-index: 1000;
 }
 
+#floatingCam, .resize-handle {
+    touch-action: none;
+}
+
+
 /* Media Queries for Extra Responsiveness */
 @media (max-width: 768px) {
     #floatingCam {
@@ -407,8 +414,19 @@ body {
         padding: 5px 8px;
     }
 
+    .resize-handle {
+        width: 20px; /* Increase size for touch */
+        height: 20px;
+    }
+
+    .floating-header {
+        padding: 10px;
+        font-size: 0.9rem; /* Ensure readability */
+    }
+
     #mirror-cam {
         height: calc(100% - 30px);
+        transform: scaleX(-1);
     }
 
     .resize-handle {

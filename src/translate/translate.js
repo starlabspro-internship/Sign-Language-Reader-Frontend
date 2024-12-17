@@ -9,17 +9,85 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearButton = document.getElementById("clearButton");
     const signsHolder = document.getElementById("translationResults");
 
-    // Dictionary for corrections
+    // Dictionary for single-word corrections
     const corrections = {
         "pershendetje": "përshëndetje",
         "miredita": "mirëdita",
-        "te": "të",
-        "me": "më",
         "faleminderit": "faleminderit",
-        "une": "unë"
+        "une": "unë",
+        "te": "të", // Correct "te" to "të"
+        "per": "për",
+        "nje": "një",
+        "kater": "katër",
+        "pese": "pesë",
+        "gjashte": "gjashtë",
+        "shtate": "shtatë",
+        "tete": "tete",
+        "nente": "nënte",
+        "dhjete": "dhjetë"
     };
 
-    // Funksioni Levenshtein bistance
+    // Multi-word expressions mapping and corrections
+    const multiWordCorrections = {
+        "te lutem": "të lutem",
+        "per pak" : "për pak",
+        "vjen nje dite" : "vjen_një_dite",
+        "te befte mire" : "te_beftë_mirë",
+        "nuk ia var" : "nuk_ia_var",
+        "nuk ia ve veshin" : "nuk_ia_ve_veshin",
+        "gjysme i shurdher" : "gjysme_i_shurdher",
+        "gjysme e shurdher" : "gjysme_e_shurdher",
+        "me shume" : "më_shumë",
+        "i ri" : "i_ri"
+    };
+
+    const multiWordExpressions = {
+        "të lutem": "te_lutem", // Backend key for "të lutem"
+        "faleminderit shumë": "faleminderit_shume",
+        "për pak" : "për_pak",
+        "i pari" : "i_pari",
+        "e para" : "e_para",
+        "i pamundur" : "i_pamundur",
+        "e pamundur" : "e_pamundur",
+        "e shtrenjte" : "e_shtrenjte",
+        "i shtrenjte" : "i_shtrenjte",
+        "e merzitur"  : "e_merzitur",
+        "i merzitur" : "i_merzitur",
+        "i bezdisshm" : "i_bezdisshm",
+        "e bezdisshme" : "e_bezdisshme", 
+        "i preferuar" : "i_preferuar",
+        "e preferuar" : "e_preferuar",
+        "i trash" : "i_trash",
+        "e trash" : "e_trash",
+        "me shume" : "me_shume",
+        "kurban bajrami" : "kurban_bajrami"
+    };
+
+    // Normalize the input text by replacing multi-word expressions and correcting misspellings
+    function normalizeInput(input) {
+        let normalizedInput = input.toLowerCase().trim();
+
+        // Correct multi-word phrases first
+        for (const [expression, corrected] of Object.entries(multiWordCorrections)) {
+            const regex = new RegExp(`\\b${expression}\\b`, "gi");
+            normalizedInput = normalizedInput.replace(regex, corrected);
+        }
+
+        // Correct single words after multi-word corrections
+        const words = normalizedInput.split(/\s+/);
+        const correctedWords = words.map(word => findClosestWord(word, corrections));
+        normalizedInput = correctedWords.join(" ");
+
+        // Replace corrected multi-word expressions with backend keys
+        for (const [expression, backendKey] of Object.entries(multiWordExpressions)) {
+            const regex = new RegExp(`\\b${expression}\\b`, "gi");
+            normalizedInput = normalizedInput.replace(regex, backendKey);
+        }
+
+        return normalizedInput;
+    }
+
+    // Levenshtein distance function for spell-checking
     function levenshteinDistance(a, b) {
         const matrix = Array.from({ length: a.length + 1 }, () =>
             Array(b.length + 1).fill(0)
@@ -42,12 +110,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return matrix[a.length][b.length];
     }
 
-    
-    // Gjej fjalen me te perafert duke perdor Levenshtein distance
     function findClosestWord(input, dictionary) {
+        const exactMatches = ["e", "i", "para", "dhe", "unë", "është"]; // Words that shouldn't be corrected
+        if (exactMatches.includes(input.toLowerCase())) {
+            return input; // Return the word unchanged
+        }
+    
         let closestMatch = null;
         let minDistance = Infinity;
-
+    
         for (const word of Object.keys(dictionary)) {
             const distance = levenshteinDistance(input.toLowerCase(), word.toLowerCase());
             if (distance < minDistance) {
@@ -55,17 +126,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 closestMatch = word;
             }
         }
-
-       
-        return minDistance <= 2 ? dictionary[closestMatch] : input;
+    
+        // Only correct if the distance is 1 or 2 and the word is not an exact match
+        if (minDistance > 1) {
+            return input; // Ignore correction if the match is too distant
+        }
+    
+        return dictionary[closestMatch] || input;
     }
-
-    // Normalize the input text by correcting misspellings
-    function normalizeSentence(sentence) {
-        const words = sentence.split(/\s+/);
-        const correctedWords = words.map((word) => findClosestWord(word, corrections));
-        return correctedWords.join(" "); 
-    }
+    
 
     translateForm.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -73,8 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let inputText = translateInput.value.trim();
         if (!inputText) return;
 
-        // Correct misspellings in the input text
-        inputText = normalizeSentence(inputText);
+        // Normalize the input text
+        const originalInput = inputText; // Save the original input for display
+        inputText = normalizeInput(inputText);
 
         signsHolder.innerHTML = ''; // Clear previous results
 
@@ -106,17 +176,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     img.src = item.image;
                     img.alt = item.word;
                     signCard.appendChild(img);
-                    signCard.innerHTML += `<p>${item.word}</p>`;
+
+                    // Replace underscores with spaces for display
+                    const formattedWord = item.word.replace(/_/g, " ").replace("te", "të"); // Ensure "te" is corrected to "të"
+                    signCard.innerHTML += `<p>${formattedWord}</p>`;
                 } else {
                     const img = document.createElement("img");
                     img.src = `${placeholderImage}`;
                     img.alt = "Unsupported word";
                     signCard.appendChild(img);
-                    signCard.innerHTML += `<p>"${item.word}" <br> nuk u gjet</p>`;
+
+                    // Replace underscores with spaces for error display
+                    const formattedWord = item.word.replace(/_/g, " ").replace("te", "të"); // Ensure "te" is corrected to "të"
+                    signCard.innerHTML += `<p>"${formattedWord}" <br> nuk u gjet</p>`;
                 }
 
                 signsHolder.appendChild(signCard);
             });
+
+            checkOverflow();
 
             // Capitalize the first letter of the first image's caption
             const firstImageCaption = signsHolder.querySelector('.sign-card p');
@@ -126,8 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             clearButton.style.display = "inline-block"; // Show the Clear button
 
-            // After the content is loaded, check if scroll buttons should be visible
-            checkOverflow();
         } catch (error) {
             console.error("Error fetching translation:", error);
             const errorMessage = document.createElement("p");
@@ -188,114 +264,129 @@ document.addEventListener("DOMContentLoaded", function () {
     const minimizeCamButton = document.getElementById("minimizeCam");
     const video = document.getElementById("mirror-cam");
 
-    let isDragging = false; // Enable dragging
-    let isResizing = false; // Enable resizing
-    let offsetX, offsetY;
-    let initialMouseX, initialMouseY, initialSize;
+    let isDragging = false;
+    let isResizing = false;
+    let offsetX, offsetY, initialMouseX, initialMouseY, initialSize;
     let webcamStream = null;
 
+  
     // Start Webcam Stream
     function startWebcam() {
         navigator.mediaDevices.getUserMedia({ video: true })
             .then((stream) => {
                 webcamStream = stream;
                 video.srcObject = stream;
-                video.onloadedmetadata = () => {
-                    video.play();
-                };
+                video.onloadedmetadata = () => video.play();
             })
             .catch((err) => {
                 console.error("Error accessing webcam:", err);
+                alert("Could not access your webcam. Please check permissions.");
             });
     }
 
     // Stop Webcam Stream
     function stopWebcam() {
         if (webcamStream) {
-            const tracks = webcamStream.getTracks(); // Get all tracks (audio/video)
-            tracks.forEach((track) => track.stop()); // Stop each track
-            webcamStream = null; // Clear the webcamStream reference
+            const tracks = webcamStream.getTracks();
+            tracks.forEach((track) => track.stop());
+            webcamStream = null;
         }
-        video.srcObject = null; // Clear the video element's source
+        video.srcObject = null;
     }
 
     // Toggle Floating Camera Visibility
     toggleCamButton.addEventListener("click", function () {
-        if (floatingCam.style.display === "none") {
-            floatingCam.style.display = "block";
-            toggleCamButton.style.display = "none"; // Hide toggle button
-            startWebcam();
-        }
+        floatingCam.style.display = "block";
+        toggleCamButton.style.display = "none"; // Hide toggle button
+        startWebcam();
     });
 
-    // Minimize Floating Camera (Stop Webcam)
+    // Minimize Floating Camera
     minimizeCamButton.addEventListener("click", function () {
-        floatingCam.style.display = "none"; // Hide the floating camera
-        toggleCamButton.style.display = "block"; // Show the toggle button
-        stopWebcam(); // Stop the webcam
+        floatingCam.style.display = "none";
+        toggleCamButton.style.display = "block"; // Show toggle button
+        stopWebcam();
     });
 
     // Dragging Functionality
-    floatingCam.addEventListener("mousedown", function (e) {
+    function startDrag(e) {
         if (e.target === resizeHandle) return; // Ignore drag if resizing
         isDragging = true;
-        offsetX = e.clientX - floatingCam.getBoundingClientRect().left;
-        offsetY = e.clientY - floatingCam.getBoundingClientRect().top;
 
-        document.body.style.cursor = "grabbing"; // Change cursor to indicate dragging
-    });
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-    window.addEventListener("mousemove", function (e) {
+        offsetX = clientX - floatingCam.getBoundingClientRect().left;
+        offsetY = clientY - floatingCam.getBoundingClientRect().top;
+
+        document.body.style.cursor = "grabbing";
+    }
+
+    function drag(e) {
         if (isDragging) {
-            floatingCam.style.left = `${e.clientX - offsetX}px`;
-            floatingCam.style.top = `${e.clientY - offsetY}px`;
-        }
-    });
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-    window.addEventListener("mouseup", function () {
-        if (isDragging) {
-            isDragging = false;
-            document.body.style.cursor = "default"; // Reset cursor
-        }
-    });
+            const newX = clientX - offsetX;
+            const newY = clientY - offsetY;
 
-    // Resizing Functionality (Maintain Square Aspect Ratio)
-    resizeHandle.addEventListener("mousedown", function (e) {
+            // Ensure the webcam stays within the viewport
+            const rect = floatingCam.getBoundingClientRect();
+            const maxX = window.innerWidth - rect.width;
+            const maxY = window.innerHeight - rect.height;
+
+            floatingCam.style.left = `${Math.max(0, Math.min(maxX, newX))}px`;
+            floatingCam.style.top = `${Math.max(0, Math.min(maxY, newY))}px`;
+        }
+    }
+
+    function stopDrag() {
+        isDragging = false;
+        document.body.style.cursor = "default";
+    }
+
+    // Resizing Functionality
+    function startResize(e) {
         isResizing = true;
-        initialMouseX = e.clientX;
-        initialMouseY = e.clientY;
-        initialSize = floatingCam.offsetWidth; // Square, so width = height
+
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+        initialMouseX = clientX;
+        initialMouseY = clientY;
+        initialSize = floatingCam.offsetWidth;
 
         document.body.style.cursor = "nwse-resize";
         e.preventDefault();
-    });
+    }
 
-    window.addEventListener("mousemove", function (e) {
+    function resize(e) {
         if (isResizing) {
-            const delta = Math.max(e.clientX - initialMouseX, e.clientY - initialMouseY); // Diagonal resize
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            const delta = Math.max(clientX - initialMouseX, clientY - initialMouseY);
             const newSize = initialSize + delta;
 
-            // Enforce minimum size
-            if (newSize >= 150) {
+            const maxSize = Math.min(window.innerWidth, window.innerHeight);
+
+            if (newSize >= 150 && newSize <= maxSize) {
                 floatingCam.style.width = `${newSize}px`;
-                floatingCam.style.height = `${newSize}px`; // Maintain square
+                floatingCam.style.height = `${newSize}px`;
             }
         }
-    });
+    }
 
-    window.addEventListener("mouseup", function () {
-        if (isResizing) {
-            isResizing = false;
-            document.body.style.cursor = "default"; // Reset cursor
-        }
-    });
+    function stopResize() {
+        isResizing = false;
+        document.body.style.cursor = "default";
+    }
 
-    // Responsive Adjustments for Window Resize
+    // Ensure the webcam stays within the viewport on resize
     function adjustFloatingCam() {
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
-        // Ensure the webcam stays within the viewport
         const rect = floatingCam.getBoundingClientRect();
         if (rect.right > screenWidth) {
             floatingCam.style.left = `${screenWidth - rect.width - 10}px`;
@@ -307,6 +398,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("resize", adjustFloatingCam);
 
+    // Attach event listeners for dragging
+    floatingCam.addEventListener("mousedown", startDrag);
+    floatingCam.addEventListener("touchstart", startDrag);
+
+    window.addEventListener("mousemove", drag);
+    window.addEventListener("touchmove", drag);
+
+    window.addEventListener("mouseup", stopDrag);
+    window.addEventListener("touchend", stopDrag);
+
+    // Attach event listeners for resizing
+    resizeHandle.addEventListener("mousedown", startResize);
+    resizeHandle.addEventListener("touchstart", startResize);
+
+    window.addEventListener("mousemove", resize);
+    window.addEventListener("touchmove", resize);
+
+    window.addEventListener("mouseup", stopResize);
+    window.addEventListener("touchend", stopResize);
+
+    
+
     // Ensure Webcam Starts Hidden
     floatingCam.style.display = "none";
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const toggleCamButton = document.getElementById("toggleFloatingCam");
+
+    async function checkLoginStatus() {
+        try {
+            const response = await fetch('https://localhost:5000/api/users/me', { credentials: 'include' });
+            if (response.status === 401) {
+                console.log("User is not logged in");
+                toggleCamButton.style.display = "none"; // Hide the button
+            } else {
+                console.log("User is logged in");
+                toggleCamButton.style.display = "block"; // Show the button
+            }
+        } catch (error) {
+            console.error("Error checking login status:", error);
+            toggleCamButton.style.display = "none"; // Hide the button on error
+        }
+    }
+    
+    // Call this function on page load
+    checkLoginStatus();
 });
