@@ -1,4 +1,3 @@
-import "../admin.js"
 import "./createAdmin.css"
 
 // import "./createAdmin.css";

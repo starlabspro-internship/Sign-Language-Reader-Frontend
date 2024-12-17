@@ -1,6 +1,6 @@
 // import { enforceReloadOnBackNavigation } from "../forceReload.js";
 import { handleAuthLinks } from "./headerAuth.js";
-import logo from '../../photos/logo/logo2.png'; 
+import logo from '../../photos/logo/duarte-logo.png'; 
 
 export async function renderHeader() {
   // enforceReloadOnBackNavigation();
@@ -21,6 +21,8 @@ export async function renderHeader() {
             <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
             <li><a href="community.html"><i class="fa-solid fa-users"></i> Diskutime</a></li>
             <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mësimet</a></li>
+            <li><a href="games.html"><i class="fa-solid fa-gamepad"></i> Lojërat</a></li>
+            <li><a href="#"><i class="fa-solid fa-users"></i> Komuniteti</a></li>
             <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ </a></li>
             <li id="authLinks">
                 <!-- Authentication links will be injected here -->
@@ -37,8 +39,9 @@ export async function renderHeader() {
         <li><a href="home.html"><i class="fa-solid fa-house"></i> Kryefaqja</a></li>
         <li><a href="translate.html"><i class="fa-solid fa-language"></i> Përkthe</a></li>
         <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> Rreth nesh</a></li>
-        <li><a href="history.html"><i class="fa-solid fa-book"></i> Historia</a></li>
         <li><a href="mesimet.html"><i class="fa-solid  fa-book-open"></i> Mësimet</a></li>
+        <li><a href="games.html"><i class="fa-solid fa-gamepad"></i> Lojërat</a></li>
+        <li><a href="#"><i class="fa-solid fa-users"></i> Komuniteti</a></li>
         <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ </a></li>
         <li id="authLinksMobile">
             <!-- Authentication links for mobile view will be injected here -->
@@ -65,30 +68,5 @@ export async function renderHeader() {
     }
   });
 
-  // Dark Mode Toggle
- // const darkModeToggle = document.getElementById('dark-mode-toggle');
- // const body = document.body;
-
-  // Check for dark mode preference in localStorage
- // if (localStorage.getItem('dark-mode') === 'enabled') {
-     // body.classList.add('dark-mode');
- // }
-
-  // Toggle dark mode when the button is clicked
- // darkModeToggle.addEventListener('click', () => {
-     // body.classList.toggle('dark-mode');
-     // const isDarkMode = body.classList.contains('dark-mode');
-      
-      // Save the dark mode preference in localStorage
-     // if (isDarkMode) {
-        //  localStorage.setItem('dark-mode', 'enabled');
-    //  } else {
-     //     localStorage.setItem('dark-mode', 'disabled');
-     // }
-      
-      // Change the icon based on the mode
-      //darkModeToggle.textContent = isDarkMode ? '🌞' : '🌙';
-//  });
-  //Kryen funksionet e nevojshme per butonin e profilit
   await handleAuthLinks();
 }

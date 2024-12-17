@@ -4,14 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profili</title>
-    <!-- Font Awesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="icon" href="../photos/logo/duarte-image-logo.webp" />
   </head>
   <body>
     <div class="container">
@@ -19,14 +12,34 @@
         <div class="user-info">
           <h2 class="userName"></h2>
           <h3 class="userSurname"></h3>
-          <p class="userEmail"></p>
+          <p class="userEmail" style="display: none;"></p>
         </div>
+        
+          <!-- <a style="color: black; font-style:none" id="dailyQuestion" href="dailyQuestion.html"><i class="fas fa-bell"></i> Pyetja e dites</a> -->
+        
+          <a style="color: black; font-style:none; position: relative;" id="dailyQuestion" href="dailyQuestion.html">
+            <i class="fas fa-bell"></i> 
+            <span id="notificationBadge" style="
+              top: -5px;
+              right: -10px;
+              background-color: red;
+              color: black;
+              font-size: 12px;
+              padding: 2px 6px;
+              border-radius: 50%;
+              display: none;
+              " >1</span>
+          Pyetja e dites
+        </a>
+
         <ul class="profile-nav-options">
           <li>
             <a href="#"><i class="fa-solid fa-user-pen"></i> Profili</a>
           </li>
           <li>
-            <a href="userHistory.html"><i class="fa-solid fa-magnifying-glass"></i>Historia Kërkimeve</a>
+            <a id="userHistory" href="userHistory.html" style="visibility: hidden;">
+              <i class="fa-solid fa-clock-rotate-left"></i> Historia e Aktivitetit
+            </a>
           </li>
           <li>
             <a href="#" id="logoutButton"
@@ -48,54 +61,56 @@
       </div>
       <div class="main-content">
         <h1>Profili im</h1>
-        <div id="profile">
+        <p id="guest-message" style="visibility: hidden;">
+          Krijoni një llogari dhe shijoni të gjitha veçoritë!
+        </p>
+        <div id="profile" style="visibility: hidden;">
           <p>Emri: <span class="userName"></span></p>
           <p>Mbiemri: <span class="userSurname"></span></p>
           <p>E-mail: <span class="userEmail"></span></p>
           <p>Telefoni: <span class="userPhone"></span></p>
         </div>
-
-        <div class="control-buttons">
+        <div id="control-buttons" class="control-buttons" style="visibility: hidden;">
           <button id="updateButton">Përditëso Profilin</button>
           <button id="deleteAccountButton">Fshij Profilin</button>
-          <p id="delete-message"></p>
+        </div>
+        <p id="delete-message"></p>
 
-          <div id="updateProfileSection" style="display: none">
-            <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
-            <form id="updateProfileForm">
-              <input
-                type="text"
-                id="update-userName"
-                placeholder="Përditëso Emrin"
-                required
-              />
-              <input
-                type="text"
-                id="update-userSurname"
-                placeholder="Përditëso Mbiemrim"
-                required
-              />
-              <input
-                type="email"
-                id="update-userEmail"
-                placeholder="Përditëso E-mailin"
-                required
-              />
-              <input
-                type="text"
-                id="update-userPhone"
-                placeholder="Përditëso Phone"
-                required
-              />
-              <input
-                type="password"
-                id="update-userPassword"
-                placeholder="Përditëso Fjalëkalimin (opsionale)"
-              />
-              <button type="submit" class="submit-btn">Ruaj Ndryshimet</button>
-              <p id="update-message"></p>
-            </form>
-          </div>
+        <div id="updateProfileSection"  style="display: none">
+          <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
+          <form id="updateProfileForm">
+            <input
+              type="text"
+              id="update-userName"
+              placeholder="Përditëso Emrin"
+              required
+            />
+            <input
+              type="text"
+              id="update-userSurname"
+              placeholder="Përditëso Mbiemrim"
+              required
+            />
+            <input
+              type="email"
+              id="update-userEmail"
+              placeholder="Përditëso E-mailin"
+              required
+            />
+            <input
+              type="text"
+              id="update-userPhone"
+              placeholder="Përditëso Phone"
+              required
+            />
+            <input
+              type="password"
+              id="update-userPassword"
+              placeholder="Përditëso Fjalëkalimin (opsionale)"
+            />
+            <button type="submit" class="submit-btn">Ruaj Ndryshimet</button>
+            <p id="update-message"></p>
+          </form>
         </div>
       </div>
     </div>

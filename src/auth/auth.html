@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mirë se erdhët në Duartë!</title>
-    <!-- Font Awesome CDN -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
-</head>
-<body>
+    <title>Mirë se erdhët në Duartë!</title>
+    <link rel="icon" href="../photos/logo/duarte-image-logo.webp" />
+  </head>
+  <body>
     <section class="auth">
-    <!-- <div class="auth-logo-container">
-      <img src="photos/demo-logo.png" alt="Duart Logo" />
-    </div> -->
       <div class="auth-container">
         <!-- LoginBox -->
         <div class="auth-form-box login">
@@ -41,17 +31,31 @@
                 placeholder="Fjalëkalimi"
                 required
               />
-              <i class="fa-solid fa-lock"></i>
-            </div>
 
-            <!-- Forgot Link -->
-            <!-- <div class="forgot-link">
-              <a href="#">Forgot password?</a>
-            </div> -->
+              <!-- Show Password Eye Icon -->
+              <i
+                class="fa-solid fa-eye"
+                id="toggle-password"
+                class="show-password-icon"
+              ></i>
+            </div>
+            <!-- Forgot Password Link -->
+            <div class="forgot-link">
+              <a id="forgotPasswordLink">Keni harruar fjalëkalimin?</a>
+            </div>
+           
             <p id="login-error-message" style="color: red; display: none"></p>
             <button type="submit" class="auth-btn">
-              Vazhdo <img src="../photos/auth-images/confirm.webp" alt="confirm" />
+              Kyçu
+              <img src="../photos/auth-images/confirm.webp" alt="confirm" />
             </button>
+            <p>ose</p>
+            <button id="guest-login-button" class="guest-login-btn">
+              Vazhdo si Vizitor <i class="fa-solid fa-user-lock"></i>
+              <!-- <i class="fa-solid fa-user"></i> -->
+            </button>
+            <p style="font-size: 13px;" >Ky opsion nuk ofron një gamë të plotë zgjedhjesh.</p>
+
             <!-- <p>or log in with social platforms</p>
             <div class="social-icons">
               <a href="#"><i class="fa-brands fa-google"></i></a>
@@ -109,10 +113,16 @@
             </div>
 
             <p id="signup-error-message" style="color: red; display: none"></p>
-            <p id="signup-success-message" style="color: green; display: none"></p>
+            <p
+              id="signup-success-message"
+              style="color: green; display: none"
+            ></p>
             <button type="submit" class="auth-btn">
               Regjistrohu
-              <img src="../photos/auth-images/raise-hand.webp" alt="raise-hand" />
+              <img
+                src="../photos/auth-images/raise-hand.webp"
+                alt="raise-hand"
+              />
             </button>
             <!-- <p>or sign up with social platforms</p>
             <div class="social-icons">
@@ -138,7 +148,7 @@
           </div>
           <!-- Right Toggle -->
           <div class="toggle-panel toggle-right">
-            <h1 style="text-align: center;">
+            <h1 style="text-align: center">
               Mirë se erdhe në Duartë!
               <img src="../photos/auth-images/happy.webp" alt="hand-wave" />
             </h1>
@@ -151,32 +161,66 @@
             </button>
           </div>
         </div>
+      </div>
     </section>
+     <!-- Modal for Password Reset -->
+     <div id="forgotPasswordModal" class="forgotPassword-modal" style="display: none;">
+      <div class="forgotPassword-modal-content">
+        <span class="close-button">&times;</span>
+        <h2><i class="fa-solid fa-lock"></i> Ndryshoni Fjalëkalimin</h2>
+        <p>Futni emailin tuaj për të marrë udhëzimet e ndryshimit të fjalëkalimit.</p>
+        <input type="email" id="resetEmail" placeholder="Shkruani emailin" required>
+        <div class="confirmation-buttons">
+          <button id="sendResetEmailButton"><i class="fa-solid fa-paper-plane"></i> Dërgo mail për resetim</button>
+          <button id="cancelResetButton"><i class="fa-solid fa-down-left-and-up-right-to-center"></i> Anulo</button>
+        </div>
+        <p id="reset-message" class="reset-message"></p>
+      </div>
+    </div>
 
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.querySelector(".auth-container");
-    const registerBtn = document.querySelector(".register-btn");
-    const loginBtn = document.querySelector(".login-btn");
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector(".auth-container");
+            const registerBtn = document.querySelector(".register-btn");
+            const loginBtn = document.querySelector(".login-btn");
 
-    // Show signup form if URL has ?signup=true
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("signup") === "true") {
-      container.classList.add("active");
-    }
+            // Show signup form if URL has ?signup=true
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("signup") === "true") {
+              container.classList.add("active");
+            }
 
-    // Toggle to signup form on register button click
-    registerBtn.addEventListener("click", () => {
-      container.classList.add("active");
-      window.history.pushState({}, "", "?signup=true"); // Update URL
-    });
+            // Toggle to signup form on register button click
+            registerBtn.addEventListener("click", () => {
+              container.classList.add("active");
+              window.history.pushState({}, "", "?signup=true"); // Update URL
+            });
 
-    // Toggle to login form on login button click
-    loginBtn.addEventListener("click", () => {
-      container.classList.remove("active");
-      window.history.pushState({}, "", "?signup=false"); // Update URL
-    });
-  });
-    </script>
+            // Toggle to login form on login button click
+            loginBtn.addEventListener("click", () => {
+              container.classList.remove("active");
+              window.history.pushState({}, "", "?signup=false"); // Update URL
+            });
+          });
+
+          const passwordField = document.getElementById("login-password");
+          const togglePasswordIcon = document.getElementById("toggle-password");
+
+          // Toggle password visibility when the eye icon is clicked
+          togglePasswordIcon.addEventListener("click", function () {
+            const type =
+              passwordField.type === "password" ? "text" : "password";
+            passwordField.type = type;
+
+            // Toggle the eye icon (show or hide)
+            if (passwordField.type === "password") {
+              togglePasswordIcon.classList.remove("fa-eye-slash");
+              togglePasswordIcon.classList.add("fa-eye");
+            } else {
+              togglePasswordIcon.classList.remove("fa-eye");
+              togglePasswordIcon.classList.add("fa-eye-slash");
+            }
+          });
+        </script>
   </body>
 </html>

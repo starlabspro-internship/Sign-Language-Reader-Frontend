@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia Userit</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historia e Aktivitetit</title>
+  </head>
+  <body>
     <div class="container">
-    <div class="sidebar">
+      <div class="sidebar">
         <div class="user-info">
           <h2 class="userName"></h2>
           <h3 class="userSurname"></h3>
           <p class="userEmail"></p>
         </div>
+        <a style="color: black; font-style:none" id="dailyQuestion" href="dailyQuestion.html"><i class="fas fa-bell"></i> Pyetja e dites</a>
+
+        
         <ul class="profile-nav-options">
           <li>
-            <a href="profile.html"><i class="fa-solid fa-user-pen"></i> Profili</a>
+            <a href="profile.html"
+              ><i class="fa-solid fa-user-pen"></i> Profili</a
+            >
           </li>
           <li>
-            <a href="userHistory.html"><i class="fa-solid fa-magnifying-glass"></i>Historia Kërkimeve</a>
+            <a href="userHistory.html"
+              ><i class="fa-solid fa-clock-rotate-left"></i> Historia e Aktivitetit</a
+            >
           </li>
           <li>
             <a href="#" id="logoutButton"
@@ -39,11 +46,11 @@
         </div>
       </div>
       <div class="main-content">
-    <h2>Historia e kërkimeve</h2>
+        <h1>Historia e Aktivitetit</h1>
 
-    <div class="translation-history-holder"></div>
-    <div class="pagination-holder"></div>
+        <div class="translation-history-holder"></div>
+        <div class="pagination-holder"></div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

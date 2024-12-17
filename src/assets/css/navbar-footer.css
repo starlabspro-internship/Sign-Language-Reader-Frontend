@@ -52,25 +52,6 @@ nav ul li a.active-page {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-nav ul .dark-mode-toggle-container {
-  margin-left: auto; /* Pushes the dark mode button to the right */
-  display: flex;
-  align-items: center; /* Vertically aligns the button */
-}
-
-.dark-mode-toggle {
-  background: none;
-  border: none;
-  color: var(--cream);
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.dark-mode-toggle:hover {
-  color: var(--medium-blue); /* Optional: Add hover effect */
-}
-
 .auth-link{
   background-color: #fff;
   padding: 8px;
@@ -92,6 +73,7 @@ nav ul .dark-mode-toggle-container {
 .hamburger {
   display: none;
   cursor: pointer;
+  margin: 0 12px;
 }
 
 .hamburger .line {
@@ -128,16 +110,16 @@ nav ul .dark-mode-toggle-container {
 .menubar {
   position: fixed;
   top: 0;
-  left: -60%;
+  left: -70%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 60%;
+  width: 70%;
   height: 100%;
   padding: 20% 0;
   background: var(--deep-blue);
   transition: all 0.3s ease-in-out;
-  z-index: 2;
+  z-index: 999;
 }
 .active {
   left: 0;
@@ -387,6 +369,6 @@ nav ul li.dropdown .dropdown-content li a:hover {
 @media (max-width: 480px) {
   header nav a {
     display: block;
-    margin: 10px 0;
+    margin: 6px 0;
   }
 }

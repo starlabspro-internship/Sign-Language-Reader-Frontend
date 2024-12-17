@@ -1,9 +1,9 @@
 export function updateUI(user) {
   const defaultMessages = {
-      userName: "N/A",
-      userSurname: "N/A",
-      userEmail: "N/A",
-      userPhone: "Not given",
+      userName: "Nuk ka të dhëna",
+      userSurname: "Nuk ka të dhëna",
+      userEmail: "Nuk ka të dhëna",
+      userPhone: "Nuk ka të dhëna",
   };
 
   document.querySelectorAll(".userName").forEach(el => el.textContent = user.userName || defaultMessages.userName);

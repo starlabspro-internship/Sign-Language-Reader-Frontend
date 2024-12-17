@@ -93,7 +93,7 @@ button:hover {
 }
 
 /*Modals*/
-.modal {
+.faq-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -106,7 +106,7 @@ button:hover {
   z-index: 1000;
 }
 
-.modal-content {
+.faqModal-content {
   background: #fff;
   color: var(--medium-blue);
   padding: 20px;

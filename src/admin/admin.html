@@ -4,14 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Panel</title>
-    <!-- Font Awesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="icon" href="../photos/logo/duarte-image-logo.webp" />
   </head>
   <body>
     <div class="container">
@@ -33,18 +26,18 @@
       <!-- Main content Starts-->
       <div class="main-content">
         <h1>Profili im</h1>
-        <div id="profile">
+        <div id="profile" style="visibility: hidden;">
           <p>Emri: <span class="userName"></span></p>
           <p>Mbiemri: <span class="userSurname"></span></p>
           <p>E-mail: <span class="userEmail"></span></p>
           <p>Telefoni: <span class="userPhone"></span></p>
         </div>
 
-        <div class="control-buttons">
+        <div id="control-buttons" class="control-buttons" style="visibility: hidden;">
           <button id="updateButton">Përditëso Profilin</button>
           <button id="deleteAccountButton">Fshij Profilin</button>
           <p id="delete-message"></p>
-
+        </div>
           <div id="updateProfileSection" style="display: none">
             <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
             <form id="updateProfileForm">
@@ -81,7 +74,7 @@
               <p id="update-message"></p>
             </form>
           </div>
-        </div>
+
       </div>
       <!-- Main content Ends-->
     </div>

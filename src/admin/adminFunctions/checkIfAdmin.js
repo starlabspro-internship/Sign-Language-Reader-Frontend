@@ -1,4 +1,3 @@
-// checkAdmin.js
 import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
 export async function isAdmin() {

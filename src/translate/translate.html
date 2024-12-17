@@ -12,7 +12,11 @@
   <body>
     <h1 class="tran-title">Përkthe një fjalë në gjuhën e shenjave.</h1>
     <p class="tran-description">
-      Faqja e përkthimit u mundëson përdoruesve të shndërrojnë fjalë ose fraza në imazhe që paraqesin gjuhën e shenjave të Kosovës (KSL). Ky mjet thjeshton mësimin e KSL-së, duke ofruar një mënyrë vizuale për të praktikuar dhe komunikuar, ndërsa promovon përfshirjen dhe ndërgjegjësimin për komunitetin me dëgjim të kufizuar.
+      <strong>Duartë</strong> mundëson përdoruesve të shndërrojnë fjalë ose fraza
+      në imazhe që paraqesin gjuhën e shenjave të Kosovës (KSL). Ky mjet
+      thjeshton mësimin e KSL-së, duke ofruar një mënyrë vizuale për të
+      praktikuar dhe komunikuar, ndërsa promovon përfshirjen dhe ndërgjegjësimin
+      për komunitetin me dëgjim të kufizuar.
     </p>
 
     <div class="tinput">
@@ -23,36 +27,47 @@
           placeholder="Vendosni fjalën për ta përkthyer në gjuhën e shenjave"
         ></textarea>
         <div class="buttons-container">
-            <button type="submit" class="translate-input" id="translateButton">
-                Përkthe në Gjuhën e Shenjave
-            </button>
-            <button type="button" class="clear-prev" id="clearButton" style="display: none">
-                Fshi Përkthimin e Mëparshëm
-            </button>
-        </div>        
+          <button type="submit" class="translate-input" id="translateButton">
+            <i class="fa-solid fa-language"></i> Përkthe
+          </button>
+          <button
+            type="button"
+            class="clear-prev"
+            id="clearButton"
+            style="display: none"
+          >
+          <i class="fa-solid fa-delete-left"></i> Fshi
+          </button>
+        </div>
       </form>
       <div class="signs-holder" id="translationResults"></div>
     </div>
 
     <div class="slider-container">
-      <button class="scroll-btn scroll-btn-left"><i class="fa-regular fa-hand-point-left"></i></button>
+      <button class="scroll-btn scroll-btn-left">
+        <i class="fa-regular fa-hand-point-left"></i>
+      </button>
       <div class="signs-holder" id="translationResults"></div>
-      <button class="scroll-btn scroll-btn-right"><i class="fa-regular fa-hand-point-right"></i></button>
+      <button class="scroll-btn scroll-btn-right">
+        <i class="fa-regular fa-hand-point-right"></i>
+      </button>
     </div>
 
     <div class="container">
-      <div class="content">
-      </div>
+      <div class="content"></div>
       <div id="floatingCam" class="floating-cam">
-          <div class="floating-header">
-              <h4>Practice Cam</h4>
-              <button id="minimizeCam" class="minimize-cam-btn"><i class="fa fa-minus"></i></button>
-          </div>
-          <video id="mirror-cam" autoplay></video>
-          <div id="resizeHandle" class="resize-handle"></div>
+        <div class="floating-header">
+          <h4>Practice Cam</h4>
+          <button id="minimizeCam" class="minimize-cam-btn">
+            <i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <video id="mirror-cam" autoplay></video>
+        <div id="resizeHandle" class="resize-handle"></div>
       </div>
-      <button id="toggleFloatingCam" class="toggle-cam-btn">Hapni kamerën</button>
-  </div>
-  
+      <button id="toggleFloatingCam" class="toggle-cam-btn">
+        <i class="fa-solid fa-camera"></i> Hapni kamerën
+      </button>
+    </div>
   </body>
 </html>
