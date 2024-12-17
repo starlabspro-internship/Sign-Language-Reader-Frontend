@@ -47,7 +47,7 @@ nav ul li a:hover {
   color: var(--medium-blue);
 }
 
-nav ul li a.active-page {
+.active-page {
   color: var(--light-blue);
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -68,7 +68,6 @@ nav ul li a.active-page {
   color: #fff;
   cursor: pointer;
 }
-
 
 .hamburger {
   display: none;
@@ -152,56 +151,6 @@ nav ul li a.active-page {
   background-color: var(--light-blue);
 }
 
-.dropdown-content {
-  display: none; /* Hide dropdown content by default */
-  position: relative; /* Position relative for the dropdown */
-  background: var(--deep-blue); /* Match the background color */
-  border-radius: 5px; /* Match the link styles */
-  padding: 10px 0; /* Space out dropdown items */
-}
-
-.dropdown:hover .dropdown-content,
-.dropdown.active .dropdown-content {
-  display: block; /* Show dropdown content when hovering or active */
-}
-
-/* Style for dropdown menu */
-nav ul li.dropdown {
-  position: relative;
-}
-
-nav ul li.dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 1;
-  min-width: 180px; /* Gjërësi më e vogël për pamje të kompaktuar */
-  padding: 5px 0;
-  border-radius: 4px; /* Këndet e rrumbullakosura për dizajn më modern */
-}
-
-nav ul li.dropdown .dropdown-content li {
-  list-style: none;
-  padding: 8px 15px;
-  margin-left: 0;
-}
-
-nav ul li.dropdown .dropdown-content li a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  font-size: 0.9rem; /* Madhësi më e vogël për pamje kompakte */
-}
-
-nav ul li.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-nav ul li.dropdown .dropdown-content li a:hover {
-  background-color: var(--light-blue); /* Ngjyrë e lehtë për efekt */
-  border-radius: 4px;
-}
 
 @media screen and (max-width: 1080px) {
   .hamburger {
@@ -210,17 +159,6 @@ nav ul li.dropdown .dropdown-content li a:hover {
   nav ul {
     display: none;
   }
-
-  .dropdown-content {
-    position: absolute; /* Position absolute for dropdown */
-    width: 100%; /* Full width for mobile dropdown */
-    left: 0; /* Align to the left */
-    z-index: 3; /* Ensure dropdown is above other content */
-}
-
-.dropdown.active .dropdown-content {
-    display: block; /* Show dropdown when active */
-}
 }
 /* Navbar styling ends*/
 
