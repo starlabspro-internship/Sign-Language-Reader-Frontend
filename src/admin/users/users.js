@@ -1,4 +1,3 @@
-import "../admin.js";
 import "./users.css";
 import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
