@@ -1,5 +1,4 @@
 import "./userHistory.css";
-import "../profile.css";
 import "../profileManager.js";
 import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
@@ -62,10 +61,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       details.classList.add("phrase-date");
 
       if (action.phrase) {
-        title.textContent = "Translation";
-        phrase.textContent = `Phrase: ${action.phrase}`;
+        title.textContent = "Përkthimet";
+        phrase.textContent = `Fraza: ${action.phrase}`;
       } else {
-        title.textContent = "Quiz Question";
+        title.textContent = "Kuiz";
         phrase.textContent = `Completed Question ID: ${action.question_id}`;
       }
 
@@ -83,9 +82,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function renderPagination(totalItems, currentPage = 1) {
-    paginationHolder.innerHTML = ""; // Clear existing buttons
+    paginationHolder.innerHTML = ""; 
     const totalPages = Math.ceil(totalItems / itemsPerPage);
-    const maxButtons = 5; // Number of buttons to display
+    const maxButtons = 5; 
     const startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
     const endPage = Math.min(totalPages, startPage + maxButtons - 1);
 

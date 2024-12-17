@@ -1,5 +1,4 @@
 import "./signs.css";
-import "../admin.js";
 import API_URL from "../../profile/profileFunctions/apiUrls.js";
 
 // Get references to elements
