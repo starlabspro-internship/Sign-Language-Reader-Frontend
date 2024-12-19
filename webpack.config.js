@@ -66,6 +66,7 @@ const pages = [
     chunks: ["sportet"],
   },
   { template: "auth/auth.html", filename: "auth.html", chunks: ["auth"] },
+  { template: "community/community.html", filename: "community.html", chunks: ["community"] },
   {
     template: "admin/admin.html",
     filename: "admin.html",
@@ -124,6 +125,7 @@ const entryPoints = {
   about: "./src/about/about.js",
   translate: "./src/translate/translate.js",
   history: "./src/history/history.js",
+  community: "./src/community/community.js",
   faq: "./src/faq/faq.js",
   mesimet: "./src/mesimetPages/mesimet/mesimet.js",
   alfabeti: "./src/mesimetPages/alfabeti/alfabeti.js",
