@@ -246,7 +246,7 @@ const getNewQuestion = () => {
     document.getElementById("thirdDiv").style.display = "block";
     var mostRecentScore = localStorage.getItem("mostRecentScore");
 
-    finalScore.innerText = `Score: ${mostRecentScore}`;
+    finalScore.innerText = `Skori: ${mostRecentScore}`;
     return;
   }
 
