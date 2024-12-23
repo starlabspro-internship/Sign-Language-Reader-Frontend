@@ -35,11 +35,14 @@ export async function fetchUserProfile() {
       const userHistoryButton = document.getElementById("userHistory");
       const profileSection = document.getElementById("profile");
       const controlButtons = document.getElementById("control-buttons");
+      const dailyQuestion = document.getElementById("dailyQuestion");
+      
 
       // Show elements only if they exist
       if (userHistoryButton) userHistoryButton.style.visibility = "visible"; 
       if (profileSection) profileSection.style.visibility = "visible";  
       if (controlButtons) controlButtons.style.visibility = "visible"; 
+      if (dailyQuestion) dailyQuestion.style.display = "block"; 
     }
     if (user.userIsGuest) {
       document.getElementById("guest-message").style.visibility = "visible";
