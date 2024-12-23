@@ -1,4 +1,5 @@
 import "./dailyQuestion.css";
+import "../profileManager.js"
 import questionsJson from "./questions.json";
 console.log(questionsJson, questionsJson.length, 'questionsJson')
 

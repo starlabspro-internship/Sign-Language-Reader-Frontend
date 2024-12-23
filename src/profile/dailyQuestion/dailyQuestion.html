@@ -7,8 +7,46 @@
   </head>
   <body>
     <!-- QUIZ SECTION STARTS -->
-    <div class="container" id="firstDiv" style="display: block">
-      <div id="game" class="justify-center flex-column">
+    <div class="container" id="firstDiv" >
+      <div class="sidebar">
+        <div class="user-info">
+          <h2 class="userName"></h2>
+          <h3 class="userSurname"></h3>
+          <p class="userEmail"></p>
+        </div>
+        <ul class="profile-nav-options">
+          <li>
+            <a href="profile.html"><i class="fa-solid fa-user-pen"></i> Profili</a>
+          </li>
+          <li>
+            <a href="dailyQuestion.html" id="dailyQuestion"><i class="fas fa-bell"></i> Pyetja e dites 
+              <span id="notificationBadge" >1</span>
+            </a>
+          </li>
+          <li>
+            <a href="userHistory.html"
+              ><i class="fa-solid fa-clock-rotate-left"></i> Historia e Aktivitetit</a
+            >
+          </li>
+          <li>
+            <a href="#" id="logoutButton"
+              ><i class="fa-solid fa-right-from-bracket"></i>Dilni</a
+            >
+          </li>
+        </ul>
+        <div id="logoutModal" class="modal" style="display: none">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Konfirmo daljen</h2>
+            <p>Jeni të sigurt që dëshironi të dilni?</p>
+            <div class="confirmation-buttons">
+              <button id="confirmLogoutButton">Po, dil</button>
+              <button id="cancelLogoutButton">Anulo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="game">
         <div id="hud">
           <div id="hud-item">
             <p id="progressText" class="hud-prefix">Pyetja</p>
@@ -38,9 +76,6 @@
             <p class="choice-prefix">D</p>
             <p class="choice-text" data-number="4">Choice 4</p>
           </div>
-        </div>
-        <div class="button-container">
-          <button class="btn go-back" onclick="goHome()">Kthehu </button>
         </div>
       </div>
     </div>
