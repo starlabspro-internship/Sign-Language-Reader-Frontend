@@ -1,17 +1,13 @@
 import "./dailyQuestion.css";
+import "../profileManager.js";
 import questionsJson from "./questions.json";
-console.log(questionsJson, questionsJson.length, 'questionsJson')
+console.log(questionsJson, questionsJson.length, "questionsJson");
 
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
-const progressText = document.getElementById("progressText");
-const scoreText = document.getElementById("score");
-const progressBarFull = document.getElementById("progressBarFull");
 // let currentQuestion = {};
 
 let acceptAnswers = true;
-let score = 0;
-let questionCounter = 0;
 let availableQuestions = [];
 
 const videoContext = require.context("../../videos", true, /\.(mp4)$/);
@@ -20,7 +16,6 @@ const imageContext = require.context(
   true,
   /\.(jpg|jpeg|png|gif)$/
 );
-
 
 // Modify the questions array to ensure the file paths are resolved
 let questions = questionsJson.map((question) => {
@@ -48,7 +43,6 @@ let questions = questionsJson.map((question) => {
   return question;
 });
 
-
 // currentQuestion = questions[Math.floor(Math.random() * 8)];
 
 // Function to get a random question and save it for 24 hours
@@ -70,10 +64,8 @@ let questions = questionsJson.map((question) => {
 //   localStorage.setItem("lastUpdate", currentTime);
 //   localStorage.setItem("isAnswered", false); // Reset the answered status
 
-
 //   return newQuestion;
 // }
-
 
 // Function to get or initialize the current question
 function getCurrentQuestion() {
@@ -83,11 +75,15 @@ function getCurrentQuestion() {
   const currentTime = Date.now();
 
   // Check if 24 hours have passed
-  if (savedQuestion && lastUpdate && currentTime - lastUpdate < 24 * 60 * 60 * 1000) {
+  if (
+    savedQuestion &&
+    lastUpdate &&
+    currentTime - lastUpdate < 24 * 60 * 60 * 1000
+  ) {
     if (isAnswered) {
       // If the question is already answered, always show the second div
       // showFinalDiv(savedQuestion, true);
-      return  null; // No need to start with the question
+      return null; // No need to start with the question
     } else {
       return savedQuestion; // Return the question to start
     }
@@ -100,7 +96,6 @@ function getCurrentQuestion() {
   localStorage.setItem("isAnswered", false); // Reset the answered status
   return newQuestion;
 }
-
 
 // // Modify the questions array to ensure the file paths are resolved
 // let questions = questionsJson.map((question) => {
@@ -131,30 +126,23 @@ function getCurrentQuestion() {
 // Retrieve the current question, ensuring it remains the same for 24 hours
 const currentQuestion = getCurrentQuestion();
 
-console.log("Current Question:????", currentQuestion);
-
-
-
 const startGame = () => {
-
   var isAnswered = JSON.parse(localStorage.getItem("isAnswered")); // Retrieve the answered status
 
-  if(isAnswered){
-    document.getElementById("firstDiv").style.display = "none";
+  if (isAnswered) {
+    document.getElementById("game").style.display = "none";
     document.getElementById("secondDiv").style.display = "block";
-   document.getElementById("finalSay").innerText = "Keni perfunduar pyetjen e dites ";
-   return
+    document.getElementById("finalSay").innerText = "Keni përfunduar pyetjen e ditës!";
+    document.getElementById("finalSay").style.display = "block"; 
+    return;
   }
-  
 
   question.innerHTML = "";
 
   // Get new question and update UI
   // const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-  const questionIndex = 0
+  const questionIndex = 0;
 
-  
-   
   console.log("currentQuestion,::::", currentQuestion);
 
   const question_paragraph = document.createElement("p");
@@ -223,10 +211,8 @@ const startGame = () => {
   availableQuestions.splice(questionIndex, 1);
 
   acceptAnswers = true;
-  
 };
-startGame()
-
+startGame();
 
 choices.forEach((choice) => {
   choice.addEventListener("click", (e) => {
@@ -239,19 +225,20 @@ choices.forEach((choice) => {
 
     const classToApply =
       selectedAnswers == currentQuestion.answer ? "correct" : "incorrect";
-    document.getElementById("firstDiv").style.display = "none";
+    // document.getElementById("firstDiv").style.display = "none";
     document.getElementById("secondDiv").style.display = "block";
-    console.log('classToApply',classToApply)
+
     if (classToApply === "correct") {
-      document.getElementById("finalSay").innerText = "Urime pergjigja juaj eshte e sakte!";
+      document.getElementById("finalSay").innerText =
+        "Urime pergjigja juaj eshte e sakte!";
       localStorage.setItem("isAnswered", true);
 
       // incrementScore(CORRECT_BONUS);
-    }else{
+    } else {
       localStorage.setItem("isAnswered", true);
-      document.getElementById("finalSay").innerText ="Nuk eshte pergjige e sakte, shikoni mesimet";
+      document.getElementById("finalSay").innerText =
+        "Nuk eshte pergjige e sakte, shikoni mesimet";
     }
-
 
     selectedChoice.classList.add(classToApply);
 
@@ -261,6 +248,5 @@ choices.forEach((choice) => {
     }, 1000);
   });
 });
-
 
 window.startgame = startGame;

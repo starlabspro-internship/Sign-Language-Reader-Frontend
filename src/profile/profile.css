@@ -17,6 +17,21 @@
   min-height: 100vh; 
 }
 
+#notificationBadge{
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: var(--deep-blue);
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: none;
+}
+
+#dailyQuestion{
+  display: none;
+}
+
 .user-info {
   margin-bottom: 30px;
   text-align: center; 
