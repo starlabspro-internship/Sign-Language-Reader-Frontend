@@ -34,3 +34,4 @@ jobs:
         key: ${{ secrets.server }}
         script: |
           sudo systemctl restart nginx
+
