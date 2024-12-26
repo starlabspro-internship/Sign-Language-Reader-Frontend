@@ -23,34 +23,27 @@ export async function updateUserProfile(event) {
   }
 
   const userName = document.getElementById("update-userName").value.trim();
-  const userSurname = document
-    .getElementById("update-userSurname")
-    .value.trim();
+  const userSurname = document.getElementById("update-userSurname").value.trim();
   const userEmail = document.getElementById("update-userEmail").value.trim();
   const userPhone = document.getElementById("update-userPhone").value.trim();
-  const userpassword = document
-    .getElementById("update-userPassword")
-    .value.trim();
+  const userpassword = document.getElementById("update-userPassword").value.trim();
+  const userpicture = document.querySelector('input[type="file"]').files[0];
 
-  const updatedData = {
-    userName,
-    userSurname,
-    useremail: userEmail,
-    userphonenum: userPhone,
-  };
-
-  if (userpassword) updatedData.userpassword = userpassword;
+  // Create FormData to include both file and JSON data
+  const formData = new FormData();
+  formData.append("userName", userName);
+  formData.append("userSurname", userSurname);
+  formData.append("useremail", userEmail);
+  formData.append("userphonenum", userPhone);
+  if (userpassword) formData.append("userpassword", userpassword);
+  if (userpicture) formData.append("userpicture", userpicture);
 
   try {
-    const response = await fetch(
-      `${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedData),
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${API_URL.BASE}${API_URL.USERS.GET_BY_ID(userId)}`, {
+      method: "PUT",
+      body: formData, // Use FormData as the body
+      credentials: "include",
+    });
 
     const result = await response.json();
     if (!response.ok)
@@ -59,12 +52,6 @@ export async function updateUserProfile(event) {
     updateMessage.textContent = "Profile updated successfully!";
     updateMessage.style.color = "green";
     updateUI(result);
-
-    // document.getElementById("update-userName").value = "";
-    // document.getElementById("update-userSurname").value = "";
-    // document.getElementById("update-userEmail").value = "";
-    // document.getElementById("update-userPhone").value = "";
-    // document.getElementById("update-userPassword").value = "";
   } catch (error) {
     updateMessage.textContent = `Error updating profile: ${error.message}`;
     updateMessage.style.color = "red";
