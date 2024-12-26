@@ -1,5 +1,8 @@
 body {
     background: linear-gradient(135deg, #f4f4f4, #d1e3e8);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .tran-title {
@@ -39,15 +42,16 @@ body {
 }
 
 .translate-form textarea {
-    width: 100%;
-    height: 20vh;
+    color: #001F3F; /* Dark text */
+    border: 2px solid #6A9AB0;
+    border-radius: 40px;
     padding: 15px;
+    width: 100%;
+    height: 15vh;
     text-align: center;
-    border-radius: 12px;
     font-size: 1.1rem;
-    color: var(--deep-blue);
     border: 2px solid var(--medium-blue);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9); /* Light background */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
 }
