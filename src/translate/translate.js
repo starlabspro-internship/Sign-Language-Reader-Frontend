@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "nuk ia ve veshin" : "nuk_ia_ve_veshin",
         "gjysme i shurdher" : "gjysme_i_shurdher",
         "gjysme e shurdher" : "gjysme_e_shurdher",
-        "me shume" : "më_shumë",
+        "me shume" : "me_shumë",
         "i ri" : "i_ri"
     };
 
@@ -446,3 +446,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Call this function on page load
     checkLoginStatus();
 });
+

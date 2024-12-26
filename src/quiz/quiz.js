@@ -137,10 +137,13 @@ let questions = questionsJson.map((question) => {
 // })
 
 function goHome() {
-  document.getElementById("secondDiv").style.display = "none";
-  document.getElementById("thirdDiv").style.display = "none";
-  document.getElementById("fourthDiv").style.display = "none";
-  document.getElementById("firstDiv").style.display = "block";
+  const confirmCancel = confirm("A jeni i sigurt që dëshironi të anuloni kuizin?");
+  if (confirmCancel) {
+    document.getElementById("secondDiv").style.display = "none";
+    document.getElementById("thirdDiv").style.display = "none";
+    document.getElementById("fourthDiv").style.display = "none";
+    document.getElementById("firstDiv").style.display = "block";
+  }
 }
 
 function goHighestScore() {
@@ -406,6 +409,7 @@ const saveHighScore = () => {
 
   goHighestScore();
 };
+
 
 window.playfunction = playfunction;
 window.saveHighScore = saveHighScore;
