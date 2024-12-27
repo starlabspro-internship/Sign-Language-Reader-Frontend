@@ -101,6 +101,15 @@ h1 {
   margin-bottom: 20px;
 }
 
+.userPicture{
+  grid-column: 1 / -1; 
+  justify-self: left; 
+  display: block;
+  max-width: 140px;
+  margin-bottom: 20px; 
+  border-radius: 12px;
+}
+
 #profile-item {
   display: flex;
   flex-direction: column;

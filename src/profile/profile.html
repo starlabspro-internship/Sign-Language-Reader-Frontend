@@ -66,6 +66,7 @@
           Krijoni një llogari dhe shijoni të gjitha veçoritë!
         </p>
         <div id="profile" style="visibility: hidden;">
+          <img alt="profile-picture" class="userPicture">
           <p>Emri: <span class="userName"></span></p>
           <p>Mbiemri: <span class="userSurname"></span></p>
           <p>E-mail: <span class="userEmail"></span></p>
@@ -80,6 +81,14 @@
         <div id="updateProfileSection"  style="display: none">
           <h2 style="color: var(--deep-blue)">Përditëso Profilin</h2>
           <form id="updateProfileForm">
+            <label>Foto e profilit</label>
+              <input
+                type="file"
+                id="userpicture"
+                name="userpicture"
+                accept="image/*"
+                required
+              />
             <input
               type="text"
               id="update-userName"
