@@ -2,6 +2,8 @@
   list-style: none;
 }
 
+
+
 .what-we-do {
   /* text-align: center;
   padding: 50px 20px; */
@@ -302,22 +304,17 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: var(--dark-text);
+  background-color: #d3d3d3;
   padding: 20px;
   border-radius: 12px;
-  color: #fff;
+  color: #1c283e;
 
-  opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(0);
+  opacity: 1;
   transition: all 0.6s ease;
 }
 
-.c-card-visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.c-card-visible:hover {
+.c-card:hover {
   transform: scale(1.03);
   cursor: pointer;
 }
